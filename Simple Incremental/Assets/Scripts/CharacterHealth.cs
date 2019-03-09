@@ -10,6 +10,12 @@ public class CharacterHealth : MonoBehaviour
     public event HealthChangeHandler HealthChanged;
     public delegate void HealthChangeHandler();
 
+    [SerializeField]
+    GameEvent deathEvent = null;
+
+    [SerializeField]
+    GameEvent healEvent = null;
+
     private void Start()
     {
         ReCalculateHealth();
@@ -24,26 +30,26 @@ public class CharacterHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(health > 0)
+        if (health > 0)
         {
             health -= damage;
-            HealthChanged?.Invoke();
             if (health <= 0)
             {
-                //Death Event;
+                deathEvent.Raise();
                 health = 0;
             }
+            HealthChanged?.Invoke();
         }
     }
 
     public void Heal(int healthAmount)
     {
         health += healthAmount;
-        HealthChanged?.Invoke();
         if (health >= maxHealth)
         {
-            //Heal event
+            healEvent.Raise();
             health = maxHealth;
         }
+        HealthChanged?.Invoke();
     }
 }
