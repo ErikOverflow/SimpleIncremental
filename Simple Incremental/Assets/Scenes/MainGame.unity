@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 515792330}
   - component: {fileID: 515792332}
   - component: {fileID: 515792331}
+  - component: {fileID: 515792333}
   m_Layer: 0
   m_Name: Bob
   m_TagString: Untagged
@@ -440,8 +441,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 10
-  deathEvent: {fileID: 0}
-  healEvent: {fileID: 0}
+  deathEvent: {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
+  healEvent: {fileID: 11400000, guid: b19ae31e35a4b794bb1d6db27efb938e, type: 2}
 --- !u!114 &515792331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,6 +491,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+--- !u!114 &515792333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515792327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb40c49f83f400d448621c890b372987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
 --- !u!1 &624083150
 GameObject:
   m_ObjectHideFlags: 0
