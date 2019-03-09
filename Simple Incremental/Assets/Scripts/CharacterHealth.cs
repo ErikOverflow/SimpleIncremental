@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CharacterHealth : MonoBehaviour
 {
-    private int health;
+    public int health;
     public int maxHealth = 10;
+
+    public event HealthChangeHandler HealthChanged;
+    public delegate void HealthChangeHandler();
 
     private void Start()
     {
@@ -24,6 +27,7 @@ public class CharacterHealth : MonoBehaviour
         if(health > 0)
         {
             health -= damage;
+            HealthChanged?.Invoke();
             if (health <= 0)
             {
                 //Death Event;
@@ -35,7 +39,8 @@ public class CharacterHealth : MonoBehaviour
     public void Heal(int healthAmount)
     {
         health += healthAmount;
-        if(health >= maxHealth)
+        HealthChanged?.Invoke();
+        if (health >= maxHealth)
         {
             //Heal event
             health = maxHealth;

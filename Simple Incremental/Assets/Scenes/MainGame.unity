@@ -1240,6 +1240,7 @@ GameObject:
   - component: {fileID: 1996592442}
   - component: {fileID: 1996592443}
   - component: {fileID: 1996592444}
+  - component: {fileID: 1996592445}
   m_Layer: 0
   m_Name: Baddie
   m_TagString: Untagged
@@ -1323,3 +1324,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+--- !u!114 &1996592445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996592441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb40c49f83f400d448621c890b372987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1242089008}
