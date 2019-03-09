@@ -35,8 +35,9 @@ public class CharacterHealth : MonoBehaviour
             health -= damage;
             if (health <= 0)
             {
-                deathEvent.Raise(gameObject);
                 health = 0;
+                deathEvent.Raise(gameObject);
+                gameObject.SetActive(false);
             }
             HealthChanged?.Invoke();
         }
@@ -47,8 +48,8 @@ public class CharacterHealth : MonoBehaviour
         health += healthAmount;
         if (health >= maxHealth)
         {
-            healEvent.Raise();
             health = maxHealth;
+            healEvent.Raise();
         }
         HealthChanged?.Invoke();
     }
