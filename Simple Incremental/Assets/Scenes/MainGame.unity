@@ -160,6 +160,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  ResponseWithObject:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!82 &240491201
 AudioSource:
   m_ObjectHideFlags: 0
@@ -350,6 +355,8 @@ GameObject:
   - component: {fileID: 515792328}
   - component: {fileID: 515792329}
   - component: {fileID: 515792330}
+  - component: {fileID: 515792332}
+  - component: {fileID: 515792331}
   m_Layer: 0
   m_Name: Bob
   m_TagString: Untagged
@@ -435,6 +442,54 @@ MonoBehaviour:
   maxHealth: 10
   deathEvent: {fileID: 0}
   healEvent: {fileID: 0}
+--- !u!114 &515792331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515792327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  ResponseWithObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 515792332}
+        m_MethodName: LootEnemy
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &515792332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515792327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cff4147cc793b84780413298d5e288c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: 0
 --- !u!1 &624083150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,6 +1457,7 @@ GameObject:
   - component: {fileID: 1996592443}
   - component: {fileID: 1996592444}
   - component: {fileID: 1996592445}
+  - component: {fileID: 1996592446}
   m_Layer: 0
   m_Name: Baddie
   m_TagString: Untagged
@@ -1501,3 +1557,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1242089008}
+--- !u!114 &1996592446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996592441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31b0c5ad1e0f4541950114fbed3f669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: 10

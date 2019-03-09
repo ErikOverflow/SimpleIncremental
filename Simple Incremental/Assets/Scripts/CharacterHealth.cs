@@ -35,7 +35,7 @@ public class CharacterHealth : MonoBehaviour
             health -= damage;
             if (health <= 0)
             {
-                deathEvent.Raise();
+                deathEvent.Raise(gameObject);
                 health = 0;
             }
             HealthChanged?.Invoke();
