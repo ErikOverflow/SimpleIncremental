@@ -42,18 +42,12 @@ public class HelperAttack : MonoBehaviour
         freeToAttack = true;
     }
 
-    private IEnumerator DelayedStartAttackCycle()
-    {
-        yield return null;
-        StartCoroutine(StartAttackCycle());
-    }
-
     public void UntargetEnemy(GameObject go)
     {
         if(go.GetComponent<CharacterHealth>() == target)
         {
             target = null;
-            StartCoroutine(DelayedStartAttackCycle());
+            StartCoroutine(StartAttackCycle());
         }
     }
 
