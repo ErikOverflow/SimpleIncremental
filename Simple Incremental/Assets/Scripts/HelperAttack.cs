@@ -18,11 +18,21 @@ public class HelperAttack : MonoBehaviour
 
     private void Start()
     {
-        Retarget();
+        StartCoroutine(StartAttackCycle());
+    }
+
+    private void OnEnable()
+    {
+        freeToAttack = true;
     }
 
     private IEnumerator StartAttackCycle()
     {
+        while (!freeToAttack)
+        {
+            yield return null;
+        }
+        target = EnemyManager.instance.enemies.FirstOrDefault();
         while (target != null)
         {
             freeToAttack = false;
@@ -35,20 +45,10 @@ public class HelperAttack : MonoBehaviour
     private IEnumerator DelayedStartAttackCycle()
     {
         yield return null;
-        while (!freeToAttack)
-        {
-            yield return null;
-        }
-        Retarget();
-    }
-
-    public void Retarget()
-    {
-        target = EnemyManager.instance.enemies.FirstOrDefault();
         StartCoroutine(StartAttackCycle());
     }
 
-    public void OnEnemyDeath(GameObject go)
+    public void UntargetEnemy(GameObject go)
     {
         if(go.GetComponent<CharacterHealth>() == target)
         {
@@ -61,7 +61,7 @@ public class HelperAttack : MonoBehaviour
     {
         if(target == null)
         {
-            Retarget();
+            StartCoroutine(StartAttackCycle());
         }
     }
 }
