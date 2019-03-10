@@ -20,4 +20,14 @@ public class EnemyManager : MonoBehaviour
             Destroy(this);
         }
     }
+
+    public void RemoveEnemy(GameObject go)
+    {
+        enemies.Remove(go.GetComponent<CharacterHealth>());
+    }
+
+    public void AddEnemy(GameObject go)
+    {
+        enemies.Add(go.GetComponent<CharacterHealth>());
+    }
 }

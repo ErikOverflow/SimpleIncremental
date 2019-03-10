@@ -30,6 +30,12 @@ public class HelperAttack : MonoBehaviour
         }
     }
 
+    private IEnumerator DelayedStartAttackCycle()
+    {
+        yield return null;
+        StartCoroutine(StartAttackCycle());
+    }
+
     public void Retarget()
     {
         StartCoroutine(StartAttackCycle());
@@ -39,7 +45,8 @@ public class HelperAttack : MonoBehaviour
     {
         if(go.GetComponent<CharacterHealth>() == target)
         {
-            Retarget();
+            target = null;
+            StartCoroutine(DelayedStartAttackCycle());
         }
     }
 
