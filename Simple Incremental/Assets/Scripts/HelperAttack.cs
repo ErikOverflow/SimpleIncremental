@@ -9,6 +9,7 @@ public class HelperAttack : MonoBehaviour
     AttackStat attackStat = null;
     float cooldown = 1.0f;
     CharacterHealth target = null;
+    bool freeToAttack = true;
 
     private void Awake()
     {
@@ -17,27 +18,33 @@ public class HelperAttack : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartAttackCycle());
+        Retarget();
     }
 
     private IEnumerator StartAttackCycle()
     {
-        target = EnemyManager.instance.enemies.FirstOrDefault();
         while (target != null)
         {
+            freeToAttack = false;
             target.TakeDamage(attackStat.GetCalculatedDamage());
             yield return new WaitForSeconds(cooldown);
         }
+        freeToAttack = true;
     }
 
     private IEnumerator DelayedStartAttackCycle()
     {
         yield return null;
-        StartCoroutine(StartAttackCycle());
+        while (!freeToAttack)
+        {
+            yield return null;
+        }
+        Retarget();
     }
 
     public void Retarget()
     {
+        target = EnemyManager.instance.enemies.FirstOrDefault();
         StartCoroutine(StartAttackCycle());
     }
 
