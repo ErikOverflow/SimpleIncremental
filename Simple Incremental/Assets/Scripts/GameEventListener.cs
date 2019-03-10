@@ -16,6 +16,14 @@ public class GameEventListener : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        foreach(GameEvent e in Events)
+        {
+            e.UnregisterListener(this);
+        }
+    }
+
     public void OnEventsRaised()
     {
         Response.Invoke();
