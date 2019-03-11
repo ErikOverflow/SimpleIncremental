@@ -16,7 +16,7 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField]
     GameEvent healEvent = null;
 
-    private void Start()
+    public void OnEnable()
     {
         ReCalculateHealth();
     }
