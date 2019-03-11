@@ -12,12 +12,12 @@ public class EnemyHook : MonoBehaviour
         if (enemyTemplate != null)
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            CharacterHealth characterHeatlh = GetComponent<CharacterHealth>();
+            CharacterHealth characterHealth = GetComponent<CharacterHealth>();
             CharacterLoot characterLoot = GetComponent<CharacterLoot>();
             if(spriteRenderer != null)
                 spriteRenderer.sprite = enemyTemplate.sprite;
-            if(characterHeatlh != null)
-                characterHeatlh.maxHealth = enemyTemplate.health;
+            if(characterHealth != null)
+                characterHealth.maxHealth = enemyTemplate.health;
             if(characterLoot != null)
                 characterLoot.coins = enemyTemplate.coins;
         }
