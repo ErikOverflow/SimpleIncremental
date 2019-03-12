@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 515792333}
   m_Layer: 0
   m_Name: Bob
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -532,10 +532,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809075305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1996592442}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -552,8 +551,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
-  enemyPrefab: {fileID: 509473818344430364, guid: 2776a667abee4b14f933469116342d4d,
+  enemyPrefab: {fileID: 19398839845925982, guid: 0a22dab5225500048a16edd2ef71e00c,
     type: 3}
+  spawnWidth: 10
+  spawnHeight: 6
   spawnEvent: {fileID: 11400000, guid: c0820568168dc5d45a92863a843f7c3a, type: 2}
 --- !u!114 &809075308
 MonoBehaviour:
@@ -1017,84 +1018,3 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!4 &1996592442 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-    type: 3}
-  m_PrefabInstance: {fileID: 509473820206796325}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &509473820206796325
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 809075306}
-    m_Modifications:
-    - target: {fileID: 509473818344430364, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_Name
-      value: Baddie
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 509473818344430367, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5159048070855288992, guid: 2776a667abee4b14f933469116342d4d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5159048070855288992, guid: 2776a667abee4b14f933469116342d4d, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 2776a667abee4b14f933469116342d4d, type: 3}
