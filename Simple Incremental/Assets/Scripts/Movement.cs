@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
 
     public void Start()
     {
+        target = GameObject.FindWithTag("Player").transform;
         squaredTerminationDistance = terminationDistance * terminationDistance;
         StartMovement();
     }

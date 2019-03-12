@@ -53,7 +53,7 @@ public class HelperAttack : MonoBehaviour
 
     public void OnEnemySpawn()
     {
-        if(target == null)
+        if(target == null || target.health <= 0)
         {
             StartCoroutine(StartAttackCycle());
         }
