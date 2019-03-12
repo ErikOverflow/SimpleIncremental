@@ -23,7 +23,8 @@ public class Movement : MonoBehaviour
 
     public void Start()
     {
-        squaredTerminationDistance = terminationDistance * terminationDistance;   
+        squaredTerminationDistance = terminationDistance * terminationDistance;
+        StartMovement();
     }
    
     public void StartMovement()
