@@ -16,7 +16,7 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField]
     GameEvent healEvent = null;
 
-    private void Start()
+    public void OnEnable()
     {
         ReCalculateHealth();
     }
@@ -24,8 +24,6 @@ public class CharacterHealth : MonoBehaviour
     public void ReCalculateHealth()
     {
         health = maxHealth;
-
-        //To do: When an enemy is newly spawned, calculate health
     }
 
     public void TakeDamage(int damage)
