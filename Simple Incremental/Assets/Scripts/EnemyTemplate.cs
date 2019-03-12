@@ -9,4 +9,5 @@ public class EnemyTemplate : ScriptableObject
     public Sprite sprite = null;
     public int health = 10;
     public int coins = 10;
+    public float moveSpeed = 1f;
 }
