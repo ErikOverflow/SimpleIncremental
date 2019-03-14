@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.SceneManagement;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EnemyHook : MonoBehaviour
@@ -48,7 +49,7 @@ public class EnemyHook : MonoBehaviour
 
     private void OnValidate() //Enables use in editor
     {
-        if (SceneManager.GetActiveScene().isLoaded)
+        if (EditorSceneManager.GetActiveScene().isLoaded)
         {
             Awake();
             ChangeTemplate(enemyTemplate);
