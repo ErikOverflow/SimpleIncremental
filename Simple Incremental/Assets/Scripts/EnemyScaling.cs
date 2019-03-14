@@ -4,8 +4,8 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(EnemyHook))]
-public class EnemyScaling : MonoBehaviour
+[RequireComponent(typeof(EnemyStatsSystem))]
+public class EnemyScaling : StatAugment
 {
     public int level = 1;
 
@@ -13,7 +13,14 @@ public class EnemyScaling : MonoBehaviour
     int gate = 1;
     float gateJump = 1f;
 
-    EnemyHook enemyHook = null;
+    CharacterHealth characterHealth = null;
+    CharacterLoot characterLoot = null;
+
+    public override void Awake()
+    {
+        characterHealth = GetComponent<CharacterHealth>();
+        characterLoot = GetComponent<CharacterLoot>();
+    }
 
     public void SetScale(float _amount, float _ramp, int _gate)
     {
@@ -22,28 +29,11 @@ public class EnemyScaling : MonoBehaviour
         gate = _gate;
     }
 
-    private void Awake()
-    {
-        enemyHook = GetComponent<EnemyHook>();
-    }
-
-    private void OnEnable()
-    {
-        ScaleToLevel();
-    }
-
-    public void ScaleToLevel()
+    public override void Augment()
     {
         float multiplier = Mathf.Pow(gateJump, level / gate) * (1f + (level % gate) * ramp);
-        enemyHook.ScaleEnemy(multiplier);
-    }
-
-    private void OnValidate() //Enables use in editor
-    {
-        if (EditorSceneManager.GetActiveScene().isLoaded)
-        {
-            Awake();
-            ScaleToLevel();
-        }
+        characterHealth.maxHealth = Mathf.CeilToInt(characterHealth.maxHealth * multiplier);
+        characterHealth.ResetHealth();
+        characterLoot.coins = Mathf.CeilToInt(characterLoot.coins * multiplier);
     }
 }
