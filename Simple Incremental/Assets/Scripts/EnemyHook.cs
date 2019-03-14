@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHook : MonoBehaviour
 {
@@ -49,7 +48,10 @@ public class EnemyHook : MonoBehaviour
 
     private void OnValidate() //Enables use in editor
     {
-        Awake();
-        ChangeTemplate(enemyTemplate);
+        if (SceneManager.GetActiveScene().isLoaded)
+        {
+            Awake();
+            ChangeTemplate(enemyTemplate);
+        }
     }
 }

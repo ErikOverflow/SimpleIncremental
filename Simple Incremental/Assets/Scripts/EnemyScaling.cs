@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(EnemyHook))]
 public class EnemyScaling : MonoBehaviour
@@ -38,7 +39,10 @@ public class EnemyScaling : MonoBehaviour
 
     private void OnValidate() //Enables use in editor
     {
-        Awake();
-        ScaleToLevel();
+        if (SceneManager.GetActiveScene().isLoaded)
+        {
+            Awake();
+            ScaleToLevel();
+        }
     }
 }
