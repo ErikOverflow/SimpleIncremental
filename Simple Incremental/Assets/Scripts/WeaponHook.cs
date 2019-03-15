@@ -1,7 +1,7 @@
-﻿using UnityEditor.SceneManagement;
+﻿using SimpleIncremental.Weapon;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(ProjectileWeapon))]
 public class WeaponHook : MonoBehaviour
 {
     [SerializeField]
@@ -17,15 +17,17 @@ public class WeaponHook : MonoBehaviour
     {
         if (weaponTemplate != null)
         {
-            if (projectileWeapon != null)
+            if(weaponTemplate.type == Type.Projectile)
             {
+                projectileWeapon.gameObject.SetActive(true);
                 projectileWeapon.spriteRenderer.sprite = weaponTemplate.sprite;
                 projectileWeapon.projectileSpeed = weaponTemplate.projectileSpeed;
                 projectileWeapon.projectileSprite = weaponTemplate.projectileSprite;
                 projectileWeapon.maxPenetrations = weaponTemplate.maxPenetrations;
                 projectileWeapon.falloffTime = weaponTemplate.falloffTime;
                 projectileWeapon.damage = weaponTemplate.damage;
-                projectileWeapon.reloadSpeed = weaponTemplate.reloadSpeed;
+                projectileWeapon.attackSpeed = weaponTemplate.attackSpeed;
+                return true;
             }
         }
         return false;
