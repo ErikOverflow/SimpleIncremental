@@ -9,19 +9,17 @@ public class ProjectileWeapon : MonoBehaviour
     [SerializeField]
     string fireButtonName = "Fire1";
 
-    SpriteRenderer spriteRenderer = null;
-
+    public SpriteRenderer spriteRenderer = null;
     public Sprite projectileSprite = null;
     public float projectileSpeed = 1f;
     public int maxPenetrations = 1;
-    public float projectileModifier = 1f;
     public float falloffTime = 1f;
     public int damage = 1;
     public float reloadSpeed = 1f;
     Camera mainCam = null;
     Queue<Projectile> projectiles = null;
 
-    private void Awake()
+    public void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         mainCam = Camera.main;

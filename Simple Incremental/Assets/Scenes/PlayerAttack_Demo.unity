@@ -204,6 +204,8 @@ GameObject:
   m_Component:
   - component: {fileID: 861316017}
   - component: {fileID: 861316018}
+  - component: {fileID: 861316021}
+  - component: {fileID: 861316020}
   - component: {fileID: 861316019}
   m_Layer: 0
   m_Name: Weapon
@@ -289,13 +291,38 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6321075124993919858, guid: c6f1f83a5d641ad41afdb44efb63f206,
     type: 3}
   fireButtonName: Fire1
+  spriteRenderer: {fileID: 0}
   projectileSprite: {fileID: 21300000, guid: ec930316360a643459bba1d0ba9e4b12, type: 3}
   projectileSpeed: 1
   maxPenetrations: 1
-  projectileModifier: 1
   falloffTime: 1
   damage: 1
   reloadSpeed: 1
+--- !u!114 &861316020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861316016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 011ffad10cba1db4bbf9d0f62d57a58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTemplate: {fileID: 11400000, guid: badcc87c33b3acf46a0e5b2d76eeec32, type: 2}
+--- !u!114 &861316021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861316016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d746ef7571960d44922344ba8f8db6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1018041644
 GameObject:
   m_ObjectHideFlags: 0
