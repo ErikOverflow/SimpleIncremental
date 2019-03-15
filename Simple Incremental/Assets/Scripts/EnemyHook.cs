@@ -1,30 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHook : MonoBehaviour
 {
     [SerializeField]
-    private EnemyTemplate enemyTemplate = null;
+    EnemyTemplate enemyTemplate = null;
+    SpriteRenderer spriteRenderer = null;
+    CharacterHealth characterHealth = null;
+    CharacterLoot characterLoot = null;
+    Movement movement = null;
+    EnemyLevelAugment enemyLevelAugment = null;
 
-    public void ChangeTemplate(EnemyTemplate enemyTemplate)
+    public void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        characterHealth = GetComponent<CharacterHealth>();
+        characterLoot = GetComponent<CharacterLoot>();
+        movement = GetComponent<Movement>();
+        enemyLevelAugment = GetComponent<EnemyLevelAugment>();
+    }
+
+    public bool Hook()
     {
         if (enemyTemplate != null)
         {
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            CharacterHealth characterHealth = GetComponent<CharacterHealth>();
-            CharacterLoot characterLoot = GetComponent<CharacterLoot>();
-            if(spriteRenderer != null)
+            if (enemyLevelAugment != null)
+                enemyLevelAugment.SetScale(enemyTemplate.gateJump, enemyTemplate.ramp, enemyTemplate.gate);
+            if (spriteRenderer != null)
                 spriteRenderer.sprite = enemyTemplate.sprite;
-            if(characterHealth != null)
+            if (characterHealth != null)
+            {
                 characterHealth.maxHealth = enemyTemplate.health;
-            if(characterLoot != null)
+                characterHealth.ReCalculateHealth();
+            }
+            if (characterLoot != null)
                 characterLoot.coins = enemyTemplate.coins;
+            return true;
         }
-    }
-
-    private void OnValidate()
-    {
-        ChangeTemplate(enemyTemplate);
+        return false;
     }
 }
