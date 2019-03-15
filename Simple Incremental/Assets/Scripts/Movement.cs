@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     public float moveSpeed;
     
     [SerializeField] 
-    private Transform target;
+    private Transform target = null;
 
     [SerializeField] 
     private float terminationDistance = 0.01f;
