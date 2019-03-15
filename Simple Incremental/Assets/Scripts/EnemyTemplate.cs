@@ -12,4 +12,5 @@ public class EnemyTemplate : ScriptableObject
     public float ramp = 0.1f;
     public int gate = 5;
     public float gateJump = 2f;
+    public float moveSpeed = 1f;
 }

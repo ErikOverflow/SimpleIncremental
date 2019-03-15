@@ -36,6 +36,8 @@ public class EnemyHook : MonoBehaviour
             }
             if (characterLoot != null)
                 characterLoot.coins = enemyTemplate.coins;
+            if (movement != null)
+                movement.moveSpeed = enemyTemplate.moveSpeed;
             return true;
         }
         return false;
