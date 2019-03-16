@@ -30,7 +30,7 @@ public class EnemyHook : MonoBehaviour
             if (characterHealth != null)
             {
                 characterHealth.maxHealth = enemyTemplate.health;
-                characterHealth.ReCalculateHealth();
+                characterHealth.ResetHealth();
             }
             if (characterLoot != null)
                 characterLoot.coins = enemyTemplate.coins;

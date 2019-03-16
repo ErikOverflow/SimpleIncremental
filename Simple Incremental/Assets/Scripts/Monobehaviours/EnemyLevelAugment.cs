@@ -25,7 +25,7 @@ public class EnemyLevelAugment : StatAugment
     {
         float multiplier = Mathf.Pow(gateJump, characterLevel.level / gate) * (1f + (characterLevel.level % gate) * ramp);
         characterHealth.maxHealth = Mathf.CeilToInt(characterHealth.maxHealth * multiplier);
-        characterHealth.ReCalculateHealth();
+        characterHealth.ResetHealth();
         characterLoot.coins = Mathf.CeilToInt(characterLoot.coins * multiplier);
     }
 }
