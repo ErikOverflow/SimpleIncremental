@@ -4,8 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(ProjectileWeapon))]
 public class WeaponHook : MonoBehaviour
 {
-    [SerializeField]
-    WeaponTemplate weaponTemplate = null;
+    public WeaponTemplate weaponTemplate = null;
     ProjectileWeapon projectileWeapon = null;
 
     public void Awake()

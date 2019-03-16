@@ -6,8 +6,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public List<Weapon> activeWeapons;
-    [SerializeField]
-    GameObject weaponPrefab;
+    public List<Weapon> inactiveWeapons;
     [SerializeField]
     string fireButtonName = "Fire1";
 
