@@ -17,6 +17,18 @@ public class WeaponController : MonoBehaviour
         mainCam = Camera.main;
     }
 
+    private void Start()
+    {
+        foreach(Weapon weapon in activeWeapons)
+        {
+            weapon.gameObject.SetActive(true);
+        }
+        foreach (Weapon weapon in inactiveWeapons)
+        {
+            weapon.gameObject.SetActive(false);
+        }
+    }
+
     void Update()
     {
         if (Input.GetButtonDown(fireButtonName))
