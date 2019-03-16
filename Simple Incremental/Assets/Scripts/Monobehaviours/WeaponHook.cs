@@ -18,7 +18,7 @@ public class WeaponHook : MonoBehaviour
         {
             if(weaponTemplate.type == Type.Projectile)
             {
-                projectileWeapon.gameObject.SetActive(true);
+                projectileWeapon.active = true;
                 projectileWeapon.spriteRenderer.sprite = weaponTemplate.sprite;
                 projectileWeapon.projectileSpeed = weaponTemplate.projectileSpeed;
                 projectileWeapon.projectileSprite = weaponTemplate.projectileSprite;

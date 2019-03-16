@@ -1,12 +1,13 @@
 ﻿using SimpleIncremental.Weapon;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public List<Weapon> activeWeapons;
-    public List<Weapon> inactiveWeapons;
+    public List<GameObject> activeWeapons;
+    public List<GameObject> inactiveWeapons;
     [SerializeField]
     string fireButtonName = "Fire1";
 
@@ -19,13 +20,13 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
-        foreach(Weapon weapon in activeWeapons)
+        foreach(GameObject weapon in activeWeapons)
         {
-            weapon.gameObject.SetActive(true);
+            weapon.SetActive(true);
         }
-        foreach (Weapon weapon in inactiveWeapons)
+        foreach (GameObject weapon in inactiveWeapons)
         {
-            weapon.gameObject.SetActive(false);
+            weapon.SetActive(false);
         }
     }
 
@@ -34,9 +35,9 @@ public class WeaponController : MonoBehaviour
         if (Input.GetButtonDown(fireButtonName))
         {
             Vector2 clickLoc = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            foreach(Weapon weapon in activeWeapons)
+            foreach(GameObject weapon in activeWeapons)
             {
-                weapon.Attack(clickLoc);
+                weapon.GetComponents<Weapon>().FirstOrDefault(w => w.active)?.Attack(clickLoc);
             }
         }
     }
