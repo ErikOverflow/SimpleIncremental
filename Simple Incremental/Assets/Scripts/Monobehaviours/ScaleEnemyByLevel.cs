@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(EnemyStatsSystem))]
 [RequireComponent(typeof(CharacterLevel))]
-public class EnemyLevelAugment : StatAugment
+public class ScaleEnemyByLevel : StatAugment
 {
     public float ramp = 0.1f;
     public int gate = 5;

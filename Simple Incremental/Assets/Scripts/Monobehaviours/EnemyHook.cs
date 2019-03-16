@@ -10,7 +10,6 @@ public class EnemyHook : MonoBehaviour
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
     Movement movement = null;
-    EnemyLevelAugment enemyLevelAugment = null;
 
     public void Awake()
     {
@@ -18,7 +17,6 @@ public class EnemyHook : MonoBehaviour
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
         movement = GetComponent<Movement>();
-        enemyLevelAugment = GetComponent<EnemyLevelAugment>();
     }
 
     public bool Hook()
