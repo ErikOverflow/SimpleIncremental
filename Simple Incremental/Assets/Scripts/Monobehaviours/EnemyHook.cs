@@ -25,8 +25,6 @@ public class EnemyHook : MonoBehaviour
     {
         if (enemyTemplate != null)
         {
-            if (enemyLevelAugment != null)
-                enemyLevelAugment.SetScale(enemyTemplate.gateJump, enemyTemplate.ramp, enemyTemplate.gate);
             if (spriteRenderer != null)
                 spriteRenderer.sprite = enemyTemplate.sprite;
             if (characterHealth != null)

@@ -3,33 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyStatsSystem))]
+[RequireComponent(typeof(CharacterLevel))]
 public class EnemyLevelAugment : StatAugment
 {
-    public int level = 1;
-
-    float ramp = 1f;
-    int gate = 1;
-    float gateJump = 1f;
+    public float ramp = 0.1f;
+    public int gate = 5;
+    public float gateJump = 2f;
 
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
+    CharacterLevel characterLevel = null;
 
     public override void Awake()
     {
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
-    }
-
-    public void SetScale(float _amount, float _ramp, int _gate)
-    {
-        gateJump = _amount;
-        ramp = _ramp;
-        gate = _gate;
+        characterLevel = GetComponent<CharacterLevel>();
     }
 
     public override void Augment()
     {
-        float multiplier = Mathf.Pow(gateJump, level / gate) * (1f + (level % gate) * ramp);
+        float multiplier = Mathf.Pow(gateJump, characterLevel.level / gate) * (1f + (characterLevel.level % gate) * ramp);
         characterHealth.maxHealth = Mathf.CeilToInt(characterHealth.maxHealth * multiplier);
         characterHealth.ReCalculateHealth();
         characterLoot.coins = Mathf.CeilToInt(characterLoot.coins * multiplier);

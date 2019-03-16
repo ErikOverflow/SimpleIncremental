@@ -14,12 +14,13 @@ GameObject:
   - component: {fileID: 3119655723650229284}
   - component: {fileID: 8238082689588871821}
   - component: {fileID: 8238082689588871823}
+  - component: {fileID: 1597190983701227289}
   - component: {fileID: 4472158887398393500}
   - component: {fileID: 8238082689588871820}
   - component: {fileID: 8238082689588871818}
   - component: {fileID: 8238082689588871817}
   m_Layer: 0
-  m_Name: PunchingBag
+  m_Name: Dynamic_Baddie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Applied: 1
   priority: 1
-  level: 1
+  ramp: 0.1
+  gate: 5
+  gateJump: 2
 --- !u!114 &8238082689588871821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +112,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 11
+--- !u!114 &1597190983701227289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238082689588871816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf079053fb3ce1f449106a65a5306b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
 --- !u!114 &4472158887398393500
 MonoBehaviour:
   m_ObjectHideFlags: 0
