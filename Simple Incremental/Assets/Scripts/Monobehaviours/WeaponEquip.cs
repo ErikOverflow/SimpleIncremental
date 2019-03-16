@@ -16,30 +16,33 @@ namespace SimpleIncremental.Weapon
         {
             if (weaponController.activeWeapons.Count < maxWeapons)
             {
-                Weapon newWeapon = null;
+                GameObject go = null;
                 if (weaponController.inactiveWeapons.Count > 0)
                 {
-                    newWeapon = weaponController.inactiveWeapons.FirstOrDefault();
-                    weaponController.inactiveWeapons.Remove(newWeapon);
+                    go = weaponController.inactiveWeapons.FirstOrDefault();
+                    weaponController.inactiveWeapons.Remove(go);
                 }
                 else
                 {
-                    GameObject go = Instantiate(weaponPrefab, weaponController.transform);
-                    newWeapon = go.GetComponent<Weapon>();
+                    go = Instantiate(weaponPrefab, weaponController.transform);
+                    Weapon[] weapons = go.GetComponents<Weapon>();
+                    foreach(Weapon weap in weapons)
+                    {
+                        weap.active = false;
+                    }
                 }
-                newWeapon.GetComponent<WeaponHook>().weaponTemplate = weapon.template;
+                go.GetComponent<WeaponHook>().weaponTemplate = weapon.template;
                 //If we have levels or exp on the weapon, update the statAugment for it.
-                newWeapon.GetComponent<WeaponStatsSystem>().ApplyAugments();
-                newWeapon.gameObject.SetActive(true);
-                weaponController.activeWeapons.Add(newWeapon);
+                go.GetComponent<WeaponStatsSystem>().ApplyAugments();
+                go.gameObject.SetActive(true);
+                weaponController.activeWeapons.Add(go);
             }
         }
 
         public void UnequipWeapon(GameObject go) //Invoked by calling UnequipWeapon with the gameobject that's holding it.
         {
-            Weapon weapon = go.GetComponent<Weapon>();
-            weaponController.activeWeapons.Remove(weapon);
-            weaponController.inactiveWeapons.Add(weapon);
+            weaponController.activeWeapons.Remove(go);
+            weaponController.inactiveWeapons.Add(go);
             go.SetActive(false);
         }
     }
