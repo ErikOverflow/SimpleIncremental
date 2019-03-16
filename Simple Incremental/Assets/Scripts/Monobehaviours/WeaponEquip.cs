@@ -9,8 +9,6 @@ namespace SimpleIncremental.Weapon
         WeaponController weaponController = null;
         [SerializeField]
         GameObject weaponPrefab = null;
-        [SerializeField]
-        GameEvent equipmentChanged = null;
         public int maxWeapons = 1;
 
         private void Awake()

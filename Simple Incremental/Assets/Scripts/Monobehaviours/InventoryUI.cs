@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField]
-    Transform itemsParent;
+    Transform itemsParent = null;
     InventorySlot[] slots;
     PlayerInventory inventory = null;
     // Start is called before the first frame update
