@@ -33,6 +33,7 @@ namespace SimpleIncremental.Weapon
             {
                 p = projectiles.Dequeue();
                 p.transform.position = transform.position;
+                p.transform.rotation = transform.rotation;
             }
             else
             {
