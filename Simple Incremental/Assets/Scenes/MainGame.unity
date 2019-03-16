@@ -5936,11 +5936,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baddie With Movement
       objectReference: {fileID: 0}
-    - target: {fileID: 19398839845925982, guid: 0a22dab5225500048a16edd2ef71e00c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 19398839845925981, guid: 0a22dab5225500048a16edd2ef71e00c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6000,33 +5995,44 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyTemplate
       value: 
-      objectReference: {fileID: 11400000, guid: 9785a324ebe78654ca33ca27fc0541f3,
+      objectReference: {fileID: 11400000, guid: 5313ef21a54fc9244a9e14eaa7cb596e,
         type: 2}
     - target: {fileID: 19398839845925980, guid: 0a22dab5225500048a16edd2ef71e00c,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4e3396d4a3c289e4688e6bcde17837cc,
+      objectReference: {fileID: 21300000, guid: 856344b9157d20340b341db623a3c7af,
         type: 3}
-    - target: {fileID: 19398839845925979, guid: 0a22dab5225500048a16edd2ef71e00c,
-        type: 3}
-      propertyPath: health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 19398839845925979, guid: 0a22dab5225500048a16edd2ef71e00c,
-        type: 3}
-      propertyPath: maxHealth
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 19398839845925977, guid: 0a22dab5225500048a16edd2ef71e00c,
-        type: 3}
-      propertyPath: coins
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5478395279257612362, guid: 0a22dab5225500048a16edd2ef71e00c,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 515792328}
+    - target: {fileID: 8909336408562564381, guid: 0a22dab5225500048a16edd2ef71e00c,
+        type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909336408562564381, guid: 0a22dab5225500048a16edd2ef71e00c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909336408562564381, guid: 0a22dab5225500048a16edd2ef71e00c,
+        type: 3}
+      propertyPath: Applied
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613161342069320580, guid: 0a22dab5225500048a16edd2ef71e00c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613161342069320580, guid: 0a22dab5225500048a16edd2ef71e00c,
+        type: 3}
+      propertyPath: enemyTemplate
+      value: 
+      objectReference: {fileID: 11400000, guid: 9785a324ebe78654ca33ca27fc0541f3,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a22dab5225500048a16edd2ef71e00c, type: 3}
