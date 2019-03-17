@@ -1,4 +1,5 @@
-﻿using SimpleIncremental.Weapon;
+﻿using SimpleIncremental.Inventory;
+using SimpleIncremental.Weapon;
 using UnityEngine;
 
 [RequireComponent(typeof(ProjectileWeapon))]

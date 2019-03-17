@@ -30,7 +30,7 @@ namespace SimpleIncremental.Weapon
                 go.SetActive(false);
             }
             weaponController.activeWeapons.Clear();
-            foreach (InventoryWeapon invWeapon in PlayerInventory.instance.weapons.Where(w => w.equipped))
+            foreach (InventoryWeapon invWeapon in PlayerInventory.instance.items.OfType<InventoryWeapon>().Where(w => w.equipped))
             {
                 EquipWeapon(invWeapon);
             }

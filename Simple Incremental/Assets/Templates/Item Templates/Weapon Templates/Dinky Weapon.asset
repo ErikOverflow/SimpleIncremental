@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3949635816fd9c40a6ce1e057dcc657, type: 3}
   m_Name: Dinky Weapon
   m_EditorClassIdentifier: 
-  type: 0
+  itemName: New Item
   sprite: {fileID: 21300000, guid: 8a89e8d4435156d4585e9247ac007fde, type: 3}
+  type: 0
   projectileSprite: {fileID: 21300000, guid: 7fedf67eeb8b38f4cb4fc19797c30021, type: 3}
   projectileSpeed: 5
   maxPenetrations: 1

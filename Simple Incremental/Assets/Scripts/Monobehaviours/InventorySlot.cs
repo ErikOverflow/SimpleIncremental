@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    InventoryWeapon weapon = null;
+    InventoryItem item = null;
     [SerializeField]
     Image image = null;
     [SerializeField]
@@ -17,28 +17,35 @@ public class InventorySlot : MonoBehaviour
 
     public void Clicked()
     {
-        if (weapon != null)
+        if (item != null)
         {
-            weapon.equipped = !weapon.equipped;
+            if(item is InventoryWeapon invWeap)
+                invWeap.equipped = !invWeap.equipped;
+            if (item.template is HPPotionTemplate hpPotionTemplate)
+                Debug.Log("Player healed: " + hpPotionTemplate.healAmount); //Implement item usage here
             itemClicked.Raise();
         }
     }
 
     public void ClearSlot()
     {
-        weapon = null;
+        item = null;
         image.enabled = false;
         equippedText.enabled = false;
         emptySlot.enabled = true;
     }
 
-    public void CreateSlot(InventoryWeapon _weapon)
+    public void CreateSlot(InventoryItem _item)
     {
-        if (_weapon != null)
+        if (_item != null)
         {
-            weapon = _weapon;
-            image.sprite = weapon.template.sprite;
-            equippedText.enabled = weapon.equipped;
+            item = _item;
+            image.enabled = true;
+            image.sprite = item.template.sprite;
+            if (item is InventoryWeapon invWeap)
+                equippedText.enabled = invWeap.equipped;
+            else
+                equippedText.enabled = false;
             emptySlot.enabled = false;
         }
     }
