@@ -6,13 +6,36 @@ namespace SimpleIncremental.Weapon
 {
     public class WeaponEquip : MonoBehaviour
     {
-        [SerializeField]
         WeaponController weaponController = null;
         [SerializeField]
         GameObject weaponPrefab = null;
         public int maxWeapons = 1;
 
-        public void EquipWeapon(InventoryWeapon weapon)
+        private void Awake()
+        {
+            weaponController = GetComponent<WeaponController>();
+        }
+
+        private void Start()
+        {
+            EquipActiveWeapons();
+        }
+
+        public void EquipActiveWeapons()
+        {
+            weaponController.inactiveWeapons.AddRange(weaponController.activeWeapons);
+            foreach(GameObject go in weaponController.activeWeapons)
+            {
+                go.SetActive(false);
+            }
+            weaponController.activeWeapons.Clear();
+            foreach (InventoryWeapon invWeapon in PlayerInventory.instance.weapons.Where(w => w.equipped))
+            {
+                EquipWeapon(invWeapon);
+            }
+        }
+
+        private void EquipWeapon(InventoryWeapon weapon)
         {
             if (weaponController.activeWeapons.Count < maxWeapons)
             {

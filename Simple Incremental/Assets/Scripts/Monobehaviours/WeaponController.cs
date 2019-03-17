@@ -16,18 +16,8 @@ public class WeaponController : MonoBehaviour
     private void Awake()
     {
         mainCam = Camera.main;
-    }
-
-    private void Start()
-    {
-        foreach(GameObject weapon in activeWeapons)
-        {
-            weapon.SetActive(true);
-        }
-        foreach (GameObject weapon in inactiveWeapons)
-        {
-            weapon.SetActive(false);
-        }
+        activeWeapons = new List<GameObject>();
+        inactiveWeapons = new List<GameObject>();
     }
 
     void Update()
@@ -35,7 +25,7 @@ public class WeaponController : MonoBehaviour
         if (Input.GetButtonDown(fireButtonName))
         {
             Vector2 clickLoc = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            foreach(GameObject weapon in activeWeapons)
+            foreach (GameObject weapon in activeWeapons)
             {
                 weapon.GetComponents<Weapon>().FirstOrDefault(w => w.active)?.Attack(clickLoc);
             }

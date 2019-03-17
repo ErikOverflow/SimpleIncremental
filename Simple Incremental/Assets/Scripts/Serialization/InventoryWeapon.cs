@@ -8,5 +8,6 @@ namespace SimpleIncremental.Weapon
         public WeaponTemplate template;
         public int level;
         public int experience;
+        public bool equipped;
     }
 }
