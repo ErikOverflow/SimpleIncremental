@@ -1,5 +1,4 @@
-﻿using SimpleIncremental.Weapon;
-using System.Collections;
+﻿using SimpleIncremental.Inventory;
 using System.Collections.Generic;
 using UnityEngine;
 

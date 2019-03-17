@@ -1,4 +1,4 @@
-﻿using SimpleIncremental.Weapon;
+﻿using SimpleIncremental.Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

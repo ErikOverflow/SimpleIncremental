@@ -1,6 +1,7 @@
-﻿using System;
+﻿using SimpleIncremental.Weapon;
+using System;
 
-namespace SimpleIncremental.Weapon
+namespace SimpleIncremental.Inventory
 {
     [Serializable]
     public class InventoryWeapon
