@@ -20,8 +20,14 @@ public class InventoryUI : MonoBehaviour
 
     private void OnEnable()
     {
+        Time.timeScale = 0;
         if(initialized)
             UpdateUI();
+    }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1;
     }
 
     public void UpdateUI()
