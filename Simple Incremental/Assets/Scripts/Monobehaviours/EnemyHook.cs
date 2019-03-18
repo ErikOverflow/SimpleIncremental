@@ -10,6 +10,7 @@ public class EnemyHook : MonoBehaviour
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
     EnemyMovement enemyMovement = null;
+    EnemyAttackRanged enemyAttackRanged = null;
 
     public void Awake()
     {
@@ -17,6 +18,7 @@ public class EnemyHook : MonoBehaviour
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
         enemyMovement = GetComponent<EnemyMovement>();
+        enemyAttackRanged = GetComponent<EnemyAttackRanged>();
     }
 
     public bool Hook()
@@ -37,6 +39,14 @@ public class EnemyHook : MonoBehaviour
                 enemyMovement.moveSpeed = enemyTemplate.moveSpeed;
                 enemyMovement.responseTime = enemyTemplate.responseTime;
             }                
+            if(enemyAttackRanged != null)
+            {
+                enemyAttackRanged.projectileSprite = enemyTemplate.projectileSprite;
+                enemyAttackRanged.damage = enemyTemplate.rangedDamage;
+                enemyAttackRanged.falloffTime = enemyTemplate.rangedFalloffTime;
+                enemyAttackRanged.maxPenetrations = enemyTemplate.maxPenetrations;
+                enemyAttackRanged.projectileSpeed = enemyTemplate.projectileSpeed;
+            }
             return true;
         }
         return false;

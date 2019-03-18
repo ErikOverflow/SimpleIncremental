@@ -929,12 +929,12 @@ PrefabInstance:
     - target: {fileID: 8238082689588871819, guid: 937ce6055bebad140920ec5275a9ff3a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.64
+      value: 4.33
       objectReference: {fileID: 0}
     - target: {fileID: 8238082689588871819, guid: 937ce6055bebad140920ec5275a9ff3a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19
+      value: 3.09
       objectReference: {fileID: 0}
     - target: {fileID: 8238082689588871819, guid: 937ce6055bebad140920ec5275a9ff3a,
         type: 3}
@@ -5016,34 +5016,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1379140110}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1379140112 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8238082689588871816, guid: 937ce6055bebad140920ec5275a9ff3a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1379140110}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1379140113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379140112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5933d4563d5dca14cae7278ee45f336d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSprite: {fileID: 21300000, guid: ec930316360a643459bba1d0ba9e4b12, type: 3}
-  damage: 1
-  falloffTime: 1
-  maxPenetrations: 1
-  projectileSpeed: 1
-  projectilePrefab: {fileID: 8858608237685767088, guid: 9c2466f117f3f334d9bbbd36f89b7949,
-    type: 3}
-  layer:
-    serializedVersion: 2
-    m_Bits: 2048
 --- !u!1 &1426095185
 GameObject:
   m_ObjectHideFlags: 0

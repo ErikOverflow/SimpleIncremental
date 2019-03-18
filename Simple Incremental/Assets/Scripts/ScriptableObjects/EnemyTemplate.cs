@@ -11,4 +11,9 @@ public class EnemyTemplate : ScriptableObject
     public int coins = 10;
     public float moveSpeed = 1f;
     public float responseTime = 1f;
+    public Sprite projectileSprite = null;
+    public int rangedDamage = 1;
+    public float rangedFalloffTime = 3f;
+    public int maxPenetrations = 1;
+    public float projectileSpeed = 3f;
 }
