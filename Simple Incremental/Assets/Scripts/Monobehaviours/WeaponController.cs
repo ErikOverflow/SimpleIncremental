@@ -22,7 +22,7 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown(fireButtonName))
+        if (Input.GetButtonDown(fireButtonName) && Time.timeScale > 0)
         {
             Vector2 clickLoc = mainCam.ScreenToWorldPoint(Input.mousePosition);
             foreach (GameObject weapon in activeWeapons)
