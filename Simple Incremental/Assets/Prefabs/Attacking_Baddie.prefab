@@ -20,8 +20,11 @@ GameObject:
   - component: {fileID: 8238082689588871818}
   - component: {fileID: 8238082689588871817}
   - component: {fileID: 347573254}
-  m_Layer: 0
-  m_Name: Dynamic_Baddie
+  - component: {fileID: 1379140113}
+  - component: {fileID: 8695819614875871991}
+  - component: {fileID: 1379140126}
+  m_Layer: 10
+  m_Name: Attacking_Baddie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b79700cbb5ea644878844eabbcf630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 22
-  maxHealth: 22
+  health: 20
+  maxHealth: 20
   deathEvent: {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
   healEvent: {fileID: 11400000, guid: b19ae31e35a4b794bb1d6db27efb938e, type: 2}
 --- !u!114 &8238082689588871823
@@ -112,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31b0c5ad1e0f4541950114fbed3f669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 11
+  coins: 10
 --- !u!114 &1597190983701227289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2008372fd1455453cb101dc50017c303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 3
+  responseTime: 1
 --- !u!114 &8238082689588871820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +241,57 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &1379140113
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238082689588871816}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 7
+--- !u!114 &8695819614875871991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238082689588871816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5933d4563d5dca14cae7278ee45f336d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSprite: {fileID: 21300000, guid: ec930316360a643459bba1d0ba9e4b12, type: 3}
+  damage: 1
+  falloffTime: 1
+  maxPenetrations: 1
+  projectileSpeed: 1
+  projectilePrefab: {fileID: 8858608237685767088, guid: 9c2466f117f3f334d9bbbd36f89b7949,
+    type: 3}
+  layer:
+    serializedVersion: 2
+    m_Bits: 2048
+--- !u!114 &1379140126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238082689588871816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9701b5e6174a65469a65cc431fe07ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &8238082689907036574
 GameObject:
   m_ObjectHideFlags: 0

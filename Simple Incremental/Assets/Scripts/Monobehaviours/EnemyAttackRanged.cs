@@ -1,0 +1,75 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(EnemyTargeting))]
+public class EnemyAttackRanged : MonoBehaviour
+{
+
+    public Sprite projectileSprite = null;
+    public int damage = 1;
+    public float falloffTime = 1f;
+    public int maxPenetrations = 1;
+    public float projectileSpeed = 1f;
+
+    [SerializeField]
+    GameObject projectilePrefab = null;
+    [SerializeField]
+    LayerMask layer;
+    private int layerNum;
+    EnemyTargeting targeting = null;
+    bool attacking = true;
+
+    Queue<Projectile> projectiles = null;
+
+    private void Awake()
+    {
+        targeting = GetComponent<EnemyTargeting>();
+    }
+
+    private void Start()
+    {
+        projectiles = ProjectileManager.instance.projectiles;
+        layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
+        targeting.OnNewTargetAcquired += StartFiring;
+        targeting.OnTargetLost += StopFiring;
+    }
+
+    private void StartFiring()
+    {
+        StartCoroutine(Attack());
+    }
+
+    private void StopFiring()
+    {
+        attacking = false;
+    }
+
+    private IEnumerator Attack()
+    {
+        attacking = true;
+        while (attacking)
+        {
+            ShootProjectile();
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    public void ShootProjectile()
+    {
+        Projectile p = null;
+        if (projectiles.Count > 0)
+        {
+            p = projectiles.Dequeue();
+            p.transform.position = transform.position;
+            p.transform.rotation = transform.rotation;
+        }
+        else
+        {
+            GameObject go = Instantiate(projectilePrefab, transform.position, Quaternion.identity, ProjectileManager.instance.transform);
+            p = go.GetComponent<Projectile>();
+        }
+        p.gameObject.layer = layerNum;
+        p.Launch(targeting.target.position - transform.position, projectileSprite, damage, falloffTime, maxPenetrations, projectileSpeed);
+    }
+}

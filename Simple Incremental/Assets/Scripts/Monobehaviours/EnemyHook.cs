@@ -9,14 +9,14 @@ public class EnemyHook : MonoBehaviour
     SpriteRenderer spriteRenderer = null;
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
-    Movement movement = null;
+    EnemyMovement enemyMovement = null;
 
     public void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
-        movement = GetComponent<Movement>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     public bool Hook()
@@ -32,8 +32,11 @@ public class EnemyHook : MonoBehaviour
             }
             if (characterLoot != null)
                 characterLoot.coins = enemyTemplate.coins;
-            if (movement != null)
-                movement.moveSpeed = enemyTemplate.moveSpeed;
+            if (enemyMovement != null)
+            {
+                enemyMovement.moveSpeed = enemyTemplate.moveSpeed;
+                enemyMovement.responseTime = enemyTemplate.responseTime;
+            }                
             return true;
         }
         return false;

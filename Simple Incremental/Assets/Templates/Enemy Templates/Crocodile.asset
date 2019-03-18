@@ -15,4 +15,6 @@ MonoBehaviour:
   enemyName: Crocodile
   sprite: {fileID: 21300000, guid: 856344b9157d20340b341db623a3c7af, type: 3}
   health: 20
-  coints: 20
+  coins: 10
+  moveSpeed: 3
+  responseTime: 1

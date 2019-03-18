@@ -16,6 +16,10 @@ namespace SimpleIncremental.Weapon
         public float falloffTime = 1f;
         Queue<Projectile> projectiles = null;
 
+        [SerializeField]
+        LayerMask layer;
+        private int layerNum;
+
         public void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -23,6 +27,7 @@ namespace SimpleIncremental.Weapon
 
         private void Start()
         {
+            layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
             projectiles = ProjectileManager.instance.projectiles;
         }
 
@@ -40,6 +45,7 @@ namespace SimpleIncremental.Weapon
                 GameObject go = Instantiate(projectilePrefab, transform.position, Quaternion.identity, ProjectileManager.instance.transform);
                 p = go.GetComponent<Projectile>();
             }
+            p.gameObject.layer = layerNum;
             p.Launch(target - (Vector2)transform.position, projectileSprite, damage, falloffTime, maxPenetrations, projectileSpeed);
         }
     }
