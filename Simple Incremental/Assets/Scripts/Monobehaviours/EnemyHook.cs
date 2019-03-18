@@ -10,7 +10,6 @@ public class EnemyHook : MonoBehaviour
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
     Movement movement = null;
-    EnemyLevelAugment enemyLevelAugment = null;
 
     public void Awake()
     {
@@ -18,21 +17,18 @@ public class EnemyHook : MonoBehaviour
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
         movement = GetComponent<Movement>();
-        enemyLevelAugment = GetComponent<EnemyLevelAugment>();
     }
 
     public bool Hook()
     {
         if (enemyTemplate != null)
         {
-            if (enemyLevelAugment != null)
-                enemyLevelAugment.SetScale(enemyTemplate.gateJump, enemyTemplate.ramp, enemyTemplate.gate);
             if (spriteRenderer != null)
                 spriteRenderer.sprite = enemyTemplate.sprite;
             if (characterHealth != null)
             {
                 characterHealth.maxHealth = enemyTemplate.health;
-                characterHealth.ReCalculateHealth();
+                characterHealth.ResetHealth();
             }
             if (characterLoot != null)
                 characterLoot.coins = enemyTemplate.coins;

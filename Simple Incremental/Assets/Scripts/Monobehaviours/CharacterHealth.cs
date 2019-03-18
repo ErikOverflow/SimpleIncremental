@@ -16,12 +16,7 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField]
     GameEvent healEvent = null;
 
-    public void OnEnable()
-    {
-        ReCalculateHealth();
-    }
-
-    public void ReCalculateHealth()
+    public void ResetHealth()
     {
         health = maxHealth;
     }
