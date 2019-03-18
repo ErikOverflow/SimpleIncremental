@@ -17,12 +17,27 @@ public class LootItem : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Start()
+    {
+        spriteRenderer.sprite = template.itemSprite;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerInventory>() != null)
         {
-            PlayerInventory.instance.items.Add(template.GenerateNewItem());
+            InventoryItem item = template.GenerateNewItem();
+            PlayerInventory.instance.items.Add(item);
             gameObject.SetActive(false);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if(template != null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = template.itemSprite;
         }
     }
 }

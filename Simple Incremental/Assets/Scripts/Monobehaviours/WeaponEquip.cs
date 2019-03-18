@@ -55,7 +55,7 @@ namespace SimpleIncremental.Weapon
                         weap.active = false;
                     }
                 }
-                go.GetComponent<WeaponHook>().weaponTemplate = weapon.template;
+                go.GetComponent<WeaponHook>().weaponTemplate = weapon.weaponTemplate;
                 //If we have levels or exp on the weapon, update the statAugment for it.
                 go.GetComponent<WeaponStatsSystem>().ApplyAugments();
                 go.gameObject.SetActive(true);

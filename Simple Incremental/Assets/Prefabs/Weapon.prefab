@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4033322320029969561}
   - component: {fileID: 4033322320029969566}
   - component: {fileID: 4033322320029969567}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011ffad10cba1db4bbf9d0f62d57a58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponTemplate: {fileID: 11400000, guid: badcc87c33b3acf46a0e5b2d76eeec32, type: 2}
+  weaponTemplate: {fileID: 0}
 --- !u!114 &4033322320029969566
 MonoBehaviour:
   m_ObjectHideFlags: 0

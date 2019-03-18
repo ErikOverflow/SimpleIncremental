@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 8238082689588871820}
   - component: {fileID: 8238082689588871818}
   - component: {fileID: 8238082689588871817}
-  m_Layer: 0
-  m_Name: PunchingBag
+  m_Layer: 10
+  m_Name: Dynamic_Baddie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

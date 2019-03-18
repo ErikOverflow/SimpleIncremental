@@ -19,10 +19,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null)
         {
-            if(item is InventoryWeapon invWeap)
-                invWeap.equipped = !invWeap.equipped;
-            if (item.template is HPPotionTemplate hpPotionTemplate)
-                Debug.Log("Player healed: " + hpPotionTemplate.healAmount); //Implement item usage here
+            item.Use();
             itemClicked.Raise();
         }
     }
@@ -41,7 +38,7 @@ public class InventorySlot : MonoBehaviour
         {
             item = _item;
             image.enabled = true;
-            image.sprite = item.template.sprite;
+            image.sprite = item.baseItemTemplate.itemSprite;
             if (item is InventoryWeapon invWeap)
                 equippedText.enabled = invWeap.equipped;
             else
