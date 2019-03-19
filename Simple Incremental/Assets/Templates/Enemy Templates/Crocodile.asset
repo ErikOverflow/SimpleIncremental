@@ -21,8 +21,8 @@ MonoBehaviour:
   projectileSprite: {fileID: 21300000, guid: 43da6f29ed8e4bc468584e7862e83c47, type: 3}
   rangedDamage: 1
   rangedFalloffTime: 3
-  reloadTime: 0.3
+  reloadTime: 1
   maxPenetrations: 1
-  projectileSpeed: 8
+  projectileSpeed: 3
   meleeDamage: 1
   meleePunchForce: 200
