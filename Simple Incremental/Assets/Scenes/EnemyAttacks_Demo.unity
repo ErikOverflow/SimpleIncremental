@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 515792338}
   m_Layer: 8
   m_Name: Bob
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
-  deathEvent: {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
+  deathEvent: {fileID: 11400000, guid: b68d0580dfe3a964b8b501577471d921, type: 2}
   healEvent: {fileID: 11400000, guid: b19ae31e35a4b794bb1d6db27efb938e, type: 2}
 --- !u!114 &515792331
 MonoBehaviour:
@@ -886,13 +886,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &515792339
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -921,20 +921,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attacking_Baddie (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8238082689588871816, guid: 937ce6055bebad140920ec5275a9ff3a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8238082689588871819, guid: 937ce6055bebad140920ec5275a9ff3a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.33
+      value: 6.54
       objectReference: {fileID: 0}
     - target: {fileID: 8238082689588871819, guid: 937ce6055bebad140920ec5275a9ff3a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.09
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 8238082689588871819, guid: 937ce6055bebad140920ec5275a9ff3a,
         type: 3}
@@ -981,6 +976,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8238082689588871822, guid: 937ce6055bebad140920ec5275a9ff3a,
+        type: 3}
+      propertyPath: enemyTemplate
+      value: 
+      objectReference: {fileID: 11400000, guid: 9785a324ebe78654ca33ca27fc0541f3,
+        type: 2}
+    - target: {fileID: 1597190983701227289, guid: 937ce6055bebad140920ec5275a9ff3a,
+        type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238082689588871818, guid: 937ce6055bebad140920ec5275a9ff3a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4e3396d4a3c289e4688e6bcde17837cc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 937ce6055bebad140920ec5275a9ff3a, type: 3}
 --- !u!1 &809075305
@@ -5028,6 +5040,7 @@ GameObject:
   - component: {fileID: 1426095187}
   - component: {fileID: 1426095186}
   - component: {fileID: 1426095189}
+  - component: {fileID: 1426095190}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5136,6 +5149,26 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1426095190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426095185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 16
+  m_RefResolutionX: 340
+  m_RefResolutionY: 192
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1498014482
 GameObject:
   m_ObjectHideFlags: 3

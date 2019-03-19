@@ -22,7 +22,9 @@ GameObject:
   - component: {fileID: 347573254}
   - component: {fileID: 1379140113}
   - component: {fileID: 8695819614875871991}
+  - component: {fileID: 4345779612450271193}
   - component: {fileID: 1379140126}
+  - component: {fileID: 1404210634}
   m_Layer: 10
   m_Name: Attacking_Baddie
   m_TagString: Untagged
@@ -142,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  responseTime: 1
+  responseTime: 0.3
 --- !u!114 &8238082689588871820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +238,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 2
-  m_Material: {fileID: 6200000, guid: 7fdde282c55107a45a5e097e22222933, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -279,6 +281,20 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &4345779612450271193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238082689588871816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d2e577477aa5f43a6e658c4dcc7179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  punchForce: 200
 --- !u!114 &1379140126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +308,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &1404210634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238082689588871816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - {fileID: 11400000, guid: b68d0580dfe3a964b8b501577471d921, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  ResponseWithObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1379140126}
+        m_MethodName: PlayerDied
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &8238082689907036574
 GameObject:
   m_ObjectHideFlags: 0
