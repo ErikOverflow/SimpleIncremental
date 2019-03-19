@@ -17,9 +17,9 @@ public class EnemyTargeting : MonoBehaviour
     {
         if(target == null)
         {
-            CharacterHealth ch = collision.GetComponent<CharacterHealth>();
-            if (ch != null)
+            if (collision.CompareTag("Player"))
             {
+                CharacterHealth ch = collision.GetComponent<CharacterHealth>();
                 target = ch.transform;
                 OnNewTargetAcquired?.Invoke();
             }
@@ -28,7 +28,19 @@ public class EnemyTargeting : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        target = null;
-        OnTargetLost?.Invoke();
+        if(target == collision.transform)
+        {
+            target = null;
+            OnTargetLost?.Invoke();
+        }
+    }
+
+    public void PlayerDied(GameObject go)
+    {
+        if(go.transform == target)
+        {
+            target = null;
+            OnTargetLost?.Invoke();
+        }
     }
 }
