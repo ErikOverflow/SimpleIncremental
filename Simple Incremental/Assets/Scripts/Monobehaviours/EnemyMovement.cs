@@ -40,11 +40,19 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator ChaseTarget()
     {
+        float direction = Mathf.Sign((targeting.target.position - transform.position).x);
+        float lastDir = direction;
         chasing = true;
         while (chasing)
         {
-            rb2d.velocity = Mathf.Sign((targeting.target.position - transform.position).x) * Vector2.right * moveSpeed;
-            yield return new WaitForSeconds(responseTime);
+            direction = Mathf.Sign((targeting.target.position - transform.position).x);
+            if (lastDir != direction)
+            {
+                yield return new WaitForSeconds(responseTime);
+            }
+            rb2d.velocity = direction * Vector2.right * moveSpeed;
+            yield return new WaitForFixedUpdate();
+            lastDir = direction;
         }
     }
 }
