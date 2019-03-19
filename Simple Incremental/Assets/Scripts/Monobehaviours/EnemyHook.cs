@@ -11,6 +11,7 @@ public class EnemyHook : MonoBehaviour
     CharacterLoot characterLoot = null;
     EnemyMovement enemyMovement = null;
     EnemyAttackRanged enemyAttackRanged = null;
+    EnemyAttackMelee enemyAttackMelee = null;
 
     public void Awake()
     {
@@ -19,6 +20,7 @@ public class EnemyHook : MonoBehaviour
         characterLoot = GetComponent<CharacterLoot>();
         enemyMovement = GetComponent<EnemyMovement>();
         enemyAttackRanged = GetComponent<EnemyAttackRanged>();
+        enemyAttackMelee = GetComponent<EnemyAttackMelee>();
     }
 
     public bool Hook()
@@ -46,6 +48,12 @@ public class EnemyHook : MonoBehaviour
                 enemyAttackRanged.falloffTime = enemyTemplate.rangedFalloffTime;
                 enemyAttackRanged.maxPenetrations = enemyTemplate.maxPenetrations;
                 enemyAttackRanged.projectileSpeed = enemyTemplate.projectileSpeed;
+                enemyAttackRanged.reloadTime = enemyTemplate.reloadTime;
+            }
+            if(enemyAttackMelee != null)
+            {
+                enemyAttackMelee.damage = enemyTemplate.meleeDamage;
+                enemyAttackMelee.punchForce = enemyTemplate.meleePunchForce;
             }
             return true;
         }
