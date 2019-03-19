@@ -11,6 +11,7 @@ public class EnemyAttackRanged : MonoBehaviour
     public float falloffTime = 1f;
     public int maxPenetrations = 1;
     public float projectileSpeed = 1f;
+    public float reloadTime = 1f;
 
     [SerializeField]
     GameObject projectilePrefab = null;
@@ -18,7 +19,7 @@ public class EnemyAttackRanged : MonoBehaviour
     LayerMask layer;
     private int layerNum;
     EnemyTargeting targeting = null;
-    bool attacking = true;
+    bool attacking = false;
 
     Queue<Projectile> projectiles = null;
 
@@ -37,7 +38,8 @@ public class EnemyAttackRanged : MonoBehaviour
 
     private void StartFiring()
     {
-        StartCoroutine(Attack());
+        if(!attacking)
+            StartCoroutine(Attack());
     }
 
     private void StopFiring()
@@ -51,7 +53,7 @@ public class EnemyAttackRanged : MonoBehaviour
         while (attacking)
         {
             ShootProjectile();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(reloadTime);
         }
     }
 
