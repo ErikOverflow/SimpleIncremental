@@ -25,16 +25,5 @@ public class SpawnPointPool : SpawnPoint
             spawnedObjCount++;
         }
     }
-    public override void RemoveObject(GameObject go)
-    {
-        if (go != null && go.transform.parent.gameObject.GetInstanceID() == gameObject.GetInstanceID())
-        {
-            //Remove the object
-            go.SetActive(false);
-            objectPooler.ReleasePooledObject(go);
-        }
-    }
-
-
 }
 

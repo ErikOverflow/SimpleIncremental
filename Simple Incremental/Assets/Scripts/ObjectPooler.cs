@@ -53,11 +53,12 @@ void Awake()
 
     public void ReleasePooledObject(GameObject go)
     {
+        //If the object is not a pooled object destroy it.
         string name = go.name;
         if (!dict.ContainsKey(name))
         {
-            dict.Add(name, new Queue<GameObject>());
-
+            Destroy(go);
+            return;
         }
         dict[go.name].Enqueue(go);
     }

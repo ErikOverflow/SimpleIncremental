@@ -55,15 +55,6 @@ public class SpawnPoint : MonoBehaviour
         spawnedObjCount++;
     }
 
-    public virtual void RemoveObject(GameObject go)
-    {
-        //Destroy the object if this is the spawn point that created it
-        if (go != null && GameObject.ReferenceEquals(go.transform.parent.gameObject, gameObject))
-        {
-            Destroy(go);
-        }
-    }
-
     public IEnumerator SpawnEnemiesControl()
     {
         // Corotine used for spawning objects once activated

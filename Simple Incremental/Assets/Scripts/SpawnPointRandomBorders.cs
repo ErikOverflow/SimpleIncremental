@@ -51,14 +51,4 @@ public class SpawnPointRandomBorders : SpawnPoint
             spawnedObjCount++;
         }
     }
-    public override void RemoveObject(GameObject go)
-    {
-        //if (go != null && GameObject.ReferenceEquals(go.transform.parent.gameObject, gameObject))
-        if (go != null && go.transform.parent.gameObject.GetInstanceID() == gameObject.GetInstanceID())
-        {
-            //Remove the object
-            go.SetActive(false);
-            objectPooler.ReleasePooledObject(go);
-        }
-    }
 }

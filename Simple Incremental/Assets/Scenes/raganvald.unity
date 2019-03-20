@@ -273,7 +273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &305020455
 GameObject:
@@ -572,6 +572,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc059a9c00ab7e940ab59005447c25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &730581807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730581804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  ResponseWithObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 730581805}
+        m_MethodName: ReleasePooledObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &809075305
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +638,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &809075307
 MonoBehaviour:
@@ -760,7 +795,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2740781334748137101, guid: f44595c4497afe4458827dbeeb5dc786,
+        type: 3}
+      propertyPath: spawnDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074499302939285773, guid: f44595c4497afe4458827dbeeb5dc786,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4074499302939285773, guid: f44595c4497afe4458827dbeeb5dc786, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f44595c4497afe4458827dbeeb5dc786, type: 3}
 --- !u!1 &1426095185
 GameObject:
@@ -1053,7 +1099,18 @@ PrefabInstance:
       propertyPath: spawnCount
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6126237263493190554, guid: 1e4fd8fd97beafc40b3bddc16a479760,
+        type: 3}
+      propertyPath: objectPooler
+      value: 
+      objectReference: {fileID: 730581805}
+    - target: {fileID: 4926015340670253134, guid: 1e4fd8fd97beafc40b3bddc16a479760,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4926015340670253134, guid: 1e4fd8fd97beafc40b3bddc16a479760, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1e4fd8fd97beafc40b3bddc16a479760, type: 3}
 --- !u!1 &1938422198
 GameObject:
@@ -1243,7 +1300,12 @@ PrefabInstance:
     - target: {fileID: 4186417892573088267, guid: 196fb0afe34f63347acaed6f85196257,
         type: 3}
       propertyPath: m_Name
-      value: BaddieObjectPool
+      value: ObjectPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186417892573088267, guid: 196fb0afe34f63347acaed6f85196257,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4186417892573088265, guid: 196fb0afe34f63347acaed6f85196257,
         type: 3}
@@ -1283,7 +1345,7 @@ PrefabInstance:
     - target: {fileID: 4186417892573088265, guid: 196fb0afe34f63347acaed6f85196257,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4186417892573088265, guid: 196fb0afe34f63347acaed6f85196257,
         type: 3}
@@ -1378,7 +1440,7 @@ PrefabInstance:
     - target: {fileID: 7953628900646885202, guid: 6fd7a378a568bb544810d0bbf7236886,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7953628900646885202, guid: 6fd7a378a568bb544810d0bbf7236886,
         type: 3}
@@ -1469,6 +1531,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8990159268177175362, guid: 8b34e4414219c6347b9c29727c5d679a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8990159268177175361, guid: 8b34e4414219c6347b9c29727c5d679a,
         type: 3}
       propertyPath: objectPooler
@@ -1478,7 +1545,8 @@ PrefabInstance:
         type: 3}
       propertyPath: objectPrefab
       value: 
-      objectReference: {fileID: 730581804}
+      objectReference: {fileID: 19398839845925982, guid: 0a22dab5225500048a16edd2ef71e00c,
+        type: 3}
     - target: {fileID: 8990159268177175361, guid: 8b34e4414219c6347b9c29727c5d679a,
         type: 3}
       propertyPath: spawnDelay
@@ -1489,5 +1557,6 @@ PrefabInstance:
       propertyPath: spawnCount
       value: 11
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8990159268177175362, guid: 8b34e4414219c6347b9c29727c5d679a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8b34e4414219c6347b9c29727c5d679a, type: 3}
