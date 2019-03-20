@@ -53,16 +53,19 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CharacterHealth ch = collision.gameObject.GetComponent<CharacterHealth>();
-        if (ch != null)
+        if (!collision.isTrigger)
         {
-            if (maxPenetrations-- > 0)
+            CharacterHealth ch = collision.gameObject.GetComponent<CharacterHealth>();
+            if (ch != null)
             {
-                ch.TakeDamage(damage);
-            }
-            if(maxPenetrations <= 0)
-            {
-                gameObject.SetActive(false);
+                if (maxPenetrations-- > 0)
+                {
+                    ch.TakeDamage(damage);
+                }
+                if (maxPenetrations <= 0)
+                {
+                    gameObject.SetActive(false);
+                }
             }
         }
     }
