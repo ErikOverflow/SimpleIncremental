@@ -124,6 +124,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1737599743}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &76985278 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4033322320029969567, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1737599743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &296622328
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +236,7 @@ GameObject:
   - component: {fileID: 1018041645}
   - component: {fileID: 1018041647}
   - component: {fileID: 1018041648}
+  - component: {fileID: 1018041649}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -330,10 +337,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44112246125c1145a4c0e98d447a86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponController: {fileID: 1018041647}
   weaponPrefab: {fileID: 4033322320029969565, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
     type: 3}
   maxWeapons: 1
+--- !u!114 &1018041649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018041644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a770626a34da7aa47b22b106c152ab5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1505546893
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,43 +466,55 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponTemplate
       value: 
-      objectReference: {fileID: 11400000, guid: ab7fe3e9bd49def448dbbbedb4eaddf1,
+      objectReference: {fileID: 11400000, guid: 5d5f4e8f6f7b266449891feeb24f15e0,
         type: 2}
     - target: {fileID: 4033322320029969566, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
         type: 3}
       propertyPath: damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4033322320029969566, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
         type: 3}
       propertyPath: projectileSprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f,
+        type: 3}
     - target: {fileID: 4033322320029969566, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
         type: 3}
       propertyPath: projectileSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4033322320029969566, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
         type: 3}
       propertyPath: falloffTime
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4033322320029969566, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
         type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6321075124993919858, guid: c6f1f83a5d641ad41afdb44efb63f206,
+        type: 3}
     - target: {fileID: 4033322320029969566, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
         type: 3}
       propertyPath: spriteRenderer
       value: 
+      objectReference: {fileID: 76985278}
+    - target: {fileID: 4033322320029969566, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033322320029969566, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
+        type: 3}
+      propertyPath: maxPenetrations
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4033322320029969567, guid: e8cb9e3c37ad8b545a69cea559cbf1dc,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 49e1f8be520532c4a831371d8ac0f9c2,
+      objectReference: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8cb9e3c37ad8b545a69cea559cbf1dc, type: 3}
