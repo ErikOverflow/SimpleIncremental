@@ -1,12 +1,11 @@
-﻿using SimpleIncremental.Weapon;
-using System.Collections;
+﻿using SimpleIncremental.Inventory;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory instance;
-    public List<InventoryWeapon> weapons = new List<InventoryWeapon>();
+    public List<InventoryItem> items = new List<InventoryItem>();
 
     private void Awake()
     {
