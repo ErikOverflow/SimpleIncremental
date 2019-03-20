@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 8238082689588871818}
   - component: {fileID: 8238082689588871817}
   - component: {fileID: 347573254}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dynamic_Baddie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  responseTime: 1
 --- !u!114 &8238082689588871820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 2
-  m_Material: {fileID: 6200000, guid: 7fdde282c55107a45a5e097e22222933, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

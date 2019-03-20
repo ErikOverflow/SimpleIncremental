@@ -545,11 +545,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4472158887398393500, guid: 9eb1ea04bb35865459c91b988a0390dc,
-        type: 3}
-      propertyPath: target
+    - target: {fileID: 347573254, guid: 9eb1ea04bb35865459c91b988a0390dc, type: 3}
+      propertyPath: m_Material
       value: 
-      objectReference: {fileID: 515792328}
+      objectReference: {fileID: 6200000, guid: 7fdde282c55107a45a5e097e22222933, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eb1ea04bb35865459c91b988a0390dc, type: 3}
 --- !u!1 &389312133
@@ -636,9 +635,9 @@ GameObject:
   - component: {fileID: 515792337}
   - component: {fileID: 515792331}
   - component: {fileID: 515792334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bob
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -829,15 +828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a770626a34da7aa47b22b106c152ab5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - template: {fileID: 11400000, guid: badcc87c33b3acf46a0e5b2d76eeec32, type: 2}
-    level: 1
-    experience: 0
-    equipped: 0
-  - template: {fileID: 11400000, guid: ab7fe3e9bd49def448dbbbedb4eaddf1, type: 2}
-    level: 1
-    experience: 0
-    equipped: 0
 --- !u!114 &515792336
 MonoBehaviour:
   m_ObjectHideFlags: 0

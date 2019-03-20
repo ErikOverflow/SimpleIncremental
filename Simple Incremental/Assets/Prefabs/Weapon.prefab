@@ -81,6 +81,9 @@ MonoBehaviour:
   projectileSpeed: 5
   maxPenetrations: 2
   falloffTime: 3
+  layer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!212 &4033322320029969567
 SpriteRenderer:
   m_ObjectHideFlags: 0

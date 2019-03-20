@@ -20,6 +20,7 @@ public class EnemyAttackRanged : MonoBehaviour
     private int layerNum;
     EnemyTargeting targeting = null;
     bool attacking = false;
+    bool continueAttacking = false;
 
     Queue<Projectile> projectiles = null;
 
@@ -38,23 +39,25 @@ public class EnemyAttackRanged : MonoBehaviour
 
     private void StartFiring()
     {
-        if(!attacking)
+        if (!attacking)
             StartCoroutine(Attack());
     }
 
     private void StopFiring()
     {
-        attacking = false;
+        continueAttacking = false;
     }
 
     private IEnumerator Attack()
     {
         attacking = true;
-        while (attacking)
+        continueAttacking = true;
+        while (continueAttacking)
         {
             ShootProjectile();
             yield return new WaitForSeconds(reloadTime);
         }
+        attacking = false;
     }
 
     public void ShootProjectile()
