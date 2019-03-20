@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 /* This class is used for pooling objects and reusing objects for performance
@@ -7,31 +8,75 @@ using UnityEngine;
  * such as projectiles from a gun */
 public class ObjectPooler : MonoBehaviour
 {
-    public List<GameObject> pooledObjects;
-    public GameObject objectToPool;
-    public int amountToPool;
+    public static ObjectPooler instance;
+    public List<GameObject> objectsToPool; //List of game objects that will be initially poooled
+    public int initialPoolSize; //The number of initial objects that will be created for each pooled object
+    public int increaseAmount; //Number of objects to create when min pool size is reached
+    public int minPoolSize; //Minimum size before more objects are added
+    private static Dictionary<string, Queue<GameObject>> dict = new Dictionary<string, Queue<GameObject>>();
 
-    void Start()
+void Awake()
     {
-        pooledObjects = new List<GameObject>();
-        for (int i = 0; i < amountToPool; i++)
+        if (instance == null)
         {
-            GameObject obj = (GameObject)Instantiate(objectToPool);
-            obj.transform.SetParent(transform);
-            obj.SetActive(false);
-            pooledObjects.Add(obj);
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
         }
     }
 
-    public GameObject GetPooledObject()
+    void Start()
     {
-        for (int i = 0; i < pooledObjects.Count; i++)
+        foreach (GameObject obj in objectsToPool)
         {
-            if (!pooledObjects[i].activeInHierarchy)
-            {
-                return pooledObjects[i];
-            }
+            AddPoolObjects(obj, initialPoolSize);
         }
-        return null;
+    }
+
+    public GameObject GetPooledObject(GameObject go)
+    {
+        string name = go.name;
+        if (!dict.ContainsKey(name))
+        {
+            dict.Add(name, new Queue<GameObject>());
+
+        }
+
+        if (dict[go.name].Count <= minPoolSize)
+        {
+            AddPoolObjects(go, increaseAmount);
+        }
+        return dict[go.name].Dequeue();
     }       
+
+    public void ReleasePooledObject(GameObject go)
+    {
+        string name = go.name;
+        if (!dict.ContainsKey(name))
+        {
+            dict.Add(name, new Queue<GameObject>());
+
+        }
+        dict[go.name].Enqueue(go);
+    }
+
+    private void AddPoolObjects (GameObject go, int amountToAdd)
+    {
+        string name = go.name;
+        if (!dict.ContainsKey(name))
+        {
+            dict.Add(name, new Queue<GameObject>());
+
+        }
+        for (int i = 0; i < amountToAdd; i++)
+        {
+            GameObject obj = (GameObject)Instantiate(go);
+            obj.name = name;
+            obj.transform.SetParent(transform);
+            obj.SetActive(false);
+            dict[name].Enqueue(obj);
+        }
+    }
 }

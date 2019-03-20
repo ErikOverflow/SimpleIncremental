@@ -991,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 6126237263493190552, guid: 1e4fd8fd97beafc40b3bddc16a479760,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6126237263493190556, guid: 1e4fd8fd97beafc40b3bddc16a479760,
         type: 3}
@@ -1300,6 +1300,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
+        type: 3}
+      propertyPath: objectsToPool.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
+        type: 3}
+      propertyPath: initialPoolSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
+        type: 3}
+      propertyPath: increaseAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
+        type: 3}
+      propertyPath: objectsToPool.Array.data[0]
+      value: 
+      objectReference: {fileID: 19398839845925982, guid: 0a22dab5225500048a16edd2ef71e00c,
+        type: 3}
+    - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
+        type: 3}
+      propertyPath: minPoolSize
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 196fb0afe34f63347acaed6f85196257, type: 3}
 --- !u!1001 &7953628900959907504
@@ -1386,7 +1412,7 @@ PrefabInstance:
     - target: {fileID: 8990159268177175360, guid: 8b34e4414219c6347b9c29727c5d679a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8990159268177175365, guid: 8b34e4414219c6347b9c29727c5d679a,
         type: 3}
@@ -1453,5 +1479,15 @@ PrefabInstance:
       propertyPath: objectPrefab
       value: 
       objectReference: {fileID: 730581804}
+    - target: {fileID: 8990159268177175361, guid: 8b34e4414219c6347b9c29727c5d679a,
+        type: 3}
+      propertyPath: spawnDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990159268177175361, guid: 8b34e4414219c6347b9c29727c5d679a,
+        type: 3}
+      propertyPath: spawnCount
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b34e4414219c6347b9c29727c5d679a, type: 3}

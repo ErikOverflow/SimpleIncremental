@@ -11,12 +11,14 @@ public class SpawnPointPool : SpawnPoint
     public override void SpawnObject()
     {
         //Spawn a new object from the object pooler
-        GameObject newObject = objectPooler.GetPooledObject();
+        GameObject newObject = objectPooler.GetPooledObject(objectPrefab);
         if (newObject != null)
         {
             newObject.transform.position = transform.position;
             newObject.transform.rotation = transform.rotation;
             newObject.SetActive(true);
+            //Set this item as the parent to the object
+            newObject.transform.SetParent(transform);
             //Notify the game a new object has spawned
             spawnEvent.Raise(newObject);
             //Track number of objects spawned
@@ -25,10 +27,11 @@ public class SpawnPointPool : SpawnPoint
     }
     public override void RemoveObject(GameObject go)
     {
-        if (go != null && GameObject.ReferenceEquals(go.transform.parent.gameObject, gameObject))
+        if (go != null && go.transform.parent.gameObject.GetInstanceID() == gameObject.GetInstanceID())
         {
             //Remove the object
             go.SetActive(false);
+            objectPooler.ReleasePooledObject(go);
         }
     }
 
