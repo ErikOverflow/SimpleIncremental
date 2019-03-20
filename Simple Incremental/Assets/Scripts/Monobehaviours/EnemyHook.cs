@@ -9,14 +9,18 @@ public class EnemyHook : MonoBehaviour
     SpriteRenderer spriteRenderer = null;
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
-    Movement movement = null;
+    EnemyMovement enemyMovement = null;
+    EnemyAttackRanged enemyAttackRanged = null;
+    EnemyAttackMelee enemyAttackMelee = null;
 
     public void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
-        movement = GetComponent<Movement>();
+        enemyMovement = GetComponent<EnemyMovement>();
+        enemyAttackRanged = GetComponent<EnemyAttackRanged>();
+        enemyAttackMelee = GetComponent<EnemyAttackMelee>();
     }
 
     public bool Hook()
@@ -32,8 +36,25 @@ public class EnemyHook : MonoBehaviour
             }
             if (characterLoot != null)
                 characterLoot.coins = enemyTemplate.coins;
-            if (movement != null)
-                movement.moveSpeed = enemyTemplate.moveSpeed;
+            if (enemyMovement != null)
+            {
+                enemyMovement.moveSpeed = enemyTemplate.moveSpeed;
+                enemyMovement.responseTime = enemyTemplate.responseTime;
+            }                
+            if(enemyAttackRanged != null)
+            {
+                enemyAttackRanged.projectileSprite = enemyTemplate.projectileSprite;
+                enemyAttackRanged.damage = enemyTemplate.rangedDamage;
+                enemyAttackRanged.falloffTime = enemyTemplate.rangedFalloffTime;
+                enemyAttackRanged.maxPenetrations = enemyTemplate.maxPenetrations;
+                enemyAttackRanged.projectileSpeed = enemyTemplate.projectileSpeed;
+                enemyAttackRanged.reloadTime = enemyTemplate.reloadTime;
+            }
+            if(enemyAttackMelee != null)
+            {
+                enemyAttackMelee.damage = enemyTemplate.meleeDamage;
+                enemyAttackMelee.punchForce = enemyTemplate.meleePunchForce;
+            }
             return true;
         }
         return false;

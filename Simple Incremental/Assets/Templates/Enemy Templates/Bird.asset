@@ -16,4 +16,13 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 4e3396d4a3c289e4688e6bcde17837cc, type: 3}
   health: 25
   coins: 1
-  moveSpeed: 1
+  moveSpeed: 2
+  responseTime: 1
+  projectileSprite: {fileID: 21300000, guid: d9b64ba282adfaa4ca9a9e149bd91b54, type: 3}
+  rangedDamage: 1
+  rangedFalloffTime: 3
+  reloadTime: 1
+  maxPenetrations: 1
+  projectileSpeed: 8
+  meleeDamage: 1
+  meleePunchForce: 200

@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 19398839845925977}
   - component: {fileID: 5478395279257612362}
   - component: {fileID: 1106169587322257052}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Baddie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Applied: 1
   priority: 1
-  level: 1
+  ramp: 0.1
+  gate: 5
+  gateJump: 2
 --- !u!212 &19398839845925980
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -250,8 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  target: {fileID: 0}
-  terminationDistance: 0.1
+  responseTime: 1
 --- !u!114 &1106169587322257052
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,6 +28,9 @@ public class Projectile : MonoBehaviour
     public void Launch(Vector2 direction, Sprite _sprite, int _damage, float _falloffTime, int _maxPenetrations, float _speed)
     {
         gameObject.SetActive(true);
+        Vector3 diff = direction.normalized;
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
         spriteRenderer.sprite = _sprite;
         damage = _damage;
         falloffTime = _falloffTime;
@@ -50,16 +53,19 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CharacterHealth ch = collision.gameObject.GetComponent<CharacterHealth>();
-        if (ch != null)
+        if (!collision.isTrigger)
         {
-            if (maxPenetrations-- > 0)
+            CharacterHealth ch = collision.gameObject.GetComponent<CharacterHealth>();
+            if (ch != null)
             {
-                ch.TakeDamage(damage);
-            }
-            if(maxPenetrations <= 0)
-            {
-                gameObject.SetActive(false);
+                if (maxPenetrations-- > 0)
+                {
+                    ch.TakeDamage(damage);
+                }
+                if (maxPenetrations <= 0)
+                {
+                    gameObject.SetActive(false);
+                }
             }
         }
     }
