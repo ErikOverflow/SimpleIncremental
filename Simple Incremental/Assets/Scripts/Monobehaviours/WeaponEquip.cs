@@ -1,5 +1,4 @@
-﻿using SimpleIncremental.Inventory;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -30,7 +29,7 @@ namespace SimpleIncremental.Weapon
                 go.SetActive(false);
             }
             weaponController.activeWeapons.Clear();
-            foreach (InventoryWeapon invWeapon in PlayerInventory.instance.items.OfType<InventoryWeapon>().Where(w => w.equipped))
+            foreach (InventoryWeapon invWeapon in PlayerInventory.instance.weapons.Where(w => w.equipped))
             {
                 EquipWeapon(invWeapon);
             }
@@ -55,7 +54,7 @@ namespace SimpleIncremental.Weapon
                         weap.active = false;
                     }
                 }
-                go.GetComponent<WeaponHook>().weaponTemplate = weapon.weaponTemplate;
+                go.GetComponent<WeaponHook>().weaponTemplate = weapon.template;
                 //If we have levels or exp on the weapon, update the statAugment for it.
                 go.GetComponent<WeaponStatsSystem>().ApplyAugments();
                 go.gameObject.SetActive(true);

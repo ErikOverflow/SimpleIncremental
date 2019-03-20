@@ -34,9 +34,9 @@ public class InventoryUI : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < inventory.items.Count)
+            if (i < inventory.weapons.Count)
             {
-                slots[i].CreateSlot(inventory.items[i]);
+                slots[i].CreateSlot(inventory.weapons[i]);
             }
             else
             {
