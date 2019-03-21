@@ -12,17 +12,11 @@ public class Projectile : MonoBehaviour
     float falloffTime = 0f;
     int maxPenetrations = 1;
     float speed = 1f;
-    Queue<Projectile> projectiles = null;
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void Start()
-    {
-        projectiles = ProjectileManager.instance.projectiles;
     }
 
     public void Launch(Vector2 direction, Sprite _sprite, int _damage, float _falloffTime, int _maxPenetrations, float _speed)
@@ -38,11 +32,6 @@ public class Projectile : MonoBehaviour
         speed = _speed;
         rb2d.velocity = direction.normalized * speed;
         StartCoroutine(Lifetime());
-    }
-
-    private void OnDisable()
-    {
-        projectiles.Enqueue(this);
     }
 
     private IEnumerator Lifetime()
