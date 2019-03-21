@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,17 +8,14 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler instance;
-    public List<GameObject> objectsToPool; //List of game objects that will be initially poooled
-    public int initialPoolSize; //The number of initial objects that will be created for each pooled object
-    public int increaseAmount; //Number of objects to create when min pool size is reached
-    public int minPoolSize; //Minimum size before more objects are added
-    private static Dictionary<string, Queue<GameObject>> dict = new Dictionary<string, Queue<GameObject>>();
+    public Dictionary<string, Queue<GameObject>> dict = null;
 
-void Awake()
+    void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            dict = new Dictionary<string, Queue<GameObject>>();
         }
         else
         {
@@ -27,57 +23,39 @@ void Awake()
         }
     }
 
-    void Start()
-    {
-        foreach (GameObject obj in objectsToPool)
-        {
-            AddPoolObjects(obj, initialPoolSize);
-        }
-    }
-
     public GameObject GetPooledObject(GameObject go)
     {
-        string name = go.name;
-        if (!dict.ContainsKey(name))
+        if (!dict.ContainsKey(go.name))
         {
-            dict.Add(name, new Queue<GameObject>());
-
+            dict.Add(go.name, new Queue<GameObject>());
         }
 
-        if (dict[go.name].Count <= minPoolSize)
+        if (dict[go.name].Count > 0)
         {
-            AddPoolObjects(go, increaseAmount);
+            return dict[go.name].Dequeue();
         }
-        return dict[go.name].Dequeue();
-    }       
+        else
+        {
+            GameObject newGo = Instantiate(go);
+            PoolableObject po = newGo.GetComponent<PoolableObject>();
+            if( po == null)
+            {
+                po = newGo.AddComponent<PoolableObject>();
+            }
+            po.prefabName = go.name;
+            return newGo;
+        }
 
-    public void ReleasePooledObject(GameObject go)
-    {
-        //If the object is not a pooled object destroy it.
-        string name = go.name;
-        if (!dict.ContainsKey(name))
-        {
-            Destroy(go);
-            return;
-        }
-        dict[go.name].Enqueue(go);
     }
 
-    private void AddPoolObjects (GameObject go, int amountToAdd)
+    public void ReleasePooledObject(PoolableObject po)
     {
-        string name = go.name;
-        if (!dict.ContainsKey(name))
+        if (!dict.ContainsKey(po.prefabName))
         {
-            dict.Add(name, new Queue<GameObject>());
+            dict.Add(po.prefabName, new Queue<GameObject>());
+        }
+        dict[po.prefabName].Enqueue(po.gameObject);
 
-        }
-        for (int i = 0; i < amountToAdd; i++)
-        {
-            GameObject obj = (GameObject)Instantiate(go);
-            obj.name = name;
-            obj.transform.SetParent(transform);
-            obj.SetActive(false);
-            dict[name].Enqueue(obj);
-        }
+        Debug.Log(dict.Count);
     }
 }
