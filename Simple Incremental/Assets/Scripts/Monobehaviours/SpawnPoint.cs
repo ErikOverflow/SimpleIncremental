@@ -36,6 +36,8 @@ public class SpawnPoint : MonoBehaviour
     {
         GameObject newObject = ObjectPooler.instance.GetPooledObject(objectPrefab);
         newObject.transform.SetParent(transform);
+        newObject.transform.localPosition = Vector3.zero;
+        newObject.SetActive(true);
         spawnCount++;
     }
 
