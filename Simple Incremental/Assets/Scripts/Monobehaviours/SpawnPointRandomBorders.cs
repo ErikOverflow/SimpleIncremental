@@ -13,10 +13,7 @@ public class SpawnPointRandomBorders : SpawnPoint
 
     public override void SpawnObject()
     {
-
-        //Spawn a new object at a random location 
-        Vector3 randomRange;
-        Vector3 origin = transform.position;
+        Vector3 randomRange = Vector3.zero;
 
         //Force the spawn to happen at the edge of the screen except the bottom
         switch (Random.Range(0, 4))
@@ -32,23 +29,15 @@ public class SpawnPointRandomBorders : SpawnPoint
                 break;
         }
 
-        //Offset the spawn by the origin location of the object Container
-        Vector3 randomCoordinate = origin + randomRange;
-
-
         //Spawn a new object from the object pooler
-        GameObject newObject = objectPooler.GetPooledObject(objectPrefab);
+        GameObject newObject = ObjectPooler.instance.GetPooledObject(objectPrefab);
         if (newObject != null)
         {
-            newObject.transform.position = randomCoordinate;
+            newObject.transform.SetParent(transform);
+            newObject.transform.localPosition = randomRange;
             newObject.transform.rotation = Quaternion.identity;
             newObject.SetActive(true);
-            //Set this item as the parent to the object
-            newObject.transform.SetParent(transform);
-            //Notify the game a new object has spawned
-            spawnEvent.Raise(newObject);
-            //Track number of objects spawned
-            spawnedObjCount++;
+            spawnCount++;
         }
     }
 }

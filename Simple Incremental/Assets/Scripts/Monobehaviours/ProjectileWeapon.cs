@@ -14,7 +14,6 @@ namespace SimpleIncremental.Weapon
         public float projectileSpeed = 1f;
         public int maxPenetrations = 1;
         public float falloffTime = 1f;
-        Queue<Projectile> projectiles = null;
 
         [SerializeField]
         LayerMask layer;
@@ -28,23 +27,15 @@ namespace SimpleIncremental.Weapon
         private void Start()
         {
             layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
-            projectiles = ProjectileManager.instance.projectiles;
         }
 
         public override void Attack(Vector2 target)
         {
-            Projectile p = null;
-            if (projectiles.Count > 0)
-            {
-                p = projectiles.Dequeue();
-                p.transform.position = transform.position;
-                p.transform.rotation = transform.rotation;
-            }
-            else
-            {
-                GameObject go = Instantiate(projectilePrefab, transform.position, Quaternion.identity, ProjectileManager.instance.transform);
-                p = go.GetComponent<Projectile>();
-            }
+            GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
+            Projectile p = go.GetComponent<Projectile>();
+            go.transform.position = transform.position;
+            go.transform.rotation = Quaternion.identity;
+            go.transform.parent = transform;
             p.gameObject.layer = layerNum;
             p.Launch(target - (Vector2)transform.position, projectileSprite, damage, falloffTime, maxPenetrations, projectileSpeed);
         }

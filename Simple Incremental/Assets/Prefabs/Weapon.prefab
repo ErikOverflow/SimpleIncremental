@@ -74,8 +74,9 @@ MonoBehaviour:
   damage: 5
   attackSpeed: 0.5
   active: 1
-  projectilePrefab: {fileID: 6321075124993919858, guid: c6f1f83a5d641ad41afdb44efb63f206,
+  projectilePrefab: {fileID: 8858608237685767088, guid: 9c2466f117f3f334d9bbbd36f89b7949,
     type: 3}
+  projectileContainer: {fileID: 0}
   spriteRenderer: {fileID: 4033322320029969567}
   projectileSprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
   projectileSpeed: 5
