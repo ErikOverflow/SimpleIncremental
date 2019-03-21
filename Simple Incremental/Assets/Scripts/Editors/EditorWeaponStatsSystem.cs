@@ -31,8 +31,8 @@ namespace SimpleIncremental.Weapon
             myStatSystem.Awake();
             WeaponHook weaponHook = myStatSystem.GetComponent<WeaponHook>();
             weaponHook.Awake();
-            ProjectileWeapon projectileWeapon = myStatSystem.GetComponent<ProjectileWeapon>();
-            projectileWeapon.Awake();
+            //ProjectileWeapon projectileWeapon = myStatSystem.GetComponent<ProjectileWeapon>();
+            //projectileWeapon.Awake();
             StatAugment[] statAugments = myStatSystem.GetComponentsInChildren<StatAugment>();
             foreach (StatAugment augment in statAugments)
             {
