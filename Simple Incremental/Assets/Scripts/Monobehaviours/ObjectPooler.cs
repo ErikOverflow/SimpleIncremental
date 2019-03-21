@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,7 +9,15 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler instance;
-    public Dictionary<string, Queue<GameObject>> dict = null;
+    public List<PrePooledObjects> prePooledObjects;
+    private Dictionary<string, Queue<GameObject>> dict = null;
+
+    [Serializable]
+    public struct PrePooledObjects
+    {
+        public GameObject gameObject;
+        public int count;
+    }
 
     void Awake()
     {
@@ -20,6 +29,23 @@ public class ObjectPooler : MonoBehaviour
         else
         {
             Destroy(this);
+        }
+    }
+
+    private void Start()
+    {
+        List<GameObject> pooledObjects = new List<GameObject>();
+        foreach(PrePooledObjects prePoolObj in prePooledObjects)
+        {
+            for(int i = 0; i<prePoolObj.count; i++)
+            {
+                pooledObjects.Add(GetPooledObject(prePoolObj.gameObject));
+            }
+        }
+
+        foreach(GameObject go in pooledObjects)
+        {
+            go.SetActive(false);
         }
     }
 
@@ -55,7 +81,5 @@ public class ObjectPooler : MonoBehaviour
             dict.Add(po.prefabName, new Queue<GameObject>());
         }
         dict[po.prefabName].Enqueue(po.gameObject);
-
-        Debug.Log(dict.Count);
     }
 }
