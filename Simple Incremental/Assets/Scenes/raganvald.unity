@@ -1380,6 +1380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
         type: 3}
+      propertyPath: prePooledObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
+        type: 3}
       propertyPath: initialPoolSize
       value: 5
       objectReference: {fileID: 0}
@@ -1397,6 +1402,17 @@ PrefabInstance:
     - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
         type: 3}
       propertyPath: minPoolSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
+        type: 3}
+      propertyPath: prePooledObjects.Array.data[0].gameObject
+      value: 
+      objectReference: {fileID: 19398839845925982, guid: 0a22dab5225500048a16edd2ef71e00c,
+        type: 3}
+    - target: {fileID: 4186417892573088266, guid: 196fb0afe34f63347acaed6f85196257,
+        type: 3}
+      propertyPath: prePooledObjects.Array.data[0].count
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4186417892573088267, guid: 196fb0afe34f63347acaed6f85196257,
