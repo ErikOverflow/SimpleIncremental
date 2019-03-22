@@ -1,10 +1,8 @@
-﻿using SimpleIncremental.Inventory;
-using SimpleIncremental.Weapon;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponHook : MonoBehaviour
 {
-    public WeaponTemplate weaponTemplate = null;
+    //public WeaponTemplate weaponTemplate = null;
     //ProjectileWeapon projectileWeapon = null;
 
     public void Awake()
@@ -14,8 +12,8 @@ public class WeaponHook : MonoBehaviour
 
     public bool Hook()
     {
-        if (weaponTemplate != null)
-        {
+        //if (weaponTemplate != null)
+        //{
             //if(weaponTemplate is RangedWeaponTemplate projectileTemplate)
             //{
             //    projectileWeapon.active = true;
@@ -28,7 +26,7 @@ public class WeaponHook : MonoBehaviour
             //    projectileWeapon.attackSpeed = projectileTemplate.attackSpeed;
             //    return true;
             //}
-        }
+        //}
         return false;
     }
 }

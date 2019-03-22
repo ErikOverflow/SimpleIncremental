@@ -1,11 +1,10 @@
-﻿using SimpleIncremental.Inventory;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory instance;
-    public List<InventoryItem> items = new List<InventoryItem>();
+    public List<ItemInstance> items = new List<ItemInstance>();
 
     private void Awake()
     {

@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a87b730c0a6007c47a7a506659470ca2, type: 3}
+  m_Script: {fileID: 0}
   m_Name: Throwing Knife
-  m_EditorClassIdentifier: 
-  itemName: Throwing Knife
-  itemSprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
-  attackSpeed: 0.5
-  damage: 5
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponRanged
+  itemName: Kuh-nife
+  sprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
+  damage: 2
+  attackSpeed: 1
   projectileSprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
   projectileSpeed: 5
-  maxPenetrations: 2
-  falloffTime: 3
+  maxHits: 1
+  falloffTime: 5

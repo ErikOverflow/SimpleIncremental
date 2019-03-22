@@ -1,11 +1,10 @@
-﻿using SimpleIncremental.Inventory;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    InventoryItem item = null;
+    ItemInstance item = null;
     [SerializeField]
     Image image = null;
     [SerializeField]
@@ -32,17 +31,17 @@ public class InventorySlot : MonoBehaviour
         emptySlot.enabled = true;
     }
 
-    public void CreateSlot(InventoryItem _item)
+    public void CreateSlot(ItemInstance _item)
     {
         if (_item != null)
         {
             item = _item;
             image.enabled = true;
-            image.sprite = item.baseItemTemplate.itemSprite;
-            if (item is InventoryWeapon invWeap)
-                equippedText.enabled = invWeap.equipped;
-            else
-                equippedText.enabled = false;
+            image.sprite = item.item.sprite;
+            //if (item is InventoryWeapon invWeap)
+            //    equippedText.enabled = invWeap.equipped;
+            //else
+            equippedText.enabled = false;
             emptySlot.enabled = false;
         }
     }
