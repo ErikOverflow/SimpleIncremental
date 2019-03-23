@@ -6,6 +6,11 @@ public class PlayerAwards : MonoBehaviour
 {
     public int coins = 0;
 
+    public void Start()
+    {
+        coins = DataController.gameData.coins;
+    }
+
     public void GainCoins(int amount)
     {
         coins += amount;
