@@ -29,7 +29,7 @@ public class CharacterHealth : MonoBehaviour
             if (health <= 0)
             {
                 health = 0;
-                deathEvent.Raise(gameObject);
+                deathEvent.Raise();
                 gameObject.SetActive(false);
             }
             HealthChanged?.Invoke();
