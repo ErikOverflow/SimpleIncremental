@@ -139,7 +139,8 @@ MonoBehaviour:
   image: {fileID: 2954943029262048175}
   equippedText: {fileID: 2954943029384971720}
   emptySlot: {fileID: 2954943028031653892}
-  itemClicked: {fileID: 11400000, guid: 991efc3d0aefede48bdb450f5adeddc1, type: 2}
+  itemEquipped: {fileID: 11400000, guid: af2dc567244d93c4eaf5b9d3b596d1f4, type: 2}
+  itemConsumed: {fileID: 11400000, guid: 16b0de9cc3b4ab846b66aabe04d3703d, type: 2}
 --- !u!114 &2954943028842985870
 MonoBehaviour:
   m_ObjectHideFlags: 0

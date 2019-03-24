@@ -22,7 +22,7 @@ public class WeaponRangedController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
             Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 dir = mousePos - transform.position;

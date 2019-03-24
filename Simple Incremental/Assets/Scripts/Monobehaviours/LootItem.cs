@@ -23,7 +23,7 @@ public class LootItem : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerInventory>() != null)
         {
-            ItemInstance item = new ItemInstance();
+            ItemInstance item = ItemInstance.GetItemInstance(template);
             item.item = template;
             PlayerInventory.instance.items.Add(item);
             gameObject.SetActive(false);

@@ -19,11 +19,16 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null)
         {
-            item.Use();
-            if (item is EquipmentInstance)
+            if (item is EquipmentInstance equipment)
+            {
+                equipment.Use();
                 itemEquipped.Raise();
+            }
             else
+            {
+                item.Use();
                 itemConsumed.Raise();
+            }
         }
     }
 
