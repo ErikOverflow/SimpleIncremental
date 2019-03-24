@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 515792334}
   - component: {fileID: 515792339}
   - component: {fileID: 515792340}
+  - component: {fileID: 515792341}
   m_Layer: 8
   m_Name: Bob
   m_TagString: Player
@@ -855,6 +856,25 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 4096
+--- !u!95 &515792341
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515792327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8067b07d69acf854684579a42878a130, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &663031691
 Rigidbody2D:
   serializedVersion: 4
