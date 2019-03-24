@@ -10,10 +10,11 @@ public class EquipmentInstance : ItemInstance
     public EquipmentInstance(Equipment _item)
     {
         item = _item;
+        equipped = false;
     }
 
     public override void Use()
     {
-        equipped = !equipped;
+        PlayerInventory.instance.EquipWeapon(this);
     }
 }

@@ -8,13 +8,12 @@ public class InventorySlot : MonoBehaviour
     [SerializeField]
     Image image = null;
     [SerializeField]
-    TextMeshProUGUI equippedText = null;
-    [SerializeField]
     Image emptySlot = null;
     [SerializeField]
     GameEvent itemEquipped = null;
     [SerializeField]
     GameEvent itemConsumed = null;
+
     public void Clicked()
     {
         if (item != null)
@@ -36,7 +35,6 @@ public class InventorySlot : MonoBehaviour
     {
         item = null;
         image.enabled = false;
-        equippedText.enabled = false;
         emptySlot.enabled = true;
     }
 
@@ -47,10 +45,6 @@ public class InventorySlot : MonoBehaviour
             item = _item;
             image.enabled = true;
             image.sprite = item.item.sprite;
-            if (item is EquipmentInstance equipment)
-                equippedText.enabled = equipment.equipped;
-            else
-                equippedText.enabled = false;
             emptySlot.enabled = false;
         }
     }

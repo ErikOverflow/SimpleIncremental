@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2740781334748137103}
   - component: {fileID: 2740781334748137102}
   - component: {fileID: 2740781334748137101}
-  - component: {fileID: 4074499302939285773}
   m_Layer: 0
   m_Name: SpawnPointBasic
   m_TagString: Untagged
@@ -82,43 +81,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 19398839845925982, guid: 0a22dab5225500048a16edd2ef71e00c,
     type: 3}
-  spawnCount: 3
+  maximumSpawns: 0
   spawnDelay: 3
-  triggerID: 0
-  spawnEvent: {fileID: 11400000, guid: c0820568168dc5d45a92863a843f7c3a, type: 2}
-  spawnedObjCount: 0
---- !u!114 &4074499302939285773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2740781334748137100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2740781334748137101}
-        m_MethodName: RemoveObject
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  triggers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

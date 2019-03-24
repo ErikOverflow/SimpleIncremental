@@ -7,6 +7,8 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]
     Transform itemsParent = null;
     InventorySlot[] slots;
+    [SerializeField]
+    InventorySlot weaponSlot = null;
     PlayerInventory inventory = null;
     bool initialized = false;
     // Start is called before the first frame update
@@ -43,6 +45,10 @@ public class InventoryUI : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+        if (inventory.weapon != null)
+            weaponSlot.CreateSlot(inventory.weapon);
+        else
+            weaponSlot.ClearSlot();
 
     }
 }

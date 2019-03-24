@@ -1,6 +1,4 @@
-﻿using UnityEditor.SceneManagement;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class EnemyHook : MonoBehaviour
 {
