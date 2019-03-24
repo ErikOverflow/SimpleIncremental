@@ -26,21 +26,24 @@ public class PlayerInventory : MonoBehaviour
 
     public void EquipWeapon(EquipmentInstance equipmentInstance)
     {
-        if(weapon == equipmentInstance)
+        if (equipmentInstance != null)
         {
-            items.Add(weapon);
-            weapon = null;
-        }
-        else if (weapon == null)
-        {
-            weapon = equipmentInstance;
-            items.Remove(equipmentInstance);
-        }
-        else
-        {
-            items.Add(weapon);
-            weapon = equipmentInstance;
-            items.Remove(equipmentInstance);
+            if (weapon == equipmentInstance)
+            {
+                items.Add(weapon);
+                weapon = null;
+            }
+            else if (weapon == null)
+            {
+                weapon = equipmentInstance;
+                items.Remove(equipmentInstance);
+            }
+            else
+            {
+                items.Add(weapon);
+                weapon = equipmentInstance;
+                items.Remove(equipmentInstance);
+            }
         }
     }
 }
