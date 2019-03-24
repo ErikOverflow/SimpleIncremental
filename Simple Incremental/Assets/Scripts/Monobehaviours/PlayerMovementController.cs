@@ -12,41 +12,56 @@ public class PlayerMovementController : MonoBehaviour
     public LayerMask groundLayer;
 
     float horizontalForce;
+    bool jump;
     Rigidbody2D rigidBody;
     Vector2 currentVelocity = Vector2.zero;
     float normalizeSpeed = 10f;  //Used to make velocity numbers look reasonable
+    bool grounded;
+    int groundLayerID;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        groundLayerID = LayerMask.NameToLayer("Ground");
+    }
+
+    private void Update()
+    {
+        horizontalForce = Input.GetAxisRaw(horizontalAxis);
+        if (Input.GetKeyDown("space") && grounded)
+        {
+            jump = true;
+        }
     }
 
     private void FixedUpdate()
     {
-        horizontalForce = Input.GetAxis(horizontalAxis);
-
         var targetVelocity = new Vector2(horizontalForce * horizontalSpeed * normalizeSpeed * Time.deltaTime, rigidBody.velocity.y);
         rigidBody.velocity = Vector2.SmoothDamp(rigidBody.velocity, targetVelocity, ref currentVelocity, horizontalSmoothing);
 
         // If the player should jump...
-        if (Input.GetKeyDown("space") && IsGrounded())
+        if (jump && grounded)
         {
             rigidBody.AddForce(new Vector2(0f, jumpForce));
+            jump = false;
         }
 
     }
-    private bool IsGrounded()
-    {
-        Vector2 position = transform.position;
-        Vector2 direction = Vector2.down;
-        float distance = 1.0f;
 
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
-        if (hit.collider != null)
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.layer == groundLayerID)
         {
-            return true;
+            grounded = true;
         }
 
-        return false;
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.layer == groundLayerID)
+        {
+            grounded = false;
+        }
     }
 }
