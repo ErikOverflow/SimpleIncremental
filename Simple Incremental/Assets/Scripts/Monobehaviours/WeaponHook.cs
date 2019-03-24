@@ -2,31 +2,48 @@
 
 public class WeaponHook : MonoBehaviour
 {
-    //public WeaponTemplate weaponTemplate = null;
-    //ProjectileWeapon projectileWeapon = null;
+    [HideInInspector]
+    public EquipmentInstance equipmentInstance = null;
+    [Header("Default \"Unequipped\" Template")]
+    [SerializeField]
+    Weapon defaultValues = null;
+
+    WeaponRangedController weaponRangedController = null;
 
     public void Awake()
     {
-        //projectileWeapon = GetComponent<ProjectileWeapon>();
+        weaponRangedController = GetComponent<WeaponRangedController>();
     }
 
-    public bool Hook()
+    public void Hook()
     {
-        //if (weaponTemplate != null)
-        //{
-            //if(weaponTemplate is RangedWeaponTemplate projectileTemplate)
-            //{
-            //    projectileWeapon.active = true;
-            //    projectileWeapon.spriteRenderer.sprite = projectileTemplate.itemSprite;
-            //    projectileWeapon.projectileSpeed = projectileTemplate.projectileSpeed;
-            //    projectileWeapon.projectileSprite = projectileTemplate.projectileSprite;
-            //    projectileWeapon.maxPenetrations = projectileTemplate.maxPenetrations;
-            //    projectileWeapon.falloffTime = projectileTemplate.falloffTime;
-            //    projectileWeapon.damage = projectileTemplate.damage;
-            //    projectileWeapon.attackSpeed = projectileTemplate.attackSpeed;
-            //    return true;
-            //}
-        //}
-        return false;
+        if (equipmentInstance.equipped)
+        {
+            if(equipmentInstance.item is Weapon weapon)
+            {
+                HookWeapon(weapon);
+            }
+            else
+            {
+                throw new System.Exception("Non-weapon was attached to the weapon hook");
+            }
+        }
+        else
+        {
+            HookWeapon(defaultValues);
+        }
+    }
+
+    private void HookWeapon(Weapon weapon)
+    {
+        if (weapon is WeaponRanged weaponRanged)
+        {
+            weaponRangedController.gameObject.SetActive(true);
+            weaponRangedController.damage = weaponRanged.damage;
+            weaponRangedController.falloffTime = weaponRanged.falloffTime;
+            weaponRangedController.maxHits = weaponRanged.maxHits;
+            weaponRangedController.projectileSpeed = weaponRanged.projectileSpeed;
+            weaponRangedController.projectileSprite = weaponRanged.projectileSprite;
+        }
     }
 }

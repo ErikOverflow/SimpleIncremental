@@ -21,7 +21,7 @@ public class WeaponStatsSystem : MonoBehaviour
 
     public void ApplyAugments()
     {
-        if (weaponHook.Hook())
+        weaponHook.Hook();
         {
             foreach (StatAugment augment in statAugments)
             {

@@ -12,14 +12,18 @@ public class InventorySlot : MonoBehaviour
     [SerializeField]
     Image emptySlot = null;
     [SerializeField]
-    GameEvent itemClicked = null;
-
+    GameEvent itemEquipped = null;
+    [SerializeField]
+    GameEvent itemConsumed = null;
     public void Clicked()
     {
         if (item != null)
         {
             item.Use();
-            itemClicked.Raise();
+            if (item is EquipmentInstance)
+                itemEquipped.Raise();
+            else
+                itemConsumed.Raise();
         }
     }
 
@@ -38,10 +42,10 @@ public class InventorySlot : MonoBehaviour
             item = _item;
             image.enabled = true;
             image.sprite = item.item.sprite;
-            //if (item is InventoryWeapon invWeap)
-            //    equippedText.enabled = invWeap.equipped;
-            //else
-            equippedText.enabled = false;
+            if (item is EquipmentInstance equipment)
+                equippedText.enabled = equipment.equipped;
+            else
+                equippedText.enabled = false;
             emptySlot.enabled = false;
         }
     }
