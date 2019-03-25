@@ -234,6 +234,16 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6900521105128632530, guid: 4b3e2e4c212f09f4b8237db2a7505763,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900521105128632530, guid: 4b3e2e4c212f09f4b8237db2a7505763,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6900521103591772975, guid: 4b3e2e4c212f09f4b8237db2a7505763,
         type: 3}
       propertyPath: m_IsActive
@@ -869,16 +879,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6900521105128632530, guid: 4b3e2e4c212f09f4b8237db2a7505763,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6900521105128632530, guid: 4b3e2e4c212f09f4b8237db2a7505763,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6900521105115157875, guid: 4b3e2e4c212f09f4b8237db2a7505763,
         type: 3}
       propertyPath: m_IsActive
@@ -935,11 +935,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1 &240491199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,10 +1211,6 @@ GameObject:
   - component: {fileID: 515792330}
   - component: {fileID: 515792335}
   - component: {fileID: 515792333}
-  - component: {fileID: 515792331}
-  - component: {fileID: 515792336}
-  - component: {fileID: 515792337}
-  - component: {fileID: 515792334}
   - component: {fileID: 515792339}
   m_Layer: 8
   m_Name: Bob
@@ -1319,36 +1310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 6697050611477341902}
---- !u!114 &515792334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515792327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: 991efc3d0aefede48bdb450f5adeddc1, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 515792336}
-        m_MethodName: EquipActiveWeapons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &515792335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,7 +1326,6 @@ MonoBehaviour:
     item: {fileID: 0}
     level: 0
     experience: 0
-    equipped: 0
 --- !u!61 &515792338
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1499,75 +1459,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1001 &967775998
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7652916230981464674, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_Name
-      value: ProjectilePool
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.10998243
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.13839431
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.943359
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652916230981464673, guid: c8ce4af2e640c054faa4adff79991d76,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c8ce4af2e640c054faa4adff79991d76, type: 3}
 --- !u!1001 &1157065787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5675,11 +5566,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &1494408568 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9004495644901729764, guid: 4558757117afed548954a7ad37242e2c,
