@@ -10,11 +10,4 @@ public class PlayerAwards : MonoBehaviour
     {
         coins += amount;
     }
-
-    public void LootEnemy(GameObject go)
-    {
-        CharacterLoot cl = go.GetComponent<CharacterLoot>();
-        if(cl != null)
-            GainCoins(cl.coins);
-    }
 }

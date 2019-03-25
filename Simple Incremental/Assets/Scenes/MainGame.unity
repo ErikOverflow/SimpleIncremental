@@ -256,7 +256,6 @@ GameObject:
   m_Component:
   - component: {fileID: 240491202}
   - component: {fileID: 240491201}
-  - component: {fileID: 240491200}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -264,41 +263,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &240491200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240491199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 240491201}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!82 &240491201
 AudioSource:
   m_ObjectHideFlags: 0
@@ -556,12 +520,10 @@ GameObject:
   - component: {fileID: 515792329}
   - component: {fileID: 515792338}
   - component: {fileID: 515792330}
-  - component: {fileID: 515792332}
   - component: {fileID: 515792335}
   - component: {fileID: 515792333}
   - component: {fileID: 515792336}
   - component: {fileID: 515792337}
-  - component: {fileID: 515792331}
   - component: {fileID: 515792334}
   - component: {fileID: 515792339}
   m_Layer: 8
@@ -648,56 +610,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
-  deathEvent: {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
-  healEvent: {fileID: 11400000, guid: b19ae31e35a4b794bb1d6db27efb938e, type: 2}
---- !u!114 &515792331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515792327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 515792332}
-        m_MethodName: LootEnemy
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!114 &515792332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515792327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cff4147cc793b84780413298d5e288c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coins: 0
 --- !u!114 &515792333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,11 +653,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &515792335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,22 +828,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 809075307}
-        m_MethodName: RemoveEnemy
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1001 &967775998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5115,22 +5006,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1627816339}
-        m_MethodName: PlayerDied
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &1627816339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6700,8 +6575,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   maxHealth: 20
-  deathEvent: {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
-  healEvent: {fileID: 11400000, guid: b19ae31e35a4b794bb1d6db27efb938e, type: 2}
 --- !u!114 &8238082689803993345
 MonoBehaviour:
   m_ObjectHideFlags: 0
