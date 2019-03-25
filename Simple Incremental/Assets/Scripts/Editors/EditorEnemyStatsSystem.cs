@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(EnemyStatsSystem))]
 public class EnemyStatsSystemEditor : Editor
 {
@@ -36,5 +35,5 @@ public class EnemyStatsSystemEditor : Editor
         }
         myStatSystem.ApplyAugments();
     }
-
 }
+#endif

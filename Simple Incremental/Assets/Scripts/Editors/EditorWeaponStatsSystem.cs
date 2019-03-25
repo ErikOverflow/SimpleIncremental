@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEditor;
 using UnityEngine;
-
+#if UNITY_EDITOR
 namespace SimpleIncremental.Weapon
 {
     [CustomEditor(typeof(WeaponStatsSystem))]
@@ -31,8 +31,8 @@ namespace SimpleIncremental.Weapon
             myStatSystem.Awake();
             WeaponHook weaponHook = myStatSystem.GetComponent<WeaponHook>();
             weaponHook.Awake();
-            ProjectileWeapon projectileWeapon = myStatSystem.GetComponent<ProjectileWeapon>();
-            projectileWeapon.Awake();
+            WeaponRangedController weaponRangedController = myStatSystem.GetComponent<WeaponRangedController>();
+            weaponRangedController.Awake();
             StatAugment[] statAugments = myStatSystem.GetComponentsInChildren<StatAugment>();
             foreach (StatAugment augment in statAugments)
             {
@@ -43,3 +43,4 @@ namespace SimpleIncremental.Weapon
 
     }
 }
+#endif
