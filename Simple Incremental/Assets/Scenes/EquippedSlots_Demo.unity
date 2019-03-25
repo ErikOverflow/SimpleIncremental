@@ -143,11 +143,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1 &100330280
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,11 +397,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!82 &240491201
 AudioSource:
   m_ObjectHideFlags: 0
@@ -828,8 +818,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
-  deathEvent: {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
-  healEvent: {fileID: 11400000, guid: b19ae31e35a4b794bb1d6db27efb938e, type: 2}
 --- !u!114 &515792331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,22 +837,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 515792332}
-        m_MethodName: LootEnemy
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &515792332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,7 +879,6 @@ MonoBehaviour:
     item: {fileID: 0}
     level: 0
     experience: 0
-    equipped: 0
 --- !u!61 &515792338
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1262,22 +1233,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 809075307}
-        m_MethodName: RemoveEnemy
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1 &872883488
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,6 +4130,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 04cb082666d4e4b43b2df45cc43cc0c2,
         type: 2}
+    - target: {fileID: 2942798635422556534, guid: 4558757117afed548954a7ad37242e2c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942798635422556534, guid: 4558757117afed548954a7ad37242e2c,
+        type: 3}
+      propertyPath: damage
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9004495644901729762, guid: 4558757117afed548954a7ad37242e2c,
         type: 3}
       propertyPath: m_Enabled
@@ -4196,16 +4161,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: f254ece94732f784382429f4c7dc13bd,
         type: 3}
-    - target: {fileID: 2942798635422556534, guid: 4558757117afed548954a7ad37242e2c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2942798635422556534, guid: 4558757117afed548954a7ad37242e2c,
-        type: 3}
-      propertyPath: damage
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4558757117afed548954a7ad37242e2c, type: 3}
 --- !u!4 &1200991336 stripped
@@ -6194,22 +6149,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ResponseWithObject:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1627816339}
-        m_MethodName: PlayerDied
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: GameEventWithObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &1627816339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9101,8 +9040,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   maxHealth: 20
-  deathEvent: {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
-  healEvent: {fileID: 11400000, guid: b19ae31e35a4b794bb1d6db27efb938e, type: 2}
 --- !u!114 &8238082689803993345
 MonoBehaviour:
   m_ObjectHideFlags: 0
