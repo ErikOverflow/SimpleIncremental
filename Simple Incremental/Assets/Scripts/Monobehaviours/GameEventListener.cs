@@ -6,7 +6,6 @@ public class GameEventListener : MonoBehaviour
 {
     public GameEvent[] Events;
     public UnityEvent Response;
-    public GameEventWithObject ResponseWithObject;
 
     private void OnEnable()
     {
@@ -28,12 +27,4 @@ public class GameEventListener : MonoBehaviour
     {
         Response.Invoke();
     }
-
-    public void OnEventsRaised(GameObject go)
-    {
-        ResponseWithObject.Invoke(go);
-    }
 }
-
-[Serializable]
-public class GameEventWithObject : UnityEvent<GameObject> { }
