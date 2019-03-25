@@ -2,15 +2,17 @@
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(WeaponHook))]
-public class WeaponStatsSystem : MonoBehaviour
+[RequireComponent(typeof(PlayerHook))]
+public class PlayerStatsSystem : MonoBehaviour
 {
+    PlayerHook playerHook = null;
     WeaponHook weaponHook = null;
     List<StatAugment> statAugments;
 
     public void Awake()
     {
-        weaponHook = GetComponent<WeaponHook>();
+        playerHook = GetComponent<PlayerHook>();
+        weaponHook = GetComponentInChildren<WeaponHook>();
         statAugments = GetComponentsInChildren<StatAugment>().OrderBy(sa => sa.priority).ToList();
     }
 
@@ -21,13 +23,12 @@ public class WeaponStatsSystem : MonoBehaviour
 
     public void ApplyAugments()
     {
+        playerHook.Hook();
         weaponHook.Hook();
+        foreach (StatAugment augment in statAugments)
         {
-            foreach (StatAugment augment in statAugments)
-            {
-                if (augment.Applied)
-                    augment.Augment();
-            }
+            if (augment.Applied)
+                augment.Augment();
         }
     }
 }
