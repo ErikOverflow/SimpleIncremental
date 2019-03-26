@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalAxis: Horizontal
-  horizontalSpeed: 3
+  horizontalSpeed: 5
   jumpForce: 400
   horizontalSmoothing: 0.05
   groundLayer:
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb40c49f83f400d448621c890b372987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 6697050611477341902}
+  healthBar: {fileID: 6697050610881300147}
 --- !u!114 &515792335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3548,6 +3548,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9004495644901729762, guid: 4558757117afed548954a7ad37242e2c,
+        type: 3}
+      propertyPath: layer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 9004495644901729765, guid: 4558757117afed548954a7ad37242e2c,
         type: 3}
       propertyPath: defaultValues
@@ -3602,7 +3607,7 @@ GameObject:
   - component: {fileID: 1376307436}
   - component: {fileID: 1376307435}
   - component: {fileID: 1376307434}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4913,54 +4918,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &1494408564 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9004495644901729761, guid: 4558757117afed548954a7ad37242e2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1200991335}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1494408565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494408564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: af2dc567244d93c4eaf5b9d3b596d1f4, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1494408568}
-        m_MethodName: ApplyAugments
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &1494408568 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9004495644901729764, guid: 4558757117afed548954a7ad37242e2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1200991335}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494408564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d746ef7571960d44922344ba8f8db6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1498014482
 GameObject:
   m_ObjectHideFlags: 3
