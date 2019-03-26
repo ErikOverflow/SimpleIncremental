@@ -35,12 +35,9 @@ public class EnemyTargeting : MonoBehaviour
         }
     }
 
-    public void PlayerDied(GameObject go)
+    public void PlayerDied()
     {
-        if(go.transform == target)
-        {
-            target = null;
-            OnTargetLost?.Invoke();
-        }
+        target = null;
+        OnTargetLost?.Invoke();
     }
 }
