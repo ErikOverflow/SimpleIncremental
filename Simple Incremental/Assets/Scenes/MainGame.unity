@@ -518,6 +518,8 @@ GameObject:
   - component: {fileID: 515792335}
   - component: {fileID: 515792333}
   - component: {fileID: 515792339}
+  - component: {fileID: 515792332}
+  - component: {fileID: 515792331}
   m_Layer: 8
   m_Name: Bob
   m_TagString: Player
@@ -603,6 +605,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+--- !u!114 &515792331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515792327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e050ca04ad3494f8290ac5d5409689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalAxis: Horizontal
+  horizontalSpeed: 3
+  jumpForce: 400
+  horizontalSmoothing: 0.05
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+--- !u!95 &515792332
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515792327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8067b07d69acf854684579a42878a130, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &515792333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3503,6 +3543,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9004495644901729762, guid: 4558757117afed548954a7ad37242e2c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9004495644901729765, guid: 4558757117afed548954a7ad37242e2c,
         type: 3}
       propertyPath: defaultValues
@@ -3518,11 +3563,6 @@ PrefabInstance:
         type: 3}
       propertyPath: damage
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004495644901729762, guid: 4558757117afed548954a7ad37242e2c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9004495644901729763, guid: 4558757117afed548954a7ad37242e2c,
         type: 3}

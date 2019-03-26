@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] string horizontalAxis = "Horizontal";
-    [SerializeField] float horizontalSpeed = 40f;
+    [SerializeField] float horizontalSpeed = 3f;
     [SerializeField] private float jumpForce = 400f;
     [Range(0, .5f)] [SerializeField] private float horizontalSmoothing = .05f;
 
@@ -16,8 +16,6 @@ public class PlayerMovementController : MonoBehaviour
     float horizontalForce;
     Rigidbody2D rigidBody;
     Vector2 currentVelocity = Vector2.zero;
-    float normalizeSpeed = 10f;  //Used to make velocity numbers look reasonable
-    int groundLayerID;
     Animator anim;
     int jumpHash = Animator.StringToHash("Jump");
     int groundedHash = Animator.StringToHash("Grounded");
@@ -26,7 +24,6 @@ public class PlayerMovementController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        groundLayerID = LayerMask.NameToLayer("Ground");
     }
 
     private void Update()
@@ -41,11 +38,10 @@ public class PlayerMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var targetVelocity = new Vector2(horizontalForce * horizontalSpeed * normalizeSpeed * Time.deltaTime, rigidBody.velocity.y);
+        var targetVelocity = new Vector2(horizontalForce * horizontalSpeed, rigidBody.velocity.y);
         rigidBody.velocity = Vector2.SmoothDamp(rigidBody.velocity, targetVelocity, ref currentVelocity, horizontalSmoothing);
 
-        anim.SetFloat("Speed", Math.Abs(targetVelocity.x));
-        anim.SetFloat("VelocityX", horizontalForce);
+        anim.SetFloat("VelocityX", Math.Abs(targetVelocity.x));
 
         // If the player should jump...
         if (anim.GetBool(jumpHash) && anim.GetBool(groundedHash))
@@ -57,7 +53,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer == groundLayerID)
+        if (groundLayer == (groundLayer | ( 1<< col.gameObject.layer)))
         {
             anim.SetBool(groundedHash, true);
         }
@@ -65,7 +61,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.layer == groundLayerID)
+        if (groundLayer == (groundLayer | (1 << col.gameObject.layer)))
         {
             anim.SetBool(groundedHash, false);
         }
