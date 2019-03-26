@@ -5012,25 +5012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1619004999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8238082689803993349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: b68d0580dfe3a964b8b501577471d921, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1627816339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6723,7 +6704,6 @@ GameObject:
   - component: {fileID: 8695819615634090362}
   - component: {fileID: 4345779612765727828}
   - component: {fileID: 1627816339}
-  - component: {fileID: 1619004999}
   m_Layer: 10
   m_Name: Baddie
   m_TagString: Untagged
