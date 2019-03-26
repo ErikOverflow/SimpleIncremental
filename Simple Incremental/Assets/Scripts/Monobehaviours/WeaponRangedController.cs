@@ -12,12 +12,16 @@ public class WeaponRangedController : MonoBehaviour
 
     [SerializeField]
     GameObject projectilePrefab = null;
+    [SerializeField]
+    LayerMask layer;
+    private int layerNum;
 
     Camera mainCam;
 
     public void Awake()
     {
         mainCam = Camera.main;
+        layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
     }
 
     private void Update()
@@ -30,6 +34,7 @@ public class WeaponRangedController : MonoBehaviour
             go.transform.parent = transform;
             go.transform.localPosition = Vector2.zero;
             Projectile p = go.GetComponent<Projectile>();
+            p.gameObject.layer = layerNum;
             p.Launch(dir, projectileSprite, damage, falloffTime, maxHits, projectileSpeed);
         }
     }
