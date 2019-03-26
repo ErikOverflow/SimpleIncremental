@@ -13,12 +13,16 @@ public class ScaleEnemyByLevel : StatAugment
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
     CharacterLevel characterLevel = null;
+    EnemyAttackRanged enemyAttackRanged = null;
+    EnemyAttackMelee enemyAttackMelee = null;
 
     public override void Awake()
     {
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
         characterLevel = GetComponent<CharacterLevel>();
+        enemyAttackRanged = GetComponent<EnemyAttackRanged>();
+        enemyAttackMelee = GetComponent<EnemyAttackMelee>();
     }
 
     public override void Augment()
@@ -27,5 +31,7 @@ public class ScaleEnemyByLevel : StatAugment
         characterHealth.maxHealth = Mathf.CeilToInt(characterHealth.maxHealth * multiplier);
         characterHealth.ResetHealth();
         characterLoot.coins = Mathf.CeilToInt(characterLoot.coins * multiplier);
+        enemyAttackRanged.damage = Mathf.CeilToInt(enemyAttackRanged.damage * multiplier);
+        enemyAttackMelee.damage = Mathf.CeilToInt(enemyAttackMelee.damage * multiplier);
     }
 }
