@@ -22,4 +22,7 @@ public class EnemyTemplate : ScriptableObject
     public float projectileSpeed = 3f;
     public int meleeDamage = 1;
     public float meleePunchForce = 200f;
+
+    public Item[] lootableItems = null;
+    public float lootChance = 0.02f;
 }

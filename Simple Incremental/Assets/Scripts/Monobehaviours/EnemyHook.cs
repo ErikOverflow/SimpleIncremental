@@ -33,7 +33,11 @@ public class EnemyHook : MonoBehaviour
                 characterHealth.ResetHealth();
             }
             if (characterLoot != null)
+            {
                 characterLoot.coins = enemyTemplate.coins;
+                characterLoot.items = enemyTemplate.lootableItems;
+                characterLoot.lootChance = enemyTemplate.lootChance;
+            }
             if (enemyMovement != null)
             {
                 enemyMovement.moveSpeed = enemyTemplate.moveSpeed;

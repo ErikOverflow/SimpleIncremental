@@ -6707,6 +6707,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 10
+  items:
+  - {fileID: 11400000, guid: 04cb082666d4e4b43b2df45cc43cc0c2, type: 2}
+  lootChance: 1
+  lootPrefab: {fileID: 4484629236500851717, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
+    type: 3}
 --- !u!114 &8238082689803993347
 MonoBehaviour:
   m_ObjectHideFlags: 0
