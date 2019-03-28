@@ -57,4 +57,9 @@ public class WeaponHook : MonoBehaviour
             weaponMeleeController.enabled = true;
         }
     }
+
+    public void SetDefaultWeapon(Weapon weapon)
+    {
+        defaultValues = weapon;
+    }
 }
