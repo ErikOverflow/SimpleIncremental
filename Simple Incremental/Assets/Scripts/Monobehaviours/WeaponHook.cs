@@ -19,7 +19,7 @@ public class WeaponHook : MonoBehaviour
 
     public void Hook()
     {
-        if (PlayerInventory.instance?.weapon != null)
+        if (PlayerInventory.instance?.weapon.item != null)
         {
             if(PlayerInventory.instance.weapon.item is Weapon weapon)
             {

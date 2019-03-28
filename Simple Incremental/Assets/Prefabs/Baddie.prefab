@@ -228,8 +228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 22
   maxHealth: 22
-  deathEvent: {fileID: 11400000, guid: b45fea154d548bd468e437c7e0f57879, type: 2}
-  healEvent: {fileID: 11400000, guid: b19ae31e35a4b794bb1d6db27efb938e, type: 2}
 --- !u!114 &19398839845925978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9701b5e6174a65469a65cc431fe07ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 19398839930414935}
 --- !u!114 &1106169587322257052
 MonoBehaviour:
   m_ObjectHideFlags: 0

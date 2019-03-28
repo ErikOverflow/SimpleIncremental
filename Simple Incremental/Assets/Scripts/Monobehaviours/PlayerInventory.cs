@@ -8,7 +8,7 @@ public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory instance;
     [SerializeField]
-    GameEvent itemEquipped;
+    GameEvent itemEquipped = null;
     [HideInInspector] //Polymorphism doesn't play nice with the inspector, so this isn't the place to maintain item inventory from the editor.
     public List<ItemInstance> items = new List<ItemInstance>();
     public EquipmentInstance weapon = null;

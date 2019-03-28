@@ -6054,6 +6054,11 @@ PrefabInstance:
       propertyPath: layer.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 9004495644901729762, guid: 4558757117afed548954a7ad37242e2c,
+        type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4558757117afed548954a7ad37242e2c, type: 3}
 --- !u!4 &1276318851559379826 stripped
@@ -6120,6 +6125,7 @@ GameObject:
   - component: {fileID: 1276318852484899550}
   - component: {fileID: 1276318852484899549}
   - component: {fileID: 1276318852484899546}
+  - component: {fileID: 1276318852484899539}
   - component: {fileID: 1276318852484899551}
   - component: {fileID: 1276318852484899524}
   - component: {fileID: 1276318852484899544}
@@ -6128,6 +6134,7 @@ GameObject:
   - component: {fileID: 1276318852484899547}
   - component: {fileID: 1276318852484899525}
   - component: {fileID: 1276318852484899538}
+  - component: {fileID: 1276318852484899540}
   m_Layer: 8
   m_Name: Bob
   m_TagString: Player
@@ -6165,6 +6172,44 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1276318852484899539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276318852484899537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e050ca04ad3494f8290ac5d5409689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalAxis: Horizontal
+  horizontalSpeed: 5
+  jumpForce: 400
+  horizontalSmoothing: 0.05
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+--- !u!95 &1276318852484899540
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276318852484899537}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8067b07d69acf854684579a42878a130, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1276318852484899544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6177,7 +6222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf079053fb3ce1f449106a65a5306b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: 2
 --- !u!114 &1276318852484899545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6220,7 +6265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb40c49f83f400d448621c890b372987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 5568368025644177880}
+  healthBar: {fileID: 5568368026138835365}
 --- !u!114 &1276318852484899548
 MonoBehaviour:
   m_ObjectHideFlags: 0
