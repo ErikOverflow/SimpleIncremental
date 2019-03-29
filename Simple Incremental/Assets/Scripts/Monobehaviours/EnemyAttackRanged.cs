@@ -13,6 +13,7 @@ public class EnemyAttackRanged : MonoBehaviour
     public float projectileSpeed = 1f;
     public float reloadTime = 1f;
 
+    Transform projectileContainer = null;
     [SerializeField]
     GameObject projectilePrefab = null;
     [SerializeField]
@@ -32,6 +33,7 @@ public class EnemyAttackRanged : MonoBehaviour
         layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
         targeting.OnNewTargetAcquired += StartFiring;
         targeting.OnTargetLost += StopFiring;
+        projectileContainer = ObjectPooler.instance.transform;
     }
 
     private void StartFiring()
@@ -63,7 +65,7 @@ public class EnemyAttackRanged : MonoBehaviour
         Projectile p = go.GetComponent<Projectile>();
         go.transform.position = transform.position;
         go.transform.rotation = Quaternion.identity;
-        go.transform.parent = transform;
+        go.transform.parent = projectileContainer;
         p.gameObject.layer = layerNum;
         p.Launch(targeting.target.position - transform.position, projectileSprite, damage, falloffTime, maxPenetrations, projectileSpeed);
     }
