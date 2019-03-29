@@ -28,7 +28,8 @@ public class CharacterLoot : MonoBehaviour
         {
             if(lootChance >= Random.Range(0f, 1f))
             {
-                GameObject go = Instantiate(lootPrefab, transform.position, Quaternion.identity);
+                GameObject go = ObjectPooler.instance.GetPooledObject(lootPrefab);
+                go.transform.position = transform.position;
                 go.GetComponent<LootItem>().template = item;
             }
         }
