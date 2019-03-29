@@ -2,8 +2,7 @@
 
 public class EnemyHook : MonoBehaviour
 {
-    [SerializeField]
-    EnemyTemplate enemyTemplate = null;
+    public EnemyTemplate enemyTemplate = null;
     SpriteRenderer spriteRenderer = null;
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
