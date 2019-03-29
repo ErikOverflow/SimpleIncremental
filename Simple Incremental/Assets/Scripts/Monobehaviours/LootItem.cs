@@ -6,8 +6,7 @@
 public class LootItem : MonoBehaviour
 {
     SpriteRenderer spriteRenderer = null;
-    [SerializeField]
-    Item template = null;
+    public Item template = null;
 
     private void Awake()
     {

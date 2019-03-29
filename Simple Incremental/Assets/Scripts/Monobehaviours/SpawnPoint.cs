@@ -16,6 +16,10 @@ public class SpawnPoint : MonoBehaviour
     [SerializeField]
     protected private Trigger[] triggers;
 
+    bool spawning = false;
+    [SerializeField]
+    EnemyTemplate enemyTemplate = null;
+
     protected private int spawnCount = 0;
 
     public void Start()
@@ -28,7 +32,8 @@ public class SpawnPoint : MonoBehaviour
 
     public void StartSpawning(GameObject go)
     {
-        if(go.CompareTag("Player"))
+        //Rather than compare the player tag, we will create a spawn layer and change the physics settings to only allow players to collide with them.
+        if(!spawning)
             StartCoroutine(SpawnEnemiesControl());
     }
 
@@ -37,15 +42,19 @@ public class SpawnPoint : MonoBehaviour
         GameObject newObject = ObjectPooler.instance.GetPooledObject(objectPrefab);
         newObject.transform.SetParent(transform);
         newObject.transform.localPosition = Vector3.zero;
+        newObject.GetComponent<EnemyHook>().enemyTemplate = enemyTemplate;
+        newObject.GetComponent<EnemyStatsSystem>().ApplyAugments();
         newObject.SetActive(true);
         spawnCount++;
     }
 
     public IEnumerator SpawnEnemiesControl()
     {
+        spawning = true;
         while (spawnCount < maximumSpawns || maximumSpawns == 0) {
             SpawnObject();
             yield return new WaitForSeconds(spawnDelay);            
         }
+        spawning = false;
     }
 }
