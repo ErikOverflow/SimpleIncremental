@@ -11,6 +11,7 @@ public class PlayerInventory : MonoBehaviour
     GameEvent itemEquipped = null;
     //[HideInInspector] //Polymorphism doesn't play nice with the inspector, so this isn't the place to maintain item inventory from the editor.
     public List<Item> items = null;
+    public int totalItemsCollected = 0;
     public Weapon weapon = null;
 
     private void Awake()
@@ -18,6 +19,7 @@ public class PlayerInventory : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            items = new List<Item>();
             weapon = null; //This needs to be set to null, because public variables in the inspector UNDO the null set above. 
         }
         else
@@ -52,6 +54,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItemToInventory(Item item)
     {
+        totalItemsCollected++;
         items.Add(item);
     }
 }

@@ -3487,9 +3487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1276318852484899537}
   gameData:
-    inventoryWrapper:
-      items: []
-    level: 1
+    level: 0
+    items: []
   gameDataFileName: GameData.json
 --- !u!4 &1184324286
 Transform:
@@ -6169,12 +6168,12 @@ PrefabInstance:
     - target: {fileID: 4484629236500851719, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.53
+      value: -7.49
       objectReference: {fileID: 0}
     - target: {fileID: 4484629236500851719, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.87
+      value: 5.09
       objectReference: {fileID: 0}
     - target: {fileID: 4484629236500851719, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
         type: 3}
@@ -6221,6 +6220,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4484629236500851716, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f254ece94732f784382429f4c7dc13bd,
+        type: 3}
+    - target: {fileID: 4484629236500851737, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
+        type: 3}
+      propertyPath: template
+      value: 
+      objectReference: {fileID: 11400000, guid: 04cb082666d4e4b43b2df45cc43cc0c2,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef725ef0a16fc84cb05cad73a08b2a7, type: 3}
 --- !u!1 &1952250735
@@ -6567,6 +6578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemEquipped: {fileID: 11400000, guid: af2dc567244d93c4eaf5b9d3b596d1f4, type: 2}
   items: []
+  totalItemsCollected: 0
   weapon: {fileID: 0}
 --- !u!114 &1276318852484899546
 MonoBehaviour:
