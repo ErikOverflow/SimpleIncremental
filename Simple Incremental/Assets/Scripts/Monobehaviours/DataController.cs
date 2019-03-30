@@ -29,18 +29,6 @@ public class DataController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        /* These inputs only in for testing and should be removed before release*/
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SaveGameData();
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadGameData();
-        }
-    }
     public void LoadGameData()
     {
         string filePath = Path.Combine(Application.persistentDataPath, gameDataFileName);
@@ -68,13 +56,12 @@ public class DataController : MonoBehaviour
 
     public void updateGamedata()
     {
-        gameData.coins = playerAwards.coins;
+        
         gameData.level = characterLevel.level;
     }
 
     public void restoreGameState()
     {
-        playerAwards.coins = gameData.coins;
         characterLevel.level = gameData.level;
     }
 
@@ -83,7 +70,7 @@ public class DataController : MonoBehaviour
 [System.Serializable]
 public class GameData
 {
-    public int coins;
+    public ItemInstance[] items;
     public int level;
 }
 
