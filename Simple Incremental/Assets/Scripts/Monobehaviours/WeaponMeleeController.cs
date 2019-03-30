@@ -7,7 +7,6 @@ public class WeaponMeleeController : MonoBehaviour
     public int damage = 0;
     List<CharacterHealth> chs = null;
     CharacterHealth[] iterableChs = null;
-    Collider2D meleeTrigger = null;
 
     private void OnDisable()
     {
