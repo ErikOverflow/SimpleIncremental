@@ -12,7 +12,6 @@ public class DataController : MonoBehaviour
     public GameObject player;
     public GameData gameData = new GameData();
     private string gameDataFileName = "data.json";
-    private PlayerAwards playerAwards;
     private CharacterLevel characterLevel;
    
 
@@ -22,18 +21,12 @@ public class DataController : MonoBehaviour
         {
             instance = this;
             gameData = new GameData();
-            playerAwards = player.GetComponent<PlayerAwards>();
             characterLevel = player.GetComponent<CharacterLevel>();
         }
         else
         {
             Destroy(this);
         }
-    }
-
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
