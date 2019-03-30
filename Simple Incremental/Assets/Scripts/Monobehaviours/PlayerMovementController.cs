@@ -25,6 +25,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -36,13 +37,14 @@ public class PlayerMovementController : MonoBehaviour
             anim.SetTrigger("Jump");
             rigidBody.AddForce(new Vector2(0f, jumpForce));
         }
-
+    }
     private void FixedUpdate()
     {
         var targetVelocity = new Vector2(horizontalForce * horizontalSpeed, rigidBody.velocity.y);
         rigidBody.velocity = Vector2.SmoothDamp(rigidBody.velocity, targetVelocity, ref currentVelocity, horizontalSmoothing);
 
         anim.SetFloat("VelocityX", Math.Abs(targetVelocity.x));
+        anim.SetFloat("Speed", Math.Abs(targetVelocity.x));
 
         // Flip sprite based on movement direction
         if ((horizontalForce > 0 && spriteRenderer.flipX) || 
