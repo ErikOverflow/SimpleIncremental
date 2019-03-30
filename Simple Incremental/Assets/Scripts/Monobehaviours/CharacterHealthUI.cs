@@ -24,7 +24,10 @@ public class CharacterHealthUI : MonoBehaviour
     private void UpdateHealthUI()
     {
         Vector3 scale = healthBar.localScale;
-        scale.x = (float)characterHealth.health / characterHealth.maxHealth;
+        if (characterHealth.maxHealth > 0)
+            scale.x = (float)characterHealth.health / characterHealth.maxHealth;
+        else
+            scale.x = 0;
         healthBar.localScale = scale;
     }
 }

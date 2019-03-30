@@ -19,16 +19,9 @@ public class WeaponHook : MonoBehaviour
 
     public void Hook()
     {
-        if (PlayerInventory.instance?.weapon?.item != null)
+        if (PlayerInventory.instance?.weapon != null)
         {
-            if(PlayerInventory.instance.weapon.item is Weapon weapon)
-            {
-                HookWeapon(weapon);
-            }
-            else
-            {
-                throw new System.Exception("Non-weapon was attached to the weapon hook");
-            }
+            HookWeapon(PlayerInventory.instance.weapon);
         }
         else
         {
@@ -50,7 +43,7 @@ public class WeaponHook : MonoBehaviour
             spriteRenderer.sprite = weaponRanged.sprite;
             weaponRangedController.enabled = true;
         }
-        else if(weapon is WeaponMelee weaponMelee)
+        else if (weapon is WeaponMelee weaponMelee)
         {
             weaponMeleeController.damage = weaponMelee.damage;
             spriteRenderer.sprite = weaponMelee.sprite;

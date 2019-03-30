@@ -9,12 +9,10 @@ public class InventoryUI : MonoBehaviour
     InventorySlot[] slots;
     [SerializeField]
     InventorySlot weaponSlot = null;
-    PlayerInventory inventory = null;
     bool initialized = false;
     // Start is called before the first frame update
     void Start()
     {
-        inventory = PlayerInventory.instance;
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
         initialized = true;
         UpdateUI();
@@ -36,17 +34,17 @@ public class InventoryUI : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < inventory.items.Count)
+            if (i < PlayerInventory.instance.items.Count)
             {
-                slots[i].CreateSlot(inventory.items[i]);
+                slots[i].CreateSlot(PlayerInventory.instance.items[i]);
             }
             else
             {
                 slots[i].ClearSlot();
             }
         }
-        if (inventory.weapon != null)
-            weaponSlot.CreateSlot(inventory.weapon);
+        if (PlayerInventory.instance.weapon != null)
+            weaponSlot.CreateSlot(PlayerInventory.instance.weapon);
         else
             weaponSlot.ClearSlot();
 

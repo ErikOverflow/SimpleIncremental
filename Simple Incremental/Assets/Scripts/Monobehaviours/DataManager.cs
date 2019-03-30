@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
+using System.Linq;
 
 /* DataController is responsible for saving and loading persistant data
  * to files in JSON format */
 
-public class DataController : MonoBehaviour
+public class DataManager : MonoBehaviour
 {
-    public static DataController instance;
+    public static DataManager instance;
     public GameObject player;
     public GameData gameData = new GameData();
-    private string gameDataFileName = "data.json";
-    private CharacterLevel characterLevel;
-   
+    [SerializeField]
+    string gameDataFileName = "data.json";
+    CharacterLevel characterLevel;
+
 
     void Awake()
     {
@@ -29,6 +32,11 @@ public class DataController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        LoadGameData();
+    }
+
     public void LoadGameData()
     {
         string filePath = Path.Combine(Application.persistentDataPath, gameDataFileName);
@@ -41,7 +49,6 @@ public class DataController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Creating new json file");
             gameData = new GameData();
         }
     }
@@ -49,30 +56,27 @@ public class DataController : MonoBehaviour
     public void SaveGameData()
     {
         UpdateGamedata();
-        string dataAsJson = JsonUtility.ToJson(gameData);
+        string dataAsJson = JsonUtility.ToJson(gameData, true);
         string filePath = Path.Combine(Application.persistentDataPath, gameDataFileName);
         File.WriteAllText(filePath, dataAsJson);
     }
 
     private void UpdateGamedata()
     {
-        
+
         gameData.level = characterLevel.level;
-        gameData.items = PlayerInventory.instance.items;
     }
 
     private void HookGameData()
     {
         characterLevel.level = gameData.level;
-        PlayerInventory.instance.items = gameData.items;
+        //PlayerInventory.instance.items = gameData.items;
     }
 
 }
 
-[System.Serializable]
+[Serializable]
 public class GameData
 {
-    public List<ItemInstance> items;
     public int level;
 }
-

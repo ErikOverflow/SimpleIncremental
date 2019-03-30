@@ -21,7 +21,7 @@ public class PlayerScaleByLevel : StatAugment
 
     public override void Augment()
     {
-        float multiplier = characterLevel.level + 1;
+        float multiplier = characterLevel.level;
         characterHealth.maxHealth = Mathf.CeilToInt(characterHealth.maxHealth * multiplier);
         weaponRangedController.damage = Mathf.CeilToInt(weaponRangedController.damage * multiplier);
         weaponMeleeController.damage = Mathf.CeilToInt(weaponMeleeController.damage * multiplier);

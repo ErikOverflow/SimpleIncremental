@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 [CreateAssetMenu]
 public class WeaponRanged : Weapon
 {

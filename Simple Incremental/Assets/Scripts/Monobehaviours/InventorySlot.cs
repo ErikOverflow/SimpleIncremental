@@ -4,30 +4,17 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    ItemInstance item = null;
+    Item item = null;
     [SerializeField]
     Image image = null;
     [SerializeField]
     Image emptySlot = null;
-    [SerializeField]
-    GameEvent itemEquipped = null;
-    [SerializeField]
-    GameEvent itemConsumed = null;
 
     public void Clicked()
     {
         if (item != null)
         {
-            if (item is EquipmentInstance equipment)
-            {
-                equipment.Use();
-                itemEquipped.Raise();
-            }
-            else
-            {
-                item.Use();
-                itemConsumed.Raise();
-            }
+            item.Use();
         }
     }
 
@@ -38,13 +25,13 @@ public class InventorySlot : MonoBehaviour
         emptySlot.enabled = true;
     }
 
-    public void CreateSlot(ItemInstance _item)
+    public void CreateSlot(Item _item)
     {
-        if (_item?.item != null)
+        if (_item != null)
         {
             item = _item;
             image.enabled = true;
-            image.sprite = item.item.sprite;
+            image.sprite = item.sprite;
             emptySlot.enabled = false;
         }
         else
