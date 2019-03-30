@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class EnemyTargeting : MonoBehaviour
 {
-
     public event TargetChangedHandler OnNewTargetAcquired;
     public delegate void TargetChangedHandler();
 
     public event TargetChangedHandler OnTargetLost;
 
     public Transform target = null;
+
+    private void OnDisable()
+    {
+        target = null;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,12 +40,9 @@ public class EnemyTargeting : MonoBehaviour
         }
     }
 
-    public void PlayerDied(GameObject go)
+    public void PlayerDied()
     {
-        if(go.transform == target)
-        {
-            target = null;
-            OnTargetLost?.Invoke();
-        }
+        target = null;
+        OnTargetLost?.Invoke();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,18 +8,14 @@ public class CharacterHealth : MonoBehaviour
     public int health;
     public int maxHealth = 10;
 
-    public event HealthChangeHandler HealthChanged;
-    public delegate void HealthChangeHandler();
-
-    [SerializeField]
-    GameEvent deathEvent = null;
-
-    [SerializeField]
-    GameEvent healEvent = null;
+    public event Action HealthChanged;
+    public event Action OnDeath;
+    public event Action<CharacterHealth> UnTarget;
 
     public void ResetHealth()
     {
         health = maxHealth;
+        HealthChanged?.Invoke();
     }
 
     public void TakeDamage(int damage)
@@ -29,7 +26,8 @@ public class CharacterHealth : MonoBehaviour
             if (health <= 0)
             {
                 health = 0;
-                deathEvent.Raise(gameObject);
+                OnDeath?.Invoke();
+                UnTarget?.Invoke(this);
                 gameObject.SetActive(false);
             }
             HealthChanged?.Invoke();
@@ -42,7 +40,6 @@ public class CharacterHealth : MonoBehaviour
         if (health >= maxHealth)
         {
             health = maxHealth;
-            healEvent.Raise();
         }
         HealthChanged?.Invoke();
     }

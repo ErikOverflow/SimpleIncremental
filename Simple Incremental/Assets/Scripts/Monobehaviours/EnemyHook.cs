@@ -1,11 +1,8 @@
-﻿using UnityEditor.SceneManagement;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class EnemyHook : MonoBehaviour
 {
-    [SerializeField]
-    EnemyTemplate enemyTemplate = null;
+    public EnemyTemplate enemyTemplate = null;
     SpriteRenderer spriteRenderer = null;
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
@@ -35,7 +32,11 @@ public class EnemyHook : MonoBehaviour
                 characterHealth.ResetHealth();
             }
             if (characterLoot != null)
+            {
                 characterLoot.coins = enemyTemplate.coins;
+                characterLoot.items = enemyTemplate.lootableItems;
+                characterLoot.lootChance = enemyTemplate.lootChance;
+            }
             if (enemyMovement != null)
             {
                 enemyMovement.moveSpeed = enemyTemplate.moveSpeed;

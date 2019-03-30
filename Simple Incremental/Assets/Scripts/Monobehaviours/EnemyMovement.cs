@@ -14,6 +14,11 @@ public class EnemyMovement : MonoBehaviour
     EnemyTargeting targeting = null;
     bool chasing = false;
 
+    private void OnDisable()
+    {
+        chasing = false;
+    }
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -45,12 +50,13 @@ public class EnemyMovement : MonoBehaviour
         chasing = true;
         while (chasing)
         {
+            Vector2 lastVel = rb2d.velocity;
             direction = Mathf.Sign((targeting.target.position - transform.position).x);
             if (lastDir != direction)
             {
                 yield return new WaitForSeconds(responseTime);
             }
-            rb2d.velocity = direction * Vector2.right * moveSpeed;
+            rb2d.velocity = new Vector2(direction * moveSpeed, lastVel.y);
             yield return new WaitForFixedUpdate();
             lastDir = direction;
         }

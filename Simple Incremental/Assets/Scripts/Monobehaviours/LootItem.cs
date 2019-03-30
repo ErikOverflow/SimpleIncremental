@@ -1,7 +1,4 @@
-﻿using SimpleIncremental.Inventory;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -9,8 +6,7 @@ using UnityEngine;
 public class LootItem : MonoBehaviour
 {
     SpriteRenderer spriteRenderer = null;
-    [SerializeField]
-    ItemTemplate template = null;
+    public Item template = null;
 
     private void Awake()
     {
@@ -19,14 +15,14 @@ public class LootItem : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer.sprite = template.itemSprite;
+        spriteRenderer.sprite = template.sprite;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerInventory>() != null)
         {
-            InventoryItem item = template.GenerateNewItem();
+            ItemInstance item = ItemInstance.GetItemInstance(template);
             PlayerInventory.instance.items.Add(item);
             gameObject.SetActive(false);
         }
@@ -37,7 +33,7 @@ public class LootItem : MonoBehaviour
         if(template != null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = template.itemSprite;
+            spriteRenderer.sprite = template.sprite;
         }
     }
 }

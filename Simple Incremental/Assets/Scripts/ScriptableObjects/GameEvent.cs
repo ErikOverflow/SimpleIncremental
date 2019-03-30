@@ -15,15 +15,6 @@ public class GameEvent : ScriptableObject
         }
     }
 
-    public void Raise(GameObject go)
-    {
-        Raise();
-        for (int i = 0; i < listeners.Count; i++)
-        {
-            listeners[i].OnEventsRaised(go);
-        }
-    }
-
     public void RegisterListener(GameEventListener listener)
     {
         listeners.Add(listener);

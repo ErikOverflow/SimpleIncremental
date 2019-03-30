@@ -26,3 +26,6 @@ MonoBehaviour:
   projectileSpeed: 8
   meleeDamage: 1
   meleePunchForce: 200
+  lootableItems:
+  - {fileID: 11400000, guid: 5d5f4e8f6f7b266449891feeb24f15e0, type: 2}
+  lootChance: 0.5

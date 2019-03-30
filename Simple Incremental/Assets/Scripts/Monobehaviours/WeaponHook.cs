@@ -1,35 +1,65 @@
-﻿using SimpleIncremental.Inventory;
-using SimpleIncremental.Weapon;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(ProjectileWeapon))]
 public class WeaponHook : MonoBehaviour
 {
-    public WeaponTemplate weaponTemplate = null;
-    ProjectileWeapon projectileWeapon = null;
+    [Header("Default \"Unequipped\" Template")]
+    [SerializeField]
+    Weapon defaultValues = null;
+
+    WeaponRangedController weaponRangedController = null;
+    WeaponMeleeController weaponMeleeController = null;
+    SpriteRenderer spriteRenderer = null;
 
     public void Awake()
     {
-        projectileWeapon = GetComponent<ProjectileWeapon>();
+        weaponRangedController = GetComponent<WeaponRangedController>();
+        weaponMeleeController = GetComponent<WeaponMeleeController>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public bool Hook()
+    public void Hook()
     {
-        if (weaponTemplate != null)
+        if (PlayerInventory.instance?.weapon?.item != null)
         {
-            if(weaponTemplate is RangedWeaponTemplate projectileTemplate)
+            if(PlayerInventory.instance.weapon.item is Weapon weapon)
             {
-                projectileWeapon.active = true;
-                projectileWeapon.spriteRenderer.sprite = projectileTemplate.itemSprite;
-                projectileWeapon.projectileSpeed = projectileTemplate.projectileSpeed;
-                projectileWeapon.projectileSprite = projectileTemplate.projectileSprite;
-                projectileWeapon.maxPenetrations = projectileTemplate.maxPenetrations;
-                projectileWeapon.falloffTime = projectileTemplate.falloffTime;
-                projectileWeapon.damage = projectileTemplate.damage;
-                projectileWeapon.attackSpeed = projectileTemplate.attackSpeed;
-                return true;
+                HookWeapon(weapon);
+            }
+            else
+            {
+                throw new System.Exception("Non-weapon was attached to the weapon hook");
             }
         }
-        return false;
+        else
+        {
+            HookWeapon(defaultValues);
+        }
+    }
+
+    private void HookWeapon(Weapon weapon)
+    {
+        weaponRangedController.enabled = false;
+        weaponMeleeController.enabled = false;
+        if (weapon is WeaponRanged weaponRanged)
+        {
+            weaponRangedController.damage = weaponRanged.damage;
+            weaponRangedController.falloffTime = weaponRanged.falloffTime;
+            weaponRangedController.maxHits = weaponRanged.maxHits;
+            weaponRangedController.projectileSpeed = weaponRanged.projectileSpeed;
+            weaponRangedController.projectileSprite = weaponRanged.projectileSprite;
+            spriteRenderer.sprite = weaponRanged.sprite;
+            weaponRangedController.enabled = true;
+        }
+        else if(weapon is WeaponMelee weaponMelee)
+        {
+            weaponMeleeController.damage = weaponMelee.damage;
+            spriteRenderer.sprite = weaponMelee.sprite;
+            weaponMeleeController.enabled = true;
+        }
+    }
+
+    public void SetDefaultWeapon(Weapon weapon)
+    {
+        defaultValues = weapon;
     }
 }

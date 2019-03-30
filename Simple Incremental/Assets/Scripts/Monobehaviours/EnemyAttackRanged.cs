@@ -13,6 +13,7 @@ public class EnemyAttackRanged : MonoBehaviour
     public float projectileSpeed = 1f;
     public float reloadTime = 1f;
 
+    Transform projectileContainer = null;
     [SerializeField]
     GameObject projectilePrefab = null;
     [SerializeField]
@@ -22,7 +23,10 @@ public class EnemyAttackRanged : MonoBehaviour
     bool attacking = false;
     bool continueAttacking = false;
 
-    Queue<Projectile> projectiles = null;
+    private void OnDisable()
+    {
+        attacking = false;
+    }
 
     private void Awake()
     {
@@ -31,10 +35,10 @@ public class EnemyAttackRanged : MonoBehaviour
 
     private void Start()
     {
-        projectiles = ProjectileManager.instance.projectiles;
         layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
         targeting.OnNewTargetAcquired += StartFiring;
         targeting.OnTargetLost += StopFiring;
+        projectileContainer = ObjectPooler.instance.transform;
     }
 
     private void StartFiring()
@@ -62,18 +66,11 @@ public class EnemyAttackRanged : MonoBehaviour
 
     public void ShootProjectile()
     {
-        Projectile p = null;
-        if (projectiles.Count > 0)
-        {
-            p = projectiles.Dequeue();
-            p.transform.position = transform.position;
-            p.transform.rotation = transform.rotation;
-        }
-        else
-        {
-            GameObject go = Instantiate(projectilePrefab, transform.position, Quaternion.identity, ProjectileManager.instance.transform);
-            p = go.GetComponent<Projectile>();
-        }
+        GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
+        Projectile p = go.GetComponent<Projectile>();
+        go.transform.position = transform.position;
+        go.transform.rotation = Quaternion.identity;
+        go.transform.parent = projectileContainer;
         p.gameObject.layer = layerNum;
         p.Launch(targeting.target.position - transform.position, projectileSprite, damage, falloffTime, maxPenetrations, projectileSpeed);
     }
