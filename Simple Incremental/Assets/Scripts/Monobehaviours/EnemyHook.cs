@@ -9,6 +9,7 @@ public class EnemyHook : MonoBehaviour
     EnemyMovement enemyMovement = null;
     EnemyAttackRanged enemyAttackRanged = null;
     EnemyAttackMelee enemyAttackMelee = null;
+    EnemyExperience enemyExperience = null;
 
     public void Awake()
     {
@@ -18,6 +19,7 @@ public class EnemyHook : MonoBehaviour
         enemyMovement = GetComponent<EnemyMovement>();
         enemyAttackRanged = GetComponent<EnemyAttackRanged>();
         enemyAttackMelee = GetComponent<EnemyAttackMelee>();
+        enemyExperience = GetComponent<EnemyExperience>();
     }
 
     public bool Hook()
@@ -55,6 +57,10 @@ public class EnemyHook : MonoBehaviour
             {
                 enemyAttackMelee.damage = enemyTemplate.meleeDamage;
                 enemyAttackMelee.punchForce = enemyTemplate.meleePunchForce;
+            }
+            if(enemyExperience != null)
+            {
+                enemyExperience.experience = enemyTemplate.experience;
             }
             return true;
         }

@@ -6252,6 +6252,7 @@ GameObject:
   - component: {fileID: 1276318852484899550}
   - component: {fileID: 1276318852484899549}
   - component: {fileID: 1276318852484899546}
+  - component: {fileID: 1276318852484899552}
   - component: {fileID: 1276318852484899541}
   - component: {fileID: 1276318852484899539}
   - component: {fileID: 1276318852484899551}
@@ -6263,6 +6264,7 @@ GameObject:
   - component: {fileID: 1276318852484899525}
   - component: {fileID: 1276318852484899542}
   - component: {fileID: 1276318852484899538}
+  - component: {fileID: 1276318852484899543}
   - component: {fileID: 1276318852484899540}
   m_Layer: 8
   m_Name: Bob
@@ -6366,6 +6368,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDied: {fileID: 11400000, guid: b68d0580dfe3a964b8b501577471d921, type: 2}
+--- !u!114 &1276318852484899543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276318852484899537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - {fileID: 11400000, guid: a1e5bc06fb9cf2644bd9ae38c9739792, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1276318852484899544}
+        m_MethodName: LevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1276318852484899544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6512,6 +6544,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1276318852484899552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276318852484899537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ee52a5faea0bd4cb786e8b1cf23240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLevelUp: {fileID: 11400000, guid: a1e5bc06fb9cf2644bd9ae38c9739792, type: 2}
 --- !u!1001 &4042870517887608792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6577,6 +6622,11 @@ PrefabInstance:
     - target: {fileID: 5352710537674811102, guid: 0a22dab5225500048a16edd2ef71e00c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328571256433951564, guid: 0a22dab5225500048a16edd2ef71e00c,
+        type: 3}
+      propertyPath: level
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
