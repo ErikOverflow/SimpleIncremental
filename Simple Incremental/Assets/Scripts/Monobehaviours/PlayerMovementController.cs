@@ -40,10 +40,6 @@ public class PlayerMovementController : MonoBehaviour
             anim.SetTrigger("Jump");
             rigidBody.AddForce(new Vector2(0f, jumpForce));
         }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            anim.SetTrigger("Attack");
-        }
 
         var targetVelocity = new Vector2(horizontalForce * horizontalSpeed * normalizeSpeed * Time.deltaTime, rigidBody.velocity.y);
         rigidBody.velocity = Vector2.SmoothDamp(rigidBody.velocity, targetVelocity, ref currentVelocity, horizontalSmoothing);
