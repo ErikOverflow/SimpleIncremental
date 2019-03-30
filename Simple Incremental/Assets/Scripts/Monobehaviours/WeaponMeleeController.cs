@@ -1,35 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class WeaponMeleeController : MonoBehaviour
 {
     public int damage = 0;
+    List<CharacterHealth> chs = null;
+    CharacterHealth[] iterableChs = null;
     Collider2D meleeTrigger = null;
 
-    Camera mainCam;
-
-    public void Awake()
+    private void OnDisable()
     {
-        mainCam = Camera.main;
-        meleeTrigger = GetComponent<Collider2D>();
-        meleeTrigger.enabled = false;
+        chs.Clear();
+    }
+
+    private void Awake()
+    {
+        chs = new List<CharacterHealth>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
-            StartCoroutine(Attack());
+            iterableChs = chs.ToArray();
+            foreach (CharacterHealth ch in iterableChs)
+            {
+                ch.TakeDamage(damage);
+            }
         }
     }
 
-    private IEnumerator Attack()
+    private void RemoveTarget(CharacterHealth ch)
     {
-        meleeTrigger.enabled = true;
-        yield return new WaitForFixedUpdate();
-        meleeTrigger.enabled = false;
+        chs.Remove(ch);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,7 +41,21 @@ public class WeaponMeleeController : MonoBehaviour
         if (!collision.isTrigger)
         {
             CharacterHealth ch = collision.GetComponent<CharacterHealth>();
-            ch?.TakeDamage(damage);
+            if (ch != null)
+            {
+                chs.Add(ch);
+                ch.UnTarget += RemoveTarget;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.isTrigger)
+        {
+            CharacterHealth ch = collision.GetComponent<CharacterHealth>();
+            if (ch != null && chs.Contains(ch))
+                chs.Remove(ch);
         }
     }
 }

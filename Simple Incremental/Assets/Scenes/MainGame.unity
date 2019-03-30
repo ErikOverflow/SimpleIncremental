@@ -6258,10 +6258,10 @@ GameObject:
   - component: {fileID: 1276318852484899524}
   - component: {fileID: 1276318852484899544}
   - component: {fileID: 1276318852484899548}
-  - component: {fileID: 1276318852484899542}
   - component: {fileID: 1276318852484899545}
   - component: {fileID: 1276318852484899547}
   - component: {fileID: 1276318852484899525}
+  - component: {fileID: 1276318852484899542}
   - component: {fileID: 1276318852484899538}
   - component: {fileID: 1276318852484899540}
   m_Layer: 8
