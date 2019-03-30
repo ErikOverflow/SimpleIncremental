@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] string horizontalAxis = "Horizontal";
@@ -15,9 +16,9 @@ public class PlayerMovementController : MonoBehaviour
 
     float horizontalForce;
     Rigidbody2D rigidBody;
+    SpriteRenderer spriteRenderer;
     Vector2 currentVelocity = Vector2.zero;
     Animator anim;
-    int jumpHash = Animator.StringToHash("Jump");
     int groundedHash = Animator.StringToHash("Grounded");
 
     private void Awake()
@@ -30,11 +31,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         horizontalForce = Input.GetAxisRaw(horizontalAxis);
 
-        if (Input.GetKeyDown("space") && anim.GetBool(groundedHash))
+        if (Input.GetKeyDown(KeyCode.Space) && anim.GetBool(groundedHash))
         {
-            anim.SetBool(jumpHash, true);
+            anim.SetTrigger("Jump");
+            rigidBody.AddForce(new Vector2(0f, jumpForce));
         }
-    }
 
     private void FixedUpdate()
     {
@@ -43,11 +44,11 @@ public class PlayerMovementController : MonoBehaviour
 
         anim.SetFloat("VelocityX", Math.Abs(targetVelocity.x));
 
-        // If the player should jump...
-        if (anim.GetBool(jumpHash) && anim.GetBool(groundedHash))
+        // Flip sprite based on movement direction
+        if ((horizontalForce > 0 && spriteRenderer.flipX) || 
+            (horizontalForce < 0 && !spriteRenderer.flipX))
         {
-            rigidBody.AddForce(new Vector2(0f, jumpForce));
-            anim.SetBool(jumpHash, false);
+            spriteRenderer.flipX = !spriteRenderer.flipX;
         }
     }
 
