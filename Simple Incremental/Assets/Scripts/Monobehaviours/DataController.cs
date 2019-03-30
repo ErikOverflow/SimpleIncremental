@@ -37,7 +37,7 @@ public class DataController : MonoBehaviour
         {
             string dataAsJson = File.ReadAllText(filePath);
             gameData = JsonUtility.FromJson<GameData>(dataAsJson);
-            restoreGameState();
+            HookGameData();
         }
         else
         {
@@ -48,21 +48,23 @@ public class DataController : MonoBehaviour
 
     public void SaveGameData()
     {
-        updateGamedata();
+        UpdateGamedata();
         string dataAsJson = JsonUtility.ToJson(gameData);
         string filePath = Path.Combine(Application.persistentDataPath, gameDataFileName);
         File.WriteAllText(filePath, dataAsJson);
     }
 
-    public void updateGamedata()
+    private void UpdateGamedata()
     {
         
         gameData.level = characterLevel.level;
+        gameData.items = PlayerInventory.instance.items;
     }
 
-    public void restoreGameState()
+    private void HookGameData()
     {
         characterLevel.level = gameData.level;
+        PlayerInventory.instance.items = gameData.items;
     }
 
 }
@@ -70,7 +72,7 @@ public class DataController : MonoBehaviour
 [System.Serializable]
 public class GameData
 {
-    public ItemInstance[] items;
+    public List<ItemInstance> items;
     public int level;
 }
 
