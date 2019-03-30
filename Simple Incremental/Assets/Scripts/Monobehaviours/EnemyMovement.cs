@@ -14,6 +14,11 @@ public class EnemyMovement : MonoBehaviour
     EnemyTargeting targeting = null;
     bool chasing = false;
 
+    private void OnDisable()
+    {
+        chasing = false;
+    }
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();

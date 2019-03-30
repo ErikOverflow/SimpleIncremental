@@ -40,12 +40,17 @@ public class InventorySlot : MonoBehaviour
 
     public void CreateSlot(ItemInstance _item)
     {
-        if (_item != null)
+        if (_item?.item != null)
         {
             item = _item;
             image.enabled = true;
             image.sprite = item.item.sprite;
             emptySlot.enabled = false;
+        }
+        else
+        {
+            ClearSlot();
+            PlayerInventory.instance.items.Remove(_item);
         }
     }
 }

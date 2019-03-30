@@ -23,6 +23,11 @@ public class EnemyAttackRanged : MonoBehaviour
     bool attacking = false;
     bool continueAttacking = false;
 
+    private void OnDisable()
+    {
+        attacking = false;
+    }
+
     private void Awake()
     {
         targeting = GetComponent<EnemyTargeting>();
