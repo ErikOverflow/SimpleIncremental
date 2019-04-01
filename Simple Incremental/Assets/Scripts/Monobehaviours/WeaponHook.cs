@@ -25,15 +25,15 @@ public class WeaponHook : MonoBehaviour
         }
         else
         {
-            HookWeapon(defaultValues);
+            HookWeapon(new ItemInstance(default));
         }
     }
 
-    private void HookWeapon(Weapon weapon)
+    private void HookWeapon(ItemInstance item)
     {
         weaponRangedController.enabled = false;
         weaponMeleeController.enabled = false;
-        if (weapon is WeaponRanged weaponRanged)
+        if (item.item is WeaponRanged weaponRanged)
         {
             weaponRangedController.damage = weaponRanged.damage;
             weaponRangedController.falloffTime = weaponRanged.falloffTime;
@@ -43,7 +43,7 @@ public class WeaponHook : MonoBehaviour
             spriteRenderer.sprite = weaponRanged.sprite;
             weaponRangedController.enabled = true;
         }
-        else if (weapon is WeaponMelee weaponMelee)
+        else if (item.item is WeaponMelee weaponMelee)
         {
             weaponMeleeController.damage = weaponMelee.damage;
             spriteRenderer.sprite = weaponMelee.sprite;

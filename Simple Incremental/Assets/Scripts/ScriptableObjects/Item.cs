@@ -5,27 +5,36 @@ using UnityEngine;
 [System.Serializable]
 public abstract class Item : ScriptableObject
 {
-    public string itemName;
     public Sprite sprite;
 
     public virtual void AddToInventory()
     {
-        PlayerInventory.instance.AddItemToInventory(ScriptableInstantiate(this));
+        PlayerInventory.instance.AddItemToInventory(new ItemInstance(this));
+    }
+}
+
+[Serializable]
+public class ItemInstance
+{
+    public Item item;
+    public string name;
+
+    public int genericInt1;
+    public int genericInt2;
+    public int genericInt3;
+
+    public ItemInstance(Item template)
+    {
+        if(template != null)
+        {
+            item = template;
+            name = template.name;
+        }
     }
 
-    public virtual void Use()
+    public void Use()
     {
-        Debug.Log(itemName + " usage not implemented.");
-    }
-
-    public string GetSerialized()
-    {
-        return JsonUtility.ToJson(this);
-    }
-
-    public static T ScriptableInstantiate<T>(T original) where T : Item
-    {
-        T newObj = Instantiate(original);
-        return newObj;
+        if(this.item is Equipment)
+            PlayerInventory.instance.EquipWeapon(this);
     }
 }

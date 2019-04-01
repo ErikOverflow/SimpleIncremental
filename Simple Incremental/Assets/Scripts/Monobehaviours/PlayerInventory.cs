@@ -9,18 +9,16 @@ public class PlayerInventory : MonoBehaviour
     public static PlayerInventory instance;
     [SerializeField]
     GameEvent itemEquipped = null;
-    //[HideInInspector] //Polymorphism doesn't play nice with the inspector, so this isn't the place to maintain item inventory from the editor.
-    public List<Item> items = null;
-    public int totalItemsCollected = 0;
-    public Weapon weapon = null;
+    public List<ItemInstance> items = null;
+    [NonSerialized]
+    public ItemInstance weapon = null; //Nonserialized to avoid weapon instance being defined but not actually having values
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            items = new List<Item>();
-            weapon = null; //This needs to be set to null, because public variables in the inspector UNDO the null set above. 
+            items = new List<ItemInstance>();
         }
         else
         {
@@ -28,9 +26,9 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void EquipWeapon(Weapon newWeapon)
+    public void EquipWeapon(ItemInstance newWeapon)
     {
-        if (newWeapon != null)
+        if (newWeapon?.item is Weapon)
         {
             if (newWeapon == weapon)
             {
@@ -42,9 +40,14 @@ public class PlayerInventory : MonoBehaviour
                 weapon = newWeapon;
                 items.Remove(newWeapon);
             }
-            else
+            else if(weapon != null)
             {
                 items.Add(weapon);
+                weapon = newWeapon;
+                items.Remove(newWeapon);
+            }
+            else
+            {
                 weapon = newWeapon;
                 items.Remove(newWeapon);
             }
@@ -52,9 +55,8 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void AddItemToInventory(Item item)
+    public void AddItemToInventory(ItemInstance item)
     {
-        totalItemsCollected++;
         items.Add(item);
     }
 }

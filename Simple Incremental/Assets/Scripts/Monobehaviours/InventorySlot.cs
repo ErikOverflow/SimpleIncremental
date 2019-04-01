@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    Item item = null;
+    ItemInstance item = null;
     [SerializeField]
     Image image = null;
     [SerializeField]
@@ -25,13 +25,13 @@ public class InventorySlot : MonoBehaviour
         emptySlot.enabled = true;
     }
 
-    public void CreateSlot(Item _item)
+    public void CreateSlot(ItemInstance _item)
     {
         if (_item != null)
         {
             item = _item;
             image.enabled = true;
-            image.sprite = item.sprite;
+            image.sprite = item.item?.sprite;
             emptySlot.enabled = false;
         }
         else

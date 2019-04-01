@@ -13,6 +13,7 @@ public class DataManager : MonoBehaviour
     public static DataManager instance;
     public GameObject player;
     public GameData gameData = null;
+    public Dictionary<string, Item> itemDict;
     [SerializeField]
     string gameDataFileName = "data.json";
     CharacterLevel characterLevel;
@@ -24,6 +25,12 @@ public class DataManager : MonoBehaviour
         {
             instance = this;
             characterLevel = player.GetComponent<CharacterLevel>();
+            Item[] allitems = Resources.FindObjectsOfTypeAll<Item>();
+            itemDict = new Dictionary<string, Item>();
+            foreach (Item item in allitems)
+            {
+                itemDict.Add(item.name, item);
+            }
         }
         else
         {
@@ -42,14 +49,12 @@ public class DataManager : MonoBehaviour
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            gameData = JsonUtility.FromJson(json, typeof(GameData)) as GameData;
-            gameData.items = new List<Item>();
-            foreach(TypeString its in gameData.itemTypeString)
+            gameData = JsonUtility.FromJson<GameData>(json);
+            foreach (ItemInstance item in gameData.items)
             {
-                Item o = (Item)Activator.CreateInstance(Type.GetType(its.type));
-                JsonUtility.FromJsonOverwrite(its.itemString, o);
-                gameData.items.Add(o);
+                itemDict.TryGetValue(item.name, out item.item);
             }
+            itemDict.TryGetValue(gameData.weapon?.name, out gameData.weapon.item);
             HookGameData();
         }
         else
@@ -69,17 +74,19 @@ public class DataManager : MonoBehaviour
     private void UpdateGamedata()
     {
         gameData.level = characterLevel.level;
-        gameData.itemTypeString = new List<TypeString>();
-        foreach(Item i in PlayerInventory.instance.items)
-        {
-            gameData.itemTypeString.Add(new TypeString { type = i.GetType().ToString(), itemString = i.GetSerialized() });
-        }
+        gameData.items = PlayerInventory.instance.items;
+        gameData.weapon = PlayerInventory.instance.weapon;
+        if (PlayerInventory.instance.weapon?.item == null)
+            gameData.weapon = null;
     }
 
     private void HookGameData()
     {
         characterLevel.level = gameData.level;
         PlayerInventory.instance.items = gameData.items;
+        PlayerInventory.instance.weapon = gameData.weapon;
+        if (gameData.weapon?.item == null)
+            PlayerInventory.instance.weapon = null;
     }
 
 }
@@ -87,14 +94,6 @@ public class DataManager : MonoBehaviour
 public class GameData
 {
     public int level;
-    public List<TypeString> itemTypeString;
-    [NonSerialized]
-    public List<Item> items;
-}
-
-[Serializable]
-public struct TypeString
-{
-    public string type;
-    public string itemString;
+    public List<ItemInstance> items;
+    public ItemInstance weapon;
 }
