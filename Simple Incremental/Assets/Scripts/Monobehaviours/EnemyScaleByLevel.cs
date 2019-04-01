@@ -15,6 +15,7 @@ public class EnemyScaleByLevel : StatAugment
     CharacterLevel characterLevel = null;
     EnemyAttackRanged enemyAttackRanged = null;
     EnemyAttackMelee enemyAttackMelee = null;
+    EnemyExperience enemyExperience = null;
 
     public override void Awake()
     {
@@ -23,6 +24,7 @@ public class EnemyScaleByLevel : StatAugment
         characterLevel = GetComponent<CharacterLevel>();
         enemyAttackRanged = GetComponent<EnemyAttackRanged>();
         enemyAttackMelee = GetComponent<EnemyAttackMelee>();
+        enemyExperience = GetComponent<EnemyExperience>();
     }
 
     public override void Augment()
@@ -33,5 +35,6 @@ public class EnemyScaleByLevel : StatAugment
         characterLoot.coins = Mathf.CeilToInt(characterLoot.coins * multiplier);
         enemyAttackRanged.damage = Mathf.CeilToInt(enemyAttackRanged.damage * multiplier);
         enemyAttackMelee.damage = Mathf.CeilToInt(enemyAttackMelee.damage * multiplier);
+        enemyExperience.experience = Mathf.CeilToInt(enemyExperience.experience * multiplier);
     }
 }
