@@ -12,6 +12,7 @@ public class EnemyAttackRanged : MonoBehaviour
     public int maxPenetrations = 1;
     public float projectileSpeed = 1f;
     public float reloadTime = 1f;
+    Animator anim;
 
     Transform projectileContainer = null;
     [SerializeField]
@@ -39,6 +40,7 @@ public class EnemyAttackRanged : MonoBehaviour
         targeting.OnNewTargetAcquired += StartFiring;
         targeting.OnTargetLost += StopFiring;
         projectileContainer = ObjectPooler.instance.transform;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     private void StartFiring()
@@ -58,6 +60,7 @@ public class EnemyAttackRanged : MonoBehaviour
         continueAttacking = true;
         while (continueAttacking)
         {
+            anim.SetTrigger("AttackRanged");
             ShootProjectile();
             yield return new WaitForSeconds(reloadTime);
         }

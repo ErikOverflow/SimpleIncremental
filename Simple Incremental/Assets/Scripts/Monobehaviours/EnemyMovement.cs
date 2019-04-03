@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,8 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody2D rb2d = null;
     EnemyTargeting targeting = null;
     bool chasing = false;
+    Animator anim;
+    int speedHash = Animator.StringToHash("Speed");
 
     private void OnDisable()
     {
@@ -29,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
     {
         targeting.OnNewTargetAcquired += StartChasing;
         targeting.OnTargetLost += StopChasing;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     public void StartChasing()
@@ -41,6 +45,7 @@ public class EnemyMovement : MonoBehaviour
     {
         chasing = false;
         rb2d.velocity = Vector2.zero;
+        anim.SetFloat(speedHash, 0);
     }
 
     private IEnumerator ChaseTarget()
@@ -57,6 +62,7 @@ public class EnemyMovement : MonoBehaviour
                 yield return new WaitForSeconds(responseTime);
             }
             rb2d.velocity = new Vector2(direction * moveSpeed, lastVel.y);
+            anim.SetFloat(speedHash, Math.Abs(rb2d.velocity.x));
             yield return new WaitForFixedUpdate();
             lastDir = direction;
         }
