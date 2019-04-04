@@ -1,7 +1,7 @@
 # SimpleIncremental
 
 
-### Consider reading the [Wiki](https://github.com/ErikOverflow/SimpleIncremental/wiki)
+### Documentation can be found on the [Wiki](https://github.com/ErikOverflow/SimpleIncremental/wiki)
 
 ### Join us on [Discord](https://discord.gg/R2VWR78)
 
