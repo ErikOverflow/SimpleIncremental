@@ -13,4 +13,4 @@ This project is Open-Source and can be used as a template, reference, or a base 
 
 If you do use this project or its components, you are not required to give attribution. However, please consider contributing some of the scripts and ideas you come up with to this project via a pull-request or documentation.
 
-### [Consider checing out the Wiki](https://github.com/ErikOverflow/SimpleIncremental/wiki)
+### [Consider checking out the Wiki for documentation](https://github.com/ErikOverflow/SimpleIncremental/wiki)
