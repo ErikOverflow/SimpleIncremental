@@ -32,6 +32,7 @@ public class WeaponMeleeController : MonoBehaviour
 
     private void RemoveTarget(CharacterHealth ch)
     {
+        ch.UnTarget -= RemoveTarget;
         chs.Remove(ch);
     }
 
@@ -55,7 +56,6 @@ public class WeaponMeleeController : MonoBehaviour
             CharacterHealth ch = collision.GetComponent<CharacterHealth>();
             if (ch != null && chs.Contains(ch))
             {
-                ch.UnTarget -= RemoveTarget;
                 chs.Remove(ch);
             }
         }
