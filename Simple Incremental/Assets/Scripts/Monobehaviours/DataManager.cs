@@ -11,7 +11,6 @@ using System.Linq;
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
-    public GameObject player;
     public GameData gameData = null;
     public Dictionary<string, Item> itemDict;
     [SerializeField]
@@ -24,7 +23,7 @@ public class DataManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            characterLevel = player.GetComponent<CharacterLevel>();
+            characterLevel = PlayerInventory.instance.gameObject.GetComponent<CharacterLevel>();
             Item[] allitems = Resources.FindObjectsOfTypeAll<Item>();
             itemDict = new Dictionary<string, Item>();
             foreach (Item item in allitems)
