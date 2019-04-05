@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9004495644901729760}
   - component: {fileID: 9004495644901729765}
+  - component: {fileID: 3307581866002459072}
   - component: {fileID: 2942798635422556534}
   - component: {fileID: 9004495644901729762}
   - component: {fileID: 9004495644901729763}
@@ -48,6 +49,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultValues: {fileID: 11400000, guid: e85406af1c0383a4fbe94dee7c38c550, type: 2}
+--- !u!114 &3307581866002459072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9004495644901729761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528ce933b199a3340a0ff8077bef9dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Applied: 1
+  priority: 1
+  active: 0
+  level: 0
+  sprite: {fileID: 21300000, guid: 39641cfe8e83bf74caa4f8ef20963863, type: 3}
+  damageIncreasePerLevel: 0.2
 --- !u!114 &2942798635422556534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,7 +74,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9004495644901729761}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403982a973dfc404d88e1b30c0892ac6, type: 3}
   m_Name: 
@@ -68,18 +87,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9004495644901729761}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14cbad5be4dfdc849b24b260d710ec3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
-  damage: 1
+  damage: 2
   falloffTime: 5
   maxHits: 1
   projectileSpeed: 5
   projectilePrefab: {fileID: 8858608237685767088, guid: 9c2466f117f3f334d9bbbd36f89b7949,
     type: 3}
+  layer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!212 &9004495644901729763
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -117,7 +139,7 @@ SpriteRenderer:
   m_SortingLayerID: 609779569
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f254ece94732f784382429f4c7dc13bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,7 +167,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.71875, y: 1.03125}
+    oldSize: {x: 0.94, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

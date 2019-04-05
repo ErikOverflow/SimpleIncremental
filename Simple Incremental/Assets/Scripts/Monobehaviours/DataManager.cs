@@ -11,7 +11,7 @@ using System.Linq;
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
-    public GameObject player;
+    public GameObject player = null;
     public GameData gameData = null;
     public Dictionary<string, Item> itemDict;
     [SerializeField]
