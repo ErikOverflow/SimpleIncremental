@@ -25,7 +25,7 @@ public class WeaponHook : MonoBehaviour
         }
         else
         {
-            HookWeapon(new ItemInstance(default));
+            HookWeapon(new ItemInstance(defaultValues));
         }
     }
 
