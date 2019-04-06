@@ -62,6 +62,7 @@ public class DataManager : MonoBehaviour
         else
         {
             gameData = new GameData();
+            HookGameData();
         }
     }
 
@@ -96,7 +97,7 @@ public class DataManager : MonoBehaviour
 [Serializable]
 public class GameData
 {
-    public int level;
-    public List<ItemInstance> items;
-    public ItemInstance weapon;
+    public int level = 1;
+    public List<ItemInstance> items = new List<ItemInstance>();
+    public ItemInstance weapon = null;
 }

@@ -232,12 +232,12 @@ PrefabInstance:
     - target: {fileID: 2847017750433178247, guid: 10db50a3703e58a479dd32b6d2b6d2bc,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2847017750433178247, guid: 10db50a3703e58a479dd32b6d2b6d2bc,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10db50a3703e58a479dd32b6d2b6d2bc, type: 3}
