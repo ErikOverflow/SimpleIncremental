@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyTargeting))]
 public class EnemyAttackRanged : MonoBehaviour
 {
 
@@ -31,7 +30,7 @@ public class EnemyAttackRanged : MonoBehaviour
 
     private void Awake()
     {
-        targeting = GetComponent<EnemyTargeting>();
+        targeting = GetComponentInParent<EnemyTargeting>();
     }
 
     private void Start()
@@ -40,7 +39,7 @@ public class EnemyAttackRanged : MonoBehaviour
         targeting.OnNewTargetAcquired += StartFiring;
         targeting.OnTargetLost += StopFiring;
         projectileContainer = ObjectPooler.instance.transform;
-        anim = gameObject.GetComponent<Animator>();
+        anim = GetComponentInParent<Animator>();
     }
 
     private void StartFiring()

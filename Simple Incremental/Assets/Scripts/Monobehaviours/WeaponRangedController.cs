@@ -34,8 +34,8 @@ public class WeaponRangedController : MonoBehaviour
             Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 dir = mousePos - transform.position;
             GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
-            go.transform.parent = transform;
-            go.transform.localPosition = Vector2.zero;
+            go.transform.parent = ObjectPooler.instance.transform;
+            go.transform.position = transform.position;
             Projectile p = go.GetComponent<Projectile>();
             p.gameObject.layer = layerNum;
             p.Launch(dir, projectileSprite, damage, falloffTime, maxHits, projectileSpeed);

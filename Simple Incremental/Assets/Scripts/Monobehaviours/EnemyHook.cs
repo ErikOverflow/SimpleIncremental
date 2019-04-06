@@ -17,8 +17,8 @@ public class EnemyHook : MonoBehaviour
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
         enemyMovement = GetComponent<EnemyMovement>();
-        enemyAttackRanged = GetComponent<EnemyAttackRanged>();
-        enemyAttackMelee = GetComponent<EnemyAttackMelee>();
+        enemyAttackRanged = GetComponentInChildren<EnemyAttackRanged>();
+        enemyAttackMelee = GetComponentInChildren<EnemyAttackMelee>();
         enemyExperience = GetComponent<EnemyExperience>();
     }
 
