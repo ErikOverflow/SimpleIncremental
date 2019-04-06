@@ -22,7 +22,7 @@ public class EnemyScaleByLevel : StatAugment
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
         characterLevel = GetComponent<CharacterLevel>();
-        enemyAttackRanged = GetComponent<EnemyAttackRanged>();
+        enemyAttackRanged = GetComponentInChildren<EnemyAttackRanged>();
         enemyAttackMelee = GetComponent<EnemyAttackMelee>();
         enemyExperience = GetComponent<EnemyExperience>();
     }

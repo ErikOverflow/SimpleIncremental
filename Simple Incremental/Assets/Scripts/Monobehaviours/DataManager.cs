@@ -17,6 +17,8 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     string gameDataFileName = "data.json";
     CharacterLevel characterLevel;
+    [SerializeField]
+    GameEvent itemsEquipped = null;
 
 
     void Awake()
@@ -87,6 +89,7 @@ public class DataManager : MonoBehaviour
         PlayerInventory.instance.weapon = gameData.weapon;
         if (gameData.weapon?.item == null)
             PlayerInventory.instance.weapon = null;
+        itemsEquipped.Raise();
     }
 
 }

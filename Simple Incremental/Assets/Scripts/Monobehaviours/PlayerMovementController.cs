@@ -16,7 +16,6 @@ public class PlayerMovementController : MonoBehaviour
 
     float horizontalForce;
     Rigidbody2D rigidBody;
-    SpriteRenderer spriteRenderer;
     Vector2 currentVelocity = Vector2.zero;
     Animator anim;
     int groundedHash = Animator.StringToHash("Grounded");
@@ -25,7 +24,6 @@ public class PlayerMovementController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -44,13 +42,11 @@ public class PlayerMovementController : MonoBehaviour
         rigidBody.velocity = Vector2.SmoothDamp(rigidBody.velocity, targetVelocity, ref currentVelocity, horizontalSmoothing);
 
         anim.SetFloat("VelocityX", Math.Abs(targetVelocity.x));
-        anim.SetFloat("Speed", Math.Abs(targetVelocity.x));
 
         // Flip sprite based on movement direction
-        if ((horizontalForce > 0 && spriteRenderer.flipX) || 
-            (horizontalForce < 0 && !spriteRenderer.flipX))
+        if(horizontalForce < 0 && transform.localScale.x == -1 || horizontalForce > 0 && transform.localScale.x == 1)
         {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
+            transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
     }
 
