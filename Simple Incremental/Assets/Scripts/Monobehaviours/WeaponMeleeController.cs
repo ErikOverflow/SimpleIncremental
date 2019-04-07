@@ -1,62 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class WeaponMeleeController : MonoBehaviour
 {
     public int damage = 0;
-    List<CharacterHealth> chs = null;
-    CharacterHealth[] iterableChs = null;
-
-    private void OnDisable()
-    {
-        chs.Clear();
-    }
-
-    private void Awake()
-    {
-        chs = new List<CharacterHealth>();
-    }
+    [NonSerialized]
+    public GameObject weapon;
+    [SerializeField]
+    ContactFilter2D cf2d = new ContactFilter2D();
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
-            iterableChs = chs.ToArray();
-            foreach (CharacterHealth ch in iterableChs)
+            Collider2D[] colliders = new Collider2D[5];
+            weapon.GetComponent<Collider2D>().OverlapCollider(cf2d, colliders);
+            foreach (Collider2D col in colliders)
             {
-                ch.TakeDamage(damage);
-            }
-        }
-    }
-
-    private void RemoveTarget(CharacterHealth ch)
-    {
-        ch.UnTarget -= RemoveTarget;
-        chs.Remove(ch);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.isTrigger)
-        {
-            CharacterHealth ch = collision.GetComponent<CharacterHealth>();
-            if (ch != null)
-            {
-                chs.Add(ch);
-                ch.UnTarget += RemoveTarget;
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.isTrigger)
-        {
-            CharacterHealth ch = collision.GetComponent<CharacterHealth>();
-            if (ch != null && chs.Contains(ch))
-            {
-                chs.Remove(ch);
+                col?.GetComponent<CharacterHealth>()?.TakeDamage(damage);
             }
         }
     }
