@@ -14,7 +14,16 @@ public class HudLevelUI : MonoBehaviour
     {
         characterLevel = player.GetComponent<CharacterLevel>();
         levelText = GetComponent<Text>();
-        levelText.text = (string)characterLevel.level.ToString();
+    }
+
+    private void Start()
+    {
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        levelText.text = characterLevel.level.ToString();
     }
 
 }

@@ -25,7 +25,7 @@ public class EnemyStatsSystem : MonoBehaviour
         {
             foreach (StatAugment augment in statAugments)
             {
-                if (augment.Applied)
+                if (augment.applied)
                     augment.Augment();
             }
         }

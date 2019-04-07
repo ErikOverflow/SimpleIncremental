@@ -12,8 +12,8 @@ public class WeaponUpgradeDamage : PlayerUpgrade
 
     public override void Awake()
     {
-        wrc = GetComponent<WeaponRangedController>();
-        wmc = GetComponent<WeaponMeleeController>();
+        wrc = GetComponentInChildren<WeaponRangedController>();
+        wmc = GetComponentInChildren<WeaponMeleeController>();
     }
 
     public override void Augment()

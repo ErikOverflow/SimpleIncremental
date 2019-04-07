@@ -10,6 +10,9 @@ public class PlayerStatsSystem : MonoBehaviour
     CharacterLevel characterLevel = null;
     List<StatAugment> statAugments;
 
+    [SerializeField]
+    GameEvent statsChanged = null;
+
     public void Awake()
     {
         playerHook = GetComponent<PlayerHook>();
@@ -30,8 +33,9 @@ public class PlayerStatsSystem : MonoBehaviour
         weaponHook.Hook();
         foreach (StatAugment augment in statAugments)
         {
-            if (augment.Applied)
+            if (augment.applied)
                 augment.Augment();
         }
+        statsChanged.Raise();
     }
 }

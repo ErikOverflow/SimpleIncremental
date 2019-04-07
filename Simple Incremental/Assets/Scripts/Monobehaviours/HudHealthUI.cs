@@ -18,16 +18,12 @@ public class HudHealthUI : MonoBehaviour
 
     void Start()
     {
-        
         characterHealth.HealthChanged += UpdateHealthUI;
+        UpdateHealthUI();
     }
 
     private void UpdateHealthUI()
     {
-        if (characterHealth.health <= 0)
-        {
-            transform.gameObject.SetActive(false);
-        }
         healthBar.maxValue = characterHealth.maxHealth;
         healthBar.value = characterHealth.health;
     }
