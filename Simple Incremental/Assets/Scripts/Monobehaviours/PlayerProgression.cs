@@ -41,11 +41,11 @@ public class PlayerProgression : MonoBehaviour
         experienceForNextLevel -= amount;
         if(experienceForNextLevel < 0)
         {
-            playerLevelUp.Raise();
+            characterLevel.LevelUp();
             GainExperience(-experienceForNextLevel);
         } else if( experienceForNextLevel == 0)
         {
-            playerLevelUp.Raise();
+            characterLevel.LevelUp();
             experienceForNextLevel = CalculateExperienceForNextLevel(characterLevel.level);
         }
     }
