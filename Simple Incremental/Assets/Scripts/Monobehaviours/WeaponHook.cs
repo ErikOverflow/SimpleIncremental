@@ -8,13 +8,13 @@ public class WeaponHook : MonoBehaviour
 
     WeaponRangedController weaponRangedController = null;
     WeaponMeleeController weaponMeleeController = null;
+    [SerializeField]
     SpriteRenderer spriteRenderer = null;
 
     public void Awake()
     {
         weaponRangedController = GetComponent<WeaponRangedController>();
         weaponMeleeController = GetComponent<WeaponMeleeController>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Hook()
