@@ -10,12 +10,13 @@ public class WeaponRangedController : MonoBehaviour
     public float falloffTime = 1f;
     public int maxHits = 1;
     public float projectileSpeed = 1f;
-    public CharacterAttackHandler characterAttackHandler;
 
     [SerializeField]
     GameObject projectilePrefab = null;
     [SerializeField]
     LayerMask layer;
+    [SerializeField]
+    Transform throwingHand = null;
     private int layerNum;
     private Animator anim;
     int attackRangedHash = Animator.StringToHash("AttackRanged");
@@ -26,12 +27,6 @@ public class WeaponRangedController : MonoBehaviour
         mainCam = Camera.main;
         layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
         anim = GetComponentInParent<Animator>();
-        characterAttackHandler = transform.root.GetComponent<CharacterAttackHandler>();
-    }
-
-    void Start()
-    {
-        characterAttackHandler.PlayerAttackRanged += LaunchProjectile;
     }
 
     private void Update()
@@ -47,7 +42,7 @@ public class WeaponRangedController : MonoBehaviour
         Vector2 dir = mousePos - transform.position;
         GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
         go.transform.parent = ObjectPooler.instance.transform;
-        go.transform.position = transform.position;
+        go.transform.position = throwingHand.position;
         Projectile p = go.GetComponent<Projectile>();
         p.gameObject.layer = layerNum;
         p.Launch(dir, projectileSprite, damage, falloffTime, maxHits, projectileSpeed);
