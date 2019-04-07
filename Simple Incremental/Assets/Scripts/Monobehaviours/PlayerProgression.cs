@@ -9,9 +9,6 @@ public class PlayerProgression : MonoBehaviour
 
     int experienceForNextLevel;
 
-    [SerializeField]
-    GameEvent playerLevelUp = null;
-
     private void Awake()
     {
         if(instance == null)
