@@ -33,16 +33,12 @@ public class DataManager : MonoBehaviour
             {
                 itemDict.Add(item.name, item);
             }
+            LoadGameData();
         }
         else
         {
             Destroy(this);
         }
-    }
-
-    private void Start()
-    {
-        LoadGameData();
     }
 
     public void LoadGameData()
