@@ -906,6 +906,7 @@ GameObject:
   - component: {fileID: 3684452400098794656}
   - component: {fileID: 3684452400098794671}
   - component: {fileID: 713414230}
+  - component: {fileID: 4437911503979039062}
   m_Layer: 8
   m_Name: Girl
   m_TagString: Player
@@ -1206,6 +1207,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLevelUp: {fileID: 11400000, guid: a1e5bc06fb9cf2644bd9ae38c9739792, type: 2}
+--- !u!114 &4437911503979039062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3684452400098761256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05917454126948e40a4a79805fbd0661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3684452400098761258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,6 +2212,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 1494408566, guid: 4558757117afed548954a7ad37242e2c, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494408566, guid: 4558757117afed548954a7ad37242e2c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9004495644901729763, guid: 4558757117afed548954a7ad37242e2c,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -2213,14 +2234,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494408566, guid: 4558757117afed548954a7ad37242e2c, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494408566, guid: 4558757117afed548954a7ad37242e2c, type: 3}
-      propertyPath: m_Size.y
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4558757117afed548954a7ad37242e2c, type: 3}

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class WeaponRangedController : MonoBehaviour
     public float falloffTime = 1f;
     public int maxHits = 1;
     public float projectileSpeed = 1f;
+    public CharacterAttackHandler characterAttackHandler;
 
     [SerializeField]
     GameObject projectilePrefab = null;
@@ -24,6 +26,12 @@ public class WeaponRangedController : MonoBehaviour
         mainCam = Camera.main;
         layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
         anim = GetComponentInParent<Animator>();
+        characterAttackHandler = transform.root.GetComponent<CharacterAttackHandler>();
+    }
+
+    void Start()
+    {
+        characterAttackHandler.PlayerAttackRanged += LaunchProjectile;
     }
 
     private void Update()
@@ -31,14 +39,17 @@ public class WeaponRangedController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
             anim.SetTrigger(attackRangedHash);
-            Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 dir = mousePos - transform.position;
-            GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
-            go.transform.parent = ObjectPooler.instance.transform;
-            go.transform.position = transform.position;
-            Projectile p = go.GetComponent<Projectile>();
-            p.gameObject.layer = layerNum;
-            p.Launch(dir, projectileSprite, damage, falloffTime, maxHits, projectileSpeed);
         }
+    }
+    public void LaunchProjectile()
+    {
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 dir = mousePos - transform.position;
+        GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
+        go.transform.parent = ObjectPooler.instance.transform;
+        go.transform.position = transform.position;
+        Projectile p = go.GetComponent<Projectile>();
+        p.gameObject.layer = layerNum;
+        p.Launch(dir, projectileSprite, damage, falloffTime, maxHits, projectileSpeed);
     }
 }

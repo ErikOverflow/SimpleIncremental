@@ -13,19 +13,20 @@ MonoBehaviour:
   m_Name: Broccoli
   m_EditorClassIdentifier: 
   enemyName: Broccoli
-  sprite: {fileID: 21300000, guid: 856344b9157d20340b341db623a3c7af, type: 3}
-  health: 20
-  coins: 10
+  sprite: {fileID: 21300000, guid: ca73ef093c5adb141aa7ffb33456daa0, type: 3}
+  health: 25
+  coins: 1
+  experience: 100
   moveSpeed: 3
   responseTime: 1
-  projectileSprite: {fileID: 21300000, guid: 43da6f29ed8e4bc468584e7862e83c47, type: 3}
+  projectileSprite: {fileID: 21300000, guid: ca73ef093c5adb141aa7ffb33456daa0, type: 3}
   rangedDamage: 1
   rangedFalloffTime: 3
   reloadTime: 1
   maxPenetrations: 1
-  projectileSpeed: 3
+  projectileSpeed: 8
   meleeDamage: 1
   meleePunchForce: 200
   lootableItems:
   - {fileID: 11400000, guid: 04cb082666d4e4b43b2df45cc43cc0c2, type: 2}
-  lootChance: 1
+  lootChance: 0.5
