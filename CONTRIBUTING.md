@@ -8,3 +8,33 @@ There will be roadmapped features for the project that can be "claimed" for deve
 ### 3. Avoid 2-way dependencies on all scripts. If one script HAS to see or affect another, then the other script must be agnostic to its existence.
 
 ### 4. Keep script responsibilities to a minimum. It is easier to manage 100 scripts of small snippets of logic, than 1 giant script. This also allows you to re-use and re-purpose these scripts much more easily for other projects.
+
+***
+
+# Please use the following template when documenting your changes.
+Copy paste the template into a markdown document.
+
+***
+<pre>
+##### Dependencies:
+
+* What this script needs in order to function. _Required Components or Objects_
+
+##### Methods:
+
+* Public methods that other scripts can call
+
+##### Events:
+
+* Subscribable events that dependents can listen to.
+
+##### Fields:
+
+* Public fields that are used by other classes or configured via inspector.
+
+##### General Overview:
+
+General idea of how the script works. Does not detail the dependencies.
+</pre>
+
+***
