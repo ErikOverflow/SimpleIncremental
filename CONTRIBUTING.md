@@ -18,19 +18,20 @@ Copy paste the template into a markdown document.
 <pre>
 ##### Dependencies:
 
-* What this script needs in order to function. _Required Components or Objects_
+* (Method-caller)[LinkToScript](example.com)
+* (Initializer)[LinkToScript](example.com)
 
 ##### Methods:
 
-* Public methods that other scripts can call
+* _PublicMethods()_ - description of use-case for the method
 
 ##### Events:
 
-* Subscribable events that dependents can listen to.
+* _Event_ - trigger point for event
 
 ##### Fields:
 
-* Public fields that are used by other classes or configured via inspector.
+* **field** - description if needed
 
 ##### General Overview:
 
