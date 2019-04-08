@@ -9,7 +9,7 @@ public class WeaponMeleeController : MonoBehaviour
     [NonSerialized]
     public GameObject weapon;
     [SerializeField]
-    LayerMask mask;
+    LayerMask mask = new LayerMask();
     ContactFilter2D cf2d;
     Collider2D[] colliders;
     Animator anim;
@@ -45,7 +45,7 @@ public class WeaponMeleeController : MonoBehaviour
         {
             canAttack = false;
             damagedCharacters.Clear();
-            while (anim.GetBool("Attacking"))
+            while (anim.GetBool("MeleeAttacking"))
             {
                 weapon.GetComponent<Collider2D>().OverlapCollider(cf2d, colliders);
                 foreach (Collider2D col in colliders)

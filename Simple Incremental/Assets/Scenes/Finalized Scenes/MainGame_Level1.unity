@@ -1011,20 +1011,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
-  cf2d:
-    useTriggers: 1
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 256
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &713414232
 MonoBehaviour:
   m_ObjectHideFlags: 0
