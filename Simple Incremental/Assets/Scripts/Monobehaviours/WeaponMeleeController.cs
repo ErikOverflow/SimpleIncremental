@@ -1,63 +1,65 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class WeaponMeleeController : MonoBehaviour
 {
     public int damage = 0;
-    List<CharacterHealth> chs = null;
-    CharacterHealth[] iterableChs = null;
+    [NonSerialized]
+    public GameObject weapon;
+    [SerializeField]
+    LayerMask mask = new LayerMask();
+    ContactFilter2D cf2d;
+    Collider2D[] colliders;
+    Animator anim;
+    bool canAttack;
+    List<CharacterHealth> damagedCharacters = new List<CharacterHealth>();
 
     private void OnDisable()
     {
-        chs.Clear();
+        canAttack = true;
     }
 
     private void Awake()
     {
-        chs = new List<CharacterHealth>();
+        anim = GetComponent<Animator>();
+        cf2d = new ContactFilter2D();
+        cf2d.layerMask = mask;
+        cf2d.useLayerMask = true;
+        colliders = new Collider2D[10];
+        canAttack = true;
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
-            iterableChs = chs.ToArray();
-            foreach (CharacterHealth ch in iterableChs)
-            {
-                ch.TakeDamage(damage);
-            }
+            StartCoroutine(CheckForAttacking());
         }
     }
 
-    private void RemoveTarget(CharacterHealth ch)
+    private IEnumerator CheckForAttacking()
     {
-        ch.UnTarget -= RemoveTarget;
-        chs.Remove(ch);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.isTrigger)
+        if (canAttack)
         {
-            CharacterHealth ch = collision.GetComponent<CharacterHealth>();
-            if (ch != null)
+            canAttack = false;
+            damagedCharacters.Clear();
+            while (anim.GetBool("MeleeAttacking"))
             {
-                chs.Add(ch);
-                ch.UnTarget += RemoveTarget;
+                weapon.GetComponent<Collider2D>().OverlapCollider(cf2d, colliders);
+                foreach (Collider2D col in colliders)
+                {
+                    CharacterHealth ch = col?.GetComponent<CharacterHealth>();
+                    if (!damagedCharacters.Contains(ch))
+                    {
+                        ch?.TakeDamage(damage);
+                        damagedCharacters.Add(ch);
+                    }
+                }
+                yield return new WaitForFixedUpdate();
             }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.isTrigger)
-        {
-            CharacterHealth ch = collision.GetComponent<CharacterHealth>();
-            if (ch != null && chs.Contains(ch))
-            {
-                chs.Remove(ch);
-            }
+            canAttack = true;
         }
     }
 }

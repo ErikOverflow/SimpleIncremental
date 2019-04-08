@@ -60,7 +60,7 @@ public class EnemyAttackRanged : MonoBehaviour
         while (continueAttacking)
         {
             anim.SetTrigger("AttackRanged");
-            ShootProjectile();
+            //ShootProjectile();
             yield return new WaitForSeconds(reloadTime);
         }
         attacking = false;
@@ -70,10 +70,13 @@ public class EnemyAttackRanged : MonoBehaviour
     {
         GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
         Projectile p = go.GetComponent<Projectile>();
+        Transform target = targeting.target;
+        if (target == null)
+            return;
         go.transform.position = transform.position;
         go.transform.rotation = Quaternion.identity;
         go.transform.parent = projectileContainer;
         p.gameObject.layer = layerNum;
-        p.Launch(targeting.target.position - transform.position, projectileSprite, damage, falloffTime, maxPenetrations, projectileSpeed);
+        p.Launch(target.position - transform.position, projectileSprite, damage, falloffTime, maxPenetrations, projectileSpeed);
     }
 }

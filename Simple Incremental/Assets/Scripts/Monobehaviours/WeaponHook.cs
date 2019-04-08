@@ -8,13 +8,15 @@ public class WeaponHook : MonoBehaviour
 
     WeaponRangedController weaponRangedController = null;
     WeaponMeleeController weaponMeleeController = null;
+    [SerializeField]
+    GameObject weapon = null;
     SpriteRenderer spriteRenderer = null;
 
     public void Awake()
     {
         weaponRangedController = GetComponent<WeaponRangedController>();
         weaponMeleeController = GetComponent<WeaponMeleeController>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = weapon.GetComponent<SpriteRenderer>();
     }
 
     public void Hook()
@@ -48,6 +50,7 @@ public class WeaponHook : MonoBehaviour
             weaponMeleeController.damage = weaponMelee.damage;
             spriteRenderer.sprite = weaponMelee.sprite;
             weaponMeleeController.enabled = true;
+            weaponMeleeController.weapon = weapon;
         }
     }
 

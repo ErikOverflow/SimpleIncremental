@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public class WeaponRangedController : MonoBehaviour
     GameObject projectilePrefab = null;
     [SerializeField]
     LayerMask layer;
+    [SerializeField]
+    Transform throwingHand = null;
     private int layerNum;
     private Animator anim;
     int attackRangedHash = Animator.StringToHash("AttackRanged");
@@ -31,14 +34,17 @@ public class WeaponRangedController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
             anim.SetTrigger(attackRangedHash);
-            Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 dir = mousePos - transform.position;
-            GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
-            go.transform.parent = ObjectPooler.instance.transform;
-            go.transform.position = transform.position;
-            Projectile p = go.GetComponent<Projectile>();
-            p.gameObject.layer = layerNum;
-            p.Launch(dir, projectileSprite, damage, falloffTime, maxHits, projectileSpeed);
         }
+    }
+    public void LaunchProjectile()
+    {
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 dir = mousePos - transform.position;
+        GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
+        go.transform.parent = ObjectPooler.instance.transform;
+        go.transform.position = throwingHand.position;
+        Projectile p = go.GetComponent<Projectile>();
+        p.gameObject.layer = layerNum;
+        p.Launch(dir, projectileSprite, damage, falloffTime, maxHits, projectileSpeed);
     }
 }
