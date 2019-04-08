@@ -18,8 +18,8 @@ Copy paste the template into a markdown document.
 <pre>
 ##### Dependencies:
 
-* (Method-caller)[LinkToScript](example.com)
-* (Initializer)[LinkToScript](example.com)
+* (Method-caller) [LinkToScript](example.com)
+* (Initializer) [LinkToScript](example.com)
 
 ##### Methods:
 
