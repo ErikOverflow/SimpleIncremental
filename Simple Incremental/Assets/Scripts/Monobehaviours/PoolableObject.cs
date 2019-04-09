@@ -7,14 +7,20 @@ public class PoolableObject : MonoBehaviour
 {
     [SerializeField]
     private GameObject prefab = null;
+    [NonSerialized]
     public string prefabName = null;
 
-    private void OnDisable()
+    private void Awake()
     {
-        if(prefabName == null && prefab != null)
+        if (prefabName == null && prefab != null)
         {
             prefabName = prefab.name;
         }
-        ObjectPooler.instance.ReleasePooledObject(this);
+    }
+
+    private void OnDisable()
+    {
+        if(prefab != null)
+            ObjectPooler.instance.ReleasePooledObject(this);
     }
 }
