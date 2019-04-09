@@ -10,7 +10,6 @@ public class CharacterHealth : MonoBehaviour
 
     public event Action HealthChanged;
     public event Action OnDeath;
-    public event Action<CharacterHealth> UnTarget;
 
     public void ResetHealth()
     {
@@ -27,7 +26,6 @@ public class CharacterHealth : MonoBehaviour
             {
                 health = 0;
                 OnDeath?.Invoke();
-                UnTarget?.Invoke(this);
                 gameObject.SetActive(false);
             }
             HealthChanged?.Invoke();

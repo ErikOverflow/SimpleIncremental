@@ -20,11 +20,11 @@ public class EnemyTargeting : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(target == null)
+        if (target == null)
         {
-            if (collision.CompareTag("Player"))
+            CharacterHealth ch = collision.GetComponent<CharacterHealth>();
+            if(ch != null)
             {
-                CharacterHealth ch = collision.GetComponent<CharacterHealth>();
                 target = ch.transform;
                 OnNewTargetAcquired?.Invoke();
             }
@@ -33,7 +33,7 @@ public class EnemyTargeting : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(target == collision.transform)
+        if (target == collision.transform)
         {
             target = null;
             OnTargetLost?.Invoke();
