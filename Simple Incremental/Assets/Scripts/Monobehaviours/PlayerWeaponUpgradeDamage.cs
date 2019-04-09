@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponUpgradeDamage : PlayerUpgrade
+public class PlayerWeaponUpgradeDamage : PlayerUpgrade
 {
     PlayerWeaponRangedController pwrc = null;
     PlayerWeaponMeleeController pwmc = null;
