@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 
-public class WeaponHook : MonoBehaviour
+public class PlayerWeaponHook : MonoBehaviour
 {
+    [SerializeField]
+    GameObject weapon = null;
+
     [Header("Default \"Unequipped\" Template")]
     [SerializeField]
     Weapon defaultValues = null;
 
     WeaponRangedController weaponRangedController = null;
     WeaponMeleeController weaponMeleeController = null;
-    [SerializeField]
-    GameObject weapon = null;
     SpriteRenderer spriteRenderer = null;
 
     public void Awake()

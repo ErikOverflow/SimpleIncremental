@@ -5,17 +5,17 @@ public class PlayerHook : MonoBehaviour
     [SerializeField]
     PlayerTemplate playerTemplate = null;
     CharacterHealth characterHealth = null;
-    WeaponHook weaponHook = null;
+    PlayerWeaponHook playerWeaponHook = null;
 
     public void Awake()
     {
         characterHealth = GetComponent<CharacterHealth>();
-        weaponHook = GetComponentInChildren<WeaponHook>();
+        playerWeaponHook = GetComponentInChildren<PlayerWeaponHook>();
     }
 
     public void Hook()
     {
         characterHealth.maxHealth = playerTemplate.health;
-        weaponHook.SetDefaultWeapon(playerTemplate.defaultWeapon);
+        playerWeaponHook.SetDefaultWeapon(playerTemplate.defaultWeapon);
     }
 }

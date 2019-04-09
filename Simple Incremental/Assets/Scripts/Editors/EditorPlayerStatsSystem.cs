@@ -28,8 +28,8 @@ public class EditorPlayerStatsSystem : Editor
         myStatSystem.Awake();
         PlayerHook playerHook = myStatSystem.GetComponent<PlayerHook>();
         playerHook.Awake();
-        WeaponHook weaponHook = myStatSystem.GetComponentInChildren<WeaponHook>();
-        weaponHook.Awake();
+        PlayerWeaponHook playerWeaponHook = myStatSystem.GetComponentInChildren<PlayerWeaponHook>();
+        playerWeaponHook.Awake();
         StatAugment[] statAugments = myStatSystem.GetComponentsInChildren<StatAugment>();
         foreach (StatAugment augment in statAugments)
         {

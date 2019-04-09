@@ -6,14 +6,14 @@ using UnityEngine;
 public class PlayerStatsSystem : MonoBehaviour
 {
     PlayerHook playerHook = null;
-    WeaponHook weaponHook = null;
+    PlayerWeaponHook playerWeaponHook = null;
     CharacterLevel characterLevel = null;
     List<StatAugment> statAugments;
 
     public void Awake()
     {
         playerHook = GetComponent<PlayerHook>();
-        weaponHook = GetComponentInChildren<WeaponHook>();
+        playerWeaponHook = GetComponentInChildren<PlayerWeaponHook>();
         statAugments = GetComponentsInChildren<StatAugment>().OrderBy(sa => sa.priority).ToList();
         characterLevel = GetComponent<CharacterLevel>();
     }
@@ -27,7 +27,7 @@ public class PlayerStatsSystem : MonoBehaviour
     public void ApplyAugments()
     {
         playerHook.Hook();
-        weaponHook.Hook();
+        playerWeaponHook.Hook();
         foreach (StatAugment augment in statAugments)
         {
             if (augment.Applied)
