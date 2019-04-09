@@ -9,14 +9,14 @@ public class PlayerWeaponHook : MonoBehaviour
     [SerializeField]
     Weapon defaultValues = null;
 
-    WeaponRangedController weaponRangedController = null;
-    WeaponMeleeController weaponMeleeController = null;
+    PlayerWeaponRangedController playerWeaponRangedController = null;
+    PlayerWeaponMeleeController playerWeaponMeleeController = null;
     SpriteRenderer spriteRenderer = null;
 
     public void Awake()
     {
-        weaponRangedController = GetComponent<WeaponRangedController>();
-        weaponMeleeController = GetComponent<WeaponMeleeController>();
+        playerWeaponRangedController = GetComponent<PlayerWeaponRangedController>();
+        playerWeaponMeleeController = GetComponent<PlayerWeaponMeleeController>();
         spriteRenderer = weapon.GetComponent<SpriteRenderer>();
     }
 
@@ -34,24 +34,24 @@ public class PlayerWeaponHook : MonoBehaviour
 
     private void HookWeapon(ItemInstance item)
     {
-        weaponRangedController.enabled = false;
-        weaponMeleeController.enabled = false;
+        playerWeaponRangedController.enabled = false;
+        playerWeaponMeleeController.enabled = false;
         if (item.item is WeaponRanged weaponRanged)
         {
-            weaponRangedController.damage = weaponRanged.damage;
-            weaponRangedController.falloffTime = weaponRanged.falloffTime;
-            weaponRangedController.maxHits = weaponRanged.maxHits;
-            weaponRangedController.projectileSpeed = weaponRanged.projectileSpeed;
-            weaponRangedController.projectileSprite = weaponRanged.projectileSprite;
+            playerWeaponRangedController.damage = weaponRanged.damage;
+            playerWeaponRangedController.falloffTime = weaponRanged.falloffTime;
+            playerWeaponRangedController.maxHits = weaponRanged.maxHits;
+            playerWeaponRangedController.projectileSpeed = weaponRanged.projectileSpeed;
+            playerWeaponRangedController.projectileSprite = weaponRanged.projectileSprite;
             spriteRenderer.sprite = weaponRanged.sprite;
-            weaponRangedController.enabled = true;
+            playerWeaponRangedController.enabled = true;
         }
         else if (item.item is WeaponMelee weaponMelee)
         {
-            weaponMeleeController.damage = weaponMelee.damage;
+            playerWeaponMeleeController.damage = weaponMelee.damage;
             spriteRenderer.sprite = weaponMelee.sprite;
-            weaponMeleeController.enabled = true;
-            weaponMeleeController.weapon = weapon;
+            playerWeaponMeleeController.enabled = true;
+            playerWeaponMeleeController.weapon = weapon;
         }
     }
 

@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class WeaponUpgradeDamage : PlayerUpgrade
 {
-    WeaponRangedController wrc = null;
-    WeaponMeleeController wmc = null;
+    PlayerWeaponRangedController pwrc = null;
+    PlayerWeaponMeleeController pwmc = null;
 
     [SerializeField]
     float damageIncreasePerLevel = 0.2f;
 
     public override void Awake()
     {
-        wrc = GetComponent<WeaponRangedController>();
-        wmc = GetComponent<WeaponMeleeController>();
+        pwrc = GetComponent<PlayerWeaponRangedController>();
+        pwmc = GetComponent<PlayerWeaponMeleeController>();
     }
 
     public override void Augment()
     {
-        wrc.damage *= Mathf.CeilToInt(1 + level * damageIncreasePerLevel);
+        pwrc.damage *= Mathf.CeilToInt(1 + level * damageIncreasePerLevel);
     }
 }
