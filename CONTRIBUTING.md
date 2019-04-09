@@ -21,15 +21,15 @@ Copy paste the template into a markdown document.
 * (Method-caller) [LinkToScript](example.com)
 * (Initializer) [LinkToScript](example.com)
 
-##### Methods:
+##### PublicMethods:
 
-* _PublicMethods()_ - description of use-case for the method
+* _PublicMethod()_ - description of use-case for the method
 
-##### Events:
+##### Public Events:
 
 * _Event_ - trigger point for event
 
-##### Fields:
+##### Public Fields:
 
 * **field** - description if needed
 
