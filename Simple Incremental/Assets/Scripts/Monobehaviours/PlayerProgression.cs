@@ -7,7 +7,8 @@ public class PlayerProgression : MonoBehaviour
     public static PlayerProgression instance;
     CharacterLevel characterLevel = null;
 
-    int experienceForNextLevel;
+    int experienceForNextLevel = 100;
+    int currentExperience = 0;
 
     private void Awake()
     {
@@ -22,28 +23,16 @@ public class PlayerProgression : MonoBehaviour
         characterLevel = GetComponent<CharacterLevel>();
     }
 
-    private void Start()
-    {
-        experienceForNextLevel = CalculateExperienceForNextLevel(characterLevel.level);
-    }
-
-    private int CalculateExperienceForNextLevel(int level)
-    {
-        return experienceForNextLevel = level * 100;
-    }
-
     public void GainExperience(int amount)
     {
-        int remainder = amount - experienceForNextLevel;
-        experienceForNextLevel -= amount;
-        if(experienceForNextLevel < 0)
+        experienceForNextLevel = characterLevel.level * 100;
+        currentExperience += amount;
+        if(currentExperience >= experienceForNextLevel)
         {
+            int remainingExp = currentExperience - experienceForNextLevel;
+            currentExperience = 0;
             characterLevel.LevelUp();
-            GainExperience(-experienceForNextLevel);
-        } else if( experienceForNextLevel == 0)
-        {
-            characterLevel.LevelUp();
-            experienceForNextLevel = CalculateExperienceForNextLevel(characterLevel.level);
+            GainExperience(remainingExp);
         }
     }
 }
