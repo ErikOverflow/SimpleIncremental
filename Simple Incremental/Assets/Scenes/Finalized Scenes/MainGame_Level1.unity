@@ -938,11 +938,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528ce933b199a3340a0ff8077bef9dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Applied: 1
+  applied: 1
   priority: 1
   level: 0
   sprite: {fileID: 21300000, guid: 39641cfe8e83bf74caa4f8ef20963863, type: 3}
-  damageIncreasePerLevel: 0.2
+  upgradeName: 
+  cost: 10
+  damageIncreasePerLevel: 0.5
 --- !u!114 &713414233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8766,6 +8768,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7929317842079075166}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2847017750789678541
@@ -8786,6 +8799,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7929317840886460409}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7929317842079075166}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -11281,7 +11305,7 @@ GameObject:
   - component: {fileID: 3684452399863419927}
   - component: {fileID: 3684452399863419924}
   - component: {fileID: 3684452399863419922}
-  - component: {fileID: 3684452399863419921}
+  - component: {fileID: 3684452399863321243}
   - component: {fileID: 3684452399863419920}
   - component: {fileID: 3684452399863419935}
   - component: {fileID: 713414230}
@@ -11328,6 +11352,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3684452399863321243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3684452399863321240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d812fd7c3f39234097757542aa171b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  experience: 0
+  nextLevelExp: 100
 --- !u!1 &3684452399863321244
 GameObject:
   m_ObjectHideFlags: 0
@@ -11564,19 +11603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfbb6721ffb8df42a7455697aae12ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3684452399863419921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3684452399863321240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf079053fb3ce1f449106a65a5306b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 1
+  statsChanged: {fileID: 11400000, guid: 70ebde8a830c2ef4ab5cea0d75846109, type: 2}
 --- !u!114 &3684452399863419922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11589,7 +11616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3d55c0ecbe98c429df58b1d6cdde41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Applied: 1
+  applied: 1
   priority: 1
 --- !u!50 &3684452399863419923
 Rigidbody2D:
@@ -18610,7 +18637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ba3fee0051bde4a8e919089359fb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Applied: 1
+  applied: 1
   priority: 1
   ramp: 0.1
   gate: 5

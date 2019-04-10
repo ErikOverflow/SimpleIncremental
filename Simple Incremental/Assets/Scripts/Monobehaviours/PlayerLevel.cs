@@ -40,6 +40,7 @@ public class PlayerLevel : MonoBehaviour
             int remainingExp = experience - nextLevelExp;
             experience = 0;
             LevelUp();
+            nextLevelExp = level * 100;
             GainExperience(remainingExp);
         }
         OnExperienceGained?.Invoke();
