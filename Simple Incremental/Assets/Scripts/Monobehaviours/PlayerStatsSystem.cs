@@ -7,7 +7,7 @@ public class PlayerStatsSystem : MonoBehaviour
 {
     PlayerHook playerHook = null;
     PlayerWeaponHook playerWeaponHook = null;
-    CharacterLevel characterLevel = null;
+    PlayerLevel playerLevel = null;
     List<StatAugment> statAugments;
 
     public void Awake()
@@ -15,13 +15,13 @@ public class PlayerStatsSystem : MonoBehaviour
         playerHook = GetComponent<PlayerHook>();
         playerWeaponHook = GetComponentInChildren<PlayerWeaponHook>();
         statAugments = GetComponentsInChildren<StatAugment>().OrderBy(sa => sa.priority).ToList();
-        characterLevel = GetComponent<CharacterLevel>();
+        playerLevel = GetComponent<PlayerLevel>();
     }
 
     public void Start()
     {
         ApplyAugments();
-        characterLevel.OnLevelUp += ApplyAugments;
+        playerLevel.OnLevelUp += ApplyAugments;
     }
 
     public void ApplyAugments()
