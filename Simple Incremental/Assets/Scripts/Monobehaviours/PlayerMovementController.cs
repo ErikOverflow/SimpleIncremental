@@ -44,7 +44,7 @@ public class PlayerMovementController : MonoBehaviour
         anim.SetFloat("VelocityX", Math.Abs(targetVelocity.x));
 
         // Flip sprite based on movement direction
-        if(horizontalForce < 0 && transform.localScale.x == -1 || horizontalForce > 0 && transform.localScale.x == 1)
+        if(horizontalForce < 0 && transform.localScale.x < 0 || horizontalForce > 0 && transform.localScale.x > 0)
         {
             transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
