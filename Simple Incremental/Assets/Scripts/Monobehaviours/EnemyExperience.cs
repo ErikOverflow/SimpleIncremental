@@ -21,6 +21,6 @@ public class EnemyExperience : MonoBehaviour
 
     private void DeliverExperience()
     {
-        PlayerProgression.instance.GainExperience(experience);
+        PlayerLevel.instance.GainExperience(experience);
     }
 }
