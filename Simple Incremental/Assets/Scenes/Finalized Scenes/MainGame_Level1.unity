@@ -938,27 +938,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528ce933b199a3340a0ff8077bef9dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applied: 1
+  applied: 0
   priority: 1
   level: 0
   sprite: {fileID: 21300000, guid: 39641cfe8e83bf74caa4f8ef20963863, type: 3}
   upgradeName: 
   cost: 10
   damageIncreasePerLevel: 0.5
---- !u!114 &713414233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3684452399863321240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011ffad10cba1db4bbf9d0f62d57a58b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 5753252845041590728}
-  defaultValues: {fileID: 11400000, guid: e85406af1c0383a4fbe94dee7c38c550, type: 2}
 --- !u!1001 &1157065787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11297,21 +11283,20 @@ GameObject:
   - component: {fileID: 3684452399863419925}
   - component: {fileID: 3684452399863419917}
   - component: {fileID: 3684452399863419916}
-  - component: {fileID: 3684452399863419915}
+  - component: {fileID: 3684452399863419920}
+  - component: {fileID: 3684452399863419935}
   - component: {fileID: 3684452399863419914}
-  - component: {fileID: 3684452399863419913}
   - component: {fileID: 3684452399863321241}
   - component: {fileID: 3684452399863419912}
   - component: {fileID: 3684452399863419927}
   - component: {fileID: 3684452399863419924}
   - component: {fileID: 3684452399863419922}
   - component: {fileID: 3684452399863321243}
-  - component: {fileID: 3684452399863419920}
-  - component: {fileID: 3684452399863419935}
   - component: {fileID: 713414230}
   - component: {fileID: 713414231}
   - component: {fileID: 713414232}
-  - component: {fileID: 713414233}
+  - component: {fileID: 3684452399863419913}
+  - component: {fileID: 3684452399863419915}
   m_Layer: 8
   m_Name: Girl
   m_TagString: Player
