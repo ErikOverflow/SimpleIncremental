@@ -9,7 +9,8 @@ public class CharacterHealthUI : MonoBehaviour
     CharacterHealth characterHealth;
     [SerializeField]
     Transform healthBar = null;
-
+    [SerializeField]
+    Transform healthBarContainer = null;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class CharacterHealthUI : MonoBehaviour
     void Start()
     {
         characterHealth.HealthChanged += UpdateHealthUI;
+        characterHealth.OnDeath += DisableHealthBar;
     }
 
     private void UpdateHealthUI()
@@ -29,5 +31,9 @@ public class CharacterHealthUI : MonoBehaviour
         else
             scale.x = 0;
         healthBar.localScale = scale;
+    }
+    private void DisableHealthBar()
+    {
+        healthBarContainer.gameObject.SetActive(false);
     }
 }

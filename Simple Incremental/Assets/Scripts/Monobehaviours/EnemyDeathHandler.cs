@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDeathHandler : MonoBehaviour
+public class EnemyDeathHandler : MonoBehaviour
 {
     CharacterHealth ch = null;
     Animator anim;
@@ -17,11 +17,11 @@ public class PlayerDeathHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ch.OnDeath += PlayerDied;
-    }    
-    
-    private void PlayerDied()
+        ch.OnDeath += EnemyDied;
+    }
+
+    private void EnemyDied()
     {
-        anim.SetTrigger(deathHash);
+        gameObject.SetActive(false);
     }
 }

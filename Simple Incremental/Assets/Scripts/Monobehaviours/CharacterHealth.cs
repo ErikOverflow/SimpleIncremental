@@ -28,7 +28,6 @@ public class CharacterHealth : MonoBehaviour
                 health = 0;
                 OnDeath?.Invoke();
                 UnTarget?.Invoke(this);
-                gameObject.SetActive(false);
             }
             HealthChanged?.Invoke();
         }
