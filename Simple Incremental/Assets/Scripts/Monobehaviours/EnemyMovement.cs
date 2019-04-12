@@ -65,6 +65,13 @@ public class EnemyMovement : MonoBehaviour
             anim.SetFloat(speedHash, Math.Abs(rb2d.velocity.x));
             yield return new WaitForFixedUpdate();
             lastDir = direction;
+
+            // Flip character based on movement direction
+            if (direction < 0 && transform.localScale.x > 0 || direction > 0 && transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }
+
         }
     }
 }
