@@ -41,6 +41,7 @@ public class WeaponHook : MonoBehaviour
             weaponRangedController.falloffTime = weaponRanged.falloffTime;
             weaponRangedController.maxHits = weaponRanged.maxHits;
             weaponRangedController.projectileSpeed = weaponRanged.projectileSpeed;
+            weaponRangedController.projectileRotation = weaponRanged.projectileRotation;
             weaponRangedController.projectileSprite = weaponRanged.projectileSprite;
             spriteRenderer.sprite = weaponRanged.sprite;
             weaponRangedController.enabled = true;

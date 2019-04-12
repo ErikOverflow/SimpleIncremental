@@ -11,6 +11,7 @@ public class EnemyAttackRanged : MonoBehaviour
     public int maxPenetrations = 1;
     public float projectileSpeed = 1f;
     public float reloadTime = 1f;
+    public float projectileRotation = 20;
     Animator anim;
 
     Transform projectileContainer = null;
@@ -77,6 +78,6 @@ public class EnemyAttackRanged : MonoBehaviour
         go.transform.rotation = Quaternion.identity;
         go.transform.parent = projectileContainer;
         p.gameObject.layer = layerNum;
-        p.Launch(target.position - transform.position, projectileSprite, damage, falloffTime, maxPenetrations, projectileSpeed);
+        p.Launch(target.position - transform.position, projectileSprite, damage, falloffTime, maxPenetrations, projectileSpeed, projectileRotation);
     }
 }

@@ -51,6 +51,7 @@ public class EnemyHook : MonoBehaviour
                 enemyAttackRanged.falloffTime = enemyTemplate.rangedFalloffTime;
                 enemyAttackRanged.maxPenetrations = enemyTemplate.maxPenetrations;
                 enemyAttackRanged.projectileSpeed = enemyTemplate.projectileSpeed;
+                enemyAttackRanged.projectileRotation = enemyTemplate.projectileRotation;
                 enemyAttackRanged.reloadTime = enemyTemplate.reloadTime;
             }
             if(enemyAttackMelee != null)

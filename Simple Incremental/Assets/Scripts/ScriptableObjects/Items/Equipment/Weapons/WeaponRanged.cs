@@ -8,4 +8,5 @@ public class WeaponRanged : Weapon
     public float projectileSpeed;
     public int maxHits;
     public float falloffTime;
+    public float projectileRotation;
 }

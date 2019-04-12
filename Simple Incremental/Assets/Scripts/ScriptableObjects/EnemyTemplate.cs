@@ -21,6 +21,7 @@ public class EnemyTemplate : ScriptableObject
 
     public int maxPenetrations = 1;
     public float projectileSpeed = 3f;
+    public float projectileRotation = 20f;
     public int meleeDamage = 1;
     public float meleePunchForce = 200f;
 

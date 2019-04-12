@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     float falloffTime = 0f;
     int maxPenetrations = 1;
     float speed = 1f;
+    float rotation = 20;
 
     private void Awake()
     {
@@ -19,7 +20,12 @@ public class Projectile : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Launch(Vector2 direction, Sprite _sprite, int _damage, float _falloffTime, int _maxPenetrations, float _speed)
+    public void FixedUpdate()
+    {
+        transform.Rotate(new Vector3(0, 0, rotation));
+    }
+
+    public void Launch(Vector2 direction, Sprite _sprite, int _damage, float _falloffTime, int _maxPenetrations, float _speed, float _rotation)
     {
         gameObject.SetActive(true);
         Vector3 diff = direction.normalized;
@@ -30,6 +36,7 @@ public class Projectile : MonoBehaviour
         falloffTime = _falloffTime;
         maxPenetrations = _maxPenetrations;
         speed = _speed;
+        rotation = _rotation;
         rb2d.velocity = direction.normalized * speed;
         StartCoroutine(Lifetime());
     }
