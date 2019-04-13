@@ -114,7 +114,8 @@ MonoBehaviour:
   coins: 10
   items: []
   lootChance: 0.1
-  lootPrefab: {fileID: 0}
+  lootPrefab: {fileID: 4484629236500851717, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
+    type: 3}
 --- !u!114 &1382253957
 MonoBehaviour:
   m_ObjectHideFlags: 0
