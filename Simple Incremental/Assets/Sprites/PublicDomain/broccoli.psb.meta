@@ -307,7 +307,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 250
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -4465,8 +4465,8 @@ ScriptedImporter:
     uvTransform: {x: -157, y: -5}
   platformSettings: []
   mosaicLayers: 1
-  documentPivot: {x: 0, y: 0}
-  documentAlignment: 7
+  documentPivot: {x: 0.5, y: 0.4}
+  documentAlignment: 9
   importHiddenLayers: 0
   importedTextureWidth: 512
   importedTextureHeight: 512
