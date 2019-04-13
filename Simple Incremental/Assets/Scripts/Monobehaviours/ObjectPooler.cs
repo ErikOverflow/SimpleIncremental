@@ -68,7 +68,7 @@ public class ObjectPooler : MonoBehaviour
             {
                 po = newGo.AddComponent<PoolableObject>();
             }
-            po.prefabName = go.name;
+            po.prefab = go;
             return newGo;
         }
 
@@ -76,10 +76,10 @@ public class ObjectPooler : MonoBehaviour
 
     public void ReleasePooledObject(PoolableObject po)
     {
-        if (!dict.ContainsKey(po.prefabName))
+        if (!dict.ContainsKey(po.prefab.name))
         {
-            dict.Add(po.prefabName, new Queue<GameObject>());
+            dict.Add(po.prefab.name, new Queue<GameObject>());
         }
-        dict[po.prefabName].Enqueue(po.gameObject);
+        dict[po.prefab.name].Enqueue(po.gameObject);
     }
 }

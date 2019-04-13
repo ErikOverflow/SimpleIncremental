@@ -8,3 +8,34 @@ There will be roadmapped features for the project that can be "claimed" for deve
 ### 3. Avoid 2-way dependencies on all scripts. If one script HAS to see or affect another, then the other script must be agnostic to its existence.
 
 ### 4. Keep script responsibilities to a minimum. It is easier to manage 100 scripts of small snippets of logic, than 1 giant script. This also allows you to re-use and re-purpose these scripts much more easily for other projects.
+
+***
+
+# Please use the following template when documenting your changes.
+Copy paste the template into a markdown document.
+
+***
+<pre>
+##### Dependencies:
+
+* (Method-caller) [LinkToScript](example.com)
+* (Initializer) [LinkToScript](example.com)
+
+##### PublicMethods:
+
+* _PublicMethod()_ - description of use-case for the method
+
+##### Public Events:
+
+* _Event_ - trigger point for event
+
+##### Public Fields:
+
+* **field** - description if needed
+
+##### General Overview:
+
+General idea of how the script works. Does not detail the dependencies.
+</pre>
+
+***

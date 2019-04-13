@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerStatsSystem))]
-[RequireComponent(typeof(CharacterLevel))]
 public class PlayerScaleByLevel : StatAugment
 {
     CharacterHealth characterHealth = null;
-    CharacterLevel characterLevel = null;
-    WeaponRangedController weaponRangedController = null;
-    WeaponMeleeController weaponMeleeController = null;
+    PlayerLevel playerLevel = null;
+    PlayerWeaponRangedController playerWeaponRangedController = null;
+    PlayerWeaponMeleeController playerWeaponMeleeController = null;
 
     public override void Awake()
     {
         characterHealth = GetComponent<CharacterHealth>();
-        characterLevel = GetComponent<CharacterLevel>();
-        weaponRangedController = GetComponentInChildren<WeaponRangedController>();
-        weaponMeleeController = GetComponentInChildren<WeaponMeleeController>();
+        playerLevel = GetComponent<PlayerLevel>();
+        playerWeaponRangedController = GetComponentInChildren<PlayerWeaponRangedController>();
+        playerWeaponMeleeController = GetComponentInChildren<PlayerWeaponMeleeController>();
     }
 
     public override void Augment()
     {
-        float multiplier = characterLevel.level;
+        float multiplier = playerLevel.level;
         characterHealth.maxHealth = Mathf.CeilToInt(characterHealth.maxHealth * multiplier);
-        weaponRangedController.damage = Mathf.CeilToInt(weaponRangedController.damage * multiplier);
-        weaponMeleeController.damage = Mathf.CeilToInt(weaponMeleeController.damage * multiplier);
+        playerWeaponRangedController.damage = Mathf.CeilToInt(playerWeaponRangedController.damage * multiplier);
+        playerWeaponMeleeController.damage = Mathf.CeilToInt(playerWeaponMeleeController.damage * multiplier);
         characterHealth.ResetHealth();
     }
 }

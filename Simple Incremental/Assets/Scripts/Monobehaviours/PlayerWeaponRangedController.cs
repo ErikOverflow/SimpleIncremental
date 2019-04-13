@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponRangedController : MonoBehaviour
+public class PlayerWeaponRangedController : MonoBehaviour
 {
     public Sprite projectileSprite = null;
     public int damage = 0;

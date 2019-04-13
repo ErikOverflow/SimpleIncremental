@@ -16,7 +16,7 @@ public class DataManager : MonoBehaviour
     public Dictionary<string, Item> itemDict;
     [SerializeField]
     string gameDataFileName = "data.json";
-    CharacterLevel characterLevel;
+    PlayerLevel playerLevel;
     [SerializeField]
     GameEvent itemsEquipped = null;
 
@@ -26,19 +26,23 @@ public class DataManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            characterLevel = player.GetComponent<CharacterLevel>();
+            playerLevel = player.GetComponent<PlayerLevel>();
             Item[] allitems = Resources.FindObjectsOfTypeAll<Item>();
             itemDict = new Dictionary<string, Item>();
             foreach (Item item in allitems)
             {
                 itemDict.Add(item.name, item);
             }
-            LoadGameData();
         }
         else
         {
             Destroy(this);
         }
+    }
+
+    public void Start()
+    {
+        LoadGameData();
     }
 
     public void LoadGameData()
@@ -72,7 +76,7 @@ public class DataManager : MonoBehaviour
 
     private void UpdateGamedata()
     {
-        gameData.level = characterLevel.level;
+        gameData.level = playerLevel.level;
         gameData.items = PlayerInventory.instance.items;
         gameData.weapon = PlayerInventory.instance.weapon;
         if (PlayerInventory.instance.weapon?.item == null)
@@ -81,7 +85,7 @@ public class DataManager : MonoBehaviour
 
     private void HookGameData()
     {
-        characterLevel.level = gameData.level;
+        playerLevel.level = gameData.level;
         PlayerInventory.instance.items = gameData.items;
         PlayerInventory.instance.weapon = gameData.weapon;
         if (gameData.weapon?.item == null)

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponMeleeController : MonoBehaviour
+public class PlayerWeaponMeleeController : MonoBehaviour
 {
     public int damage = 0;
     [NonSerialized]
