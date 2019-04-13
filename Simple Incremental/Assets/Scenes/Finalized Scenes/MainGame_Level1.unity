@@ -2163,7 +2163,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1376307433
@@ -8606,9 +8606,7 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1376307436}
     m_ColliderPaths:
-    - - X: -270000000
-        Y: -80000000
-      - X: 540000000
+    - - X: 540000000
         Y: -80000000
       - X: 540000000
         Y: 0
@@ -8644,6 +8642,8 @@ CompositeCollider2D:
         Y: 150000000
       - X: -270000000
         Y: 150000000
+      - X: -270000000
+        Y: -80000000
   m_CompositePaths:
     m_Paths:
     - - {x: 54, y: 0}
