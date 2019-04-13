@@ -1,100 +1,285 @@
 fileFormatVersion: 2
 guid: a47cef28e30fae842bbedbaa577da8e1
 ScriptedImporter:
-  fileIDToRecycleName:
-    100000: Background_GO/Background_GO
-    100002: Background_GO/Background_GO/Background
-    100004: Background_GO/Background_GO/Body
-    100006: Background_GO/Background_GO/Head
-    100008: Background_GO/Background_GO/Head-1
-    100010: Background_GO/Background_GO/Head-2
-    100012: Background_GO/Background_GO/Head-3
-    100014: Background_GO/Background_GO/Head-4
-    100016: Background_GO/Background_GO/LeftArm
-    100018: Background_GO/Background_GO/LeftLeg
-    100020: Background_GO/Background_GO/RightArm
-    100022: Background_GO/Background_GO/RightLeg
-    100058: Background_GO/Background_GO/bone_root
-    100060: Background_GO/Background_GO/bone_root/bone_chest
-    100062: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_left
-    100064: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_left/bone_forearm_left
-    100066: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_right
-    100068: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_right/bone_forearm_right
-    100070: Background_GO/Background_GO/bone_root/bone_chest/bone_head
-    100072: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair1
-    100074: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair2
-    100076: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair3
-    100078: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair4
-    100080: Background_GO/Background_GO/bone_root/bone_thigh_left
-    100082: Background_GO/Background_GO/bone_root/bone_thigh_left/bone_calf_left
-    100084: Background_GO/Background_GO/bone_root/bone_thigh_left/bone_calf_left/bone_foot_left
-    100086: Background_GO/Background_GO/bone_root/bone_thigh_right
-    100088: Background_GO/Background_GO/bone_root/bone_thigh_right/bone_calf_right
-    100090: Background_GO/Background_GO/bone_root/bone_thigh_right/bone_calf_right/bone_foot_right
-    400000: Background_GO/Background_GO/Transform
-    400002: Background_GO/Background_GO/Background/Transform
-    400004: Background_GO/Background_GO/Body/Transform
-    400006: Background_GO/Background_GO/Head/Transform
-    400008: Background_GO/Background_GO/Head-1/Transform
-    400010: Background_GO/Background_GO/Head-2/Transform
-    400012: Background_GO/Background_GO/Head-3/Transform
-    400014: Background_GO/Background_GO/Head-4/Transform
-    400016: Background_GO/Background_GO/LeftArm/Transform
-    400018: Background_GO/Background_GO/LeftLeg/Transform
-    400020: Background_GO/Background_GO/RightArm/Transform
-    400022: Background_GO/Background_GO/RightLeg/Transform
-    400058: Background_GO/Background_GO/bone_root/Transform
-    400060: Background_GO/Background_GO/bone_root/bone_chest/Transform
-    400062: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_left/Transform
-    400064: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_left/bone_forearm_left/Transform
-    400066: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_right/Transform
-    400068: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_right/bone_forearm_right/Transform
-    400070: Background_GO/Background_GO/bone_root/bone_chest/bone_head/Transform
-    400072: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair1/Transform
-    400074: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair2/Transform
-    400076: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair3/Transform
-    400078: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair4/Transform
-    400080: Background_GO/Background_GO/bone_root/bone_thigh_left/Transform
-    400082: Background_GO/Background_GO/bone_root/bone_thigh_left/bone_calf_left/Transform
-    400084: Background_GO/Background_GO/bone_root/bone_thigh_left/bone_calf_left/bone_foot_left/Transform
-    400086: Background_GO/Background_GO/bone_root/bone_thigh_right/Transform
-    400088: Background_GO/Background_GO/bone_root/bone_thigh_right/bone_calf_right/Transform
-    400090: Background_GO/Background_GO/bone_root/bone_thigh_right/bone_calf_right/bone_foot_right/Transform
-    2800000: broccoli
-    11400000: Background_GO/Background_GO/Body/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400002: Background_GO/Background_GO/Head/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400004: Background_GO/Background_GO/Head-1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400006: Background_GO/Background_GO/Head-2/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400008: Background_GO/Background_GO/Head-3/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400010: Background_GO/Background_GO/Head-4/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400012: Background_GO/Background_GO/LeftArm/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400014: Background_GO/Background_GO/LeftLeg/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400016: Background_GO/Background_GO/RightArm/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400018: Background_GO/Background_GO/RightLeg/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    21200000: Background_GO/Background_GO/Background/SpriteRenderer
-    21200002: Background_GO/Background_GO/Body/SpriteRenderer
-    21200004: Background_GO/Background_GO/Head/SpriteRenderer
-    21200006: Background_GO/Background_GO/Head-1/SpriteRenderer
-    21200008: Background_GO/Background_GO/Head-2/SpriteRenderer
-    21200010: Background_GO/Background_GO/Head-3/SpriteRenderer
-    21200012: Background_GO/Background_GO/Head-4/SpriteRenderer
-    21200014: Background_GO/Background_GO/LeftArm/SpriteRenderer
-    21200016: Background_GO/Background_GO/LeftLeg/SpriteRenderer
-    21200018: Background_GO/Background_GO/RightArm/SpriteRenderer
-    21200020: Background_GO/Background_GO/RightLeg/SpriteRenderer
-    21300000: Head-4
-    21300002: Head-3
-    21300004: Head-2
-    21300006: Head-1
-    21300008: Head
-    21300010: LeftArm
-    21300012: Body
-    21300014: RightArm
-    21300016: LeftLeg
-    21300018: RightLeg
-    21300020: Background
-    100100000: Background_GO
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Background_GO/Background_GO
+  - first:
+      1: 100002
+    second: Background_GO/Background_GO/Background
+  - first:
+      1: 100004
+    second: Background_GO/Background_GO/Body
+  - first:
+      1: 100006
+    second: Background_GO/Background_GO/Head
+  - first:
+      1: 100008
+    second: Background_GO/Background_GO/Head-1
+  - first:
+      1: 100010
+    second: Background_GO/Background_GO/Head-2
+  - first:
+      1: 100012
+    second: Background_GO/Background_GO/Head-3
+  - first:
+      1: 100014
+    second: Background_GO/Background_GO/Head-4
+  - first:
+      1: 100016
+    second: Background_GO/Background_GO/LeftArm
+  - first:
+      1: 100018
+    second: Background_GO/Background_GO/LeftLeg
+  - first:
+      1: 100020
+    second: Background_GO/Background_GO/RightArm
+  - first:
+      1: 100022
+    second: Background_GO/Background_GO/RightLeg
+  - first:
+      1: 100058
+    second: Background_GO/Background_GO/bone_root
+  - first:
+      1: 100060
+    second: Background_GO/Background_GO/bone_root/bone_chest
+  - first:
+      1: 100062
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_left
+  - first:
+      1: 100064
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_left/bone_forearm_left
+  - first:
+      1: 100066
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_right
+  - first:
+      1: 100068
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_right/bone_forearm_right
+  - first:
+      1: 100070
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head
+  - first:
+      1: 100072
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair1
+  - first:
+      1: 100074
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair2
+  - first:
+      1: 100076
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair3
+  - first:
+      1: 100078
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair4
+  - first:
+      1: 100080
+    second: Background_GO/Background_GO/bone_root/bone_thigh_left
+  - first:
+      1: 100082
+    second: Background_GO/Background_GO/bone_root/bone_thigh_left/bone_calf_left
+  - first:
+      1: 100084
+    second: Background_GO/Background_GO/bone_root/bone_thigh_left/bone_calf_left/bone_foot_left
+  - first:
+      1: 100086
+    second: Background_GO/Background_GO/bone_root/bone_thigh_right
+  - first:
+      1: 100088
+    second: Background_GO/Background_GO/bone_root/bone_thigh_right/bone_calf_right
+  - first:
+      1: 100090
+    second: Background_GO/Background_GO/bone_root/bone_thigh_right/bone_calf_right/bone_foot_right
+  - first:
+      4: 400000
+    second: Background_GO/Background_GO/Transform
+  - first:
+      4: 400002
+    second: Background_GO/Background_GO/Background/Transform
+  - first:
+      4: 400004
+    second: Background_GO/Background_GO/Body/Transform
+  - first:
+      4: 400006
+    second: Background_GO/Background_GO/Head/Transform
+  - first:
+      4: 400008
+    second: Background_GO/Background_GO/Head-1/Transform
+  - first:
+      4: 400010
+    second: Background_GO/Background_GO/Head-2/Transform
+  - first:
+      4: 400012
+    second: Background_GO/Background_GO/Head-3/Transform
+  - first:
+      4: 400014
+    second: Background_GO/Background_GO/Head-4/Transform
+  - first:
+      4: 400016
+    second: Background_GO/Background_GO/LeftArm/Transform
+  - first:
+      4: 400018
+    second: Background_GO/Background_GO/LeftLeg/Transform
+  - first:
+      4: 400020
+    second: Background_GO/Background_GO/RightArm/Transform
+  - first:
+      4: 400022
+    second: Background_GO/Background_GO/RightLeg/Transform
+  - first:
+      4: 400058
+    second: Background_GO/Background_GO/bone_root/Transform
+  - first:
+      4: 400060
+    second: Background_GO/Background_GO/bone_root/bone_chest/Transform
+  - first:
+      4: 400062
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_left/Transform
+  - first:
+      4: 400064
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_left/bone_forearm_left/Transform
+  - first:
+      4: 400066
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_right/Transform
+  - first:
+      4: 400068
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_arm_right/bone_forearm_right/Transform
+  - first:
+      4: 400070
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head/Transform
+  - first:
+      4: 400072
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair1/Transform
+  - first:
+      4: 400074
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair2/Transform
+  - first:
+      4: 400076
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair3/Transform
+  - first:
+      4: 400078
+    second: Background_GO/Background_GO/bone_root/bone_chest/bone_head/bone_hair4/Transform
+  - first:
+      4: 400080
+    second: Background_GO/Background_GO/bone_root/bone_thigh_left/Transform
+  - first:
+      4: 400082
+    second: Background_GO/Background_GO/bone_root/bone_thigh_left/bone_calf_left/Transform
+  - first:
+      4: 400084
+    second: Background_GO/Background_GO/bone_root/bone_thigh_left/bone_calf_left/bone_foot_left/Transform
+  - first:
+      4: 400086
+    second: Background_GO/Background_GO/bone_root/bone_thigh_right/Transform
+  - first:
+      4: 400088
+    second: Background_GO/Background_GO/bone_root/bone_thigh_right/bone_calf_right/Transform
+  - first:
+      4: 400090
+    second: Background_GO/Background_GO/bone_root/bone_thigh_right/bone_calf_right/bone_foot_right/Transform
+  - first:
+      28: 2800000
+    second: broccoli
+  - first:
+      114: 11400000
+    second: Background_GO/Background_GO/Body/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400002
+    second: Background_GO/Background_GO/Head/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400004
+    second: Background_GO/Background_GO/Head-1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400006
+    second: Background_GO/Background_GO/Head-2/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400008
+    second: Background_GO/Background_GO/Head-3/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400010
+    second: Background_GO/Background_GO/Head-4/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400012
+    second: Background_GO/Background_GO/LeftArm/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400014
+    second: Background_GO/Background_GO/LeftLeg/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400016
+    second: Background_GO/Background_GO/RightArm/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400018
+    second: Background_GO/Background_GO/RightLeg/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      212: 21200000
+    second: Background_GO/Background_GO/Background/SpriteRenderer
+  - first:
+      212: 21200002
+    second: Background_GO/Background_GO/Body/SpriteRenderer
+  - first:
+      212: 21200004
+    second: Background_GO/Background_GO/Head/SpriteRenderer
+  - first:
+      212: 21200006
+    second: Background_GO/Background_GO/Head-1/SpriteRenderer
+  - first:
+      212: 21200008
+    second: Background_GO/Background_GO/Head-2/SpriteRenderer
+  - first:
+      212: 21200010
+    second: Background_GO/Background_GO/Head-3/SpriteRenderer
+  - first:
+      212: 21200012
+    second: Background_GO/Background_GO/Head-4/SpriteRenderer
+  - first:
+      212: 21200014
+    second: Background_GO/Background_GO/LeftArm/SpriteRenderer
+  - first:
+      212: 21200016
+    second: Background_GO/Background_GO/LeftLeg/SpriteRenderer
+  - first:
+      212: 21200018
+    second: Background_GO/Background_GO/RightArm/SpriteRenderer
+  - first:
+      212: 21200020
+    second: Background_GO/Background_GO/RightLeg/SpriteRenderer
+  - first:
+      213: 21300000
+    second: Head-4
+  - first:
+      213: 21300002
+    second: Head-3
+  - first:
+      213: 21300004
+    second: Head-2
+  - first:
+      213: 21300006
+    second: Head-1
+  - first:
+      213: 21300008
+    second: Head
+  - first:
+      213: 21300010
+    second: LeftArm
+  - first:
+      213: 21300012
+    second: Body
+  - first:
+      213: 21300014
+    second: RightArm
+  - first:
+      213: 21300016
+    second: LeftLeg
+  - first:
+      213: 21300018
+    second: RightLeg
+  - first:
+      213: 21300020
+    second: Background
+  - first:
+      1001: 100100000
+    second: Background_GO
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -165,6 +350,7 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
+    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -188,6 +374,7 @@ ScriptedImporter:
       width: 79
       height: 100
     spriteID: c045b91aa7e80e14eb71b4f4cff04465
+    internalID: 0
     spriteBone:
     - name: bone_hair4
       position: {x: 25.804184, y: 17.318024, z: 0}
@@ -530,6 +717,7 @@ ScriptedImporter:
       width: 87
       height: 89
     spriteID: a8da1d1f84c8a704baee8663cb45a2ae
+    internalID: 0
     spriteBone:
     - name: bone_hair3
       position: {x: 43.7164, y: 8.632965, z: 0}
@@ -841,6 +1029,7 @@ ScriptedImporter:
       width: 56
       height: 49
     spriteID: bc433858eca3e1e4e854cc9caa2162a3
+    internalID: 0
     spriteBone:
     - name: bone_hair2
       position: {x: 27.599762, y: 8.518768, z: 0}
@@ -1162,6 +1351,7 @@ ScriptedImporter:
       width: 181
       height: 107
     spriteID: f8bb8b1a692875649aa5693c163b3e8b
+    internalID: 0
     spriteBone:
     - name: bone_hair1
       position: {x: 59.169434, y: 10.77475, z: 0}
@@ -1479,6 +1669,7 @@ ScriptedImporter:
       width: 158
       height: 128
     spriteID: 7724ad4de7cf60c4887e45783952ae48
+    internalID: 0
     spriteBone:
     - name: bone_head
       position: {x: 79.08656, y: 10.570374, z: 0}
@@ -2063,6 +2254,7 @@ ScriptedImporter:
       width: 80
       height: 33
     spriteID: 98397d4b3c781a646b1aa5a1b422a203
+    internalID: 0
     spriteBone:
     - name: bone_arm_left
       position: {x: 69.170654, y: 11.62561, z: 0}
@@ -2472,6 +2664,7 @@ ScriptedImporter:
       width: 121
       height: 149
     spriteID: cad0eb59e5b747c42b81752673f997c4
+    internalID: 0
     spriteBone:
     - name: bone_root
       position: {x: 71.60098, y: 8.078598, z: 0}
@@ -2887,6 +3080,7 @@ ScriptedImporter:
       width: 80
       height: 33
     spriteID: 07abca7924c728d4885dda0a3da6a8d1
+    internalID: 0
     spriteBone:
     - name: bone_forearm_right
       position: {x: 26.431318, y: 0.0000035518592, z: 0}
@@ -3287,6 +3481,7 @@ ScriptedImporter:
       width: 35
       height: 94
     spriteID: a8284ee312575fc4d83d21464212e19f
+    internalID: 0
     spriteBone:
     - name: bone_foot_left
       position: {x: 32.71168, y: -0.0000015106248, z: 0}
@@ -3813,6 +4008,7 @@ ScriptedImporter:
       width: 35
       height: 94
     spriteID: 0a1ab12a77e2d1d4bb49878ed4ef0270
+    internalID: 0
     spriteBone:
     - name: bone_foot_right
       position: {x: 35.207596, y: -0.000007804356, z: 0}
@@ -4257,6 +4453,7 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 2732e841d73a4eb489a3e3a1a0971e06
+    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []

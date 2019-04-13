@@ -1,209 +1,612 @@
 fileFormatVersion: 2
 guid: 5f4cd252d7ccc9a41a542c1cfa6631ec
 ScriptedImporter:
-  fileIDToRecycleName:
-    100000: HandLeft_GO/HandLeft_GO
-    100002: HandLeft_GO/HandLeft_GO/Bib
-    100004: HandLeft_GO/HandLeft_GO/Body
-    100006: HandLeft_GO/HandLeft_GO/EyeClosedLeft
-    100008: HandLeft_GO/HandLeft_GO/EyeClosedRight
-    100010: HandLeft_GO/HandLeft_GO/EyeGlosRight
-    100012: HandLeft_GO/HandLeft_GO/EyeGlossLeft
-    100014: HandLeft_GO/HandLeft_GO/EyeHalfClosedLeft
-    100016: HandLeft_GO/HandLeft_GO/EyeHalfClosedRight
-    100018: HandLeft_GO/HandLeft_GO/EyeLeft
-    100020: HandLeft_GO/HandLeft_GO/EyePartLeft
-    100022: HandLeft_GO/HandLeft_GO/EyePartRight
-    100024: HandLeft_GO/HandLeft_GO/EyeRight
-    100026: HandLeft_GO/HandLeft_GO/EyeWhite
-    100028: HandLeft_GO/HandLeft_GO/FootLeft
-    100030: HandLeft_GO/HandLeft_GO/FootRight
-    100032: HandLeft_GO/HandLeft_GO/ForeArmLeft
-    100034: HandLeft_GO/HandLeft_GO/ForearmRight
-    100036: HandLeft_GO/HandLeft_GO/Hair1
-    100038: HandLeft_GO/HandLeft_GO/Hair2
-    100040: HandLeft_GO/HandLeft_GO/HairFront
-    100042: HandLeft_GO/HandLeft_GO/HairTail
-    100044: HandLeft_GO/HandLeft_GO/HandLeft
-    100046: HandLeft_GO/HandLeft_GO/HandRight
-    100048: HandLeft_GO/HandLeft_GO/Head
-    100050: HandLeft_GO/HandLeft_GO/LegLeft
-    100052: HandLeft_GO/HandLeft_GO/LegRight
-    100054: HandLeft_GO/HandLeft_GO/MouthClosed
-    100056: HandLeft_GO/HandLeft_GO/MouthOpen
-    100058: HandLeft_GO/HandLeft_GO/MouthOpenSlight
-    100060: HandLeft_GO/HandLeft_GO/MouthUpturn
-    100062: HandLeft_GO/HandLeft_GO/UpperArmLeft
-    100064: HandLeft_GO/HandLeft_GO/UpperArmRight
-    100066: HandLeft_GO/HandLeft_GO/EyeLeft
-    100068: HandLeft_GO/HandLeft_GO/EyeRight
-    100070: HandLeft_GO/HandLeft_GO/root
-    100072: HandLeft_GO/HandLeft_GO/root/bib
-    100074: HandLeft_GO/HandLeft_GO/root/chest
-    100076: HandLeft_GO/HandLeft_GO/root/chest/head
-    100078: HandLeft_GO/HandLeft_GO/root/chest/head/hair1
-    100080: HandLeft_GO/HandLeft_GO/root/chest/head/hair2
-    100082: HandLeft_GO/HandLeft_GO/root/chest/head/hair3
-    100084: HandLeft_GO/HandLeft_GO/root/chest/head/hair3/hair4
-    100086: HandLeft_GO/HandLeft_GO/root/chest/UpperArmLeft
-    100088: HandLeft_GO/HandLeft_GO/root/chest/UpperArmLeft/LowerArmLeft
-    100090: HandLeft_GO/HandLeft_GO/root/chest/UpperArmRight
-    100092: HandLeft_GO/HandLeft_GO/root/chest/UpperArmRight/LowerArmRight
-    100094: HandLeft_GO/HandLeft_GO/root/UpperLegLeft
-    100096: HandLeft_GO/HandLeft_GO/root/UpperLegLeft/LowerLegLeft
-    100098: HandLeft_GO/HandLeft_GO/root/UpperLegRight
-    100100: HandLeft_GO/HandLeft_GO/root/UpperLegRight/LowerLegRight
-    400000: HandLeft_GO/HandLeft_GO/Transform
-    400002: HandLeft_GO/HandLeft_GO/Bib/Transform
-    400004: HandLeft_GO/HandLeft_GO/Body/Transform
-    400006: HandLeft_GO/HandLeft_GO/EyeClosedLeft/Transform
-    400008: HandLeft_GO/HandLeft_GO/EyeClosedRight/Transform
-    400010: HandLeft_GO/HandLeft_GO/EyeGlosRight/Transform
-    400012: HandLeft_GO/HandLeft_GO/EyeGlossLeft/Transform
-    400014: HandLeft_GO/HandLeft_GO/EyeHalfClosedLeft/Transform
-    400016: HandLeft_GO/HandLeft_GO/EyeHalfClosedRight/Transform
-    400018: HandLeft_GO/HandLeft_GO/EyeLeft/Transform
-    400020: HandLeft_GO/HandLeft_GO/EyePartLeft/Transform
-    400022: HandLeft_GO/HandLeft_GO/EyePartRight/Transform
-    400024: HandLeft_GO/HandLeft_GO/EyeRight/Transform
-    400026: HandLeft_GO/HandLeft_GO/EyeWhite/Transform
-    400028: HandLeft_GO/HandLeft_GO/FootLeft/Transform
-    400030: HandLeft_GO/HandLeft_GO/FootRight/Transform
-    400032: HandLeft_GO/HandLeft_GO/ForeArmLeft/Transform
-    400034: HandLeft_GO/HandLeft_GO/ForearmRight/Transform
-    400036: HandLeft_GO/HandLeft_GO/Hair1/Transform
-    400038: HandLeft_GO/HandLeft_GO/Hair2/Transform
-    400040: HandLeft_GO/HandLeft_GO/HairFront/Transform
-    400042: HandLeft_GO/HandLeft_GO/HairTail/Transform
-    400044: HandLeft_GO/HandLeft_GO/HandLeft/Transform
-    400046: HandLeft_GO/HandLeft_GO/HandRight/Transform
-    400048: HandLeft_GO/HandLeft_GO/Head/Transform
-    400050: HandLeft_GO/HandLeft_GO/LegLeft/Transform
-    400052: HandLeft_GO/HandLeft_GO/LegRight/Transform
-    400054: HandLeft_GO/HandLeft_GO/MouthClosed/Transform
-    400056: HandLeft_GO/HandLeft_GO/MouthOpen/Transform
-    400058: HandLeft_GO/HandLeft_GO/MouthOpenSlight/Transform
-    400060: HandLeft_GO/HandLeft_GO/MouthUpturn/Transform
-    400062: HandLeft_GO/HandLeft_GO/UpperArmLeft/Transform
-    400064: HandLeft_GO/HandLeft_GO/UpperArmRight/Transform
-    400066: HandLeft_GO/HandLeft_GO/EyeLeft/Transform
-    400068: HandLeft_GO/HandLeft_GO/EyeRight/Transform
-    400070: HandLeft_GO/HandLeft_GO/root/Transform
-    400072: HandLeft_GO/HandLeft_GO/root/bib/Transform
-    400074: HandLeft_GO/HandLeft_GO/root/chest/Transform
-    400076: HandLeft_GO/HandLeft_GO/root/chest/head/Transform
-    400078: HandLeft_GO/HandLeft_GO/root/chest/head/hair1/Transform
-    400080: HandLeft_GO/HandLeft_GO/root/chest/head/hair2/Transform
-    400082: HandLeft_GO/HandLeft_GO/root/chest/head/hair3/Transform
-    400084: HandLeft_GO/HandLeft_GO/root/chest/head/hair3/hair4/Transform
-    400086: HandLeft_GO/HandLeft_GO/root/chest/UpperArmLeft/Transform
-    400088: HandLeft_GO/HandLeft_GO/root/chest/UpperArmLeft/LowerArmLeft/Transform
-    400090: HandLeft_GO/HandLeft_GO/root/chest/UpperArmRight/Transform
-    400092: HandLeft_GO/HandLeft_GO/root/chest/UpperArmRight/LowerArmRight/Transform
-    400094: HandLeft_GO/HandLeft_GO/root/UpperLegLeft/Transform
-    400096: HandLeft_GO/HandLeft_GO/root/UpperLegLeft/LowerLegLeft/Transform
-    400098: HandLeft_GO/HandLeft_GO/root/UpperLegRight/Transform
-    400100: HandLeft_GO/HandLeft_GO/root/UpperLegRight/LowerLegRight/Transform
-    2800000: Girl-full
-    11400000: HandLeft_GO/HandLeft_GO/Bib/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400002: HandLeft_GO/HandLeft_GO/Body/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400004: HandLeft_GO/HandLeft_GO/EyeGlosRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400006: HandLeft_GO/HandLeft_GO/EyeGlossLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400008: HandLeft_GO/HandLeft_GO/EyeLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400010: HandLeft_GO/HandLeft_GO/EyeRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400012: HandLeft_GO/HandLeft_GO/FootLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400014: HandLeft_GO/HandLeft_GO/FootRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400016: HandLeft_GO/HandLeft_GO/ForeArmLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400018: HandLeft_GO/HandLeft_GO/ForearmRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400020: HandLeft_GO/HandLeft_GO/Hair1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400022: HandLeft_GO/HandLeft_GO/Hair2/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400024: HandLeft_GO/HandLeft_GO/HairFront/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400026: HandLeft_GO/HandLeft_GO/HairTail/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400028: HandLeft_GO/HandLeft_GO/HandLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400030: HandLeft_GO/HandLeft_GO/HandRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400032: HandLeft_GO/HandLeft_GO/Head/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400034: HandLeft_GO/HandLeft_GO/LegLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400036: HandLeft_GO/HandLeft_GO/LegRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400038: HandLeft_GO/HandLeft_GO/MouthClosed/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400040: HandLeft_GO/HandLeft_GO/MouthOpen/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400042: HandLeft_GO/HandLeft_GO/MouthOpenSlight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400044: HandLeft_GO/HandLeft_GO/MouthUpturn/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400046: HandLeft_GO/HandLeft_GO/UpperArmLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400048: HandLeft_GO/HandLeft_GO/UpperArmRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400050: HandLeft_GO/HandLeft_GO/EyeClosedLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400052: HandLeft_GO/HandLeft_GO/EyeClosedRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400054: HandLeft_GO/HandLeft_GO/EyeHalfClosedLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400056: HandLeft_GO/HandLeft_GO/EyeHalfClosedRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400058: HandLeft_GO/HandLeft_GO/EyePartLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400060: HandLeft_GO/HandLeft_GO/EyePartRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400062: HandLeft_GO/HandLeft_GO/EyeWhite/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    21200000: HandLeft_GO/HandLeft_GO/Bib/SpriteRenderer
-    21200002: HandLeft_GO/HandLeft_GO/Body/SpriteRenderer
-    21200004: HandLeft_GO/HandLeft_GO/EyeClosedLeft/SpriteRenderer
-    21200006: HandLeft_GO/HandLeft_GO/EyeClosedRight/SpriteRenderer
-    21200008: HandLeft_GO/HandLeft_GO/EyeGlosRight/SpriteRenderer
-    21200010: HandLeft_GO/HandLeft_GO/EyeGlossLeft/SpriteRenderer
-    21200012: HandLeft_GO/HandLeft_GO/EyeHalfClosedLeft/SpriteRenderer
-    21200014: HandLeft_GO/HandLeft_GO/EyeHalfClosedRight/SpriteRenderer
-    21200016: HandLeft_GO/HandLeft_GO/EyeLeft/SpriteRenderer
-    21200018: HandLeft_GO/HandLeft_GO/EyePartLeft/SpriteRenderer
-    21200020: HandLeft_GO/HandLeft_GO/EyePartRight/SpriteRenderer
-    21200022: HandLeft_GO/HandLeft_GO/EyeRight/SpriteRenderer
-    21200024: HandLeft_GO/HandLeft_GO/EyeWhite/SpriteRenderer
-    21200026: HandLeft_GO/HandLeft_GO/FootLeft/SpriteRenderer
-    21200028: HandLeft_GO/HandLeft_GO/FootRight/SpriteRenderer
-    21200030: HandLeft_GO/HandLeft_GO/ForeArmLeft/SpriteRenderer
-    21200032: HandLeft_GO/HandLeft_GO/ForearmRight/SpriteRenderer
-    21200034: HandLeft_GO/HandLeft_GO/Hair1/SpriteRenderer
-    21200036: HandLeft_GO/HandLeft_GO/Hair2/SpriteRenderer
-    21200038: HandLeft_GO/HandLeft_GO/HairFront/SpriteRenderer
-    21200040: HandLeft_GO/HandLeft_GO/HairTail/SpriteRenderer
-    21200042: HandLeft_GO/HandLeft_GO/HandLeft/SpriteRenderer
-    21200044: HandLeft_GO/HandLeft_GO/HandRight/SpriteRenderer
-    21200046: HandLeft_GO/HandLeft_GO/Head/SpriteRenderer
-    21200048: HandLeft_GO/HandLeft_GO/LegLeft/SpriteRenderer
-    21200050: HandLeft_GO/HandLeft_GO/LegRight/SpriteRenderer
-    21200052: HandLeft_GO/HandLeft_GO/MouthClosed/SpriteRenderer
-    21200054: HandLeft_GO/HandLeft_GO/MouthOpen/SpriteRenderer
-    21200056: HandLeft_GO/HandLeft_GO/MouthOpenSlight/SpriteRenderer
-    21200058: HandLeft_GO/HandLeft_GO/MouthUpturn/SpriteRenderer
-    21200060: HandLeft_GO/HandLeft_GO/UpperArmLeft/SpriteRenderer
-    21200062: HandLeft_GO/HandLeft_GO/UpperArmRight/SpriteRenderer
-    21300000: ForearmRight
-    21300002: UpperArmRight
-    21300004: HandRight
-    21300006: Hair1
-    21300008: Hair2
-    21300010: MouthClosed
-    21300012: MouthUpturn
-    21300014: MouthOpenSlight
-    21300016: MouthOpen
-    21300018: Head
-    21300020: Bib
-    21300022: Body
-    21300024: LegRight
-    21300026: FootRight
-    21300028: HairTail
-    21300030: HairFront
-    21300032: EyePartLeft
-    21300034: EyePartRight
-    21300036: EyeClosedRight
-    21300038: EyeClosedLeft
-    21300040: EyeHalfClosedLeft
-    21300042: EyeHalfClosedRight
-    21300044: EyeGlossLeft
-    21300046: EyeGlosRight
-    21300048: EyeRight
-    21300050: EyeLeft
-    21300052: EyeWhite
-    21300054: LegLeft
-    21300056: FootLeft
-    21300058: ForeArmLeft
-    21300060: UpperArmLeft
-    21300062: HandLeft
-    100100000: HandLeft_GO
-    2186277476908879412: ImportLogs
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: HandLeft_GO/HandLeft_GO
+  - first:
+      1: 100002
+    second: HandLeft_GO/HandLeft_GO/Bib
+  - first:
+      1: 100004
+    second: HandLeft_GO/HandLeft_GO/Body
+  - first:
+      1: 100006
+    second: HandLeft_GO/HandLeft_GO/EyeClosedLeft
+  - first:
+      1: 100008
+    second: HandLeft_GO/HandLeft_GO/EyeClosedRight
+  - first:
+      1: 100010
+    second: HandLeft_GO/HandLeft_GO/EyeGlosRight
+  - first:
+      1: 100012
+    second: HandLeft_GO/HandLeft_GO/EyeGlossLeft
+  - first:
+      1: 100014
+    second: HandLeft_GO/HandLeft_GO/EyeHalfClosedLeft
+  - first:
+      1: 100016
+    second: HandLeft_GO/HandLeft_GO/EyeHalfClosedRight
+  - first:
+      1: 100018
+    second: HandLeft_GO/HandLeft_GO/EyeLeft
+  - first:
+      1: 100020
+    second: HandLeft_GO/HandLeft_GO/EyePartLeft
+  - first:
+      1: 100022
+    second: HandLeft_GO/HandLeft_GO/EyePartRight
+  - first:
+      1: 100024
+    second: HandLeft_GO/HandLeft_GO/EyeRight
+  - first:
+      1: 100026
+    second: HandLeft_GO/HandLeft_GO/EyeWhite
+  - first:
+      1: 100028
+    second: HandLeft_GO/HandLeft_GO/FootLeft
+  - first:
+      1: 100030
+    second: HandLeft_GO/HandLeft_GO/FootRight
+  - first:
+      1: 100032
+    second: HandLeft_GO/HandLeft_GO/ForeArmLeft
+  - first:
+      1: 100034
+    second: HandLeft_GO/HandLeft_GO/ForearmRight
+  - first:
+      1: 100036
+    second: HandLeft_GO/HandLeft_GO/Hair1
+  - first:
+      1: 100038
+    second: HandLeft_GO/HandLeft_GO/Hair2
+  - first:
+      1: 100040
+    second: HandLeft_GO/HandLeft_GO/HairFront
+  - first:
+      1: 100042
+    second: HandLeft_GO/HandLeft_GO/HairTail
+  - first:
+      1: 100044
+    second: HandLeft_GO/HandLeft_GO/HandLeft
+  - first:
+      1: 100046
+    second: HandLeft_GO/HandLeft_GO/HandRight
+  - first:
+      1: 100048
+    second: HandLeft_GO/HandLeft_GO/Head
+  - first:
+      1: 100050
+    second: HandLeft_GO/HandLeft_GO/LegLeft
+  - first:
+      1: 100052
+    second: HandLeft_GO/HandLeft_GO/LegRight
+  - first:
+      1: 100054
+    second: HandLeft_GO/HandLeft_GO/MouthClosed
+  - first:
+      1: 100056
+    second: HandLeft_GO/HandLeft_GO/MouthOpen
+  - first:
+      1: 100058
+    second: HandLeft_GO/HandLeft_GO/MouthOpenSlight
+  - first:
+      1: 100060
+    second: HandLeft_GO/HandLeft_GO/MouthUpturn
+  - first:
+      1: 100062
+    second: HandLeft_GO/HandLeft_GO/UpperArmLeft
+  - first:
+      1: 100064
+    second: HandLeft_GO/HandLeft_GO/UpperArmRight
+  - first:
+      1: 100066
+    second: HandLeft_GO/HandLeft_GO/EyeLeft
+  - first:
+      1: 100068
+    second: HandLeft_GO/HandLeft_GO/EyeRight
+  - first:
+      1: 100070
+    second: HandLeft_GO/HandLeft_GO/root
+  - first:
+      1: 100072
+    second: HandLeft_GO/HandLeft_GO/root/bib
+  - first:
+      1: 100074
+    second: HandLeft_GO/HandLeft_GO/root/chest
+  - first:
+      1: 100076
+    second: HandLeft_GO/HandLeft_GO/root/chest/head
+  - first:
+      1: 100078
+    second: HandLeft_GO/HandLeft_GO/root/chest/head/hair1
+  - first:
+      1: 100080
+    second: HandLeft_GO/HandLeft_GO/root/chest/head/hair2
+  - first:
+      1: 100082
+    second: HandLeft_GO/HandLeft_GO/root/chest/head/hair3
+  - first:
+      1: 100084
+    second: HandLeft_GO/HandLeft_GO/root/chest/head/hair3/hair4
+  - first:
+      1: 100086
+    second: HandLeft_GO/HandLeft_GO/root/chest/UpperArmLeft
+  - first:
+      1: 100088
+    second: HandLeft_GO/HandLeft_GO/root/chest/UpperArmLeft/LowerArmLeft
+  - first:
+      1: 100090
+    second: HandLeft_GO/HandLeft_GO/root/chest/UpperArmRight
+  - first:
+      1: 100092
+    second: HandLeft_GO/HandLeft_GO/root/chest/UpperArmRight/LowerArmRight
+  - first:
+      1: 100094
+    second: HandLeft_GO/HandLeft_GO/root/UpperLegLeft
+  - first:
+      1: 100096
+    second: HandLeft_GO/HandLeft_GO/root/UpperLegLeft/LowerLegLeft
+  - first:
+      1: 100098
+    second: HandLeft_GO/HandLeft_GO/root/UpperLegRight
+  - first:
+      1: 100100
+    second: HandLeft_GO/HandLeft_GO/root/UpperLegRight/LowerLegRight
+  - first:
+      4: 400000
+    second: HandLeft_GO/HandLeft_GO/Transform
+  - first:
+      4: 400002
+    second: HandLeft_GO/HandLeft_GO/Bib/Transform
+  - first:
+      4: 400004
+    second: HandLeft_GO/HandLeft_GO/Body/Transform
+  - first:
+      4: 400006
+    second: HandLeft_GO/HandLeft_GO/EyeClosedLeft/Transform
+  - first:
+      4: 400008
+    second: HandLeft_GO/HandLeft_GO/EyeClosedRight/Transform
+  - first:
+      4: 400010
+    second: HandLeft_GO/HandLeft_GO/EyeGlosRight/Transform
+  - first:
+      4: 400012
+    second: HandLeft_GO/HandLeft_GO/EyeGlossLeft/Transform
+  - first:
+      4: 400014
+    second: HandLeft_GO/HandLeft_GO/EyeHalfClosedLeft/Transform
+  - first:
+      4: 400016
+    second: HandLeft_GO/HandLeft_GO/EyeHalfClosedRight/Transform
+  - first:
+      4: 400018
+    second: HandLeft_GO/HandLeft_GO/EyeLeft/Transform
+  - first:
+      4: 400020
+    second: HandLeft_GO/HandLeft_GO/EyePartLeft/Transform
+  - first:
+      4: 400022
+    second: HandLeft_GO/HandLeft_GO/EyePartRight/Transform
+  - first:
+      4: 400024
+    second: HandLeft_GO/HandLeft_GO/EyeRight/Transform
+  - first:
+      4: 400026
+    second: HandLeft_GO/HandLeft_GO/EyeWhite/Transform
+  - first:
+      4: 400028
+    second: HandLeft_GO/HandLeft_GO/FootLeft/Transform
+  - first:
+      4: 400030
+    second: HandLeft_GO/HandLeft_GO/FootRight/Transform
+  - first:
+      4: 400032
+    second: HandLeft_GO/HandLeft_GO/ForeArmLeft/Transform
+  - first:
+      4: 400034
+    second: HandLeft_GO/HandLeft_GO/ForearmRight/Transform
+  - first:
+      4: 400036
+    second: HandLeft_GO/HandLeft_GO/Hair1/Transform
+  - first:
+      4: 400038
+    second: HandLeft_GO/HandLeft_GO/Hair2/Transform
+  - first:
+      4: 400040
+    second: HandLeft_GO/HandLeft_GO/HairFront/Transform
+  - first:
+      4: 400042
+    second: HandLeft_GO/HandLeft_GO/HairTail/Transform
+  - first:
+      4: 400044
+    second: HandLeft_GO/HandLeft_GO/HandLeft/Transform
+  - first:
+      4: 400046
+    second: HandLeft_GO/HandLeft_GO/HandRight/Transform
+  - first:
+      4: 400048
+    second: HandLeft_GO/HandLeft_GO/Head/Transform
+  - first:
+      4: 400050
+    second: HandLeft_GO/HandLeft_GO/LegLeft/Transform
+  - first:
+      4: 400052
+    second: HandLeft_GO/HandLeft_GO/LegRight/Transform
+  - first:
+      4: 400054
+    second: HandLeft_GO/HandLeft_GO/MouthClosed/Transform
+  - first:
+      4: 400056
+    second: HandLeft_GO/HandLeft_GO/MouthOpen/Transform
+  - first:
+      4: 400058
+    second: HandLeft_GO/HandLeft_GO/MouthOpenSlight/Transform
+  - first:
+      4: 400060
+    second: HandLeft_GO/HandLeft_GO/MouthUpturn/Transform
+  - first:
+      4: 400062
+    second: HandLeft_GO/HandLeft_GO/UpperArmLeft/Transform
+  - first:
+      4: 400064
+    second: HandLeft_GO/HandLeft_GO/UpperArmRight/Transform
+  - first:
+      4: 400066
+    second: HandLeft_GO/HandLeft_GO/EyeLeft/Transform
+  - first:
+      4: 400068
+    second: HandLeft_GO/HandLeft_GO/EyeRight/Transform
+  - first:
+      4: 400070
+    second: HandLeft_GO/HandLeft_GO/root/Transform
+  - first:
+      4: 400072
+    second: HandLeft_GO/HandLeft_GO/root/bib/Transform
+  - first:
+      4: 400074
+    second: HandLeft_GO/HandLeft_GO/root/chest/Transform
+  - first:
+      4: 400076
+    second: HandLeft_GO/HandLeft_GO/root/chest/head/Transform
+  - first:
+      4: 400078
+    second: HandLeft_GO/HandLeft_GO/root/chest/head/hair1/Transform
+  - first:
+      4: 400080
+    second: HandLeft_GO/HandLeft_GO/root/chest/head/hair2/Transform
+  - first:
+      4: 400082
+    second: HandLeft_GO/HandLeft_GO/root/chest/head/hair3/Transform
+  - first:
+      4: 400084
+    second: HandLeft_GO/HandLeft_GO/root/chest/head/hair3/hair4/Transform
+  - first:
+      4: 400086
+    second: HandLeft_GO/HandLeft_GO/root/chest/UpperArmLeft/Transform
+  - first:
+      4: 400088
+    second: HandLeft_GO/HandLeft_GO/root/chest/UpperArmLeft/LowerArmLeft/Transform
+  - first:
+      4: 400090
+    second: HandLeft_GO/HandLeft_GO/root/chest/UpperArmRight/Transform
+  - first:
+      4: 400092
+    second: HandLeft_GO/HandLeft_GO/root/chest/UpperArmRight/LowerArmRight/Transform
+  - first:
+      4: 400094
+    second: HandLeft_GO/HandLeft_GO/root/UpperLegLeft/Transform
+  - first:
+      4: 400096
+    second: HandLeft_GO/HandLeft_GO/root/UpperLegLeft/LowerLegLeft/Transform
+  - first:
+      4: 400098
+    second: HandLeft_GO/HandLeft_GO/root/UpperLegRight/Transform
+  - first:
+      4: 400100
+    second: HandLeft_GO/HandLeft_GO/root/UpperLegRight/LowerLegRight/Transform
+  - first:
+      28: 2800000
+    second: Girl-full
+  - first:
+      114: 11400000
+    second: HandLeft_GO/HandLeft_GO/Bib/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400002
+    second: HandLeft_GO/HandLeft_GO/Body/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400004
+    second: HandLeft_GO/HandLeft_GO/EyeGlosRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400006
+    second: HandLeft_GO/HandLeft_GO/EyeGlossLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400008
+    second: HandLeft_GO/HandLeft_GO/EyeLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400010
+    second: HandLeft_GO/HandLeft_GO/EyeRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400012
+    second: HandLeft_GO/HandLeft_GO/FootLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400014
+    second: HandLeft_GO/HandLeft_GO/FootRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400016
+    second: HandLeft_GO/HandLeft_GO/ForeArmLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400018
+    second: HandLeft_GO/HandLeft_GO/ForearmRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400020
+    second: HandLeft_GO/HandLeft_GO/Hair1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400022
+    second: HandLeft_GO/HandLeft_GO/Hair2/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400024
+    second: HandLeft_GO/HandLeft_GO/HairFront/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400026
+    second: HandLeft_GO/HandLeft_GO/HairTail/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400028
+    second: HandLeft_GO/HandLeft_GO/HandLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400030
+    second: HandLeft_GO/HandLeft_GO/HandRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400032
+    second: HandLeft_GO/HandLeft_GO/Head/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400034
+    second: HandLeft_GO/HandLeft_GO/LegLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400036
+    second: HandLeft_GO/HandLeft_GO/LegRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400038
+    second: HandLeft_GO/HandLeft_GO/MouthClosed/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400040
+    second: HandLeft_GO/HandLeft_GO/MouthOpen/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400042
+    second: HandLeft_GO/HandLeft_GO/MouthOpenSlight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400044
+    second: HandLeft_GO/HandLeft_GO/MouthUpturn/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400046
+    second: HandLeft_GO/HandLeft_GO/UpperArmLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400048
+    second: HandLeft_GO/HandLeft_GO/UpperArmRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400050
+    second: HandLeft_GO/HandLeft_GO/EyeClosedLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400052
+    second: HandLeft_GO/HandLeft_GO/EyeClosedRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400054
+    second: HandLeft_GO/HandLeft_GO/EyeHalfClosedLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400056
+    second: HandLeft_GO/HandLeft_GO/EyeHalfClosedRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400058
+    second: HandLeft_GO/HandLeft_GO/EyePartLeft/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400060
+    second: HandLeft_GO/HandLeft_GO/EyePartRight/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400062
+    second: HandLeft_GO/HandLeft_GO/EyeWhite/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      212: 21200000
+    second: HandLeft_GO/HandLeft_GO/Bib/SpriteRenderer
+  - first:
+      212: 21200002
+    second: HandLeft_GO/HandLeft_GO/Body/SpriteRenderer
+  - first:
+      212: 21200004
+    second: HandLeft_GO/HandLeft_GO/EyeClosedLeft/SpriteRenderer
+  - first:
+      212: 21200006
+    second: HandLeft_GO/HandLeft_GO/EyeClosedRight/SpriteRenderer
+  - first:
+      212: 21200008
+    second: HandLeft_GO/HandLeft_GO/EyeGlosRight/SpriteRenderer
+  - first:
+      212: 21200010
+    second: HandLeft_GO/HandLeft_GO/EyeGlossLeft/SpriteRenderer
+  - first:
+      212: 21200012
+    second: HandLeft_GO/HandLeft_GO/EyeHalfClosedLeft/SpriteRenderer
+  - first:
+      212: 21200014
+    second: HandLeft_GO/HandLeft_GO/EyeHalfClosedRight/SpriteRenderer
+  - first:
+      212: 21200016
+    second: HandLeft_GO/HandLeft_GO/EyeLeft/SpriteRenderer
+  - first:
+      212: 21200018
+    second: HandLeft_GO/HandLeft_GO/EyePartLeft/SpriteRenderer
+  - first:
+      212: 21200020
+    second: HandLeft_GO/HandLeft_GO/EyePartRight/SpriteRenderer
+  - first:
+      212: 21200022
+    second: HandLeft_GO/HandLeft_GO/EyeRight/SpriteRenderer
+  - first:
+      212: 21200024
+    second: HandLeft_GO/HandLeft_GO/EyeWhite/SpriteRenderer
+  - first:
+      212: 21200026
+    second: HandLeft_GO/HandLeft_GO/FootLeft/SpriteRenderer
+  - first:
+      212: 21200028
+    second: HandLeft_GO/HandLeft_GO/FootRight/SpriteRenderer
+  - first:
+      212: 21200030
+    second: HandLeft_GO/HandLeft_GO/ForeArmLeft/SpriteRenderer
+  - first:
+      212: 21200032
+    second: HandLeft_GO/HandLeft_GO/ForearmRight/SpriteRenderer
+  - first:
+      212: 21200034
+    second: HandLeft_GO/HandLeft_GO/Hair1/SpriteRenderer
+  - first:
+      212: 21200036
+    second: HandLeft_GO/HandLeft_GO/Hair2/SpriteRenderer
+  - first:
+      212: 21200038
+    second: HandLeft_GO/HandLeft_GO/HairFront/SpriteRenderer
+  - first:
+      212: 21200040
+    second: HandLeft_GO/HandLeft_GO/HairTail/SpriteRenderer
+  - first:
+      212: 21200042
+    second: HandLeft_GO/HandLeft_GO/HandLeft/SpriteRenderer
+  - first:
+      212: 21200044
+    second: HandLeft_GO/HandLeft_GO/HandRight/SpriteRenderer
+  - first:
+      212: 21200046
+    second: HandLeft_GO/HandLeft_GO/Head/SpriteRenderer
+  - first:
+      212: 21200048
+    second: HandLeft_GO/HandLeft_GO/LegLeft/SpriteRenderer
+  - first:
+      212: 21200050
+    second: HandLeft_GO/HandLeft_GO/LegRight/SpriteRenderer
+  - first:
+      212: 21200052
+    second: HandLeft_GO/HandLeft_GO/MouthClosed/SpriteRenderer
+  - first:
+      212: 21200054
+    second: HandLeft_GO/HandLeft_GO/MouthOpen/SpriteRenderer
+  - first:
+      212: 21200056
+    second: HandLeft_GO/HandLeft_GO/MouthOpenSlight/SpriteRenderer
+  - first:
+      212: 21200058
+    second: HandLeft_GO/HandLeft_GO/MouthUpturn/SpriteRenderer
+  - first:
+      212: 21200060
+    second: HandLeft_GO/HandLeft_GO/UpperArmLeft/SpriteRenderer
+  - first:
+      212: 21200062
+    second: HandLeft_GO/HandLeft_GO/UpperArmRight/SpriteRenderer
+  - first:
+      213: 21300000
+    second: ForearmRight
+  - first:
+      213: 21300002
+    second: UpperArmRight
+  - first:
+      213: 21300004
+    second: HandRight
+  - first:
+      213: 21300006
+    second: Hair1
+  - first:
+      213: 21300008
+    second: Hair2
+  - first:
+      213: 21300010
+    second: MouthClosed
+  - first:
+      213: 21300012
+    second: MouthUpturn
+  - first:
+      213: 21300014
+    second: MouthOpenSlight
+  - first:
+      213: 21300016
+    second: MouthOpen
+  - first:
+      213: 21300018
+    second: Head
+  - first:
+      213: 21300020
+    second: Bib
+  - first:
+      213: 21300022
+    second: Body
+  - first:
+      213: 21300024
+    second: LegRight
+  - first:
+      213: 21300026
+    second: FootRight
+  - first:
+      213: 21300028
+    second: HairTail
+  - first:
+      213: 21300030
+    second: HairFront
+  - first:
+      213: 21300032
+    second: EyePartLeft
+  - first:
+      213: 21300034
+    second: EyePartRight
+  - first:
+      213: 21300036
+    second: EyeClosedRight
+  - first:
+      213: 21300038
+    second: EyeClosedLeft
+  - first:
+      213: 21300040
+    second: EyeHalfClosedLeft
+  - first:
+      213: 21300042
+    second: EyeHalfClosedRight
+  - first:
+      213: 21300044
+    second: EyeGlossLeft
+  - first:
+      213: 21300046
+    second: EyeGlosRight
+  - first:
+      213: 21300048
+    second: EyeRight
+  - first:
+      213: 21300050
+    second: EyeLeft
+  - first:
+      213: 21300052
+    second: EyeWhite
+  - first:
+      213: 21300054
+    second: LegLeft
+  - first:
+      213: 21300056
+    second: FootLeft
+  - first:
+      213: 21300058
+    second: ForeArmLeft
+  - first:
+      213: 21300060
+    second: UpperArmLeft
+  - first:
+      213: 21300062
+    second: HandLeft
+  - first:
+      1001: 100100000
+    second: HandLeft_GO
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -274,6 +677,7 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
+    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -297,6 +701,7 @@ ScriptedImporter:
       width: 79
       height: 82
     spriteID: f3fffc2bc4dff5f4c941363a3c25dbeb
+    internalID: 0
     spriteBone:
     - name: LowerArmRight
       position: {x: 90.2411, y: -0.000037105277, z: 0}
@@ -624,6 +1029,7 @@ ScriptedImporter:
       width: 81
       height: 152
     spriteID: af09f43b9d7ef514c823387db1a9d4b2
+    internalID: 0
     spriteBone:
     - name: LowerArmRight
       position: {x: 90.24104, y: 0.00008615905, z: 0}
@@ -1021,6 +1427,7 @@ ScriptedImporter:
       width: 100
       height: 97
     spriteID: 34dfb9f9e5351da47b44d96b0222c71c
+    internalID: 0
     spriteBone:
     - name: LowerArmRight
       position: {x: 21.233398, y: 130.92566, z: 0}
@@ -1354,6 +1761,7 @@ ScriptedImporter:
       width: 286
       height: 218
     spriteID: 7a6d5b6ca8f18874f9223dd8d575c043
+    internalID: 0
     spriteBone:
     - name: hair1
       position: {x: 180.49138, y: 195.86578, z: 0}
@@ -1718,6 +2126,7 @@ ScriptedImporter:
       width: 172
       height: 160
     spriteID: 535ad4593c8e2234fb2ed90f39c9d9c4
+    internalID: 0
     spriteBone:
     - name: hair2
       position: {x: 101.37961, y: 133.79395, z: 0}
@@ -2072,6 +2481,7 @@ ScriptedImporter:
       width: 87
       height: 7
     spriteID: 11cfbfe4411b6ad4b8387731cbea89e4
+    internalID: 0
     spriteBone:
     - name: root
       position: {x: 68.46161, y: -343.29007, z: 0}
@@ -2778,6 +3188,7 @@ ScriptedImporter:
       width: 123
       height: 23
     spriteID: a10004fdf8f8d6144923bb4667cad3eb
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: 98.322266, y: -60.644928, z: 0}
@@ -3563,6 +3974,7 @@ ScriptedImporter:
       width: 100
       height: 20
     spriteID: 081293edc2766a845891f89e389481c2
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: 96.322266, y: -63.644897, z: 0}
@@ -3995,6 +4407,7 @@ ScriptedImporter:
       width: 108
       height: 46
     spriteID: 20010c475c940a847815f23f99c65d90
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: 98.322266, y: -48.644897, z: 0}
@@ -4388,6 +4801,7 @@ ScriptedImporter:
       width: 444
       height: 468
     spriteID: 67f6fd5c2d7f4ef409d64a43dbb93228
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: 186.32227, y: 1.355072, z: 0}
@@ -4797,6 +5211,7 @@ ScriptedImporter:
       width: 151
       height: 243
     spriteID: a9f947eafa73346469c8ec5d1f958cf0
+    internalID: 0
     spriteBone:
     - name: bib
       position: {x: 48.796673, y: 26.812984, z: 0}
@@ -5292,6 +5707,7 @@ ScriptedImporter:
       width: 286
       height: 329
     spriteID: 263b726a5a8153945969806368456fe9
+    internalID: 0
     spriteBone:
     - name: chest
       position: {x: 126.21642, y: 0.00003450452, z: 0}
@@ -5683,6 +6099,7 @@ ScriptedImporter:
       width: 105
       height: 134
     spriteID: 2b0969190b804d14c83b8a43a3c3409f
+    internalID: 0
     spriteBone:
     - name: LowerLegRight
       position: {x: 52.3507, y: 0.0000012988985, z: 0}
@@ -6081,6 +6498,7 @@ ScriptedImporter:
       width: 99
       height: 35
     spriteID: 5fd1eefe24538eb40bd99736db49a7ce
+    internalID: 0
     spriteBone:
     - name: LowerLegRight
       position: {x: 41.00232, y: 73.22113, z: 0}
@@ -6593,6 +7011,7 @@ ScriptedImporter:
       width: 252
       height: 236
     spriteID: f7dec1406fa033445b865f611a843de3
+    internalID: 0
     spriteBone:
     - name: hair4
       position: {x: 125.90585, y: -0.0000061714454, z: 0}
@@ -7097,6 +7516,7 @@ ScriptedImporter:
       width: 71
       height: 181
     spriteID: 85e6e23fe67d48c47a8bc23ee94c148a
+    internalID: 0
     spriteBone:
     - name: hair1
       position: {x: 129.49133, y: 226.86578, z: 0}
@@ -7611,6 +8031,7 @@ ScriptedImporter:
       width: 97
       height: 73
     spriteID: a6b07a57c3196bf4dbea38fa31fb48fe
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: 150.32227, y: -184.64493, z: 0}
@@ -8026,6 +8447,7 @@ ScriptedImporter:
       width: 120
       height: 88
     spriteID: e4e55d2c6f82e6e43b690b9ed816d7c3
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: 12.322266, y: -192.6449, z: 0}
@@ -8390,6 +8812,7 @@ ScriptedImporter:
       width: 116
       height: 169
     spriteID: 10aa764c9d3607043ac06700cd134920
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: -4.6777344, y: -114.64493, z: 0}
@@ -8783,6 +9206,7 @@ ScriptedImporter:
       width: 91
       height: 151
     spriteID: d43f4cc51be5b6b4c8999741e2364cdd
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: 149.32227, y: -102.64493, z: 0}
@@ -9187,6 +9611,7 @@ ScriptedImporter:
       width: 81
       height: 146
     spriteID: b9cef07e8ce601c44bc33476ca4e99fa
+    internalID: 0
     spriteBone:
     - name: EyeLeft
       position: {x: 20.89569, y: 77.95026, z: 0}
@@ -9671,6 +10096,7 @@ ScriptedImporter:
       width: 110
       height: 160
     spriteID: 4ae7ebf0be12cdb48bec7d94e2f0fd2a
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: 3.3222656, y: -107.64493, z: 0}
@@ -10212,6 +10638,7 @@ ScriptedImporter:
       width: 38
       height: 52
     spriteID: 4d75ce62ac9578b43be0d38220ccf66d
+    internalID: 0
     spriteBone:
     - name: EyeLeft
       position: {x: -4.104309, y: 9.950256, z: 0}
@@ -10583,6 +11010,7 @@ ScriptedImporter:
       width: 42
       height: 53
     spriteID: 8b8a7f584bf9038419abc675c039f781
+    internalID: 0
     spriteBone:
     - name: EyeRight
       position: {x: -13.975403, y: -0.29785156, z: 0}
@@ -10943,6 +11371,7 @@ ScriptedImporter:
       width: 47
       height: 79
     spriteID: 4b65636439f3dfe4ba5962deb74f1353
+    internalID: 0
     spriteBone:
     - name: EyeRight
       position: {x: -16.975403, y: 34.70215, z: 0}
@@ -11370,6 +11799,7 @@ ScriptedImporter:
       width: 46
       height: 77
     spriteID: 177dc4efea470744493c073ef1fcf629
+    internalID: 0
     spriteBone:
     - name: EyeLeft
       position: {x: -6.104309, y: 43.950256, z: 0}
@@ -11857,6 +12287,7 @@ ScriptedImporter:
       width: 265
       height: 183
     spriteID: 3242bdb899d054d46a2ae6063c2c930d
+    internalID: 0
     spriteBone:
     - name: head
       position: {x: 144.32227, y: -97.64493, z: 0}
@@ -12231,6 +12662,7 @@ ScriptedImporter:
       width: 84
       height: 129
     spriteID: 0a08abdae66b8cf47b62d1a18678e27f
+    internalID: 0
     spriteBone:
     - name: LowerLegLeft
       position: {x: 54.060493, y: -0.000024599729, z: 0}
@@ -12610,6 +13042,7 @@ ScriptedImporter:
       width: 97
       height: 36
     spriteID: f4c54e21edd2e74498347e31068db43e
+    internalID: 0
     spriteBone:
     - name: LowerLegLeft
       position: {x: 59.099182, y: 68.84894, z: 0}
@@ -13111,6 +13544,7 @@ ScriptedImporter:
       width: 88
       height: 79
     spriteID: 57053b9ca2e89b3439e95228f5c92011
+    internalID: 0
     spriteBone:
     - name: LowerArmLeft
       position: {x: 77.49543, y: -0.00004183677, z: 0}
@@ -13438,6 +13872,7 @@ ScriptedImporter:
       width: 152
       height: 81
     spriteID: 136e89f8b0ce7ef4597d2472758a2d13
+    internalID: 0
     spriteBone:
     - name: UpperArmLeft
       position: {x: 113.7395, y: 14.873535, z: 0}
@@ -13855,6 +14290,7 @@ ScriptedImporter:
       width: 111
       height: 94
     spriteID: bf00274320eb65841986a864a96f3fcc
+    internalID: 0
     spriteBone:
     - name: LowerArmLeft
       position: {x: 137.92322, y: 15.347412, z: 0}
@@ -14198,8 +14634,8 @@ ScriptedImporter:
     uvTransform: {x: 469, y: 348}
   platformSettings: []
   mosaicLayers: 1
-  documentPivot: {x: 0, y: 0}
-  documentAlignment: 7
+  documentPivot: {x: 0.4, y: 0.4}
+  documentAlignment: 9
   importHiddenLayers: 0
   importedTextureWidth: 1024
   importedTextureHeight: 1024
@@ -14786,7 +15222,7 @@ ScriptedImporter:
     index: 14
   - go: {fileID: 100072, guid: 5f4cd252d7ccc9a41a542c1cfa6631ec, type: 3}
     index: 15
-  - go: {fileID: 100068, guid: 5f4cd252d7ccc9a41a542c1cfa6631ec, type: 3}
+  - go: {fileID: 6162581835506389478, guid: 5f4cd252d7ccc9a41a542c1cfa6631ec, type: 3}
     index: 16
   - go: {fileID: 100018, guid: 5f4cd252d7ccc9a41a542c1cfa6631ec, type: 3}
     index: 17
