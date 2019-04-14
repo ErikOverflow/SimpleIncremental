@@ -41,8 +41,8 @@ public class PlayerWeaponHook : MonoBehaviour
             playerWeaponRangedController.damage = weaponRanged.damage;
             playerWeaponRangedController.falloffTime = weaponRanged.falloffTime;
             playerWeaponRangedController.maxHits = weaponRanged.maxHits;
-            playerWeaponRangedController.projectileSpeed = weaponRanged.projectileSpeed;
-			playerWeaponRangedController.projectileRotation = weaponRanged.projectileRotation;
+            playerWeaponRangedController.projectileLaunchForce = weaponRanged.projectileLaunchForce;
+			playerWeaponRangedController.projectileTorque = weaponRanged.projectileTorque;
             playerWeaponRangedController.projectileSprite = weaponRanged.projectileSprite;
             spriteRenderer.sprite = weaponRanged.sprite;
             playerWeaponRangedController.enabled = true;

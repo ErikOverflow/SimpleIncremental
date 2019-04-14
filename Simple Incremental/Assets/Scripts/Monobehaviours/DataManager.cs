@@ -87,10 +87,8 @@ public class DataManager : MonoBehaviour
     {
         playerLevel.level = gameData.level;
         PlayerInventory.instance.items = gameData.items;
-        PlayerInventory.instance.weapon = gameData.weapon;
-        if (gameData.weapon?.item == null)
-            PlayerInventory.instance.weapon = null;
-        itemsEquipped.Raise();
+        if (gameData.weapon?.item != null)
+            PlayerInventory.instance.EquipWeapon(gameData.weapon);
     }
 
 }

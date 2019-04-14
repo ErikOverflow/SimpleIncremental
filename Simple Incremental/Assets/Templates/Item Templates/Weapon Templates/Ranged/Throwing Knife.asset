@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
   damage: 5
   projectileSprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
-  projectileSpeed: 15
+  projectileLaunchForce: 600
   maxHits: 1
   falloffTime: 5
-  projectileRotation: -20
+  projectileTorque: -5

@@ -30,7 +30,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Start()
     {
-        ch.OnDeath += disableInput;
+        ch.OnDeath += DisableInput;
     }
 
     private void Update()
@@ -72,8 +72,9 @@ public class PlayerMovementController : MonoBehaviour
             anim.SetBool(groundedHash, false);
         }
     }
-    public void disableInput()
+
+    public void DisableInput()
     {
-        this.enabled = false;
+        enabled = false;
     }
 }

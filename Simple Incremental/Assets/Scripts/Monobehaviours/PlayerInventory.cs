@@ -7,8 +7,12 @@ using System;
 public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory instance;
+
+    public Action OnItemEquipped;
+
     [SerializeField]
     GameEvent itemEquipped = null;
+
     public List<ItemInstance> items = null;
     [NonSerialized]
     public ItemInstance weapon = null; //Nonserialized to avoid weapon instance being defined but not actually having values
@@ -51,6 +55,7 @@ public class PlayerInventory : MonoBehaviour
                 weapon = newWeapon;
                 items.Remove(newWeapon);
             }
+            OnItemEquipped?.Invoke();
             itemEquipped.Raise();
         }
     }
