@@ -22,7 +22,8 @@ public class Projectile : MonoBehaviour
 
     public void FixedUpdate()
     {
-        transform.Rotate(new Vector3(0, 0, rotation));
+        if (rb2d.velocity.x > 0.9 || rb2d.velocity.x < -0.9 )
+            transform.Rotate(new Vector3(0, 0, rotation));
     }
 
     public void Launch(Vector2 direction, Sprite _sprite, int _damage, float _falloffTime, int _maxPenetrations, float _speed, float _rotation)
@@ -63,6 +64,12 @@ public class Projectile : MonoBehaviour
                     gameObject.SetActive(false);
                 }
             }
+        }
+        //Collided with Ground
+        if (collision.gameObject.layer == 12)
+        {
+            rb2d.rotation = 0;
+            rb2d.velocity = new Vector2(0, 0);
         }
     }
 }
