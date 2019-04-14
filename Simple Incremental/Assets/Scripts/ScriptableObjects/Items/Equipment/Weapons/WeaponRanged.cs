@@ -5,8 +5,8 @@
 public class WeaponRanged : Weapon
 {
     public Sprite projectileSprite;
-    public float projectileSpeed;
+    public float projectileLaunchForce = 300f;
     public int maxHits;
     public float falloffTime;
-    public float projectileRotation;
+    public float projectileTorque = 5f;
 }

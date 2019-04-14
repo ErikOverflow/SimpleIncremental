@@ -19,11 +19,18 @@ public class PlayerMovementController : MonoBehaviour
     Vector2 currentVelocity = Vector2.zero;
     Animator anim;
     int groundedHash = Animator.StringToHash("Grounded");
+    CharacterHealth ch = null;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        ch = GetComponent<CharacterHealth>();
+    }
+
+    private void Start()
+    {
+        ch.OnDeath += DisableInput;
     }
 
     private void Update()
@@ -64,5 +71,10 @@ public class PlayerMovementController : MonoBehaviour
         {
             anim.SetBool(groundedHash, false);
         }
+    }
+
+    public void DisableInput()
+    {
+        enabled = false;
     }
 }

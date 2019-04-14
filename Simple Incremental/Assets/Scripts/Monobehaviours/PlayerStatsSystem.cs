@@ -25,6 +25,7 @@ public class PlayerStatsSystem : MonoBehaviour
     {
         ApplyAugments();
         playerLevel.OnLevelUp += ApplyAugments;
+        PlayerInventory.instance.OnItemEquipped += ApplyAugments;
     }
 
     public void ApplyAugments()

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9841cbcd31ffe645b73e695609971f6, type: 3}
   m_Name: Throwing Knife
   m_EditorClassIdentifier: 
-  itemName: Kuh-Nife
   sprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
   damage: 5
   projectileSprite: {fileID: 21300000, guid: a78b28c1a74884f45af4d2b5abf7256f, type: 3}
-  projectileSpeed: 5
+  projectileLaunchForce: 600
   maxHits: 1
   falloffTime: 5
+  projectileTorque: -5

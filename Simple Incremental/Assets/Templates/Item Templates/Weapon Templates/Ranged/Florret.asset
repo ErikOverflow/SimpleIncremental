@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9841cbcd31ffe645b73e695609971f6, type: 3}
   m_Name: Florret
   m_EditorClassIdentifier: 
-  itemName: Florret
   sprite: {fileID: 21300000, guid: ca73ef093c5adb141aa7ffb33456daa0, type: 3}
   damage: 5
   projectileSprite: {fileID: 21300000, guid: ca73ef093c5adb141aa7ffb33456daa0, type: 3}
-  projectileSpeed: 5
+  projectileLaunchForce: 500
   maxHits: 1
   falloffTime: 5
+  projectileTorque: -5

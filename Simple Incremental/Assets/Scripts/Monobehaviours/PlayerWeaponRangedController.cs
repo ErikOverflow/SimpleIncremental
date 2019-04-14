@@ -9,8 +9,8 @@ public class PlayerWeaponRangedController : MonoBehaviour
     public int damage = 0;
     public float falloffTime = 1f;
     public int maxHits = 1;
-    public float projectileSpeed = 1f;
-    public float projectileRotation = 20;
+    public float projectileLaunchForce = 100f;
+    public float projectileTorque = 5;
 
     [SerializeField]
     GameObject projectilePrefab = null;
@@ -44,8 +44,10 @@ public class PlayerWeaponRangedController : MonoBehaviour
         GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
         go.transform.parent = ObjectPooler.instance.transform;
         go.transform.position = throwingHand.position;
+        go.transform.localScale = transform.localScale;
+        go.transform.rotation = throwingHand.rotation;
         Projectile p = go.GetComponent<Projectile>();
         p.gameObject.layer = layerNum;
-        p.Launch(dir, projectileSprite, damage, falloffTime, maxHits, projectileSpeed, projectileRotation);
+        p.Launch(dir, projectileSprite, damage, falloffTime, maxHits, projectileLaunchForce, projectileTorque);
     }
 }
