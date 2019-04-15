@@ -22,6 +22,8 @@ public class InventoryUI : MonoBehaviour
     TextMeshProUGUI levelText = null;
     [SerializeField]
     Slider expSlider = null;
+    [SerializeField]
+    Animator anim = null;
 
 
     [Header("PlayerObject")]
@@ -30,6 +32,7 @@ public class InventoryUI : MonoBehaviour
 
     PlayerLevel playerLevel = null;
     bool initialized = false;
+    bool opened = false;
 
     private void Awake()
     {
@@ -82,10 +85,17 @@ public class InventoryUI : MonoBehaviour
 
     public void ToggleInventory()
     {
-        gameObject.SetActive(!gameObject.activeSelf);
-        if (gameObject.activeSelf)
+        opened = !opened;
+        if (opened)
+        {
             backpackImage.overrideSprite = openBackpackSprite;
+            anim.SetTrigger("Open");
+            UpdateUI();
+        }
         else
+        {
             backpackImage.overrideSprite = null;
+            anim.SetTrigger("Close");
+        }   
     }
 }
