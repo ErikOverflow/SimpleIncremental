@@ -39,16 +39,12 @@ public class PlayerInventory : MonoBehaviour
                 items.Add(newWeapon);
                 weapon = null;
             }
-            else if (newWeapon == null)
-            {
-                weapon = newWeapon;
-                items.Remove(newWeapon);
-            }
             else if(weapon != null)
             {
-                items.Add(weapon);
-                weapon = newWeapon;
+                int index = items.IndexOf(newWeapon);
+                items.Insert(index, weapon);
                 items.Remove(newWeapon);
+                weapon = newWeapon;
             }
             else
             {
