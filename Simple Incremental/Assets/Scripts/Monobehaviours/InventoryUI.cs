@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI instance;
 
+    [Header("UI Objects")]
     [SerializeField]
     Transform itemsParent = null;
     InventorySlot[] slots;
@@ -16,6 +18,17 @@ public class InventoryUI : MonoBehaviour
     Image backpackImage = null;
     [SerializeField]
     Sprite openBackpackSprite = null;
+    [SerializeField]
+    TextMeshProUGUI levelText = null;
+    [SerializeField]
+    Slider expSlider = null;
+
+
+    [Header("PlayerObject")]
+    [SerializeField]
+    GameObject player = null;
+
+    PlayerLevel playerLevel = null;
     bool initialized = false;
 
     private void Awake()
@@ -27,6 +40,7 @@ public class InventoryUI : MonoBehaviour
         else
         {
             instance = this;
+            playerLevel = player.GetComponent<PlayerLevel>();
         }
     }
 
@@ -60,6 +74,10 @@ public class InventoryUI : MonoBehaviour
             weaponSlot.CreateSlot(PlayerInventory.instance.weapon);
         else
             weaponSlot.ClearSlot();
+
+        expSlider.maxValue = playerLevel.nextLevelExp;
+        expSlider.value = playerLevel.experience;
+        levelText.text = "Level " + playerLevel.level.ToString();
     }
 
     public void ToggleInventory()
