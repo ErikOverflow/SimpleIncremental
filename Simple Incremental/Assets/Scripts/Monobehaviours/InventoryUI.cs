@@ -1,16 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static InventoryUI instance;
+
     [SerializeField]
     Transform itemsParent = null;
     InventorySlot[] slots;
     [SerializeField]
     InventorySlot weaponSlot = null;
+    [SerializeField]
+    Image backpackImage = null;
+    [SerializeField]
+    Sprite openBackpackSprite = null;
     bool initialized = false;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
@@ -20,14 +39,8 @@ public class InventoryUI : MonoBehaviour
 
     private void OnEnable()
     {
-        Time.timeScale = 0;
         if(initialized)
             UpdateUI();
-    }
-
-    private void OnDisable()
-    {
-        Time.timeScale = 1;
     }
 
     public void UpdateUI()
@@ -47,6 +60,14 @@ public class InventoryUI : MonoBehaviour
             weaponSlot.CreateSlot(PlayerInventory.instance.weapon);
         else
             weaponSlot.ClearSlot();
+    }
 
+    public void ToggleInventory()
+    {
+        gameObject.SetActive(!gameObject.activeSelf);
+        if (gameObject.activeSelf)
+            backpackImage.overrideSprite = openBackpackSprite;
+        else
+            backpackImage.overrideSprite = null;
     }
 }
