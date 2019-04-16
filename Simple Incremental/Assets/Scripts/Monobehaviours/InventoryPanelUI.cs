@@ -1,24 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryPanelUI : PanelUI
 {
     [SerializeField]
     Transform slotsParent = null;
-    [SerializeField]
-    InventorySlot weaponSlot = null;
+    //[SerializeField]
+    //InventorySlot weaponSlot = null;
+    //[SerializeField]
+    //TextMeshProUGUI levelText = null;
+    //[SerializeField]
+    //Slider expSlider = null;
 
     InventorySlot[] slots;
+    PlayerLevel playerLevel = null;
 
-    public override void ClosePanel()
+    public override void Awake()
     {
-        throw new System.NotImplementedException();
+        base.Awake();
+        slots = slotsParent.GetComponentsInChildren<InventorySlot>();
     }
 
-    public override void OpenPanel()
+    public override void Start()
     {
-        throw new System.NotImplementedException();
+        base.Start();
+        playerLevel = BackpackUI.instance.player.GetComponent<PlayerLevel>();
+        BackpackUI.instance.activePanel = this; //Make the active panel this one to start
     }
 
     public override void UpdateUI()
@@ -34,9 +44,13 @@ public class InventoryPanelUI : PanelUI
                 slots[i].ClearSlot();
             }
         }
-        if (PlayerInventory.instance.weapon != null)
-            weaponSlot.CreateSlot(PlayerInventory.instance.weapon);
-        else
-            weaponSlot.ClearSlot();
+        //if (PlayerInventory.instance.weapon != null)
+        //    weaponSlot.CreateSlot(PlayerInventory.instance.weapon);
+        //else
+        //    weaponSlot.ClearSlot();
+
+        //expSlider.maxValue = playerLevel.nextLevelExp;
+        //expSlider.value = playerLevel.experience;
+        //levelText.text = "Level " + playerLevel.level.ToString();
     }
 }

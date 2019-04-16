@@ -10,7 +10,6 @@ public class TabUI : MonoBehaviour
 
     public void Clicked()
     {
-        panel.UpdateUI();
         panel.OpenPanel();
     }
 }
