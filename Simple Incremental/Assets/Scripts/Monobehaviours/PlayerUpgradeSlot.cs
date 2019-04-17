@@ -9,16 +9,6 @@ public class PlayerUpgradeSlot : MonoBehaviour
     Image image = null;
     [SerializeField]
     TextMeshProUGUI upgradeNameText = null;
-    [SerializeField]
-    TextMeshProUGUI costText = null;
-    [SerializeField]
-    TextMeshProUGUI levelText = null;
-
-    public void Clicked()
-    {
-        upgrade.LevelUp();
-        UpdateSlot();
-    }
 
     public void CreateSlot(PlayerUpgrade _upgrade)
     {
@@ -30,7 +20,5 @@ public class PlayerUpgradeSlot : MonoBehaviour
     {
         image.sprite = upgrade.sprite;
         upgradeNameText.text = upgrade.name;
-        costText.text = upgrade.cost.ToString();
-        levelText.text = upgrade.level.ToString();
     }
 }

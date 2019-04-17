@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryPanelUI : PanelUI
+public class UpgradePanelUI : PanelUI
 {
     [SerializeField]
     Transform slotsParent = null;
@@ -15,13 +15,13 @@ public class InventoryPanelUI : PanelUI
     //[SerializeField]
     //Slider expSlider = null;
 
-    InventorySlot[] slots;
+    UpgradeSlot[] slots;
     PlayerLevel playerLevel = null;
 
     public override void Awake()
     {
         base.Awake();
-        slots = slotsParent.GetComponentsInChildren<InventorySlot>();
+        slots = slotsParent.GetComponentsInChildren<UpgradeSlot>();
     }
 
     public override void Start()
@@ -34,9 +34,9 @@ public class InventoryPanelUI : PanelUI
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < PlayerInventory.instance.items.Count)
+            if (i < PlayerUpgrades.instance.upgrades.Count)
             {
-                slots[i].CreateSlot(PlayerInventory.instance.items[i]);
+                slots[i].CreateSlot(PlayerUpgrades.instance.upgrades[i]);
             }
             else
             {

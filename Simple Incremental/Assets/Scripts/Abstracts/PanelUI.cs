@@ -7,6 +7,9 @@ public abstract class PanelUI : MonoBehaviour
     Animator anim = null;
     BackpackUI backpackUI = null;
 
+    [SerializeField]
+    TabUI tab = null;
+
     public virtual void Awake()
     {
         anim = GetComponent<Animator>();
@@ -17,20 +20,16 @@ public abstract class PanelUI : MonoBehaviour
         backpackUI = BackpackUI.instance;
     }
 
-    public void OpenPanel()
+    public void OpenPanel(string dir)
     {
-        UpdateUI();
-        if(backpackUI.activePanel != this)
-        {
-            backpackUI.activePanel.ClosePanel();
-            backpackUI.activePanel = this;
-            anim.SetTrigger("OpenPanel");
-        }
+        tab.ActivateTab();
+        anim.SetTrigger("OpenPanel" + dir);
     }
 
-    public void ClosePanel()
+    public void ClosePanel(string dir)
     {
-        anim.SetTrigger("ClosePanel");
+        tab.DeactivateTab();
+        anim.SetTrigger("ClosePanel" + dir);
     }
     public abstract void UpdateUI();
 }

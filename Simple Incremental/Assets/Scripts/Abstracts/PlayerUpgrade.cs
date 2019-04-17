@@ -2,16 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PlayerUpgrade : StatAugment
+public abstract class PlayerUpgrade : ScriptableObject
 {
-    public int level = 0;
     public Sprite sprite = null;
-    public string upgradeName = null;
-    public int cost = 10;
-
-    public void LevelUp()
-    {
-        applied = true;
-        level++;
-    }
+    public abstract void Augment(GameObject go);
 }

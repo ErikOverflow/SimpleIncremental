@@ -777,25 +777,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 10
---- !u!114 &3074107840085071587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671101565509336334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 528ce933b199a3340a0ff8077bef9dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  applied: 1
-  priority: 1
-  level: 0
-  sprite: {fileID: 0}
-  upgradeName: 
-  cost: 10
-  damageIncreasePerLevel: 0.2
 --- !u!114 &3074107840085071589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +875,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 5f4cd252d7ccc9a41a542c1cfa6631ec, type: 3}
       propertyPath: m_Name
-      value: Girl-full (1)
+      value: Girl-full
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5f4cd252d7ccc9a41a542c1cfa6631ec, type: 3}
       propertyPath: m_Layer

@@ -13,6 +13,11 @@ public class BackpackUI : MonoBehaviour
     Image backpackImage = null;
     [SerializeField]
     Sprite openBackpackSprite = null;
+    [SerializeField]
+    PanelUI activePanel = null;
+
+    [SerializeField]
+    List<PanelUI> mainUIPanels = null;
 
     [Header("Animator")]
     public Animator anim = null;
@@ -20,7 +25,6 @@ public class BackpackUI : MonoBehaviour
     [Header("PlayerObject")]
     public GameObject player = null;
 
-    public PanelUI activePanel = null;
     bool opened = false;
 
     private void Awake()
@@ -35,14 +39,29 @@ public class BackpackUI : MonoBehaviour
         }
     }
 
-    void Start()
+    public void OpenPanel(PanelUI newActivePanel)
     {
-        UpdateUI();
+        if (newActivePanel == activePanel)
+            return;
+        if (mainUIPanels.IndexOf(activePanel) < mainUIPanels.IndexOf(newActivePanel))
+        {
+            activePanel.ClosePanel("Up");
+            newActivePanel.OpenPanel("Up");
+        }
+        else
+        {
+            activePanel.ClosePanel("Down");
+            newActivePanel.OpenPanel("Down");
+        }
+        activePanel = newActivePanel;
     }
 
-    public void UpdateUI()
+    private void UpdateAllUI()
     {
-        activePanel.OpenPanel();
+        foreach(PanelUI panel in mainUIPanels)
+        {
+            panel.UpdateUI();
+        }
     }
 
     public void ToggleInventory()
@@ -50,9 +69,9 @@ public class BackpackUI : MonoBehaviour
         opened = !opened;
         if (opened)
         {
+            UpdateAllUI();
             backpackImage.overrideSprite = openBackpackSprite;
             anim.SetTrigger("OpenBackpack");
-            UpdateUI();
         }
         else
         {
