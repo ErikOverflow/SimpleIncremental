@@ -10,17 +10,11 @@ public class UpgradePanelUI : PanelUI
     Transform slotsParent = null;
 
     UpgradeSlot[] slots;
-    PlayerLevel playerLevel = null;
 
     public override void Awake()
     {
         base.Awake();
         slots = slotsParent.GetComponentsInChildren<UpgradeSlot>();
-    }
-
-    public void Start()
-    {
-        playerLevel = BackpackUI.instance.player.GetComponent<PlayerLevel>();
     }
 
     public override void UpdateUI()

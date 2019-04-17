@@ -20,8 +20,6 @@ public class PlayerUpgrades : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            upgrades = new List<PlayerUpgrade>();
-            equippedUpgrades = new PlayerUpgrade[4];
         }
         else
         {

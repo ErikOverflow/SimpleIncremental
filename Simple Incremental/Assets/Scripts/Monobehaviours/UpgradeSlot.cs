@@ -12,13 +12,16 @@ public class UpgradeSlot : MonoBehaviour
     {
         upgrade = null;
         image.overrideSprite = null;
+        image.enabled = false;
     }
 
     public void CreateSlot(PlayerUpgrade _upgrade)
     {
         if (_upgrade != null)
         {
-            image.overrideSprite = upgrade.sprite;
+            upgrade = _upgrade;
+            image.enabled = true;
+            image.overrideSprite = _upgrade.sprite;
         }
     }
 }

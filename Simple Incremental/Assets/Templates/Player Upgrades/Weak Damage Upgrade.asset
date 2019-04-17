@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528ce933b199a3340a0ff8077bef9dd3, type: 3}
   m_Name: Weak Damage Upgrade
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 2a417c0fe0a47e843baeade1024dbfd1, type: 3}
+  sprite: {fileID: 21300000, guid: f66e60a3fba4fc94d87fdf239cf9e0fa, type: 3}
   damageIncrease: 15
