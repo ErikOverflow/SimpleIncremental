@@ -772,10 +772,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backpackImage: {fileID: 1821793056}
   openBackpackSprite: {fileID: 21300000, guid: 826b068c5e64a9e4cba44f2a55585339, type: 3}
-  activePanel: {fileID: 1179514197}
   mainUIPanels:
   - {fileID: 1179514197}
   - {fileID: 758228808}
+  startingPanel: {fileID: 1179514197}
+  mainPanelTitleText: {fileID: 1530439471}
   anim: {fileID: 117255090}
   player: {fileID: 1671101565366497596}
 --- !u!95 &117255090
@@ -1425,7 +1426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0988357961e280441aabd6c6f95f6a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 758228808}
+  mainPanel: {fileID: 758228808}
   activeTab: {fileID: 2049411386}
 --- !u!1 &362992293
 GameObject:
@@ -1907,7 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0988357961e280441aabd6c6f95f6a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1179514197}
+  mainPanel: {fileID: 1179514197}
   activeTab: {fileID: 1931991392}
 --- !u!114 &450800215
 MonoBehaviour:
@@ -2682,7 +2683,7 @@ GameObject:
   - component: {fileID: 758228808}
   - component: {fileID: 758228807}
   m_Layer: 5
-  m_Name: UpgradePanel
+  m_Name: UpgradesPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2741,7 +2742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f7b0e2dc50c9f4999834eb935c937f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: Upgrades
   tab: {fileID: 361685955}
+  subPanels: []
   slotsParent: {fileID: 647558124}
 --- !u!114 &758228809
 MonoBehaviour:
@@ -4695,7 +4698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810ec2d28277789459e6813afb6f8f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: Inventory
   tab: {fileID: 450800214}
+  subPanels:
+  - {fileID: 2038250625}
   slotsParent: {fileID: 1411236463}
 --- !u!1 &1183229360
 GameObject:
@@ -16272,8 +16278,10 @@ GameObject:
   - component: {fileID: 2038250622}
   - component: {fileID: 2038250624}
   - component: {fileID: 2038250623}
+  - component: {fileID: 2038250625}
+  - component: {fileID: 2038250626}
   m_Layer: 5
-  m_Name: PlayerPanel
+  m_Name: EquippedSubPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16340,6 +16348,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038250621}
   m_CullTransparentMesh: 0
+--- !u!114 &2038250625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038250621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49571a9f84be1f34197211d7894b375e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlot: {fileID: 2342069176498403651}
+  levelText: {fileID: 1224665316}
+  expSlider: {fileID: 1613593449}
+--- !u!95 &2038250626
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038250621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d730d2c1df12254f9513ace3c144558, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2049411386
 GameObject:
   m_ObjectHideFlags: 0
@@ -22191,7 +22233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a770626a34da7aa47b22b106c152ab5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemEquipped: {fileID: 11400000, guid: af2dc567244d93c4eaf5b9d3b596d1f4, type: 2}
   items: []
 --- !u!114 &3074107840211655392
 MonoBehaviour:

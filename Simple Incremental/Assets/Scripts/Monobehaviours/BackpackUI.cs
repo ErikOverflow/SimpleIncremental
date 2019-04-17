@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,10 +15,11 @@ public class BackpackUI : MonoBehaviour
     [SerializeField]
     Sprite openBackpackSprite = null;
     [SerializeField]
-    PanelUI activePanel = null;
-
-    [SerializeField]
     List<PanelUI> mainUIPanels = null;
+    [SerializeField]
+    PanelUI startingPanel = null;
+    [SerializeField]
+    TextMeshProUGUI mainPanelTitleText = null;
 
     [Header("Animator")]
     public Animator anim = null;
@@ -26,6 +28,7 @@ public class BackpackUI : MonoBehaviour
     public GameObject player = null;
 
     bool opened = false;
+    PanelUI activePanel = null;
 
     private void Awake()
     {
@@ -36,6 +39,8 @@ public class BackpackUI : MonoBehaviour
         else
         {
             instance = this;
+            if (startingPanel == null)
+                startingPanel = mainUIPanels.FirstOrDefault();
         }
     }
 
@@ -45,14 +50,15 @@ public class BackpackUI : MonoBehaviour
             return;
         if (mainUIPanels.IndexOf(activePanel) < mainUIPanels.IndexOf(newActivePanel))
         {
-            activePanel.ClosePanel("Up");
+            activePanel?.ClosePanel("Up");
             newActivePanel.OpenPanel("Up");
         }
         else
         {
-            activePanel.ClosePanel("Down");
+            activePanel?.ClosePanel("Down");
             newActivePanel.OpenPanel("Down");
         }
+        mainPanelTitleText.text = newActivePanel.title;
         activePanel = newActivePanel;
     }
 
@@ -72,6 +78,7 @@ public class BackpackUI : MonoBehaviour
             UpdateAllUI();
             backpackImage.overrideSprite = openBackpackSprite;
             anim.SetTrigger("OpenBackpack");
+            OpenPanel(startingPanel);
         }
         else
         {

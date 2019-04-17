@@ -6,7 +6,7 @@ public class TabUI : MonoBehaviour
 {
 
     [SerializeField]
-    PanelUI panel = null;
+    PanelUI mainPanel = null;
     [SerializeField]
     GameObject activeTab = null;
 
@@ -19,7 +19,7 @@ public class TabUI : MonoBehaviour
 
     public void Clicked()
     {
-        backpackUI.OpenPanel(panel);
+        backpackUI.OpenPanel(mainPanel);
     }
 
     public void ActivateTab()

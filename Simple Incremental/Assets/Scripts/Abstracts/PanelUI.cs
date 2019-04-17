@@ -5,31 +5,52 @@ using UnityEngine;
 public abstract class PanelUI : MonoBehaviour
 {
     Animator anim = null;
-    BackpackUI backpackUI = null;
 
+    public string title = "Panel";
     [SerializeField]
     TabUI tab = null;
+    [SerializeField]
+    SubPanelUI[] subPanels = null;
 
     public virtual void Awake()
     {
         anim = GetComponent<Animator>();
     }
 
-    public virtual void Start()
-    {
-        backpackUI = BackpackUI.instance;
-    }
-
     public void OpenPanel(string dir)
     {
         tab.ActivateTab();
         anim.SetTrigger("OpenPanel" + dir);
+        OpenSubPanels();
     }
 
     public void ClosePanel(string dir)
     {
         tab.DeactivateTab();
         anim.SetTrigger("ClosePanel" + dir);
+        CloseSubPanels();
     }
-    public abstract void UpdateUI();
+
+    public void OpenSubPanels()
+    {
+        foreach(SubPanelUI subPanel in subPanels)
+        {
+            subPanel.OpenPanel();
+        }
+    }
+
+    public void CloseSubPanels()
+    {
+        foreach (SubPanelUI subPanel in subPanels)
+        {
+            subPanel.ClosePanel();
+        }
+    }
+    public virtual void UpdateUI()
+    {
+        foreach(SubPanelUI subPanel in subPanels)
+        {
+            subPanel.UpdateUI();
+        }
+    }
 }
