@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody2D rb2d = null;
     EnemyTargeting targeting = null;
     bool chasing = false;
+    bool patrolling = false;
     Animator anim;
     int speedHash = Animator.StringToHash("Speed");
 
@@ -30,18 +31,16 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        targeting.OnNewTargetAcquired += StartChasing;
-        targeting.OnTargetLost += StopChasing;
         anim = gameObject.GetComponent<Animator>();
     }
 
-    private void StartChasing()
+    public void StartChasing()
     {
         if (!chasing)
             StartCoroutine(ChaseTarget());
     }
 
-    private void StopChasing()
+    public void StopChasing()
     {
         chasing = false;
         rb2d.velocity = Vector2.zero;
@@ -50,13 +49,19 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator ChaseTarget()
     {
-        float direction = Mathf.Sign((targeting.target.position - transform.position).x);
+        Transform target = targeting.target;
+        if (!target)
+            yield break;
+        float direction = Mathf.Sign((target.position - transform.position).x);
         float lastDir = direction;
         chasing = true;
         while (chasing)
         {
             Vector2 lastVel = rb2d.velocity;
-            direction = Mathf.Sign((targeting.target.position - transform.position).x);
+            target = targeting.target;
+            if (!target)
+                yield break;
+            direction = Mathf.Sign((target.position - transform.position).x);
             if (lastDir != direction)
             {
                 yield return new WaitForSeconds(responseTime);
@@ -65,13 +70,52 @@ public class EnemyMovement : MonoBehaviour
             anim.SetFloat(speedHash, Math.Abs(rb2d.velocity.x));
             yield return new WaitForFixedUpdate();
             lastDir = direction;
+            flipEnemy(direction);
+        }
+    }
 
-            // Flip character based on movement direction
-            if (direction < 0 && transform.localScale.x > 0 || direction > 0 && transform.localScale.x < 0)
-            {
-                transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            }
+    public void StartPatrolling()
+    {
+        if (!patrolling)
+            StartCoroutine(Patrol());
+    }
 
+    public void StopPatrolling()
+    {
+        patrolling = false;
+        rb2d.velocity = Vector2.zero;
+        anim.SetFloat(speedHash, 0);
+    }
+
+    private IEnumerator Patrol()
+    {
+        RaycastHit2D hitWall;
+        RaycastHit2D hitGround;
+
+        int layerMask = 1 << 12;
+        float direction = -1f;
+        patrolling = true;
+        while (patrolling)
+        {
+            hitWall = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 1, layerMask);
+            hitGround = Physics2D.Raycast(transform.position, new Vector2(direction, -2), 1, layerMask);
+            // If it hit a wall or detect no ground turn around
+            if (hitWall.collider != null || hitGround.collider == null)
+                direction *= -1f;
+            Vector2 lastVel = rb2d.velocity;
+            rb2d.velocity = new Vector2(direction * moveSpeed, lastVel.y);
+            anim.SetFloat(speedHash, Math.Abs(rb2d.velocity.x));
+            flipEnemy(direction);
+            yield return new WaitForFixedUpdate();
+        }  
+    }
+
+    private void flipEnemy(float direction)
+    {
+        // Flip character based on movement direction
+        if (direction < 0 && transform.localScale.x > 0 || direction > 0 && transform.localScale.x < 0)
+        {
+            transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
     }
 }

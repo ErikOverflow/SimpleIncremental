@@ -37,19 +37,17 @@ public class EnemyAttackRanged : MonoBehaviour
     private void Start()
     {
         layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
-        targeting.OnNewTargetAcquired += StartFiring;
-        targeting.OnTargetLost += StopFiring;
         projectileContainer = ObjectPooler.instance.transform;
         anim = GetComponentInParent<Animator>();
     }
 
-    private void StartFiring()
+    public void StartFiring()
     {
         if (!attacking)
             StartCoroutine(Attack());
     }
 
-    private void StopFiring()
+    public void StopFiring()
     {
         continueAttacking = false;
     }
@@ -61,7 +59,6 @@ public class EnemyAttackRanged : MonoBehaviour
         while (continueAttacking)
         {
             anim.SetTrigger("AttackRanged");
-            //ShootProjectile();
             yield return new WaitForSeconds(reloadTime);
         }
         attacking = false;

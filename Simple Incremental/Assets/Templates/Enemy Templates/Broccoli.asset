@@ -17,7 +17,7 @@ MonoBehaviour:
   health: 25
   coins: 1
   experience: 160
-  moveSpeed: 3
+  moveSpeed: 2
   responseTime: 1
   projectileSprite: {fileID: 21300000, guid: ca73ef093c5adb141aa7ffb33456daa0, type: 3}
   rangedDamage: 1

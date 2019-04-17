@@ -7,10 +7,17 @@ public class EnemyAttackMelee : MonoBehaviour
     Rigidbody2D rb2d = null;
     public int damage = 1;
     public float punchForce = 200f;
+    private Animator anim;
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
+
+    public void StartAttacking()
+    {
+        anim.SetTrigger("AttackMelee");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
