@@ -15,8 +15,9 @@ public class UIPlayerSubPanel : SubPanelUI
 
     PlayerLevel playerLevel = null;
 
-    public void Start()
+    public override void Awake()
     {
+        base.Awake();
         playerLevel = BackpackUI.instance.player.GetComponent<PlayerLevel>();
     }
 
