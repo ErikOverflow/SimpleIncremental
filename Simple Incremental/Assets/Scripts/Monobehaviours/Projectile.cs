@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
     int maxPenetrations = 1;
 
     [SerializeField]
-    LayerMask stopLayers;
+    LayerMask stopLayers = new LayerMask();
 
     private void Awake()
     {

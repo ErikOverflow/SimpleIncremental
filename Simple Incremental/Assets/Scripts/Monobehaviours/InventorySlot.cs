@@ -7,8 +7,6 @@ public class InventorySlot : MonoBehaviour
     ItemInstance item = null;
     [SerializeField]
     Image image = null;
-    [SerializeField]
-    Image emptySlot = null;
 
     public void Clicked()
     {
@@ -22,7 +20,6 @@ public class InventorySlot : MonoBehaviour
     {
         item = null;
         image.enabled = false;
-        emptySlot.enabled = true;
     }
 
     public void CreateSlot(ItemInstance _item)
@@ -31,8 +28,7 @@ public class InventorySlot : MonoBehaviour
         {
             item = _item;
             image.enabled = true;
-            image.sprite = item.item?.sprite;
-            emptySlot.enabled = false;
+            image.overrideSprite = item.item?.sprite;
         }
         else
         {

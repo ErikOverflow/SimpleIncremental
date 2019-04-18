@@ -12,6 +12,8 @@ public class HudUI : MonoBehaviour
     [SerializeField]
     Slider healthSlider = null;
     [SerializeField]
+    TextMeshProUGUI healthText = null;
+    [SerializeField]
     Slider experienceSlider = null;
 
     [Header("Player GameObject")]
@@ -44,6 +46,7 @@ public class HudUI : MonoBehaviour
     {
         healthSlider.maxValue = characterHealth.maxHealth;
         healthSlider.value = characterHealth.health;
+        healthText.text = characterHealth.health + "/" + characterHealth.maxHealth;
         experienceSlider.maxValue = playerLevel.nextLevelExp;
         experienceSlider.value = playerLevel.experience;
         levelTMPro.text = playerLevel.level.ToString();

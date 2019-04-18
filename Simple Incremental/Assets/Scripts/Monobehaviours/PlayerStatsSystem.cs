@@ -8,6 +8,7 @@ public class PlayerStatsSystem : MonoBehaviour
     PlayerHook playerHook = null;
     PlayerWeaponHook playerWeaponHook = null;
     PlayerLevel playerLevel = null;
+    PlayerUpgrades playerUpgrades = null;
     List<StatAugment> statAugments;
 
     [SerializeField]
@@ -19,6 +20,7 @@ public class PlayerStatsSystem : MonoBehaviour
         playerWeaponHook = GetComponentInChildren<PlayerWeaponHook>();
         statAugments = GetComponentsInChildren<StatAugment>().OrderBy(sa => sa.priority).ToList();
         playerLevel = GetComponent<PlayerLevel>();
+        playerUpgrades = GetComponent<PlayerUpgrades>();
     }
 
     public void Start()
@@ -26,6 +28,7 @@ public class PlayerStatsSystem : MonoBehaviour
         ApplyAugments();
         playerLevel.OnLevelUp += ApplyAugments;
         PlayerInventory.instance.OnItemEquipped += ApplyAugments;
+        PlayerUpgrades.instance.UpgradesChanged += ApplyAugments;
     }
 
     public void ApplyAugments()
@@ -37,6 +40,7 @@ public class PlayerStatsSystem : MonoBehaviour
             if (augment.applied)
                 augment.Augment();
         }
+        playerUpgrades.ApplyUpgrades();
         statsChanged.Raise();
     }
 }
