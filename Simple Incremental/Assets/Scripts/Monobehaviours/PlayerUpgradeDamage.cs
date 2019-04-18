@@ -14,5 +14,6 @@ public class PlayerUpgradeDamage : PlayerUpgrade
         pwrc = go.GetComponent<PlayerWeaponRangedController>();
         pwmc = go.GetComponent<PlayerWeaponMeleeController>();
         pwrc.damage += damageIncrease;
+        pwmc.damage += damageIncrease;
     }
 }
