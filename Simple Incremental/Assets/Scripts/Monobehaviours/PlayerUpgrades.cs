@@ -11,7 +11,7 @@ public class PlayerUpgrades : MonoBehaviour
     public Action UpgradesChanged;
 
     public List<PlayerUpgrade> upgrades = null;
-    public PlayerUpgrade[] equippedUpgrades = null;
+    public PlayerUpgrade[] equippedUpgrades = new PlayerUpgrade[4];
 
     //TODO Serialize player upgrades earned and populate this with earned upgrades on load.
 

@@ -62,7 +62,7 @@ public class BackpackUI : MonoBehaviour
         activePanel = newActivePanel;
     }
 
-    private void UpdateAllUI()
+    public void UpdateAllUI()
     {
         foreach(PanelUI panel in mainUIPanels)
         {

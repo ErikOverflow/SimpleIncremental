@@ -17,8 +17,6 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     string gameDataFileName = "data.json";
     PlayerLevel playerLevel;
-    [SerializeField]
-    GameEvent itemsEquipped = null;
 
 
     void Awake()
