@@ -8,11 +8,11 @@ public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory instance;
 
-    public Action OnItemEquipped;
+    public Action OnInventoryChange;
 
     public List<ItemInstance> items = null;
     [NonSerialized]
-    public ItemInstance weapon = null; //Nonserialized to avoid weapon instance being defined but not actually having values
+    public WeaponInstance weapon = null; //Nonserialized to avoid weapon instance being defined but not actually having values
 
     private void Awake()
     {
@@ -27,33 +27,44 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void EquipWeapon(ItemInstance newWeapon)
+    public void Consume(ItemInstance item)
     {
-        if (newWeapon?.item is Weapon)
-        {
-            if (newWeapon == weapon)
-            {
-                items.Add(newWeapon);
-                weapon = null;
-            }
-            else if(weapon != null)
-            {
-                int index = items.IndexOf(newWeapon);
-                items.Insert(index, weapon);
-                items.Remove(newWeapon);
-                weapon = newWeapon;
-            }
-            else
-            {
-                weapon = newWeapon;
-                items.Remove(newWeapon);
-            }
-            OnItemEquipped?.Invoke();
-        }
+        //Consume item
+        items.Remove(item);
+        OnInventoryChange?.Invoke();
+    }
+
+    public void EquipItem(EquipmentInstance equipment)
+    {
+        throw new EquipmentTypeUndefined();
+    }
+
+    public void UnEquipItem(EquipmentInstance equipment)
+    {
+        throw new EquipmentTypeUndefined();
+    }
+
+    public void EquipItem(WeaponInstance _weapon)
+    {
+        if(weapon != null)
+            items.Add(weapon);
+        weapon = _weapon;
+        items.Remove(_weapon);
+        OnInventoryChange?.Invoke();
+    }
+
+    public void UnEquipItem(WeaponInstance _weapon)
+    {
+        weapon = null;
+        items.Add(_weapon);
+        OnInventoryChange?.Invoke();
     }
 
     public void AddItemToInventory(ItemInstance item)
     {
         items.Add(item);
+        OnInventoryChange?.Invoke();
     }
 }
+
+public class EquipmentTypeUndefined : Exception { }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UpgradeSlot : MonoBehaviour, IDragHandler, IEndDragHandler
+public class UIUpgradeSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     PlayerUpgrade upgrade = null;
     [SerializeField]

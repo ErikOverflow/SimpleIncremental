@@ -4,10 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIPlayerSubPanel : SubPanelUI
+public class UIEquipmentSubPanel : UISubPanel
 {
     [SerializeField]
-    InventorySlot weaponSlot = null;
+    UIEquippedItemSlot weaponSlot = null;
     [SerializeField]
     TextMeshProUGUI levelText = null;
     [SerializeField]
@@ -18,7 +18,7 @@ public class UIPlayerSubPanel : SubPanelUI
     public override void Awake()
     {
         base.Awake();
-        playerLevel = BackpackUI.instance.player.GetComponent<PlayerLevel>();
+        playerLevel = UIBackpack.instance.player.GetComponent<PlayerLevel>();
     }
 
     public override void UpdateUI()

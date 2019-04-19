@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour
+public class UIInventorySlot : MonoBehaviour
 {
     ItemInstance item = null;
     [SerializeField]
@@ -12,7 +12,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null)
         {
-            item.Use();
+            item.Clicked();
         }
     }
 
@@ -24,16 +24,8 @@ public class InventorySlot : MonoBehaviour
 
     public void CreateSlot(ItemInstance _item)
     {
-        if (_item != null)
-        {
-            item = _item;
-            image.enabled = true;
-            image.overrideSprite = item.item?.sprite;
-        }
-        else
-        {
-            ClearSlot();
-            PlayerInventory.instance.items.Remove(_item);
-        }
+        item = _item;
+        image.enabled = true;
+        image.overrideSprite = item.item.sprite;
     }
 }

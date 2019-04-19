@@ -4,17 +4,24 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradePanelUI : PanelUI
+public class UIInventoryPanel : UIPanel
 {
     [SerializeField]
     Transform slotsParent = null;
 
-    UpgradeSlot[] slots;
+    UIInventorySlot[] slots;
+    PlayerLevel playerLevel = null;
 
     public override void Awake()
     {
         base.Awake();
-        slots = slotsParent.GetComponentsInChildren<UpgradeSlot>();
+        slots = slotsParent.GetComponentsInChildren<UIInventorySlot>();
+    }
+
+    public void Start()
+    {
+        playerLevel = UIBackpack.instance.player.GetComponent<PlayerLevel>();
+        PlayerInventory.instance.OnInventoryChange += UpdateUI;
     }
 
     public override void UpdateUI()
@@ -22,9 +29,9 @@ public class UpgradePanelUI : PanelUI
         base.UpdateUI();
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < PlayerUpgrades.instance.upgrades.Count)
+            if (i < PlayerInventory.instance.items.Count)
             {
-                slots[i].CreateSlot(PlayerUpgrades.instance.upgrades[i]);
+                slots[i].CreateSlot(PlayerInventory.instance.items[i]);
             }
             else
             {

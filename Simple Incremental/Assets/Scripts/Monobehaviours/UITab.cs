@@ -2,24 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TabUI : MonoBehaviour
+public class UITab : MonoBehaviour
 {
 
     [SerializeField]
-    PanelUI mainPanel = null;
+    UIPanel mainPanel = null;
     [SerializeField]
     GameObject activeTab = null;
 
-    BackpackUI backpackUI = null;
-
-    private void Awake()
-    {
-        backpackUI = BackpackUI.instance;
-    }
-
     public void Clicked()
     {
-        backpackUI.OpenPanel(mainPanel);
+        UIBackpack.instance.OpenPanel(mainPanel);
     }
 
     public void ActivateTab()

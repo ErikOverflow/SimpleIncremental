@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UIStatsSubPanel : SubPanelUI
+public class UIStatsSubPanel : UISubPanel
 {
     [SerializeField]
     TextMeshProUGUI levelText = null;
@@ -25,10 +25,10 @@ public class UIStatsSubPanel : SubPanelUI
 
     private void Start()
     {
-        playerLevel = BackpackUI.instance.player.GetComponent<PlayerLevel>();
-        characterHealth = BackpackUI.instance.player.GetComponent<CharacterHealth>();
-        rangedController = BackpackUI.instance.player.GetComponent<PlayerWeaponRangedController>();
-        meleeController = BackpackUI.instance.player.GetComponent<PlayerWeaponMeleeController>();
+        playerLevel = UIBackpack.instance.player.GetComponent<PlayerLevel>();
+        characterHealth = UIBackpack.instance.player.GetComponent<CharacterHealth>();
+        rangedController = UIBackpack.instance.player.GetComponent<PlayerWeaponRangedController>();
+        meleeController = UIBackpack.instance.player.GetComponent<PlayerWeaponMeleeController>();
     }
 
     public override void UpdateUI()

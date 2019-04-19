@@ -1,5 +1,5 @@
 ﻿using System;
-using UnityEditor;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,34 +7,27 @@ public abstract class Item : ScriptableObject
 {
     public Sprite sprite;
 
-    public virtual void AddToInventory()
-    {
-        PlayerInventory.instance.AddItemToInventory(new ItemInstance(this));
-    }
+    public abstract void AddToInventory();
 }
 
 [Serializable]
-public class ItemInstance
+public abstract class ItemInstance
 {
+    [NonSerialized]
     public Item item;
-    public string name;
+    public string templateName;
 
-    public int genericInt1;
-    public int genericInt2;
-    public int genericInt3;
+    [NonSerialized]
+    public ItemInstance derivedInstance;
 
     public ItemInstance(Item template)
     {
-        if(template != null)
+        if (template != null)
         {
             item = template;
-            name = template.name;
+            templateName = template.name;
         }
     }
 
-    public void Use()
-    {
-        if(this.item is Equipment)
-            PlayerInventory.instance.EquipWeapon(this);
-    }
+    public abstract void Clicked();
 }

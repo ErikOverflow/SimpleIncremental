@@ -5,9 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BackpackUI : MonoBehaviour
+public class UIBackpack : MonoBehaviour
 {
-    public static BackpackUI instance;
+    public static UIBackpack instance;
 
     [Header("UI Objects")]
     [SerializeField]
@@ -15,9 +15,9 @@ public class BackpackUI : MonoBehaviour
     [SerializeField]
     Sprite openBackpackSprite = null;
     [SerializeField]
-    List<PanelUI> mainUIPanels = null;
+    List<UIPanel> mainUIPanels = null;
     [SerializeField]
-    PanelUI startingPanel = null;
+    UIPanel startingPanel = null;
     [SerializeField]
     TextMeshProUGUI mainPanelTitleText = null;
 
@@ -28,7 +28,7 @@ public class BackpackUI : MonoBehaviour
     public GameObject player = null;
 
     bool opened = false;
-    PanelUI activePanel = null;
+    UIPanel activePanel = null;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class BackpackUI : MonoBehaviour
         }
     }
 
-    public void OpenPanel(PanelUI newActivePanel)
+    public void OpenPanel(UIPanel newActivePanel)
     {
         if (newActivePanel == activePanel)
             return;
@@ -64,7 +64,7 @@ public class BackpackUI : MonoBehaviour
 
     public void UpdateAllUI()
     {
-        foreach(PanelUI panel in mainUIPanels)
+        foreach(UIPanel panel in mainUIPanels)
         {
             panel.UpdateUI();
         }

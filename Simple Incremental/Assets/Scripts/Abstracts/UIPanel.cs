@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PanelUI : MonoBehaviour
+public abstract class UIPanel : MonoBehaviour
 {
     Animator anim = null;
 
     public string title = "Panel";
     [SerializeField]
-    TabUI tab = null;
+    UITab tab = null;
     [SerializeField]
-    SubPanelUI[] subPanels = null;
+    UISubPanel[] subPanels = null;
 
     public virtual void Awake()
     {
@@ -33,7 +33,7 @@ public abstract class PanelUI : MonoBehaviour
 
     public void OpenSubPanels()
     {
-        foreach(SubPanelUI subPanel in subPanels)
+        foreach(UISubPanel subPanel in subPanels)
         {
             subPanel.OpenPanel();
         }
@@ -41,14 +41,14 @@ public abstract class PanelUI : MonoBehaviour
 
     public void CloseSubPanels()
     {
-        foreach (SubPanelUI subPanel in subPanels)
+        foreach (UISubPanel subPanel in subPanels)
         {
             subPanel.ClosePanel();
         }
     }
     public virtual void UpdateUI()
     {
-        foreach(SubPanelUI subPanel in subPanels)
+        foreach(UISubPanel subPanel in subPanels)
         {
             subPanel.UpdateUI();
         }

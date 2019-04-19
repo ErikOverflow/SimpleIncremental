@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HudUI : MonoBehaviour
+public class UIHud : MonoBehaviour
 {
     [Header("Text/Slider elements to be modified")]
     [SerializeField]

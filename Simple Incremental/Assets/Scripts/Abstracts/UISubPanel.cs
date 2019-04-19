@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SubPanelUI : MonoBehaviour
+public abstract class UISubPanel : MonoBehaviour
 {
     Animator anim = null;
 

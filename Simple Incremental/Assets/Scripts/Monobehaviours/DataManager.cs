@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 
 /* DataController is responsible for saving and loading persistant data
  * to files in JSON format */
@@ -15,7 +16,7 @@ public class DataManager : MonoBehaviour
     public GameData gameData = null;
     public Dictionary<string, Item> itemDict;
     [SerializeField]
-    string gameDataFileName = "data.json";
+    string gameDataFileName = "data.dat";
     PlayerLevel playerLevel;
 
 
@@ -41,6 +42,7 @@ public class DataManager : MonoBehaviour
     public void Start()
     {
         LoadGameData();
+        PlayerInventory.instance.OnInventoryChange += SaveGameData;
     }
 
     public void LoadGameData()
@@ -50,11 +52,11 @@ public class DataManager : MonoBehaviour
         {
             string json = File.ReadAllText(filePath);
             gameData = JsonUtility.FromJson<GameData>(json);
-            foreach (ItemInstance item in gameData.items)
+            foreach (ItemInstance item in gameData.itemInstance.items)
             {
-                itemDict.TryGetValue(item.name, out item.item);
+                itemDict.TryGetValue(item.templateName, out item.item);
             }
-            itemDict.TryGetValue(gameData.weapon?.name, out gameData.weapon.item);
+            itemDict.TryGetValue(gameData.weapon?.templateName, out gameData.weapon.item);
             HookGameData();
         }
         else
@@ -75,7 +77,7 @@ public class DataManager : MonoBehaviour
     private void UpdateGamedata()
     {
         gameData.level = playerLevel.level;
-        gameData.items = PlayerInventory.instance.items;
+        gameData.itemInstance.items = PlayerInventory.instance.items;
         gameData.weapon = PlayerInventory.instance.weapon;
         if (PlayerInventory.instance.weapon?.item == null)
             gameData.weapon = null;
@@ -84,7 +86,7 @@ public class DataManager : MonoBehaviour
     private void HookGameData()
     {
         playerLevel.level = gameData.level;
-        PlayerInventory.instance.items = gameData.items;
+        PlayerInventory.instance.items = gameData.itemInstance.items;
         if (gameData.weapon?.item != null)
             PlayerInventory.instance.weapon = gameData.weapon;
     }
@@ -94,6 +96,37 @@ public class DataManager : MonoBehaviour
 public class GameData
 {
     public int level = 1;
+    public ItemInstances itemInstance = new ItemInstances();
+    public WeaponInstance weapon = null;
+}
+
+[Serializable]
+public class ItemInstances : ISerializationCallbackReceiver
+{
+    [NonSerialized]
     public List<ItemInstance> items = new List<ItemInstance>();
-    public ItemInstance weapon = null;
+    //[SerializeField]
+    public List<string> _serializedItems;
+    //[SerializeField]
+    public List<string> _itemType;
+
+    public void OnBeforeSerialize()
+    {
+        _serializedItems = new List<string>();
+        _itemType = new List<string>();
+        for (int i = 0; i < items.Count; i++)
+        {
+            _serializedItems.Add(JsonUtility.ToJson(items[i]));
+            _itemType.Add(items[i].GetType().ToString());
+        }
+    }
+
+    public void OnAfterDeserialize()
+    {
+        for (int i = 0; i < _serializedItems.Count; i++)
+        {
+            Type type = Type.GetType(_itemType[i]);
+            items.Add((ItemInstance)JsonUtility.FromJson(_serializedItems[i], type));
+        }
+    }
 }

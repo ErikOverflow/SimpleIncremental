@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIEquippedUpgradesSubPanel : SubPanelUI
+public class UIEquippedUpgradesSubPanel : UISubPanel
 {
     public static UIEquippedUpgradesSubPanel instance;
     [SerializeField]

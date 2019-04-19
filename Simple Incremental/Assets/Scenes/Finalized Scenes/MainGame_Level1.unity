@@ -1808,12 +1808,12 @@ PrefabInstance:
     - target: {fileID: 4484629236500851719, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.35
+      value: -12.72
       objectReference: {fileID: 0}
     - target: {fileID: 4484629236500851719, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.44
+      value: 2.42
       objectReference: {fileID: 0}
     - target: {fileID: 4484629236500851719, guid: 6ef725ef0a16fc84cb05cad73a08b2a7,
         type: 3}
@@ -6216,7 +6216,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1184324286}
   - component: {fileID: 1184324285}
-  - component: {fileID: 1184324287}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -6239,13 +6238,13 @@ MonoBehaviour:
   player: {fileID: 1671101565366497596}
   gameData:
     level: 0
-    items: []
+    itemInstance:
+      _serializedItems: []
+      _itemType: []
     weapon:
-      item: {fileID: 0}
-      name: 
-      genericInt1: 0
-      genericInt2: 0
-      genericInt3: 0
+      templateName: 
+      equipmentNum1: 0
+      weaponFloat1: 0
   gameDataFileName: GameData.json
 --- !u!4 &1184324286
 Transform:
@@ -6261,36 +6260,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1184324287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1184324284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b50fcef3212f44c8e84797bacbbdfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - {fileID: 11400000, guid: 9dea0da398256844885586f71c37be89, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1184324285}
-        m_MethodName: SaveGameData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1222263647
 GameObject:
   m_ObjectHideFlags: 0
@@ -19074,7 +19043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49571a9f84be1f34197211d7894b375e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSlot: {fileID: 2342069176498403651}
+  weaponSlot: {fileID: 2342069176498403665}
   levelText: {fileID: 1224665316}
   expSlider: {fileID: 1613593449}
 --- !u!95 &2038250626
@@ -24037,7 +24006,7 @@ GameObject:
   - component: {fileID: 2342069175889977139}
   - component: {fileID: 2342069175889977149}
   - component: {fileID: 2342069175889977148}
-  - component: {fileID: 2342069175889977150}
+  - component: {fileID: 2342069175889977141}
   - component: {fileID: 2342069175889977140}
   m_Layer: 5
   m_Name: RingSlot
@@ -24109,7 +24078,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2342069175889977150}
+      - m_Target: {fileID: 0}
         m_MethodName: Clicked
         m_Mode: 1
         m_Arguments:
@@ -24122,6 +24091,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2342069175889977141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342069175889977138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcbcaaeb6c66a94faf49bd16348eb48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 2342069176289220864}
 --- !u!114 &2342069175889977148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24159,32 +24141,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2342069175889977138}
   m_CullTransparentMesh: 0
---- !u!114 &2342069175889977150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2342069175889977138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d301b5e212d42e49aca0a413cbf87f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 2342069176289220864}
---- !u!114 &2342069176008862352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2342069176008862364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d301b5e212d42e49aca0a413cbf87f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 2342069176139148462}
 --- !u!114 &2342069176008862354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24233,7 +24189,7 @@ GameObject:
   - component: {fileID: 2342069176008862365}
   - component: {fileID: 2342069176008862355}
   - component: {fileID: 2342069176008862354}
-  - component: {fileID: 2342069176008862352}
+  - component: {fileID: 2342069176008862367}
   - component: {fileID: 2342069176008862366}
   m_Layer: 5
   m_Name: ArmorSlot
@@ -24305,7 +24261,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2342069176008862352}
+      - m_Target: {fileID: 0}
         m_MethodName: Clicked
         m_Mode: 1
         m_Arguments:
@@ -24318,6 +24274,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2342069176008862367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342069176008862364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcbcaaeb6c66a94faf49bd16348eb48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 2342069176139148462}
 --- !u!1 &2342069176139148456
 GameObject:
   m_ObjectHideFlags: 0
@@ -24503,19 +24472,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2342069176498403651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2342069176498403663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d301b5e212d42e49aca0a413cbf87f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 2342069175563337597}
 --- !u!224 &2342069176498403662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24547,7 +24503,7 @@ GameObject:
   - component: {fileID: 2342069176498403662}
   - component: {fileID: 2342069176498403648}
   - component: {fileID: 2342069176498403649}
-  - component: {fileID: 2342069176498403651}
+  - component: {fileID: 2342069176498403665}
   - component: {fileID: 2342069176498403664}
   m_Layer: 5
   m_Name: WeaponSlot
@@ -24599,7 +24555,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2342069176498403651}
+      - m_Target: {fileID: 2342069176498403665}
         m_MethodName: Clicked
         m_Mode: 1
         m_Arguments:
@@ -24612,6 +24568,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2342069176498403665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342069176498403663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcbcaaeb6c66a94faf49bd16348eb48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 2342069175563337597}
 --- !u!224 &2342069176553150662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24732,7 +24701,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2342069176553150667}
+      - m_Target: {fileID: 0}
         m_MethodName: Clicked
         m_Mode: 1
         m_Arguments:
@@ -24754,7 +24723,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2342069176553150663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d301b5e212d42e49aca0a413cbf87f4, type: 3}
+  m_Script: {fileID: 11500000, guid: edcbcaaeb6c66a94faf49bd16348eb48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2342069175609695989}
@@ -24953,7 +24922,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 1440982346}
-  defaultValues: {fileID: 0}
 --- !u!114 &3074107840211655383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25115,7 +25083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a770626a34da7aa47b22b106c152ab5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
 --- !u!114 &3074107840211655392
 MonoBehaviour:
   m_ObjectHideFlags: 0

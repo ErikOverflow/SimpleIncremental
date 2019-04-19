@@ -16,6 +16,5 @@ public class PlayerHook : MonoBehaviour
     public void Hook()
     {
         characterHealth.maxHealth = playerTemplate.health;
-        playerWeaponHook.SetDefaultWeapon(playerTemplate.defaultWeapon);
     }
 }

@@ -8,5 +8,4 @@ public class PlayerTemplate : ScriptableObject
     public string playerName = "Bob";
     public int health = 10;
     public float moveSpeed = 1f;
-    public Weapon defaultWeapon = null;
 }

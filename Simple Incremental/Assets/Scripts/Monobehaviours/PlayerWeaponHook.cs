@@ -5,10 +5,6 @@ public class PlayerWeaponHook : MonoBehaviour
     [SerializeField]
     GameObject weapon = null;
 
-    [Header("Default \"Unequipped\" Template")]
-    [SerializeField]
-    Weapon defaultValues = null;
-
     PlayerWeaponRangedController playerWeaponRangedController = null;
     PlayerWeaponMeleeController playerWeaponMeleeController = null;
     SpriteRenderer spriteRenderer = null;
@@ -25,10 +21,6 @@ public class PlayerWeaponHook : MonoBehaviour
         if (PlayerInventory.instance?.weapon != null)
         {
             HookWeapon(PlayerInventory.instance.weapon);
-        }
-        else
-        {
-            HookWeapon(new ItemInstance(defaultValues));
         }
     }
 
@@ -54,10 +46,5 @@ public class PlayerWeaponHook : MonoBehaviour
             playerWeaponMeleeController.enabled = true;
             playerWeaponMeleeController.weapon = weapon;
         }
-    }
-
-    public void SetDefaultWeapon(Weapon weapon)
-    {
-        defaultValues = weapon;
     }
 }
