@@ -6243,6 +6243,7 @@ MonoBehaviour:
       _itemType: []
     weapon:
       templateName: 
+      itemType: 
       equipmentNum1: 0
       weaponFloat1: 0
   gameDataFileName: GameData.json
@@ -22406,20 +22407,20 @@ GameObject:
   - component: {fileID: 3074107840211655388}
   - component: {fileID: 3074107840211655375}
   - component: {fileID: 3074107840211655387}
-  - component: {fileID: 1671101565366497597}
-  - component: {fileID: 3074107840211655389}
   - component: {fileID: 767910589}
-  - component: {fileID: 767910573}
+  - component: {fileID: 3074107840211655389}
+  - component: {fileID: 3074107840211655391}
+  - component: {fileID: 1671101565366497597}
   - component: {fileID: 3074107840211655392}
-  - component: {fileID: 3074107840211655378}
-  - component: {fileID: 3074107840211655379}
-  - component: {fileID: 3074107840211655376}
-  - component: {fileID: 3074107840211655383}
   - component: {fileID: 3074107840211655380}
-  - component: {fileID: 3074107840211655386}
+  - component: {fileID: 3074107840211655383}
   - component: {fileID: 3074107840211655384}
   - component: {fileID: 3074107840211655390}
-  - component: {fileID: 3074107840211655391}
+  - component: {fileID: 3074107840211655376}
+  - component: {fileID: 3074107840211655378}
+  - component: {fileID: 3074107840211655379}
+  - component: {fileID: 3074107840211655386}
+  - component: {fileID: 767910573}
   m_Layer: 8
   m_Name: Girl-full (1)
   m_TagString: Untagged
