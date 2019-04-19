@@ -18,6 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     Rigidbody2D rigidBody;
     Vector2 currentVelocity = Vector2.zero;
     Animator anim;
+    bool grounded = true;
     int groundedHash = Animator.StringToHash("Grounded");
     CharacterHealth ch = null;
 
@@ -37,7 +38,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         horizontalForce = Input.GetAxisRaw(horizontalAxis);
 
-        if (Input.GetKeyDown(KeyCode.Space) && anim.GetBool(groundedHash))
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             anim.SetTrigger("Jump");
             rigidBody.AddForce(new Vector2(0f, jumpForce));
@@ -61,6 +62,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (groundLayer == (groundLayer | ( 1<< col.gameObject.layer)))
         {
+            grounded = true;
             anim.SetBool(groundedHash, true);
         }
     }
@@ -69,6 +71,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (groundLayer == (groundLayer | (1 << col.gameObject.layer)))
         {
+            grounded = false;
             anim.SetBool(groundedHash, false);
         }
     }
