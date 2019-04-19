@@ -16,9 +16,7 @@ public abstract class ItemInstance
     [NonSerialized]
     public Item item;
     public string templateName;
-
-    [NonSerialized]
-    public ItemInstance derivedInstance;
+    public string itemType;
 
     public ItemInstance(Item template)
     {
