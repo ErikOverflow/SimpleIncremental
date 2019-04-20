@@ -24,7 +24,7 @@ MonoBehaviour:
   rangedFalloffTime: 3
   reloadTime: 1
   maxPenetrations: 1
-  projectileSpeed: 15
+  projectileSpeed: 800
   projectileRotation: 20
   meleeDamage: 1
   meleePunchForce: 200
