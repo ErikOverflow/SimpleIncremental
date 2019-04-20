@@ -7,7 +7,7 @@ public class PlayerWeaponMeleeController : MonoBehaviour
 {
     public int damage = 0;
     [NonSerialized]
-    public GameObject weapon;
+    public GameObject weapon = null;
     [SerializeField]
     LayerMask mask = new LayerMask();
     ContactFilter2D cf2d;
@@ -35,6 +35,8 @@ public class PlayerWeaponMeleeController : MonoBehaviour
 
     private void Update()
     {
+        if (weapon == null)
+            return;
         if (Input.GetMouseButtonUp(0))
         {
             anim.SetBool(meleeAttackingHash, false);
