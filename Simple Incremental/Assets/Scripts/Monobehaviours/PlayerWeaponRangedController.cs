@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DragonBones;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,24 +18,27 @@ public class PlayerWeaponRangedController : MonoBehaviour
     [SerializeField]
     LayerMask layer;
     [SerializeField]
-    Transform throwingHand = null;
+    UnityEngine.Transform throwingHand = null;
     private int layerNum;
-    private Animator anim;
-    int attackRangedHash = Animator.StringToHash("AttackRanged");
+    string attackName = "Fork throw";
+    UnityArmatureComponent armatureComponent;
     Camera mainCam;
 
     public void Awake()
     {
         mainCam = Camera.main;
         layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
-        anim = GetComponentInParent<Animator>();
+        armatureComponent = GetComponent<UnityArmatureComponent>();
+        armatureComponent.animation.animationConfig.additiveBlending = true;
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
-            anim.SetTrigger(attackRangedHash);
+            armatureComponent.animation.FadeIn(attackName, -1, 1, 2, "Blend");
+            //armatureComponent.animation.PlayConfig(new AnimationConfig { animation = attackName, additiveBlending = true, layer = 1 });
+            LaunchProjectile();
         }
     }
     public void LaunchProjectile()
@@ -44,7 +48,7 @@ public class PlayerWeaponRangedController : MonoBehaviour
         GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
         go.transform.parent = ObjectPooler.instance.transform;
         go.transform.position = throwingHand.position;
-        go.transform.localScale = transform.localScale;
+        go.transform.localScale = Vector3.one;
         go.transform.rotation = throwingHand.rotation;
         Projectile p = go.GetComponent<Projectile>();
         p.gameObject.layer = layerNum;
