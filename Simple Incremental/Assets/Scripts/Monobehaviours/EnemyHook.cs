@@ -2,6 +2,8 @@
 
 public class EnemyHook : MonoBehaviour
 {
+    [SerializeField]
+    GameObject weapon = null;
     public EnemyTemplate enemyTemplate = null;
     SpriteRenderer spriteRenderer = null;
     CharacterHealth characterHealth = null;
@@ -58,6 +60,7 @@ public class EnemyHook : MonoBehaviour
             {
                 enemyAttackMelee.damage = enemyTemplate.meleeDamage;
                 enemyAttackMelee.punchForce = enemyTemplate.meleePunchForce;
+                enemyAttackMelee.weapon = weapon;
             }
             if(enemyExperience != null)
             {

@@ -3456,6 +3456,63 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2342069175146632118}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &712668651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712668652}
+  - component: {fileID: 712668653}
+  m_Layer: 10
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712668652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712668651}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9718267, w: 0.23569688}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1166576555}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &712668653
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712668651}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.18118317, y: 0.17229527}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3907993, y: 0.40216482}
+  m_EdgeRadius: 0
 --- !u!1 &713567851
 GameObject:
   m_ObjectHideFlags: 0
@@ -5687,6 +5744,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2342069175574303377, guid: dce19eca76bc0e74f8ff5c2c9353f7bb,
     type: 3}
   m_PrefabInstance: {fileID: 1159899899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1166576555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8168905661670661301, guid: d86079609a6ab934abfafe4e1acea1dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 8168905662985339887}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1166590339
 PrefabInstance:
@@ -25540,6 +25603,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 673172186368713168, guid: d86079609a6ab934abfafe4e1acea1dd,
+        type: 3}
+      propertyPath: mask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 673172186368713171, guid: d86079609a6ab934abfafe4e1acea1dd,
+        type: 3}
+      propertyPath: layer.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 673172186368713182, guid: d86079609a6ab934abfafe4e1acea1dd,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 712668651}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d86079609a6ab934abfafe4e1acea1dd, type: 3}
 --- !u!114 &8801776040014660618

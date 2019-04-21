@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyAttackRanged : MonoBehaviour
 {
-
     public Sprite projectileSprite = null;
     public int damage = 1;
     public float falloffTime = 1f;
