@@ -16,12 +16,12 @@ Copy paste the template into a markdown document.
 
 ***
 <pre>
-##### Dependencies:
 
-* (Method-caller) [LinkToScript](example.com)
-* (Initializer) [LinkToScript](example.com)
+##### Dependencies (What do I need to include to use this script in another projec?):
 
-##### PublicMethods:
+* [LinkToScript](example.com)
+
+##### Public Methods:
 
 * _PublicMethod()_ - description of use-case for the method
 
@@ -29,7 +29,7 @@ Copy paste the template into a markdown document.
 
 * _Event_ - trigger point for event
 
-##### Public Fields:
+##### Configurable Fields:
 
 * **field** - description if needed
 
