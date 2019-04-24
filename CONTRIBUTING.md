@@ -16,6 +16,9 @@ Copy paste the template into a markdown document.
 
 ***
 <pre>
+### Script: [ScriptName.cs](example.com)
+
+***
 
 ##### Dependencies (What do I need to include to use this script in another projec?):
 
