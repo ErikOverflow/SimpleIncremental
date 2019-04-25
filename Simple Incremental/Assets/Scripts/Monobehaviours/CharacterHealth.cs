@@ -11,13 +11,6 @@ public class CharacterHealth : MonoBehaviour
     public event Action HealthChanged;
     public event Action OnDeath;
     public event Action<CharacterHealth> UnTarget;
-    Animator anim;
-    int takeDamageHash = Animator.StringToHash("TakeDamage");
-
-    public void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
 
     public void ResetHealth()
     {
@@ -29,7 +22,6 @@ public class CharacterHealth : MonoBehaviour
     {
         if (health > 0)
         {
-            anim.SetTrigger(takeDamageHash);
             health -= damage;
             if (health <= 0)
             {

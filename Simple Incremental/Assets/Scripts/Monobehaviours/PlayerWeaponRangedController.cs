@@ -16,28 +16,25 @@ public class PlayerWeaponRangedController : MonoBehaviour
     GameObject projectilePrefab = null;
     [SerializeField]
     LayerMask layer;
-    [SerializeField]
-    Transform throwingHand = null;
+    [NonSerialized]
+    public Transform throwingHand = null;
     private int layerNum;
-    private Animator anim;
-    int attackRangedHash = Animator.StringToHash("AttackRanged");
     Camera mainCam;
 
     public void Awake()
     {
         mainCam = Camera.main;
         layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
-        anim = GetComponentInParent<Animator>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
-            anim.SetTrigger(attackRangedHash);
+            LaunchProjectile();
         }
     }
-    public void LaunchProjectile()
+    private void LaunchProjectile()
     {
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dir = mousePos - transform.position;
