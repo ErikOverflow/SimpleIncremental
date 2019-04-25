@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MonsterLove.StateMachine;
 
 [RequireComponent(typeof(EnemyTargeting))]
 [RequireComponent(typeof(EnemyMovement))]
@@ -20,9 +21,15 @@ public class EnemyAI : MonoBehaviour
 
     bool targetAcquired = false;
     bool chasePlayer = false;
-    enum AIState { none, patrol, attackRanged, attackMelee}
-    AIState previousState = AIState.none;
-    AIState nextState = AIState.none;
+    StateMachine<States> fsm;
+
+    public enum States
+    {
+        Init,
+        Patrol,
+        AttackRanged,
+        AttackMelee
+    }
 
     void Awake()
     {
@@ -30,6 +37,7 @@ public class EnemyAI : MonoBehaviour
         enemyMovement = GetComponent<EnemyMovement>();
         enemyAttackRanged = GetComponent<EnemyAttackRanged>();
         enemyAttackMelee = GetComponent<EnemyAttackMelee>();
+        fsm = StateMachine<States>.Initialize(this);   
     }
 
     private void Start()
@@ -37,6 +45,7 @@ public class EnemyAI : MonoBehaviour
         enemyTargeting.OnNewTargetAcquired += TargetAcquired;
         enemyTargeting.OnTargetLost += TargetLost;
         anim = gameObject.GetComponent<Animator>();
+        fsm.ChangeState(States.Init);
     }
 
     public void TargetAcquired()
@@ -58,72 +67,63 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void StateNone()
+    void Init_Enter()
     {
-        //Action
-
-        previousState = nextState;
-        //Decision
-        checkDistance();
-
-    }
-    private void StatePatrol()
-    {
-        //Action
-        if (previousState != nextState)
-        { 
-            enemyMovement.StartPatrolling();
-        }
-        previousState = nextState;
-        //Decision
-        checkDistance();
-        if (nextState != AIState.patrol)
-        {
-            enemyMovement.StopPatrolling();
-        }
+        fsm.ChangeState(checkDistance());
     }
 
-    private void StateAttackRanged()
+    void Patrol_Enter()
     {
-        //Action
-        if (previousState != nextState)
-        {
-            updateChasePlayer();
-            enemyAttackRanged.StartFiring();
-        }
-
-        previousState = nextState;
-        //Decision
-        checkDistance();
-        if (nextState != AIState.attackRanged)
-        {
-            enemyAttackRanged.StopFiring();
-
-        }
-        if (nextState != AIState.attackMelee && nextState != AIState.attackRanged) 
-        {
-            chasePlayer = false;
-            enemyMovement.StopChasing();
-        }
+        enemyMovement.StartPatrolling();
     }
 
-    private void StateAttackMelee()
+    void Patrol_Update()
     {
-        //Action
-        if (previousState != nextState)
-            updateChasePlayer();
+        fsm.ChangeState(checkDistance());
+    }
 
+    void Patrol_Exit()
+    {
+        enemyMovement.StopPatrolling();
+    }
+
+    void AttackRanged_Enter()
+    {
+        updateChasePlayer();
+        enemyAttackRanged.StartFiring();
+    }
+
+    void AttackRanged_Update()
+    {
+        fsm.ChangeState(checkDistance());
+    }
+
+    void AttackRanged_Exit()
+    {
+        enemyAttackRanged.StopFiring();
+        chasePlayer = false;
+        enemyMovement.StopChasing();
+    }
+
+
+    private void AttackMelee_Enter()
+    {
+        updateChasePlayer();
         enemyAttackMelee.StartAttacking();
-
-        previousState = nextState;
-        //Decision
-        checkDistance();
-        if (nextState != AIState.attackMelee && nextState != AIState.attackRanged)
-        {
-            chasePlayer = false;
-            enemyMovement.StopChasing();
-        }
     }
+
+    private void AttackMelee_Update()
+    {
+        enemyAttackMelee.StartAttacking();
+        fsm.ChangeState(checkDistance());
+    }
+
+    private void AttackMelee_Exit()
+    {
+        chasePlayer = false;
+        enemyMovement.StopChasing();
+    }
+ 
 
     //Used to determine movement patterns
     private void updateChasePlayer()
@@ -148,46 +148,29 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void checkDistance()
+    private States checkDistance()
     {
         if (targetAcquired)
         {      
             if (playerDistanceX < rangedWeaponDistanceMax && playerDistanceX > rangedWeaponDistanceMin)
             {
-                nextState = AIState.attackRanged;
+                return States.AttackRanged;
             }
             else
             {
-                nextState = AIState.attackMelee;
+                return States.AttackMelee;
             }
         }
         else
         {
-            nextState = AIState.patrol;
+            return States.Patrol;
         }
 
     }
 
     public void Update()
     {
-        updateTargetDistance();
-        
-        switch (nextState)
-        {
-            case (AIState.none):
-                StateNone();
-                break;
-            case (AIState.patrol):
-                StatePatrol();
-                break;
-            case (AIState.attackMelee):
-                StateAttackMelee();
-                break;
-            case (AIState.attackRanged):
-                StateAttackRanged();
-                break;
-        }
-
+        updateTargetDistance();      
     }
 
 }
