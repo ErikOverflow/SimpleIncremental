@@ -14,6 +14,7 @@ public class PlayerWeaponRangedController : MonoBehaviour
 
     [SerializeField]
     GameObject projectilePrefab = null;
+    [Header("Layer the projectile will be spawned on:")]
     [SerializeField]
     LayerMask layer;
     [NonSerialized]
