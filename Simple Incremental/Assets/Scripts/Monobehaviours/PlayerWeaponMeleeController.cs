@@ -22,12 +22,6 @@ public class PlayerWeaponMeleeController : MonoBehaviour
 
     private void Update()
     {
-        if (weapon == null)
-            return;
-        if (Input.GetMouseButtonUp(0))
-        {
-            anim.SetBool(meleeAttackingHash, false);
-        }
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
             weaponCollider.OverlapCollider(cf2d, colliders);

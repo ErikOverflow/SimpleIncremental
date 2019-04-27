@@ -10,7 +10,6 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] float maxSpeed = 3f;
     [SerializeField] float acceleration = 100f;
     [SerializeField] private float jumpForce = 400f;
-    [Range(0, .5f)] [SerializeField] private float horizontalSmoothing = .05f;
 
     public LayerMask groundLayer;
 
@@ -18,10 +17,12 @@ public class PlayerMovementController : MonoBehaviour
     Rigidbody2D rigidBody;
     Vector2 currentVelocity = Vector2.zero;
     CharacterHealth ch = null;
+    Animator anim = null;
     bool grounded = true;
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         ch = GetComponent<CharacterHealth>();
     }
@@ -33,6 +34,10 @@ public class PlayerMovementController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             Jump();
+        }
+        if(horizontalForce != 0)
+        {
+            anim.SetBool("FacingRight", horizontalForce > 0);
         }
     }
 
