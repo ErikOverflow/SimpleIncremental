@@ -10,19 +10,24 @@ public class PlayerWeaponMeleeController : MonoBehaviour
     LayerMask mask = new LayerMask();
     ContactFilter2D cf2d;
     Collider2D[] colliders;
-    [NonSerialized]
     public Collider2D weaponCollider;
 
     private void Awake()
     {
         cf2d = new ContactFilter2D();
-        cf2d.layerMask = mask;
+        cf2d.layerMask = mask; 
         cf2d.useLayerMask = true;
         colliders = new Collider2D[10];
     }
 
     private void Update()
     {
+        if (weapon == null)
+            return;
+        if (Input.GetMouseButtonUp(0))
+        {
+            anim.SetBool(meleeAttackingHash, false);
+        }
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
             weaponCollider.OverlapCollider(cf2d, colliders);
