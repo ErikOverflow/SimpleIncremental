@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14dadf08f73d88746878da8cb34b49cb, type: 3}
-  m_Name: Basic Bob
+  m_Name: Basic Alice
   m_EditorClassIdentifier: 
   playerName: Bob
   health: 10
   moveSpeed: 1
-  defaultWeapon: {fileID: 11400000, guid: 04cb082666d4e4b43b2df45cc43cc0c2, type: 2}

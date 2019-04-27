@@ -43,7 +43,6 @@ public class PlayerWeaponRangedController : MonoBehaviour
         Vector2 dir = mousePos - transform.position;
         GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
         go.transform.SetParent(ObjectPooler.instance.transform);
-        Debug.Log(throwingHand.position);
         go.transform.position = throwingHand.position;
         go.transform.localScale = transform.localScale;
         go.transform.rotation = throwingHand.rotation;

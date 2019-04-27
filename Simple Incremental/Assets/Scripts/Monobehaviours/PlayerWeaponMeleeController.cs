@@ -27,7 +27,6 @@ public class PlayerWeaponMeleeController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Time.timeScale != 0)
         {
             anim.SetTrigger("AttackMelee");
-            Debug.Log("Attacking");
             weaponCollider.OverlapCollider(cf2d, colliders);
             foreach (Collider2D col in colliders)
             {
