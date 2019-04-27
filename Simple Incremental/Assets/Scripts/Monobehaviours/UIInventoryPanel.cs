@@ -10,7 +10,6 @@ public class UIInventoryPanel : UIPanel
     Transform slotsParent = null;
 
     UIInventorySlot[] slots;
-    PlayerLevel playerLevel = null;
 
     public override void Awake()
     {
@@ -20,7 +19,6 @@ public class UIInventoryPanel : UIPanel
 
     public void Start()
     {
-        playerLevel = UIBackpack.instance.player.GetComponent<PlayerLevel>();
         PlayerInventory.instance.OnInventoryChange += UpdateUI;
     }
 

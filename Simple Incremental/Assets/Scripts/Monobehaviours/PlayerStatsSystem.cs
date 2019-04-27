@@ -11,9 +11,6 @@ public class PlayerStatsSystem : MonoBehaviour
     PlayerUpgrades playerUpgrades = null;
     List<StatAugment> statAugments;
 
-    [SerializeField]
-    GameEvent statsChanged = null;
-
     public void Awake()
     {
         playerHook = GetComponent<PlayerHook>();
@@ -41,6 +38,5 @@ public class PlayerStatsSystem : MonoBehaviour
                 augment.Augment();
         }
         playerUpgrades.ApplyUpgrades();
-        statsChanged.Raise();
     }
 }
