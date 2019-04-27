@@ -35,6 +35,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             Jump();
         }
+        anim.SetBool("Running", horizontalForce != 0);
         if(horizontalForce != 0)
         {
             anim.SetBool("FacingRight", horizontalForce > 0);
@@ -44,6 +45,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Jump()
     {
         rigidBody.AddForce(new Vector2(0f, jumpForce));
+        anim.SetTrigger("Jump");
         grounded = false;
     }
 
