@@ -17,15 +17,16 @@ public class PlayerWeaponRangedController : MonoBehaviour
     [Header("Layer the projectile will be spawned on:")]
     [SerializeField]
     LayerMask layer;
-    [NonSerialized]
     public Transform throwingHand = null;
     private int layerNum;
+    Animator anim;
     Camera mainCam;
 
     public void Awake()
     {
         mainCam = Camera.main;
         layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -37,10 +38,12 @@ public class PlayerWeaponRangedController : MonoBehaviour
     }
     private void LaunchProjectile()
     {
+        anim.SetTrigger("AttackRanged");
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dir = mousePos - transform.position;
         GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
-        go.transform.parent = ObjectPooler.instance.transform;
+        go.transform.SetParent(ObjectPooler.instance.transform);
+        Debug.Log(throwingHand.position);
         go.transform.position = throwingHand.position;
         go.transform.localScale = transform.localScale;
         go.transform.rotation = throwingHand.rotation;
