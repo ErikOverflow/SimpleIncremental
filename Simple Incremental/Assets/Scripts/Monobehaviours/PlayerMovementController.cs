@@ -45,6 +45,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Jump()
     {
         rigidBody.AddForce(new Vector2(0f, jumpForce));
+        anim.SetTrigger("Jump");
         grounded = false;
     }
 
