@@ -22478,6 +22478,7 @@ GameObject:
   - component: {fileID: 3074107840211655379}
   - component: {fileID: 3074107840211655386}
   - component: {fileID: 767910573}
+  - component: {fileID: 1671101565366497599}
   m_Layer: 8
   m_Name: Girl-full (1)
   m_TagString: Untagged
@@ -22526,6 +22527,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!95 &1671101565366497599
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671101565366497596}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b209200ca6f55a46a09ef62c98dc467, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1671101565366497600
 GameObject:
   m_ObjectHideFlags: 0
@@ -24966,6 +24986,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 1024
+  weaponCollider: {fileID: 251069027}
 --- !u!114 &3074107840211655380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25023,7 +25044,6 @@ MonoBehaviour:
   maxSpeed: 3
   acceleration: 100
   jumpForce: 400
-  horizontalSmoothing: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 4096
