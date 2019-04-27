@@ -3,7 +3,11 @@
 public class PlayerWeaponHook : MonoBehaviour
 {
     [SerializeField]
-    GameObject weapon = null;
+    SpriteRenderer weaponRenderer = null;
+    [SerializeField]
+    Transform throwingHand = null;
+    [SerializeField]
+    Collider2D meleeHitbox = null;
 
     PlayerWeaponRangedController playerWeaponRangedController = null;
     PlayerWeaponMeleeController playerWeaponMeleeController = null;
@@ -13,7 +17,8 @@ public class PlayerWeaponHook : MonoBehaviour
     {
         playerWeaponRangedController = GetComponent<PlayerWeaponRangedController>();
         playerWeaponMeleeController = GetComponent<PlayerWeaponMeleeController>();
-        spriteRenderer = weapon.GetComponent<SpriteRenderer>();
+        playerWeaponRangedController.throwingHand = throwingHand;
+        playerWeaponMeleeController.weaponCollider = meleeHitbox;
     }
 
     public void Hook()
@@ -36,15 +41,14 @@ public class PlayerWeaponHook : MonoBehaviour
             playerWeaponRangedController.projectileLaunchForce = weaponRanged.projectileLaunchForce;
 			playerWeaponRangedController.projectileTorque = weaponRanged.projectileTorque;
             playerWeaponRangedController.projectileSprite = weaponRanged.projectileSprite;
-            spriteRenderer.sprite = weaponRanged.sprite;
+            weaponRenderer.sprite = weaponRanged.sprite;
             playerWeaponRangedController.enabled = true;
         }
         else if (item.item is WeaponMelee weaponMelee)
         {
             playerWeaponMeleeController.damage = weaponMelee.damage;
-            spriteRenderer.sprite = weaponMelee.sprite;
+            weaponRenderer.sprite = weaponMelee.sprite;
             playerWeaponMeleeController.enabled = true;
-            playerWeaponMeleeController.weapon = weapon;
         }
     }
 }

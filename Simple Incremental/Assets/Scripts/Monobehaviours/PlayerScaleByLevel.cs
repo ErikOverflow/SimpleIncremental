@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerStatsSystem))]
 public class PlayerScaleByLevel : StatAugment
 {
     CharacterHealth characterHealth = null;
