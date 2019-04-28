@@ -21,13 +21,11 @@ public class EnemyStatsSystem : MonoBehaviour
 
     public void ApplyAugments()
     {
-        if (enemyHook.Hook())
+        enemyHook.Hook();
+        foreach (StatAugment augment in statAugments)
         {
-            foreach (StatAugment augment in statAugments)
-            {
-                if (augment.applied)
-                    augment.Augment();
-            }
+            if (augment.applied)
+                augment.Augment();
         }
     }
 }

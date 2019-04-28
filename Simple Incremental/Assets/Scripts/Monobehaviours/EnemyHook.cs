@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
-
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(CharacterHealth))]
+[RequireComponent(typeof(CharacterLoot))]
+[RequireComponent(typeof(EnemyMovement))]
+[RequireComponent(typeof(EnemyAttackRanged))]
+[RequireComponent(typeof(EnemyAttackMelee))]
+[RequireComponent(typeof(EnemyExperience))]
 public class EnemyHook : MonoBehaviour
 {
-    [SerializeField]
-    GameObject weapon = null;
     public EnemyTemplate enemyTemplate = null;
     SpriteRenderer spriteRenderer = null;
     CharacterHealth characterHealth = null;
@@ -24,50 +28,26 @@ public class EnemyHook : MonoBehaviour
         enemyExperience = GetComponent<EnemyExperience>();
     }
 
-    public bool Hook()
+    public void Hook()
     {
-        if (enemyTemplate != null)
+        if(enemyTemplate == null)
         {
-            if (spriteRenderer != null)
-                spriteRenderer.sprite = enemyTemplate.sprite;
-            if (characterHealth != null)
-            {
-                characterHealth.maxHealth = enemyTemplate.health;
-                characterHealth.ResetHealth();
-            }
-            if (characterLoot != null)
-            {
-                characterLoot.coins = enemyTemplate.coins;
-                characterLoot.items = enemyTemplate.lootableItems;
-                characterLoot.lootChance = enemyTemplate.lootChance;
-            }
-            if (enemyMovement != null)
-            {
-                enemyMovement.moveSpeed = enemyTemplate.moveSpeed;
-                enemyMovement.responseTime = enemyTemplate.responseTime;
-            }                
-            if(enemyAttackRanged != null)
-            {
-                enemyAttackRanged.projectileSprite = enemyTemplate.projectileSprite;
-                enemyAttackRanged.damage = enemyTemplate.rangedDamage;
-                enemyAttackRanged.falloffTime = enemyTemplate.rangedFalloffTime;
-                enemyAttackRanged.maxPenetrations = enemyTemplate.maxPenetrations;
-                enemyAttackRanged.projectileSpeed = enemyTemplate.projectileSpeed;
-                enemyAttackRanged.projectileRotation = enemyTemplate.projectileRotation;
-                enemyAttackRanged.reloadTime = enemyTemplate.reloadTime;
-            }
-            if(enemyAttackMelee != null)
-            {
-                enemyAttackMelee.damage = enemyTemplate.meleeDamage;
-                enemyAttackMelee.punchForce = enemyTemplate.meleePunchForce;
-                enemyAttackMelee.weapon = weapon;
-            }
-            if(enemyExperience != null)
-            {
-                enemyExperience.experience = enemyTemplate.experience;
-            }
-            return true;
+            return;
         }
-        return false;
+        if(spriteRenderer != null)
+            spriteRenderer.sprite = enemyTemplate.basicSprite;
+        characterHealth.maxHealth = enemyTemplate.health;
+        characterHealth.ResetHealth();
+        enemyMovement.moveSpeed = enemyTemplate.moveSpeed;
+        enemyMovement.responseTime = enemyTemplate.responseTime;
+        characterLoot.items = enemyTemplate.lootableItems;
+        enemyExperience.experience = enemyTemplate.experience;
+        if (enemyTemplate is BasicMob basicTemplate)
+        {
+            enemyAttackRanged.enabled = false;
+            enemyAttackMelee.enabled = true;
+            enemyAttackMelee.damage = basicTemplate.meleeDamage;
+            enemyAttackMelee.punchForce = basicTemplate.meleePunchForce;
+        }
     }
 }

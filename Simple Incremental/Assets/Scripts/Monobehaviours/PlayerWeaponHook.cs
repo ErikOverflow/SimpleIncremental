@@ -11,7 +11,6 @@ public class PlayerWeaponHook : MonoBehaviour
 
     PlayerWeaponRangedController playerWeaponRangedController = null;
     PlayerWeaponMeleeController playerWeaponMeleeController = null;
-    SpriteRenderer spriteRenderer = null;
 
     public void Awake()
     {

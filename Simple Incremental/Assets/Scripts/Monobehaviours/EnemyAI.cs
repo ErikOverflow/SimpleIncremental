@@ -72,20 +72,20 @@ public class EnemyAI : MonoBehaviour
         fsm.ChangeState(checkDistance());
     }
 
-    void Patrol_Enter()
-    {
-        enemyMovement.StartPatrolling();
-    }
+    //void Patrol_Enter()
+    //{
+    //    enemyMovement.StartPatrolling();
+    //}
 
     void Patrol_Update()
     {
         fsm.ChangeState(checkDistance());
     }
 
-    void Patrol_Exit()
-    {
-        enemyMovement.StopPatrolling();
-    }
+    //void Patrol_Exit()
+    //{
+    //    enemyMovement.StopPatrolling();
+    //}
 
     void AttackRanged_Enter()
     {
@@ -109,12 +109,10 @@ public class EnemyAI : MonoBehaviour
     private void AttackMelee_Enter()
     {
         updateChasePlayer();
-        enemyAttackMelee.StartAttacking();
     }
 
     private void AttackMelee_Update()
     {
-        enemyAttackMelee.StartAttacking();
         fsm.ChangeState(checkDistance());
     }
 

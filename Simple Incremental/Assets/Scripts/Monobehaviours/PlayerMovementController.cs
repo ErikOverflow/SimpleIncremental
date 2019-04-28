@@ -51,14 +51,9 @@ public class PlayerMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (horizontalForce != 0)
+        if (horizontalForce != 0 && rigidBody.velocity.x * Mathf.Sign(horizontalForce) < maxSpeed)
         {
             rigidBody.AddForce(horizontalForce * Vector2.right * acceleration);
-        }
-        Vector2 vel = rigidBody.velocity;
-        if(Mathf.Abs(vel.x) > maxSpeed)
-        {
-            rigidBody.velocity = new Vector2(maxSpeed * Mathf.Sign(vel.x), vel.y);
         }
     }
 
