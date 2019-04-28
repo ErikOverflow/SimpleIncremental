@@ -4684,13 +4684,13 @@ GameObject:
   - component: {fileID: 642716086}
   - component: {fileID: 642716095}
   - component: {fileID: 642716094}
-  - component: {fileID: 642716093}
-  - component: {fileID: 642716092}
   - component: {fileID: 642716091}
   - component: {fileID: 642716090}
   - component: {fileID: 642716089}
   - component: {fileID: 642716088}
   - component: {fileID: 642716096}
+  - component: {fileID: 642716098}
+  - component: {fileID: 642716099}
   m_Layer: 10
   m_Name: Apple
   m_TagString: Untagged
@@ -4893,33 +4893,6 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 2048
---- !u!114 &642716092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642716082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2008372fd1455453cb101dc50017c303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  responseTime: 1
---- !u!114 &642716093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642716082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9701b5e6174a65469a65cc431fe07ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &642716094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4934,7 +4907,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 10
   items: []
-  lootChance: 0.1
   lootPrefab: {fileID: 0}
 --- !u!114 &642716095
 MonoBehaviour:
@@ -4978,6 +4950,37 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5
+--- !u!114 &642716098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642716082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61acaf84628c8d247b8a16a7ff3c4566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanningCollider: {fileID: 642716097}
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &642716099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642716082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688dd7275dc469348b7568d51782a9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateData: {fileID: 642716098}
+  currentState: {fileID: 11400000, guid: 01010d3642fb9e142898be03932ddab7, type: 2}
+  remainInState: {fileID: 11400000, guid: d93a2936fceba594b9def23a3e887d7d, type: 2}
 --- !u!1 &645948592
 GameObject:
   m_ObjectHideFlags: 0

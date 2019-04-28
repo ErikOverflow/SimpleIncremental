@@ -2,7 +2,7 @@
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(CharacterHealth))]
 [RequireComponent(typeof(CharacterLoot))]
-[RequireComponent(typeof(EnemyMovementController))]
+[RequireComponent(typeof(EnemyStateData))]
 [RequireComponent(typeof(EnemyAttackRanged))]
 [RequireComponent(typeof(EnemyAttackMelee))]
 [RequireComponent(typeof(EnemyExperience))]
@@ -12,7 +12,7 @@ public class EnemyHook : MonoBehaviour
     SpriteRenderer spriteRenderer = null;
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
-    EnemyMovementController enemyMovement = null;
+    EnemyStateData enemyStateData = null;
     EnemyAttackRanged enemyAttackRanged = null;
     EnemyAttackMelee enemyAttackMelee = null;
     EnemyExperience enemyExperience = null;
@@ -22,7 +22,7 @@ public class EnemyHook : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
-        enemyMovement = GetComponent<EnemyMovementController>();
+        enemyStateData = GetComponent<EnemyStateData>();
         enemyAttackRanged = GetComponentInChildren<EnemyAttackRanged>();
         enemyAttackMelee = GetComponentInChildren<EnemyAttackMelee>();
         enemyExperience = GetComponent<EnemyExperience>();
@@ -38,8 +38,7 @@ public class EnemyHook : MonoBehaviour
             spriteRenderer.sprite = enemyTemplate.basicSprite;
         characterHealth.maxHealth = enemyTemplate.health;
         characterHealth.ResetHealth();
-        enemyMovement.moveSpeed = enemyTemplate.moveSpeed;
-        enemyMovement.responseTime = enemyTemplate.responseTime;
+        enemyStateData.moveSpeed = enemyTemplate.moveSpeed;
         characterLoot.items = enemyTemplate.lootableItems;
         enemyExperience.experience = enemyTemplate.experience;
         if (enemyTemplate is BasicMob basicTemplate)

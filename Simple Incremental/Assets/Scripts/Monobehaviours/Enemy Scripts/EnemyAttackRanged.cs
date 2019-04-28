@@ -11,7 +11,6 @@ public class EnemyAttackRanged : MonoBehaviour
     public float projectileSpeed = 1f;
     public float reloadTime = 1f;
     public float projectileRotation = 20;
-    Animator anim;
 
     Transform projectileContainer = null;
     [SerializeField]
@@ -19,57 +18,18 @@ public class EnemyAttackRanged : MonoBehaviour
     [SerializeField]
     LayerMask layer;
     private int layerNum;
-    EnemyTargeting targeting = null;
-    bool attacking = false;
-    bool continueAttacking = false;
-
-    private void OnDisable()
-    {
-        attacking = false;
-    }
-
-    private void Awake()
-    {
-        targeting = GetComponentInParent<EnemyTargeting>();
-    }
 
     private void Start()
     {
         layerNum = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
         projectileContainer = ObjectPooler.instance.transform;
-        anim = GetComponentInParent<Animator>();
     }
 
-    public void StartFiring()
-    {
-        if (!attacking)
-            StartCoroutine(Attack());
-    }
 
-    public void StopFiring()
-    {
-        continueAttacking = false;
-    }
-
-    private IEnumerator Attack()
-    {
-        attacking = true;
-        continueAttacking = true;
-        while (continueAttacking)
-        {
-            anim.SetTrigger("AttackRanged");
-            yield return new WaitForSeconds(reloadTime);
-        }
-        attacking = false;
-    }
-
-    public void ShootProjectile()
+    public void ShootProjectile(Transform target)
     {
         GameObject go = ObjectPooler.instance.GetPooledObject(projectilePrefab);
         Projectile p = go.GetComponent<Projectile>();
-        Transform target = targeting.target;
-        if (target == null)
-            return;
         go.transform.position = transform.position;
         go.transform.rotation = Quaternion.identity;
         go.transform.parent = projectileContainer;
