@@ -5,14 +5,12 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(EnemyTargeting))]
 public class EnemyMovement : MonoBehaviour
 {
     public float moveSpeed = 3f;
     public float responseTime = 1f;
 
     Rigidbody2D rb2d = null;
-    EnemyTargeting targeting = null;
     bool chasing = false;
     Animator anim = null;
 
@@ -21,30 +19,17 @@ public class EnemyMovement : MonoBehaviour
         chasing = false;
     }
 
-    private void OnDestroy()
-    {
-        targeting.OnNewTargetAcquired -= StartChasing;
-        targeting.OnTargetLost -= StopChasing;
-    }
-
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        targeting = GetComponent<EnemyTargeting>();
         anim = gameObject.GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        targeting.OnNewTargetAcquired += StartChasing;
-        targeting.OnTargetLost += StopChasing;
-    }
-
-    public void StartChasing()
+    public void StartChasing(Transform target)
     {
         if (!chasing)
         {
-            StartCoroutine(ChaseTarget());
+            StartCoroutine(ChaseTarget(target));
         }
     }
 
@@ -53,18 +38,18 @@ public class EnemyMovement : MonoBehaviour
         chasing = false;
     }
 
-    private IEnumerator ChaseTarget()
+    private IEnumerator ChaseTarget(Transform target)
     {
         rb2d.drag = 0;
         chasing = true;
-        float direction = Mathf.Sign((targeting.target.position - transform.position).x);
+        float direction = Mathf.Sign((target.position - transform.position).x);
         float lastDir = direction;
         yield return new WaitForSeconds(responseTime);
         anim.SetBool("Walking", true);
         anim.SetBool("FacingRight", direction > 0);
         while (chasing)
         {
-            direction = Mathf.Sign((targeting.target.position - transform.position).x);
+            direction = Mathf.Sign((target.position - transform.position).x);
             if (direction != lastDir)
             {
                 anim.SetBool("FacingRight", direction > 0);
