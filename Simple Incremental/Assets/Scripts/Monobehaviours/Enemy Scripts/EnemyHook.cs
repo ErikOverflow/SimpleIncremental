@@ -43,13 +43,10 @@ public class EnemyHook : MonoBehaviour
         enemyExperience.experience = enemyTemplate.experience;
         if (enemyTemplate is BasicMob basicTemplate)
         {
-            anim.enabled = false;
-            spriteRenderer.sprite = basicTemplate.inGameSprite;
             enemyAttackRanged.enabled = false;
             enemyAttackMelee.enabled = true;
             enemyAttackMelee.damage = basicTemplate.meleeDamage;
             enemyAttackMelee.punchForce = basicTemplate.meleePunchForce;
-            anim.enabled = true;
         }
     }
 }
