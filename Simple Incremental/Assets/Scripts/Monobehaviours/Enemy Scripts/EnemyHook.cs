@@ -2,7 +2,7 @@
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(CharacterHealth))]
 [RequireComponent(typeof(CharacterLoot))]
-[RequireComponent(typeof(EnemyMovement))]
+[RequireComponent(typeof(EnemyMovementController))]
 [RequireComponent(typeof(EnemyAttackRanged))]
 [RequireComponent(typeof(EnemyAttackMelee))]
 [RequireComponent(typeof(EnemyExperience))]
@@ -12,7 +12,7 @@ public class EnemyHook : MonoBehaviour
     SpriteRenderer spriteRenderer = null;
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
-    EnemyMovement enemyMovement = null;
+    EnemyMovementController enemyMovement = null;
     EnemyAttackRanged enemyAttackRanged = null;
     EnemyAttackMelee enemyAttackMelee = null;
     EnemyExperience enemyExperience = null;
@@ -22,7 +22,7 @@ public class EnemyHook : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
-        enemyMovement = GetComponent<EnemyMovement>();
+        enemyMovement = GetComponent<EnemyMovementController>();
         enemyAttackRanged = GetComponentInChildren<EnemyAttackRanged>();
         enemyAttackMelee = GetComponentInChildren<EnemyAttackMelee>();
         enemyExperience = GetComponent<EnemyExperience>();

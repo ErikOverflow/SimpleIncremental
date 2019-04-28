@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovementController : MonoBehaviour
 {
     public float moveSpeed = 3f;
     public float responseTime = 1f;
