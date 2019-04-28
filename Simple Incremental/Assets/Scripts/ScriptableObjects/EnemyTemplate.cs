@@ -10,7 +10,7 @@ public abstract class EnemyTemplate : ScriptableObject
     public int experience = 10;
     public float moveSpeed = 1f;
     public float responseTime = 1f;
-    public Item[] lootableItems = null;
+    public Item[] lootableItems;
 
     //public Sprite sprite = null;
 

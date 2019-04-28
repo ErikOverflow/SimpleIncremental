@@ -16,6 +16,7 @@ public class EnemyHook : MonoBehaviour
     EnemyAttackRanged enemyAttackRanged = null;
     EnemyAttackMelee enemyAttackMelee = null;
     EnemyExperience enemyExperience = null;
+    Animator anim = null;
 
     public void Awake()
     {
@@ -26,16 +27,15 @@ public class EnemyHook : MonoBehaviour
         enemyAttackRanged = GetComponentInChildren<EnemyAttackRanged>();
         enemyAttackMelee = GetComponentInChildren<EnemyAttackMelee>();
         enemyExperience = GetComponent<EnemyExperience>();
+        anim = GetComponent<Animator>();
     }
 
     public void Hook()
     {
-        if(enemyTemplate == null)
+        if (enemyTemplate == null)
         {
             return;
         }
-        if(spriteRenderer != null)
-            spriteRenderer.sprite = enemyTemplate.basicSprite;
         characterHealth.maxHealth = enemyTemplate.health;
         characterHealth.ResetHealth();
         enemyStateData.moveSpeed = enemyTemplate.moveSpeed;
@@ -43,10 +43,13 @@ public class EnemyHook : MonoBehaviour
         enemyExperience.experience = enemyTemplate.experience;
         if (enemyTemplate is BasicMob basicTemplate)
         {
+            anim.enabled = false;
+            spriteRenderer.sprite = basicTemplate.inGameSprite;
             enemyAttackRanged.enabled = false;
             enemyAttackMelee.enabled = true;
             enemyAttackMelee.damage = basicTemplate.meleeDamage;
             enemyAttackMelee.punchForce = basicTemplate.meleePunchForce;
+            anim.enabled = true;
         }
     }
 }

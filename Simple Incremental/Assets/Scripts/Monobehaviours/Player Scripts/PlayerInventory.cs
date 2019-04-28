@@ -63,7 +63,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddItemToInventory(ItemInstance item)
     {
         items.Add(item);
-        OnInventoryChange?.Invoke();
+        //OnInventoryChange?.Invoke();
     }
 }
 

@@ -20,6 +20,8 @@ MonoBehaviour:
   moveSpeed: 3
   responseTime: 0.5
   lootableItems: []
+  inGameSprite: {fileID: 4198489572449100032, guid: c6f8decbe88d96b47af9248da00c9826,
+    type: 3}
   meleeDamage: 4
   meleePunchForce: 300
   animIdle: {fileID: 7400000, guid: a62f21629654b0743ad375e9b4398736, type: 2}

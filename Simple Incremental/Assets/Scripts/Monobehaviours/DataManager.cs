@@ -18,6 +18,7 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     string gameDataFileName = "data.dat";
     PlayerLevel playerLevel;
+    PlayerStatsSystem playerStatsSystem = null;
 
 
     void Awake()
@@ -26,6 +27,7 @@ public class DataManager : MonoBehaviour
         {
             instance = this;
             playerLevel = player.GetComponent<PlayerLevel>();
+            playerStatsSystem = player.GetComponent<PlayerStatsSystem>();
             Item[] allitems = Resources.FindObjectsOfTypeAll<Item>();
             itemDict = new Dictionary<string, Item>();
             foreach (Item item in allitems)
