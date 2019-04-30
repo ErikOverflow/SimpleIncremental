@@ -7,11 +7,8 @@ public class EnemyChase : EnemyAction
 {
     public override void Act(EnemyStateData data)
     {
-        Vector2 vel = data.rb2d.velocity;
-        float direction = Mathf.Sign((data.currentTarget.position - data.transform.position).x);
-        vel.x =  direction * data.moveSpeed;
+        float direction = data.enemyMovementController.ChaseTarget(data.currentTarget);
         data.anim.SetBool("Walking", true);
         data.anim.SetBool("FacingRight", direction > 0);
-        data.rb2d.velocity = vel;
     }
 }

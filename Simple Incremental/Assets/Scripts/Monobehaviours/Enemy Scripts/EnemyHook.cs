@@ -12,7 +12,7 @@ public class EnemyHook : MonoBehaviour
     SpriteRenderer spriteRenderer = null;
     CharacterHealth characterHealth = null;
     CharacterLoot characterLoot = null;
-    EnemyStateData enemyStateData = null;
+    EnemyMovementController enemyMovementController = null;
     EnemyAttackRanged enemyAttackRanged = null;
     EnemyAttackMelee enemyAttackMelee = null;
     EnemyExperience enemyExperience = null;
@@ -23,7 +23,7 @@ public class EnemyHook : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         characterHealth = GetComponent<CharacterHealth>();
         characterLoot = GetComponent<CharacterLoot>();
-        enemyStateData = GetComponent<EnemyStateData>();
+        enemyMovementController = GetComponent<EnemyMovementController>();
         enemyAttackRanged = GetComponentInChildren<EnemyAttackRanged>();
         enemyAttackMelee = GetComponentInChildren<EnemyAttackMelee>();
         enemyExperience = GetComponent<EnemyExperience>();
@@ -38,7 +38,7 @@ public class EnemyHook : MonoBehaviour
         }
         characterHealth.maxHealth = enemyTemplate.health;
         characterHealth.ResetHealth();
-        enemyStateData.moveSpeed = enemyTemplate.moveSpeed;
+        enemyMovementController.moveSpeed = enemyTemplate.moveSpeed;
         characterLoot.items = enemyTemplate.lootableItems;
         enemyExperience.experience = enemyTemplate.experience;
         if (enemyTemplate is BasicMob basicTemplate)

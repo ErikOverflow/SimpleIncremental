@@ -19,16 +19,12 @@ public class EnemyMovementController : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
     }
 
-    public void ChaseTarget(Transform target)
+    public float ChaseTarget(Transform target)
     {
-        rb2d.drag = 0;
-        float direction = Mathf.Sign((target.position - transform.position).x);
-        anim.SetBool("Walking", true);
-        anim.SetBool("FacingRight", direction > 0);
         Vector2 vel = rb2d.velocity;
+        float direction = Mathf.Sign((target.position - transform.position).x);
         vel.x = direction * moveSpeed;
         rb2d.velocity = vel;
-        rb2d.drag = 1;
-        anim.SetBool("Walking", false);
+        return direction;
     }
 }
