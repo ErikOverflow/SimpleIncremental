@@ -18,7 +18,7 @@ public class SpawnPoint : MonoBehaviour
 
     bool spawning = false;
     [SerializeField]
-    EnemyTemplate enemyTemplate = null;
+    EnemyTemplate enemyTemplate = null; //Default functionality is to spawn enemies. Override spawnObject to change this
 
     protected private int spawnCount = 0;
 
@@ -34,7 +34,7 @@ public class SpawnPoint : MonoBehaviour
     {
         //Rather than compare the player tag, we will create a spawn layer and change the physics settings to only allow players to collide with them.
         if(!spawning)
-            StartCoroutine(SpawnEnemiesControl());
+            StartCoroutine(SpawnObjectRoutine());
     }
 
     public virtual void SpawnObject()
@@ -48,7 +48,7 @@ public class SpawnPoint : MonoBehaviour
         spawnCount++;
     }
 
-    public IEnumerator SpawnEnemiesControl()
+    public IEnumerator SpawnObjectRoutine()
     {
         spawning = true;
         while (spawnCount < maximumSpawns || maximumSpawns == 0) {
