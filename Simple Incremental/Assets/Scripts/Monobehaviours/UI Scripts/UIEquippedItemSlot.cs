@@ -10,10 +10,7 @@ public class UIEquippedItemSlot : MonoBehaviour
 
     public void Clicked()
     {
-        if (item != null)
-        {
-            item.UnEquip();
-        }
+        item?.UnEquip();
     }
 
     public void ClearSlot()

@@ -8,7 +8,7 @@ public class UIInventoryPanel : UIPanel
 {
     [SerializeField]
     Transform slotsParent = null;
-
+    bool dirty = true;
     UIInventorySlot[] slots;
 
     public override void Awake()
@@ -19,7 +19,13 @@ public class UIInventoryPanel : UIPanel
 
     public void Start()
     {
-        PlayerInventory.instance.OnInventoryChange += UpdateUI;
+        PlayerInventory.instance.OnInventoryChange += SetDirty;
+        PlayerInventory.instance.OnItemUsed += UpdateUI;
+    }
+
+    private void SetDirty()
+    {
+        dirty = true;
     }
 
     public override void UpdateUI()
@@ -36,5 +42,12 @@ public class UIInventoryPanel : UIPanel
                 slots[i].ClearSlot();
             }
         }
+        dirty = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        if (dirty)
+            UpdateUI();
     }
 }

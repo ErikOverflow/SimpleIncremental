@@ -27,5 +27,5 @@ public abstract class ItemInstance
         }
     }
 
-    public abstract void Clicked();
+    public abstract void Use();
 }

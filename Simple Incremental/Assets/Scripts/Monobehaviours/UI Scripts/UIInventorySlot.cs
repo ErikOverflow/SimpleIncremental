@@ -10,10 +10,7 @@ public class UIInventorySlot : MonoBehaviour
 
     public void Clicked()
     {
-        if (item != null)
-        {
-            item.Clicked();
-        }
+        item?.Use();
     }
 
     public void ClearSlot()

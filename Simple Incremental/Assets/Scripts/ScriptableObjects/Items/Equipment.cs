@@ -22,7 +22,7 @@ public class EquipmentInstance : ItemInstance
         }
     }
 
-    public override void Clicked()
+    public override void Use()
     {
         PlayerInventory.instance.EquipItem(this);
     }

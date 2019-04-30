@@ -9,6 +9,7 @@ public class PlayerInventory : MonoBehaviour
     public static PlayerInventory instance;
 
     public Action OnInventoryChange;
+    public Action OnItemUsed;
 
     public List<ItemInstance> items = null;
     [NonSerialized]
@@ -31,7 +32,7 @@ public class PlayerInventory : MonoBehaviour
     {
         //Consume item
         items.Remove(item);
-        OnInventoryChange?.Invoke();
+        OnItemUsed?.Invoke();
     }
 
     public void EquipItem(EquipmentInstance equipment)
@@ -50,14 +51,14 @@ public class PlayerInventory : MonoBehaviour
             items.Add(weapon);
         weapon = _weapon;
         items.Remove(_weapon);
-        OnInventoryChange?.Invoke();
+        OnItemUsed?.Invoke();
     }
 
     public void UnEquipItem(WeaponInstance _weapon)
     {
         weapon = null;
         items.Add(_weapon);
-        OnInventoryChange?.Invoke();
+        OnItemUsed?.Invoke();
     }
 
     public void AddItemToInventory(ItemInstance item)
