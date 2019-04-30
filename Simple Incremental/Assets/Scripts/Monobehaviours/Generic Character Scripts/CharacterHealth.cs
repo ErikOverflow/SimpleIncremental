@@ -23,9 +23,9 @@ public class CharacterHealth : MonoBehaviour
         if (health > 0)
         {
             health -= damage;
-            if (health <= 0)
+            Mathf.Clamp(health, 0, maxHealth);
+            if (health == 0)
             {
-                health = 0;
                 OnDeath?.Invoke();
                 UnTarget?.Invoke(this);
             }
@@ -36,10 +36,7 @@ public class CharacterHealth : MonoBehaviour
     public void Heal(int healthAmount)
     {
         health += healthAmount;
-        if (health >= maxHealth)
-        {
-            health = maxHealth;
-        }
+        Mathf.Clamp(health, 0, maxHealth);
         HealthChanged?.Invoke();
     }
 }
