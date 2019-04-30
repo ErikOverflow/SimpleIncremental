@@ -4614,14 +4614,17 @@ GameObject:
   - component: {fileID: 642716097}
   - component: {fileID: 642716086}
   - component: {fileID: 642716095}
+  - component: {fileID: 642716093}
   - component: {fileID: 642716094}
   - component: {fileID: 642716091}
   - component: {fileID: 642716090}
+  - component: {fileID: 642716100}
   - component: {fileID: 642716089}
   - component: {fileID: 642716088}
   - component: {fileID: 642716096}
   - component: {fileID: 642716098}
   - component: {fileID: 642716099}
+  - component: {fileID: 642716092}
   m_Layer: 10
   m_Name: Apple
   m_TagString: Untagged
@@ -4824,6 +4827,35 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &642716092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642716082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2008372fd1455453cb101dc50017c303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  responseTime: 1
+--- !u!114 &642716093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642716082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb40c49f83f400d448621c890b372987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 1115414503279895135, guid: 690f9c8a7d5faa64fadc14527721c6fe,
+    type: 3}
+  healthBarsContainer: {fileID: 2138917837}
 --- !u!114 &642716094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4912,6 +4944,18 @@ MonoBehaviour:
   stateData: {fileID: 642716098}
   currentState: {fileID: 11400000, guid: 01010d3642fb9e142898be03932ddab7, type: 2}
   remainInState: {fileID: 11400000, guid: d93a2936fceba594b9def23a3e887d7d, type: 2}
+--- !u!114 &642716100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642716082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b5d4f4ede86446b30d73c2f8e892a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &645948592
 GameObject:
   m_ObjectHideFlags: 0
@@ -6058,12 +6102,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7929317841458499327}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &909540492
 GameObject:
@@ -23945,6 +23989,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116157727}
   m_CullTransparentMesh: 0
+--- !u!1 &2138917836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138917837}
+  m_Layer: 5
+  m_Name: FloatingHealthBars
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2138917837
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138917836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7929317841458499327}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2141762679
 GameObject:
   m_ObjectHideFlags: 0
@@ -25512,6 +25591,7 @@ RectTransform:
   - {fileID: 362992294}
   - {fileID: 1821793054}
   - {fileID: 117255088}
+  - {fileID: 2138917837}
   - {fileID: 892545309}
   m_Father: {fileID: 0}
   m_RootOrder: 0

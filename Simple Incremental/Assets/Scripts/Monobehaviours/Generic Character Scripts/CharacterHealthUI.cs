@@ -1,39 +1,64 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterHealth))]
 public class CharacterHealthUI : MonoBehaviour
 {
     CharacterHealth characterHealth;
+    Slider healthBarSlider;
+    TextMeshProUGUI healthBarText;
     [SerializeField]
-    Transform healthBar = null;
+    GameObject healthBarPrefab = null;
     [SerializeField]
-    Transform healthBarContainer = null;
+    Transform healthBarsContainer = null;
+    Camera mainCamera;
 
     private void Awake()
     {
         characterHealth = GetComponent<CharacterHealth>();
+        mainCamera = Camera.main;
     }
     // Start is called before the first frame update
     void Start()
     {
         characterHealth.HealthChanged += UpdateHealthUI;
-        characterHealth.OnDeath += DisableHealthBar;
+        characterHealth.OnDeath += Disable;
+    }
+
+    private void Update()
+    {
+        healthBarSlider.transform.position = mainCamera.WorldToScreenPoint(characterHealth.transform.position + Vector3.up * 2);
+    }
+
+    private void GenerateHealthBar()
+    {
+        GameObject healthBar = ObjectPooler.instance.GetPooledObject(healthBarPrefab);
+        healthBarSlider = healthBar.GetComponent<Slider>();
+        healthBarText = healthBar.GetComponentInChildren<TextMeshProUGUI>();
+        healthBarSlider.transform.SetParent(healthBarsContainer);
+        UpdateHealthUI();
     }
 
     private void UpdateHealthUI()
     {
-        Vector3 scale = healthBar.localScale;
-        if (characterHealth.maxHealth > 0)
-            scale.x = (float)characterHealth.health / characterHealth.maxHealth;
-        else
-            scale.x = 0;
-        healthBar.localScale = scale;
+        if (healthBarSlider == null)
+            GenerateHealthBar();
+        healthBarSlider.maxValue = characterHealth.maxHealth;
+        healthBarSlider.value = characterHealth.health;
+        healthBarText.text = characterHealth.health + "/" + characterHealth.maxHealth;
     }
-    private void DisableHealthBar()
+
+    private void Disable()
     {
-        healthBarContainer.gameObject.SetActive(false);
+        healthBarSlider.gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        characterHealth.HealthChanged -= UpdateHealthUI;
     }
 }
